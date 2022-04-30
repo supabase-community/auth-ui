@@ -78,6 +78,12 @@ export const updatePassword = (args: any) => (
   </Container>
 )
 
+export const magicLink = (args: any) => (
+  <Container {...args}>
+    <Auth.MagicLink {...args} />
+  </Container>
+)
+
 export const ChangeViewState = (args: any) => {
   const [view, setView] = useState<
     'sign_in' | 'sign_up' | 'forgotten_password' | 'magic_link'
@@ -186,5 +192,9 @@ withSocialAuthHorizontal.args = {
 }
 
 updatePassword.args = {
+  supabaseClient: supabase,
+}
+
+magicLink.args = {
   supabaseClient: supabase,
 }

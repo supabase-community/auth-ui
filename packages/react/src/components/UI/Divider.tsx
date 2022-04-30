@@ -1,7 +1,7 @@
 import { css } from '@stitches/core'
 
 const dividerDefaultStyles = css({
-  background: '#eaeaea',
+  background: '$dividerBackground',
   display: 'block',
   margin: '16px 0',
   height: '1px',

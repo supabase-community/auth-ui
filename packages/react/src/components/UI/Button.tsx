@@ -18,16 +18,20 @@ const buttonDefaultStyles = css({
   variants: {
     color: {
       default: {
-        backgroundColor: 'white',
-        color: 'gray',
-        borderColor: 'lightgray',
+        backgroundColor: '$defaultButtonBackground',
+        color: '$defaultButtonText',
+        borderColor: '$defaultButtonBorder',
         '&:hover': {
           backgroundColor: '#f8f8f8',
         },
       },
       primary: {
-        backgroundColor: 'hsl(153 60.0% 53.0%)',
-        borderColor: 'hsl(153 60.0% 45.0%)',
+        backgroundColor: '$brand', //'hsl(153 60.0% 53.0%)',
+        color: '$brandButtonText',
+        borderColor: '$brandAccent',
+        '&:hover': {
+          backgroundColor: '$brandAccent',
+        },
       },
     },
   },

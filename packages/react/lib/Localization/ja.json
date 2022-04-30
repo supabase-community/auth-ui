@@ -1,0 +1,28 @@
+{
+  "sign_up": {
+    "email_label": "電子メールアドレス",
+    "password_label": "パスワードを作成",
+    "button_text": "サインアップ",
+    "social_provider_text": "に登録する",
+    "link_text": "アカウントをお持ちではありませんか？サインアップ"
+  },
+  "sign_in": {
+    "email_label": "電子メールアドレス",
+    "password_label": "あなたのパスワード",
+    "button_text": "サインイン",
+    "social_provider_text": "に登録する",
+    "link_text": "Already have an account? Sign in"
+  },
+  "magic_link": {
+    "email_label": "Email address",
+    "password_label": "Your Password",
+    "sign_up_button_text": "Sign in",
+    "link_text": "Already have an account? Send me a Magic Link."
+  },
+  "forgotten_password": {
+    "email_label": "Email address",
+    "password_label": "Your Password",
+    "sign_up_button_text": "Sign in",
+    "link_text": "パスワードをお忘れですか？"
+  }
+}

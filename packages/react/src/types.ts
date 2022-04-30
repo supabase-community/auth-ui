@@ -10,3 +10,16 @@ export interface AnimationTailwindClasses {
 }
 
 export type AuthProviders = Provider
+
+export interface Localization {
+  sign_up?: {
+    email_label?: string
+    password_label?: string
+    sign_up_button_text?: string
+  }
+  sign_in?: {
+    email_label?: string
+    password_label?: string
+    sign_up_button_text?: string
+  }
+}

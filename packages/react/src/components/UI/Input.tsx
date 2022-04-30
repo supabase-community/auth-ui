@@ -6,17 +6,18 @@ const inputDefaultStyles = css({
   padding: '10px 15px',
   cursor: 'text',
   borderWidth: '1px',
-  borderColor: 'lightgray',
+  borderColor: '$inputBorder',
   borderStyle: 'solid',
-  fontSize: '14px',
+  fontSize: '$baseInput',
   width: '100%',
+  color: '$inputText',
   boxSizing: 'border-box',
   '&:hover': {
-    borderColor: 'gray',
+    borderColor: '$inputText',
     outline: 'none',
   },
   '&:focus': {
-    borderColor: 'gray',
+    borderColor: '$inputText',
     outline: 'none',
   },
   '&::placeholder': {

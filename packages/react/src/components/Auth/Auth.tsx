@@ -12,6 +12,9 @@ import {
 } from './../UI'
 import { UserContextProvider, useUser } from './UserContext'
 import * as SocialIcons from './Icons'
+import { createStitches, createTheme } from '@stitches/core'
+import * as defaultLocalization from './../../../../react/lib/Localization'
+import { Localization } from '../../types'
 // @ts-ignore
 
 const VIEWS: ViewsMap = {
@@ -49,6 +52,40 @@ export interface Props {
   redirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
   magicLink?: boolean
+  theme?: string | 'default' | 'dark'
+
+  customTheme?: {
+    colors: { [x: string]: string }
+    space: { [x: string]: string }
+    fontSizes: { [x: string]: string }
+    fonts: { [x: string]: string }
+    fontWeights: { [x: string]: string }
+    lineHeights: { [x: string]: string }
+    letterSpacings: { [x: string]: string }
+    sizes: { [x: string]: string }
+    borderWidths: { [x: string]: string }
+    borderStyles: { [x: string]: string }
+    radii: { [x: string]: string }
+    shadows: { [x: string]: string }
+    zIndices: { [x: string]: string }
+    transitions: { [x: string]: string }
+  }[]
+  /**
+   * Dark mode
+   *
+   * This will toggle on the dark variation of the theme
+   */
+  dark?: boolean
+  /**
+   * Localization override
+   *
+   * Override the labels and button text
+   *
+   * todo: add more languages
+   */
+  localizationOverride?: Localization
+  lang?: 'en' | 'ja' // es
+  i18n?: Localization
 }
 
 function Auth({
@@ -63,7 +100,81 @@ function Auth({
   redirectTo,
   onlyThirdPartyProviders = false,
   magicLink = false,
+  theme,
+  dark = false,
+  lang = 'en',
 }: Props): JSX.Element | null {
+  /**
+   * Localization support
+   */
+  const i18n: Localization = defaultLocalization[lang]
+
+  /**
+   * Create default theme
+   *
+   * createStitches()
+   * https://stitches.dev/docs/api#theme
+   *
+   * to add a new theme use  createTheme({})
+   * https://stitches.dev/docs/api#theme
+   */
+  createStitches({
+    theme: {
+      colors: {
+        brand: 'hsl(252 62% 55%)',
+        brandAccent: 'hsl(252 62% 45%)',
+        brandButtonText: 'white',
+
+        defaultButtonBackground: 'white',
+        defaultButtonBorder: 'lightgray',
+        defaultButtonText: 'gray',
+
+        dividerBackground: '#eaeaea',
+
+        inputBackground: 'transparent',
+        inputBorder: 'lightgray',
+        inputText: 'gray',
+        inputPlaceholder: 'darkgray',
+      },
+      space: {
+        small: '4px',
+        medium: '8px',
+        large: '16px',
+      },
+      fontSizes: {
+        baseInputSize: '14px',
+        baseLabelSize: '12px',
+      },
+      fonts: {},
+      fontWeights: {},
+      lineHeights: {},
+      letterSpacings: {},
+      sizes: {},
+      borderWidths: {},
+      borderStyles: {},
+      radii: {},
+      shadows: {},
+      zIndices: {},
+      transitions: {},
+    },
+  })
+
+  const darkTheme = createTheme({
+    colors: {
+      brand: 'hsl(252 62% 55%)',
+      brandAccent: 'hsl(252 62% 45%)',
+      brandButtonText: 'white',
+      defaultButtonBackground: '#080808',
+      defaultButtonBorder: 'black',
+      defaultButtonText: 'white',
+      dividerBackground: 'black',
+      inputBackground: 'transparent',
+      inputBorder: 'gray',
+      inputText: 'white',
+      inputPlaceholder: 'darkgray',
+    },
+  })
+
   const [authView, setAuthView] = useState(view)
   const [defaultEmail, setDefaultEmail] = useState('')
   const [defaultPassword, setDefaultPassword] = useState('')
@@ -77,7 +188,7 @@ function Auth({
 
   const Container = (props: any) => (
     // <div className={containerClasses.join(' ')} style={style}>
-    <>
+    <div className={dark ? darkTheme : ''}>
       <SocialAuth
         supabaseClient={supabaseClient}
         verticalSocialLayout={verticalSocialLayout}
@@ -88,9 +199,12 @@ function Auth({
         redirectTo={redirectTo}
         onlyThirdPartyProviders={onlyThirdPartyProviders}
         magicLink={magicLink}
+        i18n={i18n}
+        // @ts-ignore
+        authView={authView}
       />
       {!onlyThirdPartyProviders && props.children}
-    </>
+    </div>
     // </div>
   )
 
@@ -115,6 +229,7 @@ function Auth({
             setDefaultPassword={setDefaultPassword}
             redirectTo={redirectTo}
             magicLink={magicLink}
+            i18n={i18n}
           />
         </Container>
       )
@@ -125,6 +240,7 @@ function Auth({
             supabaseClient={supabaseClient}
             setAuthView={setAuthView}
             redirectTo={redirectTo}
+            i18n={i18n}
           />
         </Container>
       )
@@ -136,6 +252,7 @@ function Auth({
             supabaseClient={supabaseClient}
             setAuthView={setAuthView}
             redirectTo={redirectTo}
+            i18n={i18n}
           />
         </Container>
       )
@@ -143,7 +260,7 @@ function Auth({
     case VIEWS.UPDATE_PASSWORD:
       return (
         <Container>
-          <UpdatePassword supabaseClient={supabaseClient} />
+          <UpdatePassword supabaseClient={supabaseClient} i18n={i18n} />
         </Container>
       )
 
@@ -165,6 +282,9 @@ function SocialAuth({
   redirectTo,
   onlyThirdPartyProviders,
   magicLink,
+  // @ts-ignore
+  authView,
+  i18n,
   ...props
 }: Props) {
   const [loading, setLoading] = useState(false)
@@ -209,7 +329,9 @@ function SocialAuth({
                     className="flex items-center"
                   >
                     {verticalSocialLayout &&
-                      'Sign up with ' + capitalize(provider)}
+                      i18n[authView].social_provider_text +
+                        ' ' +
+                        capitalize(provider)}
                   </Button>
                 )
               })}
@@ -233,6 +355,7 @@ function EmailAuth({
   supabaseClient,
   redirectTo,
   magicLink,
+  i18n,
 }: {
   authView: ViewType
   defaultEmail: string
@@ -244,6 +367,7 @@ function EmailAuth({
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
   magicLink?: boolean
+  i18n: Localization
 }) {
   const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState(defaultEmail)
@@ -319,7 +443,7 @@ function EmailAuth({
       <Container direction="vertical" gap="large">
         <Container direction="vertical" gap="medium">
           <div>
-            <Label htmlFor="email">Email address</Label>
+            <Label htmlFor="email">{i18n[authView].email_label}</Label>
             <Input
               autoFocus
               type="email"
@@ -332,7 +456,7 @@ function EmailAuth({
             />
           </div>
           <div>
-            <Label htmlFor="password">Password</Label>
+            <Label htmlFor="password">{i18n[authView].password_label}</Label>
             <Input
               type="password"
               name="password"
@@ -348,7 +472,7 @@ function EmailAuth({
         </Container>
 
         <Button type="submit" color="primary">
-          {authView === VIEWS.SIGN_IN ? 'Sign in' : 'Sign up'}
+          {i18n[authView].button_text}
         </Button>
 
         <Container direction="vertical" gap="small">
@@ -360,7 +484,7 @@ function EmailAuth({
                 setAuthView(VIEWS.MAGIC_LINK)
               }}
             >
-              Sign in with magic link
+              {i18n.magic_link.link_text}
             </Anchor>
           )}
           {authView === VIEWS.SIGN_IN && (
@@ -371,7 +495,7 @@ function EmailAuth({
                 setAuthView(VIEWS.FORGOTTEN_PASSWORD)
               }}
             >
-              Forgot your password?
+              {i18n.forgotten_password.link_text}
             </Anchor>
           )}
           {authView === VIEWS.SIGN_IN ? (
@@ -382,7 +506,7 @@ function EmailAuth({
                 handleViewChange(VIEWS.SIGN_UP)
               }}
             >
-              Don't have an account? Sign up
+              {i18n.sign_up.link_text}
             </Anchor>
           ) : (
             <Anchor
@@ -392,7 +516,7 @@ function EmailAuth({
                 handleViewChange(VIEWS.SIGN_IN)
               }}
             >
-              Do you have an account? Sign in
+              {i18n.sign_in.link_text}
             </Anchor>
           )}
         </Container>
@@ -407,10 +531,12 @@ function MagicLink({
   setAuthView,
   supabaseClient,
   redirectTo,
+  i18n,
 }: {
   setAuthView: any
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
+  i18n: Localization
 }) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -469,10 +595,12 @@ function ForgottenPassword({
   setAuthView,
   supabaseClient,
   redirectTo,
+  i18n,
 }: {
   setAuthView: any
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
+  i18n: Localization
 }) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -530,8 +658,10 @@ function ForgottenPassword({
 
 function UpdatePassword({
   supabaseClient,
+  i18n,
 }: {
   supabaseClient: SupabaseClient
+  i18n: Localization
 }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
