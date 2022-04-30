@@ -24,6 +24,8 @@
     "react-dom": "^17.0.1"
   },
   "dependencies": {
+    "@stitches/core": "^1.2.8",
+    "@stitches/react": "^1.2.8",
     "lodash": "^4.17.20",
     "prop-types": "^15.7.2"
   },

@@ -1,51 +1,91 @@
 import React from 'react'
+import { css } from '@stitches/core'
 
-const size = 21
+const iconDefaultStyles = css({
+  width: '21px',
+  height: '21px',
+})
 
 export const google = () => (
+  // <svg
+  //   className={iconDefaultStyles()}
+  //   aria-hidden="true"
+  //   focusable="false"
+  //   data-prefix="fab"
+  //   data-icon="google"
+  //   role="img"
+  //   xmlns="http://www.w3.org/2000/svg"
+  //   viewBox="0 0 488 512"
+  // >
+  //   <path
+  //     fill="currentColor"
+  //     d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+  //   ></path>
+  // </svg>
   <svg
-    width={size}
-    aria-hidden="true"
-    focusable="false"
-    data-prefix="fab"
-    data-icon="google"
-    role="img"
+    className={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 488 512"
+    viewBox="0 0 48 48"
+    width="512px"
+    height="512px"
   >
     <path
-      fill="currentColor"
-      d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
-    ></path>
+      fill="#FFC107"
+      d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+    />
+    <path
+      fill="#FF3D00"
+      d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+    />
+    <path
+      fill="#4CAF50"
+      d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+    />
+    <path
+      fill="#1976D2"
+      d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+    />
   </svg>
 )
 
 export const facebook = () => (
+  // <svg
+  //   className={iconDefaultStyles()}
+  //   aria-hidden="true"
+  //   focusable="false"
+  //   data-prefix="fab"
+  //   data-icon="facebook-square"
+  //   role="img"
+  //   xmlns="http://www.w3.org/2000/svg"
+  //   viewBox="0 0 448 512"
+  // >
+  //   <path
+  //     fill="currentColor"
+  //     d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
+  //   ></path>
+  // </svg>
   <svg
-    width={size}
-    aria-hidden="true"
-    focusable="false"
-    data-prefix="fab"
-    data-icon="facebook-square"
-    role="img"
+    className={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 448 512"
+    viewBox="0 0 48 48"
+    width="512px"
+    height="512px"
   >
+    <path fill="#039be5" d="M24 5A19 19 0 1 0 24 43A19 19 0 1 0 24 5Z" />
     <path
-      fill="currentColor"
-      d="M400 32H48A48 48 0 0 0 0 80v352a48 48 0 0 0 48 48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42 38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48 0 0 0-48-48z"
-    ></path>
+      fill="#fff"
+      d="M26.572,29.036h4.917l0.772-4.995h-5.69v-2.73c0-2.075,0.678-3.915,2.619-3.915h3.119v-4.359c-0.548-0.074-1.707-0.236-3.897-0.236c-4.573,0-7.254,2.415-7.254,7.917v3.323h-4.701v4.995h4.701v13.729C22.089,42.905,23.032,43,24,43c0.875,0,1.729-0.08,2.572-0.194V29.036z"
+    />
   </svg>
 )
 
 export const twitter = () => (
   <svg
-    width={size}
+    className={iconDefaultStyles()}
     aria-hidden="true"
     focusable="false"
     data-prefix="fab"
     data-icon="twitter"
-    className="svg-inline--fa fa-twitter fa-w-16"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
@@ -59,12 +99,11 @@ export const twitter = () => (
 
 export const apple = () => (
   <svg
-    width={size}
+    className={iconDefaultStyles()}
     aria-hidden="true"
     focusable="false"
     data-prefix="fab"
     data-icon="apple"
-    className="svg-inline--fa fa-apple fa-w-16"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
@@ -78,12 +117,11 @@ export const apple = () => (
 
 export const github = () => (
   <svg
-    width={size}
+    className={iconDefaultStyles()}
     aria-hidden="true"
     focusable="false"
     data-prefix="fab"
     data-icon="github"
-    className="svg-inline--fa fa-github fa-w-16"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 496 512"
@@ -97,12 +135,11 @@ export const github = () => (
 
 export const gitlab = () => (
   <svg
-    width={size}
+    className={iconDefaultStyles()}
     aria-hidden="true"
     focusable="false"
     data-prefix="fab"
     data-icon="gitlab"
-    className="svg-inline--fa fa-gitlab fa-w-16"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
@@ -115,12 +152,11 @@ export const gitlab = () => (
 )
 export const bitbucket = () => (
   <svg
-    width={size}
+    className={iconDefaultStyles()}
     aria-hidden="true"
     focusable="false"
     data-prefix="fab"
     data-icon="bitbucket"
-    className="svg-inline--fa fa-bitbucket fa-w-16"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"
@@ -134,8 +170,7 @@ export const bitbucket = () => (
 
 export const discord = () => (
   <svg
-    width={size}
-    height={size}
+    className={iconDefaultStyles()}
     viewBox="0 0 71 55"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
@@ -151,8 +186,7 @@ export const discord = () => (
 
 export const azure = () => (
   <svg
-    width={size}
-    height={size}
+    className={iconDefaultStyles()}
     viewBox="0 0 96 96"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -218,12 +252,11 @@ export const azure = () => (
 
 export const twitch = () => (
   <svg
-    width={size}
+    className={iconDefaultStyles()}
     aria-hidden="true"
     focusable="false"
     data-prefix="fab"
     data-icon="twitch"
-    className="svg-inline--fa fa-twitch fa-w-16"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 512 512"

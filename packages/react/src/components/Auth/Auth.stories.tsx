@@ -25,7 +25,9 @@ const Container = (props: any) => {
         </Button>
       </>
     )
-  return props.children
+  return (
+    <div style={{ maxWidth: '320px', margin: 'auto' }}>{props.children}</div>
+  )
 }
 
 export const Default = (args: any) => (

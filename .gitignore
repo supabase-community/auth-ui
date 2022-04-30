@@ -5,6 +5,9 @@
 /.pnp
 .pnp.js
 
+# packages dependencies
+packages/react/node_modules
+
 # testing
 /coverage
 

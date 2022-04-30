@@ -1,17 +1,17 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { SupabaseClient, Provider } from '@supabase/supabase-js'
 import {
-  Input,
-  Checkbox,
-  Button,
+  // Input,
+
+  // Button,
   Space,
   Typography,
   Divider,
   IconKey,
   IconMail,
   IconInbox,
-  IconLock,
 } from './../../index'
+import { Button, Label, Input, Container, Anchor, Message } from './../UI'
 import { UserContextProvider, useUser } from './UserContext'
 import * as SocialIcons from './Icons'
 // @ts-ignore
@@ -73,28 +73,28 @@ function Auth({
 
   const verticalSocialLayout = socialLayout === 'vertical' ? true : false
 
-  let containerClasses = [AuthStyles['sbui-auth']]
+  let containerClasses = []
   if (className) {
     containerClasses.push(className)
   }
 
   const Container = (props: any) => (
-    <div className={containerClasses.join(' ')} style={style}>
-      <Space size={8} direction={'vertical'}>
-        <SocialAuth
-          supabaseClient={supabaseClient}
-          verticalSocialLayout={verticalSocialLayout}
-          providers={providers}
-          socialLayout={socialLayout}
-          socialButtonSize={socialButtonSize}
-          socialColors={socialColors}
-          redirectTo={redirectTo}
-          onlyThirdPartyProviders={onlyThirdPartyProviders}
-          magicLink={magicLink}
-        />
-        {!onlyThirdPartyProviders && props.children}
-      </Space>
-    </div>
+    // <div className={containerClasses.join(' ')} style={style}>
+    <>
+      <SocialAuth
+        supabaseClient={supabaseClient}
+        verticalSocialLayout={verticalSocialLayout}
+        providers={providers}
+        socialLayout={socialLayout}
+        socialButtonSize={socialButtonSize}
+        socialColors={socialColors}
+        redirectTo={redirectTo}
+        onlyThirdPartyProviders={onlyThirdPartyProviders}
+        magicLink={magicLink}
+      />
+      {!onlyThirdPartyProviders && props.children}
+    </>
+    // </div>
   )
 
   useEffect(() => {
@@ -224,18 +224,17 @@ function SocialAuth({
     setLoading(false)
   }
 
+  function capitalize(word: string) {
+    const lower = word.toLowerCase()
+    return word.charAt(0).toUpperCase() + lower.slice(1)
+  }
+
   return (
-    <Space size={8} direction={'vertical'}>
+    <>
       {providers && providers.length > 0 && (
         <React.Fragment>
-          <Space size={4} direction={'vertical'}>
-            <Typography.Text
-              type="secondary"
-              className={AuthStyles['sbui-auth-label']}
-            >
-              Sign in with
-            </Typography.Text>
-            <Space size={2} direction={socialLayout}>
+          <div>
+            <Container direction="vertical" gap="small">
               {providers.map((provider) => {
                 // @ts-ignore
                 const AuthIcon = SocialIcons[provider]
@@ -245,27 +244,26 @@ function SocialAuth({
                     style={!verticalSocialLayout ? { flexGrow: 1 } : {}}
                   >
                     <Button
-                      block
-                      type="default"
-                      shadow
-                      size={socialButtonSize}
-                      style={socialColors ? buttonStyles[provider] : {}}
+                      color="default"
+                      // size={socialButtonSize}
+                      // style={socialColors ? buttonStyles[provider] : {}}
                       icon={AuthIcon ? <AuthIcon /> : ''}
-                      loading={loading}
+                      // loading={loading}
                       onClick={() => handleProviderSignIn(provider)}
                       className="flex items-center"
                     >
-                      {verticalSocialLayout && 'Sign up with ' + provider}
+                      {verticalSocialLayout &&
+                        'Sign up with ' + capitalize(provider)}
                     </Button>
                   </div>
                 )
               })}
-            </Space>
-          </Space>
+            </Container>
+          </div>
           {!onlyThirdPartyProviders && <Divider>or continue with</Divider>}
         </React.Fragment>
       )}
-    </Space>
+    </>
   )
 }
 
@@ -325,14 +323,17 @@ function EmailAuth({
         if (signInError) setError(signInError.message)
         break
       case 'sign_up':
-        const { user: signUpUser, session: signUpSession, error: signUpError } =
-          await supabaseClient.auth.signUp(
-            {
-              email,
-              password,
-            },
-            { redirectTo }
-          )
+        const {
+          user: signUpUser,
+          session: signUpSession,
+          error: signUpError,
+        } = await supabaseClient.auth.signUp(
+          {
+            email,
+            password,
+          },
+          { redirectTo }
+        )
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
         else if (signUpUser && !signUpSession)
@@ -354,65 +355,49 @@ function EmailAuth({
   }
 
   return (
-    <form id={id} onSubmit={handleSubmit}>
-      <Space size={6} direction={'vertical'}>
-        <Space size={3} direction={'vertical'}>
-          <Input
-            label="Email address"
-            autoComplete="email"
-            defaultValue={email}
-            icon={<IconMail size={21} stroke={'#666666'} />}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-          />
-          <Input
-            label="Password"
-            type="password"
-            defaultValue={password}
-            autoComplete="current-password"
-            icon={<IconKey size={21} stroke={'#666666'} />}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.target.value)
-            }
-          />
-        </Space>
-        <Space direction="vertical" size={6}>
-          <Space style={{ justifyContent: 'space-between' }}>
-            <Checkbox
-              label="Remember me"
-              name="remember_me"
-              id="remember_me"
-              onChange={(value: React.ChangeEvent<HTMLInputElement>) =>
-                setRememberMe(value.target.checked)
+    <form
+      id={id}
+      onSubmit={handleSubmit}
+      autoComplete={'on'}
+      style={{ width: '100%' }}
+    >
+      <Container direction="vertical" gap="large">
+        <Container direction="vertical" gap="medium">
+          <div>
+            <Label>Email address</Label>
+            <Input
+              type="email"
+              autoFocus
+              name="email"
+              defaultValue={email}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+              autoComplete="email"
+            />
+          </div>
+          <div>
+            <Label>Password</Label>
+            <Input
+              type="password"
+              defaultValue={password}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
+              autoComplete={
+                authView === 'sign_in' ? 'current-password' : 'new-password'
               }
             />
-            {authView === VIEWS.SIGN_IN && (
-              <Typography.Link
-                href="#auth-forgot-password"
-                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.preventDefault()
-                  setAuthView(VIEWS.FORGOTTEN_PASSWORD)
-                }}
-              >
-                Forgot your password?
-              </Typography.Link>
-            )}
-          </Space>
-          <Button
-            htmlType="submit"
-            type="primary"
-            size="large"
-            icon={<IconLock size={21} />}
-            loading={loading}
-            block
-          >
-            {authView === VIEWS.SIGN_IN ? 'Sign in' : 'Sign up'}
-          </Button>
-        </Space>
-        <Space direction="vertical" style={{ textAlign: 'center' }}>
+          </div>
+        </Container>
+
+        <Button type="submit" color="primary">
+          {authView === VIEWS.SIGN_IN ? 'Sign in' : 'Sign up'}
+        </Button>
+
+        <Container direction="vertical" gap="small">
           {authView === VIEWS.SIGN_IN && magicLink && (
-            <Typography.Link
+            <Anchor
               href="#auth-magic-link"
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
@@ -420,10 +405,21 @@ function EmailAuth({
               }}
             >
               Sign in with magic link
-            </Typography.Link>
+            </Anchor>
+          )}
+          {authView === VIEWS.SIGN_IN && (
+            <Anchor
+              href="#auth-forgot-password"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.preventDefault()
+                setAuthView(VIEWS.FORGOTTEN_PASSWORD)
+              }}
+            >
+              Forgot your password?
+            </Anchor>
           )}
           {authView === VIEWS.SIGN_IN ? (
-            <Typography.Link
+            <Anchor
               href="#auth-sign-up"
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
@@ -431,9 +427,9 @@ function EmailAuth({
               }}
             >
               Don't have an account? Sign up
-            </Typography.Link>
+            </Anchor>
           ) : (
-            <Typography.Link
+            <Anchor
               href="#auth-sign-in"
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
                 e.preventDefault()
@@ -441,12 +437,12 @@ function EmailAuth({
               }}
             >
               Do you have an account? Sign in
-            </Typography.Link>
+            </Anchor>
           )}
-          {message && <Typography.Text>{message}</Typography.Text>}
-          {error && <Typography.Text type="danger">{error}</Typography.Text>}
-        </Space>
-      </Space>
+        </Container>
+      </Container>
+      {message && <Message>{message}</Message>}
+      {error && <Message color="danger">{error}</Message>}
     </form>
   )
 }
@@ -481,27 +477,22 @@ function MagicLink({
 
   return (
     <form id="auth-magic-link" onSubmit={handleMagicLinkSignIn}>
-      <Space size={4} direction={'vertical'}>
-        <Space size={3} direction={'vertical'}>
-          <Input
-            label="Email address"
-            placeholder="Your email address"
-            icon={<IconMail size={21} stroke={'#666666'} />}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-          />
-          <Button
-            block
-            size="large"
-            htmlType="submit"
-            icon={<IconInbox size={21} />}
-            loading={loading}
-          >
+      <Container gap="large" direction="vertical">
+        <Container gap="medium" direction="vertical">
+          <div>
+            <Label>Email address</Label>
+            <Input
+              placeholder="Your email address"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+            />
+          </div>
+          <Button color="primary" type="submit" loading={loading}>
             Send magic link
           </Button>
-        </Space>
-        <Typography.Link
+        </Container>
+        <Anchor
           href="#auth-sign-in"
           onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
             e.preventDefault()
@@ -509,10 +500,10 @@ function MagicLink({
           }}
         >
           Sign in with password
-        </Typography.Link>
+        </Anchor>
         {message && <Typography.Text>{message}</Typography.Text>}
         {error && <Typography.Text type="danger">{error}</Typography.Text>}
-      </Space>
+      </Container>
     </form>
   )
 }
@@ -547,27 +538,19 @@ function ForgottenPassword({
 
   return (
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
-      <Space size={4} direction={'vertical'}>
-        <Space size={3} direction={'vertical'}>
+      <Container gap="large" direction="vertical">
+        <Container gap="medium" direction="vertical">
           <Input
-            label="Email address"
             placeholder="Your email address"
-            icon={<IconMail size={21} stroke={'#666666'} />}
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setEmail(e.target.value)
             }
           />
-          <Button
-            block
-            size="large"
-            htmlType="submit"
-            icon={<IconInbox size={21} />}
-            loading={loading}
-          >
+          <Button type="submit" color="primary" loading={loading}>
             Send reset password instructions
           </Button>
-        </Space>
-        <Typography.Link
+        </Container>
+        <Anchor
           href="#auth-sign-in"
           onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
             e.preventDefault()
@@ -575,10 +558,10 @@ function ForgottenPassword({
           }}
         >
           Go back to sign in
-        </Typography.Link>
+        </Anchor>
         {message && <Typography.Text>{message}</Typography.Text>}
         {error && <Typography.Text type="danger">{error}</Typography.Text>}
-      </Space>
+      </Container>
     </form>
   )
 }
@@ -606,8 +589,9 @@ function UpdatePassword({
 
   return (
     <form id="auth-update-password" onSubmit={handlePasswordReset}>
-      <Space size={4} direction={'vertical'}>
-        <Space size={3} direction={'vertical'}>
+      <Container size={4} direction={'vertical'}>
+        <Container direction="vertical">
+          <Label>New password</Label>
           <Input
             label="New password"
             placeholder="Enter your new password"
@@ -617,19 +601,13 @@ function UpdatePassword({
               setPassword(e.target.value)
             }
           />
-          <Button
-            block
-            size="large"
-            htmlType="submit"
-            icon={<IconKey size={21} />}
-            loading={loading}
-          >
+          <Button type="submit" loading={loading}>
             Update password
           </Button>
-        </Space>
-        {message && <Typography.Text>{message}</Typography.Text>}
-        {error && <Typography.Text type="danger">{error}</Typography.Text>}
-      </Space>
+        </Container>
+        {message && <Message>{message}</Message>}
+        {error && <Message color="danger">{error}</Message>}
+      </Container>
     </form>
   )
 }

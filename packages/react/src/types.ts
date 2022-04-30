@@ -1,3 +1,5 @@
+import { Provider } from '@supabase/supabase-js'
+
 export interface AnimationTailwindClasses {
   enter?: string
   enterFrom?: string
@@ -6,3 +8,5 @@ export interface AnimationTailwindClasses {
   leaveFrom?: string
   leaveTo?: string
 }
+
+export type AuthProviders = Provider
