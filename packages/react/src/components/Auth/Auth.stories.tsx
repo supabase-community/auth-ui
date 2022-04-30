@@ -72,7 +72,11 @@ export const withSocialAuthHorizontal = (args: any) => (
     </Container>
   </Auth.UserContextProvider>
 )
-export const updatePassword = (args: any) => <Auth.UpdatePassword {...args} />
+export const updatePassword = (args: any) => (
+  <Container {...args}>
+    <Auth.UpdatePassword {...args} />
+  </Container>
+)
 
 export const ChangeViewState = (args: any) => {
   const [view, setView] = useState<
