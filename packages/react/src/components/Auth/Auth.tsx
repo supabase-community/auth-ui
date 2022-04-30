@@ -1,21 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { SupabaseClient, Provider } from '@supabase/supabase-js'
+import { Typography, IconKey } from './../../index'
 import {
-  // Input,
-
-  // Button,
-  Space,
-  Typography,
+  Button,
+  Label,
+  Input,
+  Container,
+  Anchor,
+  Message,
   Divider,
-  IconKey,
-  IconMail,
-  IconInbox,
-} from './../../index'
-import { Button, Label, Input, Container, Anchor, Message } from './../UI'
+} from './../UI'
 import { UserContextProvider, useUser } from './UserContext'
 import * as SocialIcons from './Icons'
 // @ts-ignore
-import AuthStyles from './Auth.module.css'
 
 const VIEWS: ViewsMap = {
   SIGN_IN: 'sign_in',
@@ -170,47 +167,6 @@ function SocialAuth({
   magicLink,
   ...props
 }: Props) {
-  const buttonStyles: any = {
-    azure: {
-      backgroundColor: '#008AD7',
-      color: 'white',
-    },
-    bitbucket: {
-      backgroundColor: '#205081',
-      color: 'white',
-    },
-    facebook: {
-      backgroundColor: '#4267B2',
-      color: 'white',
-    },
-    github: {
-      backgroundColor: '#333',
-      color: 'white',
-    },
-    gitlab: {
-      backgroundColor: '#FC6D27',
-    },
-    google: {
-      backgroundColor: '#ce4430',
-      color: 'white',
-    },
-    twitter: {
-      backgroundColor: '#1DA1F2',
-      color: 'white',
-    },
-    apple: {
-      backgroundColor: '#000',
-      color: 'white',
-    },
-    discord: {
-      backgroundColor: '#404fec',
-      color: 'white',
-    },
-    twitch: {
-      backgroundColor: '#9146ff',
-      color: 'white',
-    },
-  }
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
@@ -233,34 +189,32 @@ function SocialAuth({
     <>
       {providers && providers.length > 0 && (
         <React.Fragment>
-          <div>
-            <Container direction="vertical" gap="small">
+          <Container gap="large" direction="vertical">
+            <Container
+              direction={verticalSocialLayout ? 'vertical' : 'horizontal'}
+              gap={verticalSocialLayout ? 'small' : 'medium'}
+            >
               {providers.map((provider) => {
-                // @ts-ignore
                 const AuthIcon = SocialIcons[provider]
                 return (
-                  <div
+                  <Button
                     key={provider}
-                    style={!verticalSocialLayout ? { flexGrow: 1 } : {}}
+                    color="default"
+                    // size={socialButtonSize}
+                    // style={socialColors ? buttonStyles[provider] : {}}
+                    icon={AuthIcon ? <AuthIcon /> : ''}
+                    // loading={loading}
+                    onClick={() => handleProviderSignIn(provider)}
+                    className="flex items-center"
                   >
-                    <Button
-                      color="default"
-                      // size={socialButtonSize}
-                      // style={socialColors ? buttonStyles[provider] : {}}
-                      icon={AuthIcon ? <AuthIcon /> : ''}
-                      // loading={loading}
-                      onClick={() => handleProviderSignIn(provider)}
-                      className="flex items-center"
-                    >
-                      {verticalSocialLayout &&
-                        'Sign up with ' + capitalize(provider)}
-                    </Button>
-                  </div>
+                    {verticalSocialLayout &&
+                      'Sign up with ' + capitalize(provider)}
+                  </Button>
                 )
               })}
             </Container>
-          </div>
-          {!onlyThirdPartyProviders && <Divider>or continue with</Divider>}
+          </Container>
+          {!onlyThirdPartyProviders && <Divider />}
         </React.Fragment>
       )}
     </>
@@ -364,10 +318,10 @@ function EmailAuth({
       <Container direction="vertical" gap="large">
         <Container direction="vertical" gap="medium">
           <div>
-            <Label>Email address</Label>
+            <Label htmlFor="email">Email address</Label>
             <Input
-              type="email"
               autoFocus
+              type="email"
               name="email"
               defaultValue={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -377,9 +331,10 @@ function EmailAuth({
             />
           </div>
           <div>
-            <Label>Password</Label>
+            <Label htmlFor="password">Password</Label>
             <Input
               type="password"
+              name="password"
               defaultValue={password}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
@@ -478,7 +433,7 @@ function MagicLink({
   return (
     <form id="auth-magic-link" onSubmit={handleMagicLinkSignIn}>
       <Container gap="large" direction="vertical">
-        <Container gap="medium" direction="vertical">
+        <Container gap="large" direction="vertical">
           <div>
             <Label>Email address</Label>
             <Input
@@ -539,13 +494,18 @@ function ForgottenPassword({
   return (
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
       <Container gap="large" direction="vertical">
-        <Container gap="medium" direction="vertical">
-          <Input
-            placeholder="Your email address"
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-          />
+        <Container gap="large" direction="vertical">
+          <div>
+            <Label htmlFor="email">Your email address</Label>
+            <Input
+              name="email"
+              type="email"
+              placeholder="Your email address"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+            />
+          </div>
           <Button type="submit" color="primary" loading={loading}>
             Send reset password instructions
           </Button>
@@ -589,19 +549,20 @@ function UpdatePassword({
 
   return (
     <form id="auth-update-password" onSubmit={handlePasswordReset}>
-      <Container size={4} direction={'vertical'}>
-        <Container direction="vertical">
-          <Label>New password</Label>
-          <Input
-            label="New password"
-            placeholder="Enter your new password"
-            type="password"
-            icon={<IconKey size={21} stroke={'#666666'} />}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setPassword(e.target.value)
-            }
-          />
-          <Button type="submit" loading={loading}>
+      <Container gap="large" direction={'vertical'}>
+        <Container gap="large" direction="vertical">
+          <div>
+            <Label htmlFor="password">New password</Label>
+            <Input
+              name="password"
+              placeholder="Enter your new password"
+              type="password"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setPassword(e.target.value)
+              }
+            />
+          </div>
+          <Button type="submit" color="primary" loading={loading}>
             Update password
           </Button>
         </Container>
