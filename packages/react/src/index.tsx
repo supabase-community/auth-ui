@@ -1,12 +1,6 @@
 // // GENERAL
-export * from './components/Button/index'
-export * from './components/Typography/index'
-export * from './components/Icon/index'
-export * from './components/Space/index'
-export * from './components/Divider/index'
-export * from './components/Checkbox/index'
-export * from './components/Input/index'
 export * from './components/Auth/index'
+export * from './components/Icon/index'
 // export icons
 export * from './components/Icon/icons/IconActivity/index'
 export * from './components/Icon/icons/IconAirplay/index'

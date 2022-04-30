@@ -37,6 +37,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode
   icon?: React.ReactNode
   color?: 'default' | 'primary'
+  loading?: boolean
 }
 
 const Button: React.FC<ButtonProps> = ({

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { SupabaseClient, Provider } from '@supabase/supabase-js'
-import { Typography, IconKey } from './../../index'
+
 import {
   Button,
   Label,
@@ -195,6 +195,7 @@ function SocialAuth({
               gap={verticalSocialLayout ? 'small' : 'medium'}
             >
               {providers.map((provider) => {
+                // @ts-ignore
                 const AuthIcon = SocialIcons[provider]
                 return (
                   <Button
@@ -437,6 +438,7 @@ function MagicLink({
           <div>
             <Label>Email address</Label>
             <Input
+              type="email"
               placeholder="Your email address"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
@@ -456,8 +458,8 @@ function MagicLink({
         >
           Sign in with password
         </Anchor>
-        {message && <Typography.Text>{message}</Typography.Text>}
-        {error && <Typography.Text type="danger">{error}</Typography.Text>}
+        {message && <Message>{message}</Message>}
+        {error && <Message color="danger">{error}</Message>}
       </Container>
     </form>
   )
@@ -519,8 +521,8 @@ function ForgottenPassword({
         >
           Go back to sign in
         </Anchor>
-        {message && <Typography.Text>{message}</Typography.Text>}
-        {error && <Typography.Text type="danger">{error}</Typography.Text>}
+        {message && <Message>{message}</Message>}
+        {error && <Message color="danger">{error}</Message>}
       </Container>
     </form>
   )
