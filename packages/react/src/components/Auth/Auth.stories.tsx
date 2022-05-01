@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { Auth } from './'
 import { createClient } from '@supabase/supabase-js'
+import { Button, Message } from '../UI'
 // @ts-ignore
-import { Typography, Button, Space } from '../../index'
 
 const supabase = createClient(
   'https://rsnibhkhsbfnncjmwnkj.supabase.co',
@@ -19,8 +19,8 @@ const Container = (props: any) => {
   if (user)
     return (
       <>
-        <Typography.Text>Signed in: {user.email}</Typography.Text>
-        <Button block onClick={() => props.supabaseClient.auth.signOut()}>
+        <Message>Signed in: {user.email}</Message>
+        <Button onClick={() => props.supabaseClient.auth.signOut()}>
           Sign out
         </Button>
       </>
@@ -47,7 +47,27 @@ export const withSocialAuth = (args: any) => (
 export const withAllSocialAuth = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} />
+      <Auth
+        {...args}
+        providers={[
+          'apple',
+          'azure',
+          'bitbucket',
+          'discord',
+          'facebook',
+          'github',
+          'gitlab',
+          'google',
+          'keycloak',
+          'linkedin',
+          'notion',
+          'slack',
+          'spotify',
+          'twitch',
+          'twitter',
+          'workos',
+        ]}
+      />
     </Container>
   </Auth.UserContextProvider>
 )
@@ -91,32 +111,44 @@ export const ChangeViewState = (args: any) => {
 
   return (
     <div>
-      <Space>
-        <Button
-          type={view === 'sign_up' ? 'primary' : 'default'}
+      <div>
+        <button
+          style={{
+            background: view === 'sign_up' ? 'white' : '',
+            cursor: 'pointer',
+          }}
           onClick={() => setView('sign_up')}
         >
           Sign up
-        </Button>
-        <Button
-          type={view === 'sign_in' ? 'primary' : 'default'}
+        </button>
+        <button
+          style={{
+            background: view === 'sign_in' ? 'white' : '',
+            cursor: 'pointer',
+          }}
           onClick={() => setView('sign_in')}
         >
           Sign in
-        </Button>
-        <Button
-          type={view === 'forgotten_password' ? 'primary' : 'default'}
+        </button>
+        <button
+          style={{
+            background: view === 'forgotten_password' ? 'white' : '',
+            cursor: 'pointer',
+          }}
           onClick={() => setView('forgotten_password')}
         >
           Forgotten password
-        </Button>
-        <Button
-          type={view === 'magic_link' ? 'primary' : 'default'}
+        </button>
+        <button
+          style={{
+            background: view === 'magic_link' ? 'white' : '',
+            cursor: 'pointer',
+          }}
           onClick={() => setView('magic_link')}
         >
           Magic link
-        </Button>
-      </Space>
+        </button>
+      </div>
       <Auth.UserContextProvider supabaseClient={supabase}>
         <Container supabaseClient={supabase}>
           <Auth supabaseClient={supabase} view={view} />

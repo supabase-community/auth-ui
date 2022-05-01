@@ -10,12 +10,19 @@ import {
   Message,
   Divider,
 } from './../UI'
+
 import { UserContextProvider, useUser } from './UserContext'
 import * as SocialIcons from './Icons'
 import { createStitches, createTheme } from '@stitches/core'
 import * as defaultLocalization from './../../../../react/lib/Localization'
-import { Localization } from '../../types'
-// @ts-ignore
+import {
+  Localization,
+  SocialButtonSize,
+  SocialLayout,
+  ViewType,
+  ViewsMap,
+  CustomTheme,
+} from '../../types'
 
 const VIEWS: ViewsMap = {
   SIGN_IN: 'sign_in',
@@ -25,17 +32,6 @@ const VIEWS: ViewsMap = {
   UPDATE_PASSWORD: 'update_password',
 }
 
-interface ViewsMap {
-  [key: string]: ViewType
-}
-
-type ViewType =
-  | 'sign_in'
-  | 'sign_up'
-  | 'forgotten_password'
-  | 'magic_link'
-  | 'update_password'
-
 type RedirectTo = undefined | string
 
 export interface Props {
@@ -43,49 +39,31 @@ export interface Props {
   className?: string
   children?: React.ReactNode
   style?: React.CSSProperties
-  socialLayout?: 'horizontal' | 'vertical'
+  socialLayout?: SocialLayout
   socialColors?: boolean
-  socialButtonSize?: 'tiny' | 'small' | 'medium' | 'large' | 'xlarge'
+  socialButtonSize?: SocialButtonSize
   providers?: Provider[]
-  verticalSocialLayout?: any
   view?: ViewType
   redirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
   magicLink?: boolean
-  theme?: string | 'default' | 'dark'
-
-  customTheme?: {
-    colors: { [x: string]: string }
-    space: { [x: string]: string }
-    fontSizes: { [x: string]: string }
-    fonts: { [x: string]: string }
-    fontWeights: { [x: string]: string }
-    lineHeights: { [x: string]: string }
-    letterSpacings: { [x: string]: string }
-    sizes: { [x: string]: string }
-    borderWidths: { [x: string]: string }
-    borderStyles: { [x: string]: string }
-    radii: { [x: string]: string }
-    shadows: { [x: string]: string }
-    zIndices: { [x: string]: string }
-    transitions: { [x: string]: string }
-  }[]
   /**
-   * Dark mode
-   *
+   * setting the theme that the Auth components use
+   */
+  theme?: string | 'default' | 'dark'
+  /**
+   * this is for importing a custom theme
+   */
+  customTheme?: CustomTheme
+  /**
    * This will toggle on the dark variation of the theme
    */
   dark?: boolean
   /**
-   * Localization override
-   *
    * Override the labels and button text
-   *
-   * todo: add more languages
    */
   localizationOverride?: Localization
   lang?: 'en' | 'ja' // es
-  i18n?: Localization
 }
 
 function Auth({
@@ -121,8 +99,8 @@ function Auth({
   createStitches({
     theme: {
       colors: {
-        brand: 'hsl(252 62% 55%)',
-        brandAccent: 'hsl(252 62% 45%)',
+        brand: 'purple',
+        brandAccent: 'darkmagenta',
         brandButtonText: 'white',
 
         defaultButtonBackground: 'white',
@@ -179,47 +157,56 @@ function Auth({
   const [defaultEmail, setDefaultEmail] = useState('')
   const [defaultPassword, setDefaultPassword] = useState('')
 
-  const verticalSocialLayout = socialLayout === 'vertical' ? true : false
+  /**
+   * Simple boolean to detect if authView 'sign_in' or 'sign_up' is used
+   *
+   * @returns boolean
+   */
+  const SignView = authView === 'sign_in' || authView === 'sign_up'
 
-  let containerClasses = []
-  if (className) {
-    containerClasses.push(className)
-  }
-
-  const Container = (props: any) => (
-    // <div className={containerClasses.join(' ')} style={style}>
+  /**
+   * Wraps around all auth components
+   * renders the social auth providers if SignView is true
+   *
+   * also handles the theme override
+   *
+   * @param children
+   * @returns React.ReactNode
+   */
+  const Container = ({ children }: { children: React.ReactNode }) => (
     <div className={dark ? darkTheme : ''}>
-      <SocialAuth
-        supabaseClient={supabaseClient}
-        verticalSocialLayout={verticalSocialLayout}
-        providers={providers}
-        socialLayout={socialLayout}
-        socialButtonSize={socialButtonSize}
-        socialColors={socialColors}
-        redirectTo={redirectTo}
-        onlyThirdPartyProviders={onlyThirdPartyProviders}
-        magicLink={magicLink}
-        i18n={i18n}
-        // @ts-ignore
-        authView={authView}
-      />
-      {!onlyThirdPartyProviders && props.children}
+      {SignView && (
+        <SocialAuth
+          supabaseClient={supabaseClient}
+          providers={providers}
+          socialLayout={socialLayout}
+          redirectTo={redirectTo}
+          onlyThirdPartyProviders={onlyThirdPartyProviders}
+          i18n={i18n}
+          view={authView}
+        />
+      )}
+      {!onlyThirdPartyProviders && children}
     </div>
-    // </div>
   )
 
   useEffect(() => {
-    // handle view override
+    /**
+     * Overrides the authview if it is changed externally
+     */
     setAuthView(view)
   }, [view])
 
+  /**
+   * View handler, displays the correct Auth view
+   * all views are wrapped in <Container/>
+   */
   switch (authView) {
     case VIEWS.SIGN_IN:
     case VIEWS.SIGN_UP:
       return (
         <Container>
           <EmailAuth
-            id={authView === VIEWS.SIGN_UP ? 'auth-sign-up' : 'auth-sign-in'}
             supabaseClient={supabaseClient}
             authView={authView}
             setAuthView={setAuthView}
@@ -263,32 +250,34 @@ function Auth({
           <UpdatePassword supabaseClient={supabaseClient} i18n={i18n} />
         </Container>
       )
-
     default:
       return null
   }
 }
 
+interface SocialAuthProps {
+  supabaseClient: SupabaseClient
+  socialLayout: SocialLayout
+  providers?: Provider[]
+  redirectTo: RedirectTo
+  onlyThirdPartyProviders: boolean
+  view: 'sign_in' | 'sign_up'
+  i18n: Localization
+}
+
 function SocialAuth({
-  className,
-  style,
   supabaseClient,
-  children,
   socialLayout = 'vertical',
-  socialColors = false,
-  socialButtonSize,
   providers,
-  verticalSocialLayout,
   redirectTo,
   onlyThirdPartyProviders,
-  magicLink,
-  // @ts-ignore
-  authView,
+  view,
   i18n,
-  ...props
-}: Props) {
+}: SocialAuthProps) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  const verticalSocialLayout = socialLayout === 'vertical' ? true : false
 
   const handleProviderSignIn = async (provider: Provider) => {
     setLoading(true)
@@ -305,6 +294,8 @@ function SocialAuth({
     return word.charAt(0).toUpperCase() + lower.slice(1)
   }
 
+  console.log('i18n', i18n[view])
+
   return (
     <>
       {providers && providers.length > 0 && (
@@ -314,22 +305,20 @@ function SocialAuth({
               direction={verticalSocialLayout ? 'vertical' : 'horizontal'}
               gap={verticalSocialLayout ? 'small' : 'medium'}
             >
-              {providers.map((provider) => {
+              {providers.map((provider: Provider) => {
                 // @ts-ignore
                 const AuthIcon = SocialIcons[provider]
                 return (
                   <Button
                     key={provider}
                     color="default"
-                    // size={socialButtonSize}
-                    // style={socialColors ? buttonStyles[provider] : {}}
                     icon={AuthIcon ? <AuthIcon /> : ''}
                     // loading={loading}
                     onClick={() => handleProviderSignIn(provider)}
                     className="flex items-center"
                   >
                     {verticalSocialLayout &&
-                      i18n[authView].social_provider_text +
+                      i18n[view]?.social_provider_text +
                         ' ' +
                         capitalize(provider)}
                   </Button>
@@ -344,6 +333,20 @@ function SocialAuth({
   )
 }
 
+interface EmailAuthProps {
+  authView: 'sign_up' | 'sign_in'
+  defaultEmail: string
+  defaultPassword: string
+  id: 'auth-sign-up' | 'auth-sign-in'
+  setAuthView: any
+  setDefaultEmail: (email: string) => void
+  setDefaultPassword: (password: string) => void
+  supabaseClient: SupabaseClient
+  redirectTo?: RedirectTo
+  magicLink?: boolean
+  i18n: Localization
+}
+
 function EmailAuth({
   authView,
   defaultEmail,
@@ -356,19 +359,7 @@ function EmailAuth({
   redirectTo,
   magicLink,
   i18n,
-}: {
-  authView: ViewType
-  defaultEmail: string
-  defaultPassword: string
-  id: 'auth-sign-up' | 'auth-sign-in'
-  setAuthView: any
-  setDefaultEmail: (email: string) => void
-  setDefaultPassword: (password: string) => void
-  supabaseClient: SupabaseClient
-  redirectTo?: RedirectTo
-  magicLink?: boolean
-  i18n: Localization
-}) {
+}: EmailAuthProps) {
   const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState(defaultEmail)
   const [password, setPassword] = useState(defaultPassword)
