@@ -1,0 +1,26 @@
+{
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**", ".next/**", ".svelte-kit/**"]
+    },
+    "build:example": {
+      "dependsOn": ["^build", "^build:example"],
+      "outputs": ["dist/**", ".next/**", ".svelte-kit/**"]
+    },
+    "clean:all": {
+      "dependsOn": ["^clean:all"],
+      "cache": false
+    },
+    "lint": {
+      "outputs": []
+    },
+    "dev": {
+      "cache": false
+    }
+  },
+  "globalDependencies": [
+    "tsconfig.json",
+    ".env.*"
+  ]
+}

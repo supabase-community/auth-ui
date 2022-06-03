@@ -1,34 +1,12 @@
 {
+  "extends": "tsconfig/react-library.json",
   "compilerOptions": {
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "node",
-    "noImplicitAny": true,
-    "preserveConstEnums": true,
-    "target": "es6",
-    "module": "esnext",
-    "declaration": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "strict": true,
-    "noFallthroughCasesInSwitch": true,
+    "importHelpers": false,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true
+    "module": "esnext",
+    "allowSyntheticDefaultImports": true,
+    "allowJs": true
   },
-  "include": [
-    "src/components/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["src"],
+  "exclude": ["dist", "build", "node_modules"]
 }

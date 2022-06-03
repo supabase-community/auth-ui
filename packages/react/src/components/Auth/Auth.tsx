@@ -183,7 +183,7 @@ function Auth({
           redirectTo={redirectTo}
           onlyThirdPartyProviders={onlyThirdPartyProviders}
           i18n={i18n}
-          view={authView}
+          view={authView as "sign_in" | "sign_up"}
         />
       )}
       {!onlyThirdPartyProviders && children}
@@ -197,27 +197,33 @@ function Auth({
     setAuthView(view)
   }, [view])
 
+  const emailProp: Omit<EmailAuthProps, 'authView' | 'id'> = {
+    supabaseClient,
+    setAuthView,
+    defaultEmail,
+    defaultPassword,
+    setDefaultEmail,
+    setDefaultPassword,
+    redirectTo,
+    magicLink,
+    i18n,
+  }
+
   /**
    * View handler, displays the correct Auth view
    * all views are wrapped in <Container/>
    */
   switch (authView) {
     case VIEWS.SIGN_IN:
+      return (
+        <Container>
+          <EmailAuth {...emailProp} authView="sign_in" id="auth-sign-in" />
+        </Container>
+      )
     case VIEWS.SIGN_UP:
       return (
         <Container>
-          <EmailAuth
-            supabaseClient={supabaseClient}
-            authView={authView}
-            setAuthView={setAuthView}
-            defaultEmail={defaultEmail}
-            defaultPassword={defaultPassword}
-            setDefaultEmail={setDefaultEmail}
-            setDefaultPassword={setDefaultPassword}
-            redirectTo={redirectTo}
-            magicLink={magicLink}
-            i18n={i18n}
-          />
+          <EmailAuth {...emailProp} authView="sign_up" id="auth-sign-up" />
         </Container>
       )
     case VIEWS.FORGOTTEN_PASSWORD:
@@ -434,7 +440,7 @@ function EmailAuth({
       <Container direction="vertical" gap="large">
         <Container direction="vertical" gap="medium">
           <div>
-            <Label htmlFor="email">{i18n[authView].email_label}</Label>
+            <Label htmlFor="email">{i18n[authView]?.email_label}</Label>
             <Input
               autoFocus
               type="email"
@@ -447,7 +453,7 @@ function EmailAuth({
             />
           </div>
           <div>
-            <Label htmlFor="password">{i18n[authView].password_label}</Label>
+            <Label htmlFor="password">{i18n[authView]?.password_label}</Label>
             <Input
               type="password"
               name="password"
@@ -463,7 +469,7 @@ function EmailAuth({
         </Container>
 
         <Button type="submit" color="primary">
-          {i18n[authView].button_text}
+          {i18n[authView]?.button_text}
         </Button>
 
         <Container direction="vertical" gap="small">
@@ -475,7 +481,7 @@ function EmailAuth({
                 setAuthView(VIEWS.MAGIC_LINK)
               }}
             >
-              {i18n.magic_link.link_text}
+              {i18n.magic_link?.link_text}
             </Anchor>
           )}
           {authView === VIEWS.SIGN_IN && (
@@ -486,7 +492,7 @@ function EmailAuth({
                 setAuthView(VIEWS.FORGOTTEN_PASSWORD)
               }}
             >
-              {i18n.forgotten_password.link_text}
+              {i18n.forgotten_password?.link_text}
             </Anchor>
           )}
           {authView === VIEWS.SIGN_IN ? (
@@ -497,7 +503,7 @@ function EmailAuth({
                 handleViewChange(VIEWS.SIGN_UP)
               }}
             >
-              {i18n.sign_up.link_text}
+              {i18n.sign_up?.link_text}
             </Anchor>
           ) : (
             <Anchor
@@ -507,7 +513,7 @@ function EmailAuth({
                 handleViewChange(VIEWS.SIGN_IN)
               }}
             >
-              {i18n.sign_in.link_text}
+              {i18n.sign_in?.link_text}
             </Anchor>
           )}
         </Container>
