@@ -31,6 +31,18 @@ You can build all packages using the following command:
 pnpm build
 ```
 
+Or you can run build for the individual packages using the following command:
+
+```bash
+pnpm build:[dirname]
+```
+
+For react it would be
+
+```bash
+pnpm build:react
+```
+
 ### Change logs
 
 To generate a changelog entry, run the following command:
