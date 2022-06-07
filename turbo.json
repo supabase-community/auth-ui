@@ -1,12 +1,17 @@
 {
+  "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", ".svelte-kit/**"]
+      "outputs": ["dist/**", ".svelte-kit/**"]
     },
     "build:example": {
       "dependsOn": ["^build", "^build:example"],
-      "outputs": ["dist/**", ".next/**", ".svelte-kit/**"]
+      "outputs": ["dist/**", ".svelte-kit/**"]
+    },
+    "storybook": {
+      "dependsOn": ["^storybook"],
+      "outputs": ["dist/**", ".svelte-kit/**"]
     },
     "clean:all": {
       "dependsOn": ["^clean:all"],

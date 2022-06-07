@@ -33,6 +33,7 @@ yarn-error.log*
 # Distribution directories
 dist/
 package/
+storybook-static/
 
 # turbo
 .turbo

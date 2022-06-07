@@ -8,7 +8,6 @@ Auth UI is kept deliberatly seperate from @supabase/auth-helpers so that develop
 
 <img width="552" alt="Screenshot 2022-04-30 at 9 30 25 PM" src="https://user-images.githubusercontent.com/8291514/166107630-edb5190c-1d27-4757-8960-11ef14f87af1.png">
 
-
 ## Supported frameworks
 
 - React
@@ -24,25 +23,6 @@ Auth UI is kept deliberatly seperate from @supabase/auth-helpers so that develop
 
 ## Development
 
-React is crrently the only package
-
-Navigate to the react package
-
-```bash
-$ cd packages/react
-```
-
-Install packages
-(may need to run `npm install --legacy-peer-deps`)
-
-```bash
-$ npm install
-```
-
-Run storybook
-
-```bash
-$ npm run storybook
-```
+Read the [development.md](./development.md) for more information.
 
 Using a `@supabase/auth-ui-[framework-name]` naming convention for packages
