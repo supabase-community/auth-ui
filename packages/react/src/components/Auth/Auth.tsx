@@ -12,7 +12,7 @@ import {
 } from './../UI'
 
 import { UserContextProvider, useUser } from './UserContext'
-import * as SocialIcons from './Icons'
+
 import { createStitches, createTheme } from '@stitches/core'
 import * as defaultLocalization from './../../../../react/lib/Localization'
 import {
@@ -23,6 +23,9 @@ import {
   ViewsMap,
   CustomTheme,
 } from '../../types'
+import * as themes from './Theming'
+
+import { SocialAuth } from './index'
 
 const VIEWS: ViewsMap = {
   SIGN_IN: 'sign_in',
@@ -50,7 +53,7 @@ export interface Props {
   /**
    * setting the theme that the Auth components use
    */
-  theme?: string | 'default' | 'dark'
+  theme?: 'supabase' | 'minimal' // | 'flat' | 'minimal' | 'bubblegum'
   /**
    * this is for importing a custom theme
    */
@@ -68,19 +71,17 @@ export interface Props {
 
 function Auth({
   supabaseClient,
-  className,
   style,
   socialLayout = 'vertical',
-  socialColors = false,
-  socialButtonSize = 'medium',
   providers,
   view = 'sign_in',
   redirectTo,
   onlyThirdPartyProviders = false,
   magicLink = false,
-  theme,
+  theme = 'minimal',
+
   dark = false,
-  lang = 'en',
+  lang = 'ja',
 }: Props): JSX.Element | null {
   /**
    * Localization support
@@ -97,61 +98,10 @@ function Auth({
    * https://stitches.dev/docs/api#theme
    */
   createStitches({
-    theme: {
-      colors: {
-        brand: 'purple',
-        brandAccent: 'darkmagenta',
-        brandButtonText: 'white',
-
-        defaultButtonBackground: 'white',
-        defaultButtonBorder: 'lightgray',
-        defaultButtonText: 'gray',
-
-        dividerBackground: '#eaeaea',
-
-        inputBackground: 'transparent',
-        inputBorder: 'lightgray',
-        inputText: 'gray',
-        inputPlaceholder: 'darkgray',
-      },
-      space: {
-        small: '4px',
-        medium: '8px',
-        large: '16px',
-      },
-      fontSizes: {
-        baseInputSize: '14px',
-        baseLabelSize: '12px',
-      },
-      fonts: {},
-      fontWeights: {},
-      lineHeights: {},
-      letterSpacings: {},
-      sizes: {},
-      borderWidths: {},
-      borderStyles: {},
-      radii: {},
-      shadows: {},
-      zIndices: {},
-      transitions: {},
-    },
+    theme: themes[theme],
   })
 
-  const darkTheme = createTheme({
-    colors: {
-      brand: 'hsl(252 62% 55%)',
-      brandAccent: 'hsl(252 62% 45%)',
-      brandButtonText: 'white',
-      defaultButtonBackground: '#080808',
-      defaultButtonBorder: 'black',
-      defaultButtonText: 'white',
-      dividerBackground: 'black',
-      inputBackground: 'transparent',
-      inputBorder: 'gray',
-      inputText: 'white',
-      inputPlaceholder: 'darkgray',
-    },
-  })
+  const darkTheme = createTheme(themes.darkThemes[theme])
 
   const [authView, setAuthView] = useState(view)
   const [defaultEmail, setDefaultEmail] = useState('')
@@ -253,84 +203,6 @@ function Auth({
     default:
       return null
   }
-}
-
-interface SocialAuthProps {
-  supabaseClient: SupabaseClient
-  socialLayout: SocialLayout
-  providers?: Provider[]
-  redirectTo: RedirectTo
-  onlyThirdPartyProviders: boolean
-  view: 'sign_in' | 'sign_up'
-  i18n: Localization
-}
-
-function SocialAuth({
-  supabaseClient,
-  socialLayout = 'vertical',
-  providers,
-  redirectTo,
-  onlyThirdPartyProviders,
-  view,
-  i18n,
-}: SocialAuthProps) {
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
-
-  const verticalSocialLayout = socialLayout === 'vertical' ? true : false
-
-  const handleProviderSignIn = async (provider: Provider) => {
-    setLoading(true)
-    const { error } = await supabaseClient.auth.signIn(
-      { provider },
-      { redirectTo }
-    )
-    if (error) setError(error.message)
-    setLoading(false)
-  }
-
-  function capitalize(word: string) {
-    const lower = word.toLowerCase()
-    return word.charAt(0).toUpperCase() + lower.slice(1)
-  }
-
-  console.log('i18n', i18n[view])
-
-  return (
-    <>
-      {providers && providers.length > 0 && (
-        <React.Fragment>
-          <Container gap="large" direction="vertical">
-            <Container
-              direction={verticalSocialLayout ? 'vertical' : 'horizontal'}
-              gap={verticalSocialLayout ? 'small' : 'medium'}
-            >
-              {providers.map((provider: Provider) => {
-                // @ts-ignore
-                const AuthIcon = SocialIcons[provider]
-                return (
-                  <Button
-                    key={provider}
-                    color="default"
-                    icon={AuthIcon ? <AuthIcon /> : ''}
-                    // loading={loading}
-                    onClick={() => handleProviderSignIn(provider)}
-                    className="flex items-center"
-                  >
-                    {verticalSocialLayout &&
-                      i18n[view]?.social_provider_text +
-                        ' ' +
-                        capitalize(provider)}
-                  </Button>
-                )
-              })}
-            </Container>
-          </Container>
-          {!onlyThirdPartyProviders && <Divider />}
-        </React.Fragment>
-      )}
-    </>
-  )
 }
 
 interface EmailAuthProps {

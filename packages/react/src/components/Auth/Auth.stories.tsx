@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Auth } from './'
 import { createClient } from '@supabase/supabase-js'
 import { Button, Message } from '../UI'
+import { useDarkMode } from 'storybook-dark-mode'
 // @ts-ignore
 
 const supabase = createClient(
@@ -30,13 +31,16 @@ const Container = (props: any) => {
   )
 }
 
-export const Default = (args: any) => (
-  <Auth.UserContextProvider {...args}>
-    <Container {...args}>
-      <Auth {...args} />
-    </Container>
-  </Auth.UserContextProvider>
-)
+export const Default = (args: any) => {
+  return (
+    <Auth.UserContextProvider {...args}>
+      <Container {...args}>
+        <Auth {...args} useDarkMode={useDarkMode() ? true : false} />
+      </Container>
+    </Auth.UserContextProvider>
+  )
+}
+
 export const withSocialAuth = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>

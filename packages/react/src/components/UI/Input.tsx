@@ -8,7 +8,7 @@ const inputDefaultStyles = css({
   borderWidth: '1px',
   borderColor: '$inputBorder',
   borderStyle: 'solid',
-  fontSize: '$baseInput',
+  fontSize: '$baseInputSize',
   width: '100%',
   color: '$inputText',
   boxSizing: 'border-box',
