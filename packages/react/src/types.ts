@@ -82,3 +82,5 @@ export type CustomTheme = {
   zIndices: { [x: string]: string }
   transitions: { [x: string]: string }
 }[]
+
+export type RedirectTo = undefined | string
