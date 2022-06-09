@@ -1,10 +1,12 @@
 import { css } from '@stitches/core'
 
 const anchorHTMLAttributes = css({
+  fontFamily: '$bodyFontFamily',
   fontSize: '12px',
   marginBottom: '6px',
   color: 'darkgray',
   display: 'block',
+  textAlign: 'center',
   textDecoration: 'underline',
   '&:hover': {
     color: 'gray',

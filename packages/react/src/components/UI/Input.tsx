@@ -1,11 +1,12 @@
 import { css } from '@stitches/core'
 
 const inputDefaultStyles = css({
-  background: 'transparent',
-  borderRadius: '4px',
-  padding: '10px 15px',
+  fontFamily: '$inputFontFamily',
+  background: '$inputBackground',
+  borderRadius: '$inputBorderRadius',
+  padding: '$inputPadding',
   cursor: 'text',
-  borderWidth: '1px',
+  borderWidth: '$inputBorderWidth',
   borderColor: '$inputBorder',
   borderStyle: 'solid',
   fontSize: '$baseInputSize',
@@ -13,17 +14,20 @@ const inputDefaultStyles = css({
   color: '$inputText',
   boxSizing: 'border-box',
   '&:hover': {
-    borderColor: '$inputText',
+    borderColor: '$inputBorderHover',
     outline: 'none',
   },
   '&:focus': {
-    borderColor: '$inputText',
+    borderColor: '$inputBorderFocus',
     outline: 'none',
   },
   '&::placeholder': {
-    color: 'darkgray',
+    color: '$inputPlaceholder',
     letterSpacing: 'initial',
   },
+  transitionPproperty: 'background-color, border',
+  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  transitionDuration: '100ms',
   variants: {
     type: {
       default: {

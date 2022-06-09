@@ -110,7 +110,7 @@ function EmailAuth({
       style={{ width: '100%' }}
     >
       <Container direction="vertical" gap="large">
-        <Container direction="vertical" gap="medium">
+        <Container direction="vertical" gap="large">
           <div>
             <Label htmlFor="email">{i18n[authView].email_label}</Label>
             <Input

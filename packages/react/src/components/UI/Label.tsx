@@ -1,9 +1,10 @@
 import { css } from '@stitches/core'
 
 const labelDefaultStyles = css({
+  fontFamily: '$labelFontFamily',
   fontSize: '$baseLabelSize',
-  marginBottom: '$spaceLarge',
-  color: 'gray',
+  marginBottom: '$labelBottomMargin',
+  color: '$inputLabelText',
   display: 'block',
 })
 

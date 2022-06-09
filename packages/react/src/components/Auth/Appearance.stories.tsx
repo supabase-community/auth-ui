@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Auth } from './'
+import { Auth } from '.'
 import { createClient } from '@supabase/supabase-js'
 import { Button, Message } from '../UI'
 import { useDarkMode } from 'storybook-dark-mode'
@@ -11,7 +11,7 @@ const supabase = createClient(
 )
 
 export default {
-  title: 'Auth/Auth',
+  title: 'Auth/Apperanace',
   component: Auth,
 }
 

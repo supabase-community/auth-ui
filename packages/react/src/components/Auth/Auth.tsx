@@ -9,7 +9,7 @@ import {
   SocialLayout,
   ViewType,
 } from '../../types'
-import * as defaultLocalization from './../../../../react/lib/Localization'
+import * as defaultLocalization from '../../../common/lib/Localization'
 import { VIEWS } from './../../constants'
 import {
   EmailAuth,
@@ -18,7 +18,7 @@ import {
   SocialAuth,
   UpdatePassword,
 } from './interfaces'
-import * as themes from './Theming'
+import * as themes from '../../../common/theming/Themes'
 import { UserContextProvider, useUser } from './UserContext'
 
 export interface Props {
@@ -51,6 +51,7 @@ export interface Props {
    */
   localizationOverride?: Localization
   lang?: 'en' | 'ja' // es
+  appearance?: {}
 }
 
 function Auth({
@@ -62,9 +63,9 @@ function Auth({
   redirectTo,
   onlyThirdPartyProviders = false,
   magicLink = false,
-  theme = 'minimal',
-
-  dark = false,
+  theme = 'supabase',
+  appearance,
+  dark,
   lang = 'en',
 }: Props): JSX.Element | null {
   /**
@@ -142,6 +143,7 @@ function Auth({
         <Container>
           <EmailAuth
             supabaseClient={supabaseClient}
+            // @ts-expect-error
             authView={authView}
             setAuthView={setAuthView}
             defaultEmail={defaultEmail}

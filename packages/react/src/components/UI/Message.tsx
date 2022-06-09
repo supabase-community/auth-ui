@@ -1,17 +1,17 @@
 import { css } from '@stitches/core'
 
 const messageDefaultStyles = css({
-  fontSize: '12px',
-  marginBottom: '4px',
+  fontFamily: '$bodyFontFamily',
+  fontSize: '$baseBodySize',
+  marginBottom: '$labelBottomMargin',
   display: 'block',
-  color: 'gray',
   variants: {
     color: {
       default: {
-        color: 'gray',
+        color: '$messageText',
       },
       danger: {
-        color: 'red',
+        color: '$messageTextDanger',
       },
     },
   },
