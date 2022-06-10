@@ -27,24 +27,24 @@ export interface Localization {
     button_text?: string
     social_provider_text: string
     link_text?: string
+    link_text_return?: string
   }
   magic_link?: {
-    email_label?: string
-    password_label?: string
-    sign_up_button_text?: string
+    email_input_label?: string
+    email_input_placeholder?: string
+    button_label?: string
     link_text?: string
   }
   forgotten_password?: {
     email_label?: string
     password_label?: string
-    sign_up_button_text?: string
+    button_text?: string
     link_text?: string
   }
   update_password?: {
-    email_label?: string
     password_label?: string
-    sign_up_button_text?: string
-    link_text?: string
+    password_input_placeholder?: string
+    button_label?: string
   }
 }
 

@@ -75,6 +75,17 @@ const Container = (props: any) => {
  * [6] add inline style
  * [7] extendAppearance bool
  * [8] dark mode
+ * [9] localization
+ * [10] localization variables
+ *
+ * future:
+ *
+ * [1] phone auth support, OTP form
+ * [2] treeshake imports for individual views
+ * [3] prop for callback error support "onError", "onResponse", "onChange".
+ *      also support a 'hideMessages' prop
+ * [4] more inputs, username etc. maybe custom inputs
+ *
  */
 
 export const Default = (args: any) => {
@@ -85,6 +96,21 @@ export const Default = (args: any) => {
           dark={useDarkMode() ? true : false}
           supabaseClient={supabase}
           providers={['google', 'facebook']}
+          appearance={{
+            theme: 'supabase',
+            prependedClassName: 'jonnys-awesome-login',
+            variables: {
+              light: {
+                colors: {
+                  brand: 'red',
+                  brandAccent: 'darkred',
+                },
+              },
+            },
+          }}
+          localization={{
+            lang: 'ja',
+          }}
         />
       </Container>
     </Auth.UserContextProvider>

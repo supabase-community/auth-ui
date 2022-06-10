@@ -34,11 +34,11 @@ function UpdatePassword({
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
             <Label htmlFor="password" appearance={appearance}>
-              New password
+              {i18n?.update_password?.password_label}
             </Label>
             <Input
               name="password"
-              placeholder="Enter your new password"
+              placeholder={i18n?.update_password?.password_label}
               type="password"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
@@ -52,7 +52,7 @@ function UpdatePassword({
             loading={loading}
             appearance={appearance}
           >
-            Update password
+            {i18n?.update_password?.button_label}
           </Button>
         </Container>
         {message && <Message appearance={appearance}>{message}</Message>}

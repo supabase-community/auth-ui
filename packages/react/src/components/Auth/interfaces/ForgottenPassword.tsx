@@ -42,12 +42,11 @@ function ForgottenPassword({
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
             <Label htmlFor="email" appearance={appearance}>
-              Your email address
+              {i18n?.forgotten_password?.email_label}
             </Label>
             <Input
               name="email"
               type="email"
-              placeholder="Your email address"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
@@ -60,7 +59,7 @@ function ForgottenPassword({
             loading={loading}
             appearance={appearance}
           >
-            Send reset password instructions
+            {i18n?.forgotten_password?.button_text}
           </Button>
         </Container>
         <Anchor
@@ -71,7 +70,7 @@ function ForgottenPassword({
           }}
           appearance={appearance}
         >
-          Go back to sign in
+          {i18n?.sign_in?.link_text_return}
         </Anchor>
         {message && <Message appearance={appearance}>{message}</Message>}
         {error && (

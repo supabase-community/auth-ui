@@ -33,7 +33,7 @@ const VIEWS: ViewsMap = {
 }
 
 function EmailAuth({
-  authView,
+  authView = 'sign_in',
   defaultEmail,
   defaultPassword,
   id,
@@ -121,7 +121,7 @@ function EmailAuth({
         <Container direction="vertical" gap="large" appearance={appearance}>
           <div>
             <Label htmlFor="email" appearance={appearance}>
-              {i18n[authView].email_label}
+              {i18n?.[authView]?.email_label}
             </Label>
             <Input
               autoFocus
@@ -137,7 +137,7 @@ function EmailAuth({
           </div>
           <div>
             <Label htmlFor="password" appearance={appearance}>
-              {i18n[authView].password_label}
+              {i18n?.[authView]?.password_label}
             </Label>
             <Input
               type="password"
@@ -155,7 +155,7 @@ function EmailAuth({
         </Container>
 
         <Button type="submit" color="primary" appearance={appearance}>
-          {i18n[authView].button_text}
+          {i18n?.[authView]?.button_label}
         </Button>
 
         <Container direction="vertical" gap="small" appearance={appearance}>
@@ -168,7 +168,7 @@ function EmailAuth({
               }}
               appearance={appearance}
             >
-              {i18n.magic_link.link_text}
+              {i18n?.magic_link?.link_text}
             </Anchor>
           )}
           {authView === VIEWS.SIGN_IN && (
@@ -180,7 +180,7 @@ function EmailAuth({
               }}
               appearance={appearance}
             >
-              {i18n.forgotten_password.link_text}
+              {i18n?.forgotten_password?.link_text}
             </Anchor>
           )}
           {authView === VIEWS.SIGN_IN ? (
@@ -192,7 +192,7 @@ function EmailAuth({
               }}
               appearance={appearance}
             >
-              {i18n.sign_up.link_text}
+              {i18n?.sign_up?.link_text}
             </Anchor>
           ) : (
             <Anchor
@@ -203,7 +203,7 @@ function EmailAuth({
               }}
               appearance={appearance}
             >
-              {i18n.sign_in.link_text}
+              {i18n?.sign_in?.link_text}
             </Anchor>
           )}
         </Container>

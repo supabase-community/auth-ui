@@ -7,7 +7,6 @@ import { I18nVariables } from '../../../common/lib/Localization'
 import * as themes from '../../../common/theming/Themes'
 import {
   Appearance,
-  CustomTheme,
   Localization,
   RedirectTo,
   SocialLayout,
@@ -34,10 +33,7 @@ export interface Props {
   redirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
   magicLink?: boolean
-  /**
-   * this is for importing a custom theme
-   */
-  customTheme?: CustomTheme
+
   /**
    * This will toggle on the dark variation of the theme
    */

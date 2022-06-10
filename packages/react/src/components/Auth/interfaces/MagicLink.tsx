@@ -41,10 +41,12 @@ function MagicLink({
       <Container gap="large" direction="vertical" appearance={appearance}>
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
-            <Label appearance={appearance}>Email address</Label>
+            <Label appearance={appearance}>
+              {i18n?.magic_link?.email_input_label}
+            </Label>
             <Input
               type="email"
-              placeholder="Your email address"
+              placeholder={i18n?.magic_link?.email_input_placeholder}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
@@ -57,7 +59,7 @@ function MagicLink({
             loading={loading}
             appearance={appearance}
           >
-            Send magic link
+            {i18n?.magic_link?.button_label}
           </Button>
         </Container>
         <Anchor
@@ -68,7 +70,7 @@ function MagicLink({
           }}
           appearance={appearance}
         >
-          Sign in with password
+          {i18n?.magic_link?.sign_in_link}
         </Anchor>
         {message && <Message appearance={appearance}>{message}</Message>}
         {error && (
