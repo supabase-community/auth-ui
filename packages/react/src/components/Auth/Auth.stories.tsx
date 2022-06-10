@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { Auth } from './'
 import { createClient } from '@supabase/supabase-js'
-import { Button, Message } from '../UI'
+import { useState } from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
+import { Button, Message } from '../UI'
+import { Auth } from './'
 // @ts-ignore
 
 const supabase = createClient(

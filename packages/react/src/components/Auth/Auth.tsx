@@ -1,15 +1,18 @@
 import { createStitches, createTheme } from '@stitches/core'
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
+import merge from 'deepmerge'
 import React, { useEffect, useState } from 'react'
+import * as defaultLocalization from '../../../common/lib/Localization'
+import { I18nVariables } from '../../../common/lib/Localization'
+import * as themes from '../../../common/theming/Themes'
 import {
+  Appearance,
   CustomTheme,
   Localization,
   RedirectTo,
-  SocialButtonSize,
   SocialLayout,
   ViewType,
 } from '../../types'
-import * as defaultLocalization from '../../../common/lib/Localization'
 import { VIEWS } from './../../constants'
 import {
   EmailAuth,
@@ -18,26 +21,19 @@ import {
   SocialAuth,
   UpdatePassword,
 } from './interfaces'
-import * as themes from '../../../common/theming/Themes'
 import { UserContextProvider, useUser } from './UserContext'
 
 export interface Props {
   supabaseClient: SupabaseClient
-  className?: string
   children?: React.ReactNode
-  style?: React.CSSProperties
+  // className?: string
+  // style?: React.CSSProperties
   socialLayout?: SocialLayout
-  socialColors?: boolean
-  socialButtonSize?: SocialButtonSize
   providers?: Provider[]
   view?: ViewType
   redirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
   magicLink?: boolean
-  /**
-   * setting the theme that the Auth components use
-   */
-  theme?: 'supabase' | 'minimal' // | 'flat' | 'minimal' | 'bubblegum'
   /**
    * this is for importing a custom theme
    */
@@ -49,29 +45,36 @@ export interface Props {
   /**
    * Override the labels and button text
    */
-  localizationOverride?: Localization
-  lang?: 'en' | 'ja' // es
-  appearance?: {}
+  localization?: {
+    lang?: 'en' | 'ja' // es
+    variables?: I18nVariables
+  }
+  appearance?: Appearance
 }
 
 function Auth({
   supabaseClient,
-  style,
+  // style,
   socialLayout = 'vertical',
   providers,
   view = 'sign_in',
   redirectTo,
   onlyThirdPartyProviders = false,
   magicLink = false,
-  theme = 'supabase',
-  appearance,
+  appearance = { theme: 'supabase' },
   dark,
-  lang = 'en',
+  localization = { lang: 'en' },
 }: Props): JSX.Element | null {
+  // const merge = require('deepmerge')
+
   /**
    * Localization support
    */
-  const i18n: Localization = defaultLocalization[lang]
+
+  const i18n: Localization = merge(
+    defaultLocalization[localization.lang ?? 'en'],
+    localization.variables ?? {}
+  )
 
   /**
    * Create default theme
@@ -83,10 +86,21 @@ function Auth({
    * https://stitches.dev/docs/api#theme
    */
   createStitches({
-    theme: themes[theme],
+    theme: merge(
+      themes[appearance.theme ?? 'supabase'],
+      appearance.variables?.light ?? {}
+    ),
   })
 
-  const darkTheme = createTheme(themes.darkThemes[theme])
+  /**
+   * merge theme variables with for dark theme
+   */
+  const darkTheme = createTheme(
+    merge(
+      themes.darkThemes[appearance.theme ?? 'supabase'],
+      appearance.variables?.dark ?? {}
+    )
+  )
 
   const [authView, setAuthView] = useState(view)
   const [defaultEmail, setDefaultEmail] = useState('')
@@ -112,6 +126,7 @@ function Auth({
     <div className={dark ? darkTheme : ''}>
       {SignView && (
         <SocialAuth
+          appearance={appearance}
           supabaseClient={supabaseClient}
           providers={providers}
           socialLayout={socialLayout}
@@ -142,6 +157,7 @@ function Auth({
       return (
         <Container>
           <EmailAuth
+            appearance={appearance}
             supabaseClient={supabaseClient}
             // @ts-expect-error
             authView={authView}
@@ -160,6 +176,7 @@ function Auth({
       return (
         <Container>
           <ForgottenPassword
+            appearance={appearance}
             supabaseClient={supabaseClient}
             setAuthView={setAuthView}
             redirectTo={redirectTo}
@@ -172,6 +189,7 @@ function Auth({
       return (
         <Container>
           <MagicLink
+            appearance={appearance}
             supabaseClient={supabaseClient}
             setAuthView={setAuthView}
             redirectTo={redirectTo}
@@ -183,7 +201,11 @@ function Auth({
     case VIEWS.UPDATE_PASSWORD:
       return (
         <Container>
-          <UpdatePassword supabaseClient={supabaseClient} i18n={i18n} />
+          <UpdatePassword
+            appearance={appearance}
+            supabaseClient={supabaseClient}
+            i18n={i18n}
+          />
         </Container>
       )
     default:

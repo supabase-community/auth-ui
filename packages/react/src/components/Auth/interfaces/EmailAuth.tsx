@@ -1,6 +1,12 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useEffect, useRef, useState } from 'react'
-import { Localization, RedirectTo, ViewsMap, ViewType } from './../../../types'
+import {
+  Appearance,
+  Localization,
+  RedirectTo,
+  ViewsMap,
+  ViewType,
+} from './../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
 interface EmailAuthProps {
@@ -15,6 +21,7 @@ interface EmailAuthProps {
   redirectTo?: RedirectTo
   magicLink?: boolean
   i18n: Localization
+  appearance?: Appearance
 }
 
 const VIEWS: ViewsMap = {
@@ -37,6 +44,7 @@ function EmailAuth({
   redirectTo,
   magicLink,
   i18n,
+  appearance,
 }: EmailAuthProps) {
   const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState(defaultEmail)
@@ -109,10 +117,12 @@ function EmailAuth({
       autoComplete={'on'}
       style={{ width: '100%' }}
     >
-      <Container direction="vertical" gap="large">
-        <Container direction="vertical" gap="large">
+      <Container direction="vertical" gap="large" appearance={appearance}>
+        <Container direction="vertical" gap="large" appearance={appearance}>
           <div>
-            <Label htmlFor="email">{i18n[authView].email_label}</Label>
+            <Label htmlFor="email" appearance={appearance}>
+              {i18n[authView].email_label}
+            </Label>
             <Input
               autoFocus
               type="email"
@@ -122,10 +132,13 @@ function EmailAuth({
                 setEmail(e.target.value)
               }
               autoComplete="email"
+              appearance={appearance}
             />
           </div>
           <div>
-            <Label htmlFor="password">{i18n[authView].password_label}</Label>
+            <Label htmlFor="password" appearance={appearance}>
+              {i18n[authView].password_label}
+            </Label>
             <Input
               type="password"
               name="password"
@@ -136,15 +149,16 @@ function EmailAuth({
               autoComplete={
                 authView === 'sign_in' ? 'current-password' : 'new-password'
               }
+              appearance={appearance}
             />
           </div>
         </Container>
 
-        <Button type="submit" color="primary">
+        <Button type="submit" color="primary" appearance={appearance}>
           {i18n[authView].button_text}
         </Button>
 
-        <Container direction="vertical" gap="small">
+        <Container direction="vertical" gap="small" appearance={appearance}>
           {authView === VIEWS.SIGN_IN && magicLink && (
             <Anchor
               href="#auth-magic-link"
@@ -152,6 +166,7 @@ function EmailAuth({
                 e.preventDefault()
                 setAuthView(VIEWS.MAGIC_LINK)
               }}
+              appearance={appearance}
             >
               {i18n.magic_link.link_text}
             </Anchor>
@@ -163,6 +178,7 @@ function EmailAuth({
                 e.preventDefault()
                 setAuthView(VIEWS.FORGOTTEN_PASSWORD)
               }}
+              appearance={appearance}
             >
               {i18n.forgotten_password.link_text}
             </Anchor>
@@ -174,6 +190,7 @@ function EmailAuth({
                 e.preventDefault()
                 handleViewChange(VIEWS.SIGN_UP)
               }}
+              appearance={appearance}
             >
               {i18n.sign_up.link_text}
             </Anchor>
@@ -184,14 +201,19 @@ function EmailAuth({
                 e.preventDefault()
                 handleViewChange(VIEWS.SIGN_IN)
               }}
+              appearance={appearance}
             >
               {i18n.sign_in.link_text}
             </Anchor>
           )}
         </Container>
       </Container>
-      {message && <Message>{message}</Message>}
-      {error && <Message color="danger">{error}</Message>}
+      {message && <Message appearance={appearance}>{message}</Message>}
+      {error && (
+        <Message color="danger" appearance={appearance}>
+          {error}
+        </Message>
+      )}
     </form>
   )
 }

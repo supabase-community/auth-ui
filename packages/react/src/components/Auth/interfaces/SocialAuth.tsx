@@ -1,6 +1,6 @@
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import { useState } from 'react'
-import { Localization, SocialLayout } from '../../../types'
+import { Appearance, Localization, SocialLayout } from '../../../types'
 import { Button, Container, Divider } from './../../UI'
 import * as SocialIcons from './../Icons'
 
@@ -12,6 +12,7 @@ interface SocialAuthProps {
   onlyThirdPartyProviders: boolean
   view: 'sign_in' | 'sign_up'
   i18n: Localization
+  appearance?: Appearance
 }
 
 type RedirectTo = undefined | string
@@ -24,6 +25,7 @@ function SocialAuth({
   onlyThirdPartyProviders,
   view,
   i18n,
+  appearance,
 }: SocialAuthProps) {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
@@ -45,28 +47,26 @@ function SocialAuth({
     return word.charAt(0).toUpperCase() + lower.slice(1)
   }
 
-  console.log('i18n', i18n[view])
-
   return (
     <>
       {providers && providers.length > 0 && (
         <>
-          <Container gap="large" direction="vertical">
+          <Container gap="large" direction="vertical" appearance={appearance}>
             <Container
               direction={verticalSocialLayout ? 'vertical' : 'horizontal'}
               gap={verticalSocialLayout ? 'small' : 'medium'}
+              appearance={appearance}
             >
               {providers.map((provider: Provider) => {
-                // @ts-ignore
                 const AuthIcon = SocialIcons[provider]
                 return (
                   <Button
                     key={provider}
                     color="default"
                     icon={AuthIcon ? <AuthIcon /> : ''}
-                    // loading={loading}
+                    loading={loading}
                     onClick={() => handleProviderSignIn(provider)}
-                    className="flex items-center"
+                    appearance={appearance}
                   >
                     {verticalSocialLayout &&
                       i18n[view]?.social_provider_text +
@@ -77,7 +77,7 @@ function SocialAuth({
               })}
             </Container>
           </Container>
-          {!onlyThirdPartyProviders && <Divider />}
+          {!onlyThirdPartyProviders && <Divider appearance={appearance} />}
         </>
       )}
     </>

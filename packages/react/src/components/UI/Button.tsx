@@ -1,6 +1,6 @@
 import { css } from '@stitches/core'
-// import { styled } from '@stitches/react'
-// import { AuthProviders } from '../../types'
+import { generateClassNames } from '../../../common/theming'
+import { Appearance } from '../../types'
 
 const buttonDefaultStyles = css({
   fontFamily: '$buttonFontFamily',
@@ -47,15 +47,29 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode
   color?: 'default' | 'primary'
   loading?: boolean
+  appearance?: Appearance
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   color = 'default',
+  appearance,
   ...props
 }) => {
+  const classNames = generateClassNames(
+    'button',
+    buttonDefaultStyles({ color: color }),
+    appearance
+  )
+
+  console.log(classNames)
+
   return (
-    <button {...props} className={buttonDefaultStyles({ color: color })}>
+    <button
+      {...props}
+      style={appearance?.style?.button}
+      className={classNames.join(' ')}
+    >
       {props.icon}
       {children}
     </button>

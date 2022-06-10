@@ -8,10 +8,15 @@
  * https://stitches.dev/docs/api#theme
  */
 
-const supabase = {
+import { ThemeVariables } from './Types'
+
+// brand: 'hsl(252 62% 55%)',
+// brandAccent: 'hsl(252 62% 45%)',
+
+const supabase: ThemeVariables = {
   colors: {
-    brand: 'hsl(252 62% 55%)',
-    brandAccent: 'hsl(252 62% 45%)',
+    brand: 'hsl(153 60.0% 53.0%)',
+    brandAccent: 'hsl(154 54.8% 45.1%)',
     brandButtonText: 'white',
     defaultButtonBackground: 'white',
     defaultButtonBackgroundHover: '#eaeaea',
@@ -27,19 +32,22 @@ const supabase = {
     inputPlaceholder: 'darkgray',
     messageText: 'gray',
     messageTextDanger: 'red',
+    anchorTextColor: 'gray',
+    anchorTextHoverColor: 'darkgray',
   },
   space: {
     spaceSmall: '4px',
     spaceMedium: '8px',
     spaceLarge: '16px',
     labelBottomMargin: '8px',
+    anchorBottomMargin: '4px',
     emailInputSpacing: '4px',
     socialAuthSpacing: '4px',
     buttonPadding: '10px 15px',
     inputPadding: '10px 15px',
   },
   fontSizes: {
-    baseBodySize: '14px',
+    baseBodySize: '13px',
     baseInputSize: '14px',
     baseLabelSize: '14px',
     baseButtonSize: '14px',
@@ -50,26 +58,26 @@ const supabase = {
     inputFontFamily: `ui-sans-serif, sans-serif`,
     labelFontFamily: `ui-sans-serif, sans-serif`,
   },
-  fontWeights: {},
-  lineHeights: {},
-  letterSpacings: {},
-  sizes: {},
+  // fontWeights: {},
+  // lineHeights: {},
+  // letterSpacings: {},
+  // sizes: {},
   borderWidths: {
     buttonBorderWidth: '1px',
     inputBorderWidth: '1px',
   },
-  borderStyles: {},
+  // borderStyles: {},
   radii: {
     borderRadiusButton: '4px',
     buttonBorderRadius: '4px',
     inputBorderRadius: '4px',
   },
-  shadows: {},
-  zIndices: {},
-  transitions: {},
+  // shadows: {},
+  // zIndices: {},
+  // transitions: {},
 }
 
-const defaultDarkTheme = {
+const defaultDarkTheme: ThemeVariables = {
   colors: {
     brandButtonText: 'white',
     defaultButtonBackground: '#2e2e2e',
@@ -86,7 +94,7 @@ const defaultDarkTheme = {
   },
 }
 
-const minimal = {
+const minimal: ThemeVariables = {
   colors: {
     brand: 'black',
     brandAccent: '#333333',
@@ -114,21 +122,21 @@ const minimal = {
     inputFontFamily: '',
     buttonFontFamily: '',
     labelFontFamily: '',
-    linkFontFamily: '',
+    // linkFontFamily: '',
   },
-  fontWeights: {},
-  lineHeights: {},
-  letterSpacings: {},
-  sizes: {},
+  // fontWeights: {},
+  // lineHeights: {},
+  // letterSpacings: {},
+  // sizes: {},
   borderWidths: {},
-  borderStyles: {},
+  // borderStyles: {},
   radii: {},
-  shadows: {},
-  zIndices: {},
-  transitions: {},
+  // shadows: {},
+  // zIndices: {},
+  // transitions: {},
 }
 
-const minimalDark = {
+const minimalDark: ThemeVariables = {
   colors: {
     brand: 'white',
     brandAccent: '#afafaf',

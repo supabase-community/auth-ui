@@ -1,4 +1,6 @@
 import { css } from '@stitches/core'
+import { generateClassNames } from '../../../common/theming'
+import { Appearance } from '../../types'
 
 const messageDefaultStyles = css({
   fontFamily: '$bodyFontFamily',
@@ -20,11 +22,26 @@ const messageDefaultStyles = css({
 interface MessageProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode
   color?: 'default' | 'danger'
+  appearance?: Appearance
 }
 
-const Message: React.FC<MessageProps> = ({ children, ...props }) => {
+const Message: React.FC<MessageProps> = ({
+  children,
+  appearance,
+  ...props
+}) => {
+  const classNames = generateClassNames(
+    'message',
+    messageDefaultStyles({ color: props.color }),
+    appearance
+  )
+
   return (
-    <span {...props} className={messageDefaultStyles({ color: props.color })}>
+    <span
+      {...props}
+      style={appearance?.style?.message}
+      className={classNames.join(' ')}
+    >
       {children}
     </span>
   )

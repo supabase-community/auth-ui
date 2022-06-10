@@ -1,9 +1,11 @@
 import { css } from '@stitches/core'
+import { generateClassNames } from '../../../common/theming'
+import { CLASS_NAMES, PREPENDED_CLASS_NAMES } from '../../constants'
+import { Appearance } from '../../types'
 
 const containerDefaultStyles = css({
   display: 'flex',
   gap: '4px',
-
   variants: {
     direction: {
       horizontal: {
@@ -34,16 +36,28 @@ export interface ContainerProps
   children: React.ReactNode
   direction?: 'horizontal' | 'vertical'
   gap?: 'small' | 'medium' | 'large'
+  appearance?: Appearance
 }
 
-const Container: React.FC<ContainerProps> = ({ children, ...props }) => {
+const Container: React.FC<ContainerProps> = ({
+  children,
+  appearance,
+  ...props
+}) => {
+  const classNames = generateClassNames(
+    'container',
+    containerDefaultStyles({
+      direction: props.direction,
+      gap: props.gap,
+    }),
+    appearance
+  )
+
   return (
     <div
       {...props}
-      className={containerDefaultStyles({
-        direction: props.direction,
-        gap: props.gap,
-      })}
+      style={appearance?.style?.container}
+      className={classNames.join(' ')}
     >
       {children}
     </div>

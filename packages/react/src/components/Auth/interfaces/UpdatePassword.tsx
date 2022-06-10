@@ -1,14 +1,16 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
-import { Localization } from '../../../types'
+import { Appearance, Localization } from '../../../types'
 import { Button, Container, Input, Label, Message } from './../../UI'
 
 function UpdatePassword({
   supabaseClient,
   i18n,
+  appearance,
 }: {
   supabaseClient: SupabaseClient
   i18n: Localization
+  appearance: Appearance
 }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -28,10 +30,12 @@ function UpdatePassword({
 
   return (
     <form id="auth-update-password" onSubmit={handlePasswordReset}>
-      <Container gap="large" direction={'vertical'}>
-        <Container gap="large" direction="vertical">
+      <Container gap="large" direction={'vertical'} appearance={appearance}>
+        <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
-            <Label htmlFor="password">New password</Label>
+            <Label htmlFor="password" appearance={appearance}>
+              New password
+            </Label>
             <Input
               name="password"
               placeholder="Enter your new password"
@@ -39,14 +43,24 @@ function UpdatePassword({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }
+              appearance={appearance}
             />
           </div>
-          <Button type="submit" color="primary" loading={loading}>
+          <Button
+            type="submit"
+            color="primary"
+            loading={loading}
+            appearance={appearance}
+          >
             Update password
           </Button>
         </Container>
-        {message && <Message>{message}</Message>}
-        {error && <Message color="danger">{error}</Message>}
+        {message && <Message appearance={appearance}>{message}</Message>}
+        {error && (
+          <Message color="danger" appearance={appearance}>
+            {error}
+          </Message>
+        )}
       </Container>
     </form>
   )

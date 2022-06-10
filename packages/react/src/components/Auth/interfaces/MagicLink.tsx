@@ -1,6 +1,7 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
-import { Localization, RedirectTo } from '../../../types'
+import { VIEWS } from '../../../constants'
+import { Appearance, Localization, RedirectTo } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
 function MagicLink({
@@ -8,11 +9,13 @@ function MagicLink({
   supabaseClient,
   redirectTo,
   i18n,
+  appearance,
 }: {
   setAuthView: any
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
   i18n: Localization
+  appearance: Appearance
 }) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -35,19 +38,25 @@ function MagicLink({
 
   return (
     <form id="auth-magic-link" onSubmit={handleMagicLinkSignIn}>
-      <Container gap="large" direction="vertical">
-        <Container gap="large" direction="vertical">
+      <Container gap="large" direction="vertical" appearance={appearance}>
+        <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
-            <Label>Email address</Label>
+            <Label appearance={appearance}>Email address</Label>
             <Input
               type="email"
               placeholder="Your email address"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
+              appearance={appearance}
             />
           </div>
-          <Button color="primary" type="submit" loading={loading}>
+          <Button
+            color="primary"
+            type="submit"
+            loading={loading}
+            appearance={appearance}
+          >
             Send magic link
           </Button>
         </Container>
@@ -57,11 +66,16 @@ function MagicLink({
             e.preventDefault()
             setAuthView(VIEWS.SIGN_IN)
           }}
+          appearance={appearance}
         >
           Sign in with password
         </Anchor>
-        {message && <Message>{message}</Message>}
-        {error && <Message color="danger">{error}</Message>}
+        {message && <Message appearance={appearance}>{message}</Message>}
+        {error && (
+          <Message color="danger" appearance={appearance}>
+            {error}
+          </Message>
+        )}
       </Container>
     </form>
   )

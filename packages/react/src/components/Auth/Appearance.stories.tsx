@@ -1,9 +1,8 @@
-import React, { useState } from 'react'
-import { Auth } from '.'
+import { css } from '@stitches/core'
 import { createClient } from '@supabase/supabase-js'
-import { Button, Message } from '../UI'
 import { useDarkMode } from 'storybook-dark-mode'
-// @ts-ignore
+import { Auth } from '.'
+import { Button, Message } from '../UI'
 
 const supabase = createClient(
   'https://rsnibhkhsbfnncjmwnkj.supabase.co',
@@ -14,6 +13,41 @@ export default {
   title: 'Auth/Apperanace',
   component: Auth,
 }
+
+const myButtonStyles = css({
+  fontFamily: 'arial',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '8px',
+  fontSize: '16px',
+  padding: '8px 4px',
+  cursor: 'pointer',
+  borderWidth: '2px',
+  borderStyle: 'solid',
+  width: '100%',
+
+  transitionPproperty: 'background-color',
+  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  transitionDuration: '100ms',
+
+  variants: {
+    color: {
+      default: {
+        backgroundColor: 'black',
+        color: 'white',
+      },
+      primary: {
+        backgroundColor: 'black',
+        color: 'white',
+        borderColor: 'black',
+        '&:hover': {
+          backgroundColor: 'darkgray',
+        },
+      },
+    },
+  },
+})
 
 const Container = (props: any) => {
   const { user } = Auth.useUser()
@@ -31,207 +65,30 @@ const Container = (props: any) => {
   )
 }
 
+/**
+ *
+ * [1] global themes
+ * [2] dark mode
+ * [3] extend appearance
+ * [4] prepend css class name
+ * [5] extend css class
+ * [6] add inline style
+ * [7] extendAppearance bool
+ * [8] dark mode
+ */
+
 export const Default = (args: any) => {
   return (
-    <Auth.UserContextProvider {...args}>
-      <Container {...args}>
-        <Auth {...args} dark={useDarkMode() ? true : false} />
+    <Auth.UserContextProvider supabaseClient={supabase}>
+      <Container>
+        <Auth
+          dark={useDarkMode() ? true : false}
+          supabaseClient={supabase}
+          providers={['google', 'facebook']}
+        />
       </Container>
     </Auth.UserContextProvider>
   )
 }
 
-export const withSocialAuth = (args: any) => (
-  <Auth.UserContextProvider {...args}>
-    <Container {...args}>
-      <Auth {...args} dark={useDarkMode() ? true : false} />
-    </Container>
-  </Auth.UserContextProvider>
-)
-export const withAllSocialAuth = (args: any) => (
-  <Auth.UserContextProvider {...args}>
-    <Container {...args}>
-      <Auth
-        dark={useDarkMode() ? true : false}
-        {...args}
-        providers={[
-          'apple',
-          'azure',
-          'bitbucket',
-          'discord',
-          'facebook',
-          'github',
-          'gitlab',
-          'google',
-          'keycloak',
-          'linkedin',
-          'notion',
-          'slack',
-          'spotify',
-          'twitch',
-          'twitter',
-          'workos',
-        ]}
-      />
-    </Container>
-  </Auth.UserContextProvider>
-)
-export const withSocialLargeButtons = (args: any) => (
-  <Auth.UserContextProvider {...args}>
-    <Container {...args}>
-      <Auth {...args} dark={useDarkMode() ? true : false} />
-    </Container>
-  </Auth.UserContextProvider>
-)
-export const withColouredSocialAuth = (args: any) => (
-  <Auth.UserContextProvider {...args}>
-    <Container {...args}>
-      <Auth {...args} dark={useDarkMode() ? true : false} />
-    </Container>
-  </Auth.UserContextProvider>
-)
-export const withSocialAuthHorizontal = (args: any) => (
-  <Auth.UserContextProvider {...args}>
-    <Container {...args}>
-      <Auth {...args} dark={useDarkMode() ? true : false} />
-    </Container>
-  </Auth.UserContextProvider>
-)
-export const updatePassword = (args: any) => (
-  <Container {...args}>
-    <Auth.UpdatePassword {...args} dark={useDarkMode() ? true : false} />
-  </Container>
-)
-
-export const magicLink = (args: any) => (
-  <Container {...args}>
-    <Auth.MagicLink {...args} dark={useDarkMode() ? true : false} />
-  </Container>
-)
-
-export const ChangeViewState = (args: any) => {
-  const [view, setView] = useState<
-    'sign_in' | 'sign_up' | 'forgotten_password' | 'magic_link'
-  >('sign_in')
-
-  return (
-    <div>
-      <div>
-        <button
-          style={{
-            background: view === 'sign_up' ? 'white' : '',
-            cursor: 'pointer',
-          }}
-          onClick={() => setView('sign_up')}
-        >
-          Sign up
-        </button>
-        <button
-          style={{
-            background: view === 'sign_in' ? 'white' : '',
-            cursor: 'pointer',
-          }}
-          onClick={() => setView('sign_in')}
-        >
-          Sign in
-        </button>
-        <button
-          style={{
-            background: view === 'forgotten_password' ? 'white' : '',
-            cursor: 'pointer',
-          }}
-          onClick={() => setView('forgotten_password')}
-        >
-          Forgotten password
-        </button>
-        <button
-          style={{
-            background: view === 'magic_link' ? 'white' : '',
-            cursor: 'pointer',
-          }}
-          onClick={() => setView('magic_link')}
-        >
-          Magic link
-        </button>
-      </div>
-      <Auth.UserContextProvider supabaseClient={supabase}>
-        <Container supabaseClient={supabase}>
-          <Auth supabaseClient={supabase} view={view} />
-        </Container>
-      </Auth.UserContextProvider>
-    </div>
-  )
-}
-
-Default.args = {
-  supabaseClient: supabase,
-}
-
-withSocialAuth.args = {
-  supabaseClient: supabase,
-  providers: ['facebook', 'google'],
-}
-
-withAllSocialAuth.args = {
-  supabaseClient: supabase,
-  providers: [
-    'apple',
-    'azure',
-    'bitbucket',
-    'discord',
-    'facebook',
-    'github',
-    'gitlab',
-    'google',
-    'twitch',
-    'twitter',
-  ],
-}
-
-withSocialLargeButtons.args = {
-  supabaseClient: supabase,
-  providers: [
-    'apple',
-    'azure',
-    'bitbucket',
-    'discord',
-    'facebook',
-    'github',
-    'gitlab',
-    'google',
-    'twitch',
-    'twitter',
-  ],
-  socialButtonSize: 'large',
-}
-
-withColouredSocialAuth.args = {
-  supabaseClient: supabase,
-  socialColors: true,
-  providers: [
-    'apple',
-    'azure',
-    'bitbucket',
-    'discord',
-    'facebook',
-    'github',
-    'gitlab',
-    'google',
-    'twitch',
-    'twitter',
-  ],
-}
-
-withSocialAuthHorizontal.args = {
-  supabaseClient: supabase,
-  providers: ['facebook', 'google'],
-  socialLayout: 'horizontal',
-}
-
-updatePassword.args = {
-  supabaseClient: supabase,
-}
-
-magicLink.args = {
-  supabaseClient: supabase,
-}
+Default.args = {}

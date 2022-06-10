@@ -1,6 +1,6 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
-import { Localization, RedirectTo } from '../../../types'
+import { Appearance, Localization, RedirectTo } from '../../../types'
 import { VIEWS } from './../../../constants'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
@@ -9,11 +9,13 @@ function ForgottenPassword({
   supabaseClient,
   redirectTo,
   i18n,
+  appearance,
 }: {
   setAuthView: any
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
   i18n: Localization
+  appearance?: Appearance
 }) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -36,10 +38,12 @@ function ForgottenPassword({
 
   return (
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
-      <Container gap="large" direction="vertical">
-        <Container gap="large" direction="vertical">
+      <Container gap="large" direction="vertical" appearance={appearance}>
+        <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
-            <Label htmlFor="email">Your email address</Label>
+            <Label htmlFor="email" appearance={appearance}>
+              Your email address
+            </Label>
             <Input
               name="email"
               type="email"
@@ -47,9 +51,15 @@ function ForgottenPassword({
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
+              appearance={appearance}
             />
           </div>
-          <Button type="submit" color="primary" loading={loading}>
+          <Button
+            type="submit"
+            color="primary"
+            loading={loading}
+            appearance={appearance}
+          >
             Send reset password instructions
           </Button>
         </Container>
@@ -59,11 +69,16 @@ function ForgottenPassword({
             e.preventDefault()
             setAuthView(VIEWS.SIGN_IN)
           }}
+          appearance={appearance}
         >
           Go back to sign in
         </Anchor>
-        {message && <Message>{message}</Message>}
-        {error && <Message color="danger">{error}</Message>}
+        {message && <Message appearance={appearance}>{message}</Message>}
+        {error && (
+          <Message color="danger" appearance={appearance}>
+            {error}
+          </Message>
+        )}
       </Container>
     </form>
   )

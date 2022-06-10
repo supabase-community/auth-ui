@@ -1,4 +1,6 @@
 import { css } from '@stitches/core'
+import { generateClassNames } from '../../../common/theming'
+import { Appearance } from '../../types'
 
 const inputDefaultStyles = css({
   fontFamily: '$inputFontFamily',
@@ -43,15 +45,23 @@ const inputDefaultStyles = css({
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   children?: React.ReactNode
   type: 'text' | 'password' | 'email'
+  appearance?: Appearance
 }
 
-const Input: React.FC<InputProps> = ({ children, ...props }) => {
+const Input: React.FC<InputProps> = ({ children, appearance, ...props }) => {
+  const classNames = generateClassNames(
+    'input',
+    inputDefaultStyles({
+      type: props.type === 'password' ? 'password' : 'default',
+    }),
+    appearance
+  )
+
   return (
     <input
       {...props}
-      className={inputDefaultStyles({
-        type: props.type === 'password' ? 'password' : 'default',
-      })}
+      style={appearance?.style?.input}
+      className={classNames.join(' ')}
     >
       {children}
     </input>
