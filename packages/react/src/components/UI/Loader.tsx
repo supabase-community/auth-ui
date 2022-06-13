@@ -1,4 +1,6 @@
 import { css } from '@stitches/core'
+import { generateClassNames } from '../../../common/theming'
+import { Appearance } from '../../types'
 
 const loaderDefaultStyles = css({
   borderRadius: '50%',
@@ -48,8 +50,24 @@ const loaderDefaultStyles = css({
   // }
 })
 
-function Loader() {
-  return <div className={loaderDefaultStyles()}></div>
+export interface LoaderProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
+  appearance?: Appearance
+}
+
+function Loader({ appearance, ...props }: LoaderProps) {
+  const classNames = generateClassNames(
+    'loader',
+    loaderDefaultStyles(),
+    appearance
+  )
+
+  return (
+    <div
+      {...props}
+      style={appearance?.style?.loader}
+      className={classNames.join(' ')}
+    ></div>
+  )
 }
 
 export { Loader }

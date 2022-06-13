@@ -1,23 +1,38 @@
 import { css } from '@stitches/core'
+import { generateClassNames } from '../../../common/theming'
+import { Appearance } from '../../types'
 
 const anchorHTMLAttributes = css({
-  fontSize: '12px',
-  marginBottom: '6px',
-  color: 'darkgray',
+  fontFamily: '$bodyFontFamily',
+  fontSize: '$baseBodySize',
+  marginBottom: '$anchorBottomMargin',
+  color: '$anchorTextColor',
   display: 'block',
+  textAlign: 'center',
   textDecoration: 'underline',
   '&:hover': {
-    color: 'gray',
+    color: '$anchorTextHoverColor',
   },
 })
 
 interface LabelProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
   children: React.ReactNode
+  appearance?: Appearance
 }
 
-const Anchor: React.FC<LabelProps> = ({ children, ...props }) => {
+const Anchor: React.FC<LabelProps> = ({ children, appearance, ...props }) => {
+  const classNames = generateClassNames(
+    'anchor',
+    anchorHTMLAttributes(),
+    appearance
+  )
+
   return (
-    <a {...props} className={anchorHTMLAttributes()}>
+    <a
+      {...props}
+      style={appearance?.style?.anchor}
+      className={classNames.join(' ')}
+    >
       {children}
     </a>
   )

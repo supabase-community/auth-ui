@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
-import { Auth } from './'
 import { createClient } from '@supabase/supabase-js'
+import { useState } from 'react'
+import { useDarkMode } from 'storybook-dark-mode'
 import { Button, Message } from '../UI'
+import { Auth } from './'
 // @ts-ignore
 
 const supabase = createClient(
@@ -26,21 +27,26 @@ const Container = (props: any) => {
       </>
     )
   return (
-    <div style={{ maxWidth: '320px', margin: 'auto' }}>{props.children}</div>
+    <div style={{ maxWidth: '320px', margin: 'auto', marginTop: '64px' }}>
+      {props.children}
+    </div>
   )
 }
 
-export const Default = (args: any) => (
-  <Auth.UserContextProvider {...args}>
-    <Container {...args}>
-      <Auth {...args} />
-    </Container>
-  </Auth.UserContextProvider>
-)
+export const Default = (args: any) => {
+  return (
+    <Auth.UserContextProvider {...args}>
+      <Container {...args}>
+        <Auth {...args} dark={useDarkMode() ? true : false} />
+      </Container>
+    </Auth.UserContextProvider>
+  )
+}
+
 export const withSocialAuth = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} />
+      <Auth {...args} dark={useDarkMode() ? true : false} />
     </Container>
   </Auth.UserContextProvider>
 )
@@ -48,6 +54,7 @@ export const withAllSocialAuth = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
       <Auth
+        dark={useDarkMode() ? true : false}
         {...args}
         providers={[
           'apple',
@@ -74,33 +81,33 @@ export const withAllSocialAuth = (args: any) => (
 export const withSocialLargeButtons = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} />
+      <Auth {...args} dark={useDarkMode() ? true : false} />
     </Container>
   </Auth.UserContextProvider>
 )
 export const withColouredSocialAuth = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} />
+      <Auth {...args} dark={useDarkMode() ? true : false} />
     </Container>
   </Auth.UserContextProvider>
 )
 export const withSocialAuthHorizontal = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} />
+      <Auth {...args} dark={useDarkMode() ? true : false} />
     </Container>
   </Auth.UserContextProvider>
 )
 export const updatePassword = (args: any) => (
   <Container {...args}>
-    <Auth.UpdatePassword {...args} />
+    <Auth.UpdatePassword {...args} dark={useDarkMode() ? true : false} />
   </Container>
 )
 
 export const magicLink = (args: any) => (
   <Container {...args}>
-    <Auth.MagicLink {...args} />
+    <Auth.MagicLink {...args} dark={useDarkMode() ? true : false} />
   </Container>
 )
 

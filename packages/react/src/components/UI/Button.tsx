@@ -1,19 +1,24 @@
 import { css } from '@stitches/core'
-// import { styled } from '@stitches/react'
-// import { AuthProviders } from '../../types'
+import { generateClassNames } from '../../../common/theming'
+import { Appearance } from '../../types'
 
 const buttonDefaultStyles = css({
+  fontFamily: '$buttonFontFamily',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   gap: '8px',
-  borderRadius: '6px',
-  fontSize: '13px',
-  padding: '10px 15px',
+  borderRadius: '$borderRadiusButton',
+  fontSize: '$baseButtonSize',
+  padding: '$buttonPadding',
   cursor: 'pointer',
-  borderWidth: '1px',
+  borderWidth: '$buttonBorderWidth',
   borderStyle: 'solid',
   width: '100%',
+
+  transitionPproperty: 'background-color',
+  transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  transitionDuration: '100ms',
 
   variants: {
     color: {
@@ -22,11 +27,11 @@ const buttonDefaultStyles = css({
         color: '$defaultButtonText',
         borderColor: '$defaultButtonBorder',
         '&:hover': {
-          backgroundColor: '#f8f8f8',
+          backgroundColor: '$defaultButtonBackgroundHover',
         },
       },
       primary: {
-        backgroundColor: '$brand', //'hsl(153 60.0% 53.0%)',
+        backgroundColor: '$brand',
         color: '$brandButtonText',
         borderColor: '$brandAccent',
         '&:hover': {
@@ -42,15 +47,29 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   icon?: React.ReactNode
   color?: 'default' | 'primary'
   loading?: boolean
+  appearance?: Appearance
 }
 
 const Button: React.FC<ButtonProps> = ({
   children,
   color = 'default',
+  appearance,
   ...props
 }) => {
+  const classNames = generateClassNames(
+    'button',
+    buttonDefaultStyles({ color: color }),
+    appearance
+  )
+
+  console.log(classNames)
+
   return (
-    <button {...props} className={buttonDefaultStyles({ color: color })}>
+    <button
+      {...props}
+      style={appearance?.style?.button}
+      className={classNames.join(' ')}
+    >
       {props.icon}
       {children}
     </button>

@@ -1,4 +1,6 @@
+import { CssComponent } from '@stitches/core/types/styled-component'
 import { Provider } from '@supabase/supabase-js'
+import { ThemeVariables } from '../common/theming'
 
 export interface AnimationTailwindClasses {
   enter?: string
@@ -15,34 +17,34 @@ export interface Localization {
   sign_up?: {
     email_label?: string
     password_label?: string
-    button_text?: string
+    button_label?: string
     social_provider_text: string
     link_text?: string
   }
   sign_in?: {
     email_label?: string
     password_label?: string
-    button_text?: string
+    button_label?: string
     social_provider_text: string
     link_text?: string
+    link_text_return?: string
   }
   magic_link?: {
-    email_label?: string
-    password_label?: string
-    sign_up_button_text?: string
+    email_input_label?: string
+    email_input_placeholder?: string
+    button_label?: string
     link_text?: string
   }
   forgotten_password?: {
     email_label?: string
     password_label?: string
-    sign_up_button_text?: string
+    button_label?: string
     link_text?: string
   }
   update_password?: {
-    email_label?: string
     password_label?: string
-    sign_up_button_text?: string
-    link_text?: string
+    password_input_placeholder?: string
+    button_label?: string
   }
 }
 
@@ -66,19 +68,34 @@ export interface ViewsMap {
   [key: string]: ViewType
 }
 
-export type CustomTheme = {
-  colors: { [x: string]: string }
-  space: { [x: string]: string }
-  fontSizes: { [x: string]: string }
-  fonts: { [x: string]: string }
-  fontWeights: { [x: string]: string }
-  lineHeights: { [x: string]: string }
-  letterSpacings: { [x: string]: string }
-  sizes: { [x: string]: string }
-  borderWidths: { [x: string]: string }
-  borderStyles: { [x: string]: string }
-  radii: { [x: string]: string }
-  shadows: { [x: string]: string }
-  zIndices: { [x: string]: string }
-  transitions: { [x: string]: string }
-}[]
+export type RedirectTo = undefined | string
+
+export interface Appearance {
+  theme?: 'supabase' | 'minimal' // | 'flat' | 'minimal' | 'bubblegum'
+  extendAppearance?: boolean
+  prependedClassName?: string
+  variables?: {
+    light?: ThemeVariables
+    dark?: ThemeVariables
+  }
+  className?: {
+    anchor?: string | CssComponent
+    button?: string | CssComponent
+    container?: string | CssComponent
+    divider?: string | CssComponent
+    input?: string | CssComponent
+    label?: string | CssComponent
+    loader?: string | CssComponent
+    message?: string | CssComponent
+  }
+  style?: {
+    anchor?: React.CSSProperties
+    button?: React.CSSProperties
+    container?: React.CSSProperties
+    divider?: React.CSSProperties
+    input?: React.CSSProperties
+    label?: React.CSSProperties
+    loader?: React.CSSProperties
+    message?: React.CSSProperties
+  }
+}
