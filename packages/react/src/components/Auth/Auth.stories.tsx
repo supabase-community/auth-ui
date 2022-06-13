@@ -27,7 +27,9 @@ const Container = (props: any) => {
       </>
     )
   return (
-    <div style={{ maxWidth: '320px', margin: 'auto' }}>{props.children}</div>
+    <div style={{ maxWidth: '320px', margin: 'auto', marginTop: '64px' }}>
+      {props.children}
+    </div>
   )
 }
 

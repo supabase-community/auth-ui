@@ -36,6 +36,8 @@ function MagicLink({
     setLoading(false)
   }
 
+  console.log('i18n in magiclink', i18n)
+
   return (
     <form id="auth-magic-link" onSubmit={handleMagicLinkSignIn}>
       <Container gap="large" direction="vertical" appearance={appearance}>
@@ -70,7 +72,7 @@ function MagicLink({
           }}
           appearance={appearance}
         >
-          {i18n?.magic_link?.sign_in_link}
+          {i18n?.sign_in?.link_text}
         </Anchor>
         {message && <Message appearance={appearance}>{message}</Message>}
         {error && (

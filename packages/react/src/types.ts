@@ -17,14 +17,14 @@ export interface Localization {
   sign_up?: {
     email_label?: string
     password_label?: string
-    button_text?: string
+    button_label?: string
     social_provider_text: string
     link_text?: string
   }
   sign_in?: {
     email_label?: string
     password_label?: string
-    button_text?: string
+    button_label?: string
     social_provider_text: string
     link_text?: string
     link_text_return?: string
@@ -38,7 +38,7 @@ export interface Localization {
   forgotten_password?: {
     email_label?: string
     password_label?: string
-    button_text?: string
+    button_label?: string
     link_text?: string
   }
   update_password?: {
