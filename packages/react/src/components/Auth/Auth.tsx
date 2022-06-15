@@ -129,7 +129,7 @@ function Auth({
           redirectTo={redirectTo}
           onlyThirdPartyProviders={onlyThirdPartyProviders}
           i18n={i18n}
-          view={authView}
+          view={authView as 'sign_in' | 'sign_up'}
         />
       )}
       {!onlyThirdPartyProviders && children}
@@ -143,12 +143,29 @@ function Auth({
     setAuthView(view)
   }, [view])
 
+  const emailProp: Omit<EmailAuthProps, 'authView' | 'id'> = {
+    supabaseClient,
+    setAuthView,
+    defaultEmail,
+    defaultPassword,
+    setDefaultEmail,
+    setDefaultPassword,
+    redirectTo,
+    magicLink,
+    i18n,
+  }
+
   /**
    * View handler, displays the correct Auth view
    * all views are wrapped in <Container/>
    */
   switch (authView) {
     case VIEWS.SIGN_IN:
+      return (
+        <Container>
+          <EmailAuth {...emailProp} authView="sign_in" id="auth-sign-in" />
+        </Container>
+      )
     case VIEWS.SIGN_UP:
       return (
         <Container>
