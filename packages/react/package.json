@@ -82,7 +82,7 @@
     "rollup-plugin-node-externals": "^2.2.0",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-postcss-modules": "^2.0.2",
-    "rollup-plugin-typescript2": "^0.29.0",
+    "rollup-plugin-typescript2": "^0.32.1",
     "storybook-dark-mode": "^1.1.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.2.2",

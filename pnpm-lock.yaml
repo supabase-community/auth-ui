@@ -75,7 +75,7 @@ importers:
       rollup-plugin-node-externals: ^2.2.0
       rollup-plugin-peer-deps-external: ^2.2.4
       rollup-plugin-postcss-modules: ^2.0.2
-      rollup-plugin-typescript2: ^0.29.0
+      rollup-plugin-typescript2: ^0.32.1
       storybook-dark-mode: ^1.1.0
       tsconfig: workspace:*
       typescript: ^4.2.2
@@ -140,7 +140,7 @@ importers:
       rollup-plugin-node-externals: 2.2.0_builtin-modules@3.3.0
       rollup-plugin-peer-deps-external: 2.2.4_rollup@2.75.5
       rollup-plugin-postcss-modules: 2.0.2
-      rollup-plugin-typescript2: 0.29.0_mpbvzzgkjpqxag7lpscak3ippe
+      rollup-plugin-typescript2: 0.32.1_mpbvzzgkjpqxag7lpscak3ippe
       storybook-dark-mode: 1.1.0_m5jfleez5oydru7lqqghuwroz4
       tsconfig: link:../tsconfig
       typescript: 4.6.4
@@ -2662,6 +2662,14 @@ packages:
       estree-walker: 1.0.1
       picomatch: 2.3.1
       rollup: 2.75.5
+    dev: true
+
+  /@rollup/pluginutils/4.2.1:
+    resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
+    engines: {node: '>= 8.0.0'}
+    dependencies:
+      estree-walker: 2.0.2
+      picomatch: 2.3.1
     dev: true
 
   /@sinonjs/commons/1.8.3:
@@ -15183,12 +15191,6 @@ packages:
     deprecated: https://github.com/lydell/resolve-url#deprecated
     dev: true
 
-  /resolve/1.17.0:
-    resolution: {integrity: sha512-ic+7JYiV8Vi2yzQGFWOkiZD5Z9z7O2Zhm9XMaTxdJExKasieFCr+yXZ/WmXsckHiKl12ar0y6XiXDx3m4RHn1w==}
-    dependencies:
-      path-parse: 1.0.7
-    dev: true
-
   /resolve/1.18.1:
     resolution: {integrity: sha512-lDfCPaMKfOJXjy0dPayzPdF1phampNWr3qFCjAu+rw/qbQmr5jWH5xN2hwh9QKfw9E5v4hwV7A+jrCmL8yjjqA==}
     dependencies:
@@ -15347,18 +15349,18 @@ packages:
       terser: 4.8.0
     dev: true
 
-  /rollup-plugin-typescript2/0.29.0_mpbvzzgkjpqxag7lpscak3ippe:
-    resolution: {integrity: sha512-YytahBSZCIjn/elFugEGQR5qTsVhxhUwGZIsA9TmrSsC88qroGo65O5HZP/TTArH2dm0vUmYWhKchhwi2wL9bw==}
+  /rollup-plugin-typescript2/0.32.1_mpbvzzgkjpqxag7lpscak3ippe:
+    resolution: {integrity: sha512-RanO8bp1WbeMv0bVlgcbsFNCn+Y3rX7wF97SQLDxf0fMLsg0B/QFF005t4AsGUcDgF3aKJHoqt4JF2xVaABeKw==}
     peerDependencies:
       rollup: '>=1.26.3'
       typescript: '>=2.4.0'
     dependencies:
-      '@rollup/pluginutils': 3.1.0_rollup@2.75.5
+      '@rollup/pluginutils': 4.2.1
       find-cache-dir: 3.3.2
-      fs-extra: 8.1.0
-      resolve: 1.17.0
+      fs-extra: 10.1.0
+      resolve: 1.22.0
       rollup: 2.75.5
-      tslib: 2.0.1
+      tslib: 2.4.0
       typescript: 4.6.4
     dev: true
 
@@ -16823,10 +16825,6 @@ packages:
 
   /tslib/1.14.1:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
-    dev: true
-
-  /tslib/2.0.1:
-    resolution: {integrity: sha512-SgIkNheinmEBgx1IUNirK0TUD4X9yjjBRTqqjggWCU3pUEqIk3/Uwl3yRixYKT6WjQuGiwDv4NomL3wqRCj+CQ==}
     dev: true
 
   /tslib/2.4.0:
