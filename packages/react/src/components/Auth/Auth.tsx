@@ -1,6 +1,6 @@
 import { createStitches, createTheme } from '@stitches/core'
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
-import merge from 'deepmerge'
+import { merge } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import * as defaultLocalization from '../../../common/lib/Localization'
 import { I18nVariables } from '../../../common/lib/Localization'
@@ -62,8 +62,6 @@ function Auth({
   dark,
   localization = { lang: 'en' },
 }: Props): JSX.Element | null {
-  // const merge = require('deepmerge')
-
   /**
    * Localization support
    */
