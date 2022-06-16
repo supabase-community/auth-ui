@@ -22,7 +22,7 @@
   "forgotten_password": {
     "email_label": "Email address",
     "password_label": "Your Password",
-    "button_text": "Send reset password instructions",
+    "button_label": "Send reset password instructions",
     "link_text": "Forgot your password?"
   },
   "update_password": {

@@ -15,6 +15,7 @@ import {
 import { VIEWS } from './../../constants'
 import {
   EmailAuth,
+  EmailAuthProps,
   ForgottenPassword,
   MagicLink,
   SocialAuth,

@@ -84,6 +84,7 @@
     "rollup-plugin-postcss-modules": "^2.0.2",
     "rollup-plugin-typescript2": "^0.29.0",
     "storybook-dark-mode": "^1.1.0",
+    "tsconfig": "workspace:*",
     "typescript": "^4.2.2",
     "webpack": ">=4.27.0 <5.0.0 || >=5.0.0 <6.0.0"
   },

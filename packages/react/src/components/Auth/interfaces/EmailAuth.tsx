@@ -9,7 +9,7 @@ import {
 } from './../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
-interface EmailAuthProps {
+export interface EmailAuthProps {
   authView: 'sign_up' | 'sign_in'
   defaultEmail: string
   defaultPassword: string

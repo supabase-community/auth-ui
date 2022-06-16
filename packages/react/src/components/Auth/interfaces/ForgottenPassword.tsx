@@ -59,7 +59,7 @@ function ForgottenPassword({
             loading={loading}
             appearance={appearance}
           >
-            {i18n?.forgotten_password?.button_text}
+            {i18n?.forgotten_password?.button_label}
           </Button>
         </Container>
         <Anchor
@@ -70,7 +70,7 @@ function ForgottenPassword({
           }}
           appearance={appearance}
         >
-          {i18n?.sign_in?.link_text_return}
+          {i18n?.sign_in?.link_text}
         </Anchor>
         {message && <Message appearance={appearance}>{message}</Message>}
         {error && (

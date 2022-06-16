@@ -14,21 +14,20 @@ export type I18nVariables = {
     link_text?: string
   }
   magic_link?: {
-    email_label?: string
-    password_label?: string
+    email_input_label?: string
+    email_input_placeholder?: string
     button_label?: string
     link_text?: string
   }
   forgotten_password?: {
     email_label?: string
     password_label?: string
-    sign_up_button_text?: string
+    button_label?: string
     link_text?: string
   }
   update_password?: {
-    email_label?: string
     password_label?: string
-    sign_up_button_text?: string
-    link_text?: string
+    password_input_placeholder?: string
+    button_label?: string
   }
 }
