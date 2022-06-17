@@ -116,6 +116,7 @@ function EmailAuth({
       onSubmit={handleSubmit}
       autoComplete={'on'}
       style={{ width: '100%' }}
+      aria-label="email-auth-form"
     >
       <Container direction="vertical" gap="large" appearance={appearance}>
         <Container direction="vertical" gap="large" appearance={appearance}>
@@ -126,6 +127,7 @@ function EmailAuth({
             <Input
               autoFocus
               type="email"
+              id="email"
               name="email"
               defaultValue={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -141,6 +143,7 @@ function EmailAuth({
             </Label>
             <Input
               type="password"
+              id="password"
               name="password"
               defaultValue={password}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

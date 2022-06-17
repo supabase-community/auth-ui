@@ -3,11 +3,9 @@ import { createClient } from '@supabase/supabase-js'
 import { useDarkMode } from 'storybook-dark-mode'
 import { Auth } from '.'
 import { Button, Message } from '../UI'
+import { clientUrl, clientKey } from '../../test-utils/clientDetails'
 
-const supabase = createClient(
-  'https://rsnibhkhsbfnncjmwnkj.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxNTIxNDE1MywiZXhwIjoxOTMwNzkwMTUzfQ.OQEbAaTfgDdLCCht251P2JRD3QDnui6nsU8N-tZA_Mc'
-)
+const supabase = createClient(clientUrl, clientKey)
 
 export default {
   title: 'Auth/Apperanace',

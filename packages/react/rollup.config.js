@@ -9,23 +9,17 @@ import typescript from 'rollup-plugin-typescript2'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 
-console.log('Expected Externals', [
-  ...Object.keys(pkg.dependencies || {}),
-  ...Object.keys(pkg.peerDependencies || {}),
-  './src'
-])
-
 const extensions = ['.js', '.jsx', '.ts', '.tsx']
 
 export default {
   input: {
     index: 'src/index.tsx',
-    auth: 'src/components/Auth/index.tsx'
+    auth: 'src/components/Auth/index.tsx',
   },
   external: [
     ...Object.keys(pkg.dependencies || {}),
     ...Object.keys(pkg.peerDependencies || {}),
-    './src'
+    './src',
   ],
   output: [
     {
@@ -33,15 +27,15 @@ export default {
       format: 'cjs',
       preserveModules: true,
       preserveModulesRoot: 'src',
-      exports: 'named'
+      exports: 'named',
     },
     {
       dir: 'dist/esm',
       format: 'es',
       preserveModules: true,
       preserveModulesRoot: 'src',
-      exports: 'named'
-    }
+      exports: 'named',
+    },
   ],
   plugins: [
     json(),
@@ -52,18 +46,18 @@ export default {
     nodeResolve({
       ignoreGlobal: false,
       include: ['node_modules/**'],
-      extensions
+      extensions,
       // skip: keys(EXTERNALS), // <<-- skip: ['react', 'react-dom']
     }),
     commonjs({
       ignoreGlobal: false,
-      include: 'node_modules/**'
+      include: 'node_modules/**',
     }),
     babel({
       babelHelpers: 'runtime',
       exclude: 'node_modules/**',
-      extensions
+      extensions,
     }),
-    del({ targets: ['dist/*'] })
-  ]
+    del({ targets: ['dist/*'] }),
+  ],
 }

@@ -1,6 +1,7 @@
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import { useState } from 'react'
 import { Appearance, Localization, SocialLayout } from '../../../types'
+import { capitalize } from '../../../utils'
 import { Button, Container, Divider } from './../../UI'
 import * as SocialIcons from './../Icons'
 
@@ -40,11 +41,6 @@ function SocialAuth({
     )
     if (error) setError(error.message)
     setLoading(false)
-  }
-
-  function capitalize(word: string) {
-    const lower = word.toLowerCase()
-    return word.charAt(0).toUpperCase() + lower.slice(1)
   }
 
   return (

@@ -62,8 +62,6 @@ const Button: React.FC<ButtonProps> = ({
     appearance
   )
 
-  console.log(classNames)
-
   return (
     <button
       {...props}

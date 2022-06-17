@@ -45,7 +45,5 @@ export function generateClassNames(
     classNames.push(defaultStyles)
   }
 
-  console.log(classNameKey, className)
-
   return classNames
 }

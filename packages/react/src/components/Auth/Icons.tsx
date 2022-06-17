@@ -130,7 +130,6 @@ export const bitbucket = () => (
         <stop offset="1" stop-color="#2684ff" />
       </linearGradient>
     </defs>
-    <title>Bitbucket-blue</title>
     <g id="Layer_2" data-name="Layer 2">
       <g id="Blue" transform="translate(0 -3.13)">
         <path

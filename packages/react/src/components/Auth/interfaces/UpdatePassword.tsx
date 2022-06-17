@@ -38,6 +38,7 @@ function UpdatePassword({
             </Label>
             <Input
               name="password"
+              id="password"
               placeholder={i18n?.update_password?.password_label}
               type="password"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

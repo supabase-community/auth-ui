@@ -47,6 +47,7 @@ function ForgottenPassword({
             <Input
               name="email"
               type="email"
+              id="email"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }

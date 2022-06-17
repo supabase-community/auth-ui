@@ -3,12 +3,11 @@ import { useState } from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
 import { Button, Message } from '../UI'
 import { Auth } from './'
+import { clientUrl, clientKey } from '../../test-utils/clientDetails'
+import { socialProviders } from '../../test-utils/socialProviders'
 // @ts-ignore
 
-const supabase = createClient(
-  'https://rsnibhkhsbfnncjmwnkj.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTYxNTIxNDE1MywiZXhwIjoxOTMwNzkwMTUzfQ.OQEbAaTfgDdLCCht251P2JRD3QDnui6nsU8N-tZA_Mc'
-)
+const supabase = createClient(clientUrl, clientKey)
 
 export default {
   title: 'Auth/Auth',
@@ -56,24 +55,7 @@ export const withAllSocialAuth = (args: any) => (
       <Auth
         dark={useDarkMode() ? true : false}
         {...args}
-        providers={[
-          'apple',
-          'azure',
-          'bitbucket',
-          'discord',
-          'facebook',
-          'github',
-          'gitlab',
-          'google',
-          'keycloak',
-          'linkedin',
-          'notion',
-          'slack',
-          'spotify',
-          'twitch',
-          'twitter',
-          'workos',
-        ]}
+        providers={socialProviders}
       />
     </Container>
   </Auth.UserContextProvider>
