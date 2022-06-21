@@ -9,6 +9,11 @@
   "publishConfig": {
     "access": "public"
   },
+  "homepage": "https://github.com/supabase-community/auth-ui#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supabase-community/auth-ui.git"
+  },
   "sideEffects": false,
   "source": "src/index.tsx",
   "scripts": {
