@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.1.1
+
+### Patch Changes
+
+- d39da3b8: Themes are now exported
+
 ## 0.1.0
 
 ### Minor Changes
