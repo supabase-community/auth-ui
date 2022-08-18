@@ -8,7 +8,6 @@ import typescript from 'rollup-plugin-typescript2'
 // remove when JS files have been removed
 import nodeResolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
-import dts from 'rollup-plugin-dts'
 
 console.log('Expected Externals', [
   ...Object.keys(pkg.dependencies || {}),
@@ -21,7 +20,6 @@ const extensions = ['.js', '.jsx', '.ts', '.tsx']
 export default {
   input: {
     index: 'src/index.tsx',
-    auth: 'src/components/Auth/index.tsx',
   },
   external: [
     ...Object.keys(pkg.dependencies || {}),
@@ -33,15 +31,12 @@ export default {
       dir: 'dist/cjs',
       format: 'cjs',
       preserveModules: true,
-      preserveModulesRoot: 'src',
       exports: 'named',
     },
     {
       dir: 'dist/esm',
       format: 'es',
-      plugins: [dts()],
       preserveModules: true,
-      preserveModulesRoot: 'src',
       exports: 'named',
     },
   ],
