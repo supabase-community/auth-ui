@@ -15,7 +15,7 @@ function MagicLink({
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
   i18n: Localization
-  appearance: Appearance
+  appearance?: Appearance
 }) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')

@@ -26,8 +26,6 @@ import { UserContextProvider, useUser } from './UserContext'
 export interface Props {
   supabaseClient: SupabaseClient
   children?: React.ReactNode
-  // className?: string
-  // style?: React.CSSProperties
   socialLayout?: SocialLayout
   providers?: Provider[]
   view?: ViewType
@@ -47,19 +45,19 @@ export interface Props {
     variables?: I18nVariables
   }
   appearance?: Appearance
+  theme?: 'default' | string
 }
 
 function Auth({
   supabaseClient,
-  // style,
   socialLayout = 'vertical',
   providers,
   view = 'sign_in',
   redirectTo,
   onlyThirdPartyProviders = false,
   magicLink = false,
-  appearance = { theme: 'supabase' },
-  dark,
+  appearance,
+  theme = 'default',
   localization = { lang: 'en' },
 }: Props): JSX.Element | null {
   /**
@@ -71,31 +69,9 @@ function Auth({
     localization.variables ?? {}
   )
 
-  /**
-   * Create default theme
-   *
-   * createStitches()
-   * https://stitches.dev/docs/api#theme
-   *
-   * to add a new theme use  createTheme({})
-   * https://stitches.dev/docs/api#theme
-   */
-  createStitches({
-    theme: merge(
-      themes[appearance.theme ?? 'supabase'],
-      appearance.variables?.light ?? {}
-    ),
-  })
-
-  /**
-   * merge theme variables with for dark theme
-   */
-  const darkTheme = createTheme(
-    merge(
-      themes.darkThemes[appearance.theme ?? 'supabase'],
-      appearance.variables?.dark ?? {}
-    )
-  )
+  // const themes = Object.values(appearance.themeFile ?? {}).map((theme) => {
+  //   // return
+  // })
 
   const [authView, setAuthView] = useState(view)
   const [defaultEmail, setDefaultEmail] = useState('')
@@ -109,6 +85,22 @@ function Auth({
   const SignView = authView === 'sign_in' || authView === 'sign_up'
 
   /**
+   * Create default theme
+   *
+   * createStitches()
+   * https://stitches.dev/docs/api#theme
+   *
+   * to add a new theme use  createTheme({})
+   * https://stitches.dev/docs/api#theme
+   */
+  createStitches({
+    theme: merge(
+      appearance?.theme?.default,
+      appearance?.variables?.default ?? {}
+    ),
+  })
+
+  /**
    * Wraps around all auth components
    * renders the social auth providers if SignView is true
    *
@@ -118,7 +110,19 @@ function Auth({
    * @returns React.ReactNode
    */
   const Container = ({ children }: { children: React.ReactNode }) => (
-    <div className={dark ? darkTheme : ''}>
+    <div
+      className={
+        theme !== 'default'
+          ? createTheme(
+              merge(
+                // @ts-ignore
+                appearance?.theme[theme],
+                appearance?.variables?.[theme] ?? {}
+              )
+            )
+          : ''
+      }
+    >
       {SignView && (
         <SocialAuth
           appearance={appearance}

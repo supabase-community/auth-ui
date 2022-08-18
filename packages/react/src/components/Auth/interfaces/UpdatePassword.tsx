@@ -10,7 +10,7 @@ function UpdatePassword({
 }: {
   supabaseClient: SupabaseClient
   i18n: Localization
-  appearance: Appearance
+  appearance?: Appearance
 }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
