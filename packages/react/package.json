@@ -9,6 +9,7 @@
   "publishConfig": {
     "access": "public"
   },
+  "types": "./dist/esm/src/index.d.ts",
   "homepage": "https://github.com/supabase-community/auth-ui#readme",
   "repository": {
     "type": "git",
