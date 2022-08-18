@@ -1,17 +1,8 @@
 import { createStitches, createTheme } from '@stitches/core'
-import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import { merge } from 'lodash'
 import React, { useEffect, useState } from 'react'
 import * as defaultLocalization from '../../../common/lib/Localization'
-import { I18nVariables } from '../../../common/lib/Localization'
-import * as themes from '../../../common/theming/Themes'
-import {
-  Appearance,
-  Localization,
-  RedirectTo,
-  SocialLayout,
-  ViewType,
-} from '../../types'
+import { Auth, Localization } from '../../types'
 import { VIEWS } from './../../constants'
 import {
   EmailAuth,
@@ -22,31 +13,6 @@ import {
   UpdatePassword,
 } from './interfaces'
 import { UserContextProvider, useUser } from './UserContext'
-
-export interface Props {
-  supabaseClient: SupabaseClient
-  children?: React.ReactNode
-  socialLayout?: SocialLayout
-  providers?: Provider[]
-  view?: ViewType
-  redirectTo?: RedirectTo
-  onlyThirdPartyProviders?: boolean
-  magicLink?: boolean
-
-  /**
-   * This will toggle on the dark variation of the theme
-   */
-  dark?: boolean
-  /**
-   * Override the labels and button text
-   */
-  localization?: {
-    lang?: 'en' | 'ja' // es
-    variables?: I18nVariables
-  }
-  appearance?: Appearance
-  theme?: 'default' | string
-}
 
 function Auth({
   supabaseClient,
@@ -59,7 +25,7 @@ function Auth({
   appearance,
   theme = 'default',
   localization = { lang: 'en' },
-}: Props): JSX.Element | null {
+}: Auth): JSX.Element | null {
   /**
    * Localization support
    */
@@ -229,10 +195,15 @@ function Auth({
   }
 }
 
+// @ts-ignore
 Auth.ForgottenPassword = ForgottenPassword
+// @ts-ignore
 Auth.UpdatePassword = UpdatePassword
+// @ts-ignore
 Auth.MagicLink = MagicLink
+// @ts-ignore
 Auth.UserContextProvider = UserContextProvider
+// @ts-ignore
 Auth.useUser = useUser
 
 export default Auth
