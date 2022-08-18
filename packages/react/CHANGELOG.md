@@ -1,5 +1,12 @@
 # @supabase/auth-ui-react
 
+## 0.1.4
+
+### Patch Changes
+
+- 8e7b94c4: Fix: stops creating CSS properties on every re-render
+- c1a64a05: Fix types for localization
+
 ## 0.1.3
 
 ### Patch Changes
