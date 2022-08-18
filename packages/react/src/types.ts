@@ -1,5 +1,5 @@
 import { CssComponent } from '@stitches/core/types/styled-component'
-import { Provider } from '@supabase/supabase-js'
+import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import { I18nVariables } from '../common/lib/Localization'
 import { ThemeVariables } from '../common/theming'
 
@@ -72,4 +72,29 @@ export interface Appearance {
     loader?: React.CSSProperties
     message?: React.CSSProperties
   }
+}
+
+export interface Auth {
+  supabaseClient: SupabaseClient
+  children?: React.ReactNode
+  socialLayout?: SocialLayout
+  providers?: Provider[]
+  view?: ViewType
+  redirectTo?: RedirectTo
+  onlyThirdPartyProviders?: boolean
+  magicLink?: boolean
+
+  /**
+   * This will toggle on the dark variation of the theme
+   */
+  dark?: boolean
+  /**
+   * Override the labels and button text
+   */
+  localization?: {
+    lang?: 'en' | 'ja' // es
+    variables?: I18nVariables
+  }
+  appearance?: Appearance
+  theme?: 'default' | string
 }
