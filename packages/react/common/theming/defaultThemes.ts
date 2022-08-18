@@ -13,7 +13,7 @@ import { Theme } from './../../src/types'
 // brand: 'hsl(252 62% 55%)',
 // brandAccent: 'hsl(252 62% 45%)',
 
-export const Supa: Theme = {
+export const ThemeSupa: Theme = {
   default: {
     colors: {
       brand: 'hsl(153 60.0% 53.0%)',
@@ -95,7 +95,7 @@ export const Supa: Theme = {
   },
 }
 
-export const Minimal: Theme = {
+export const ThemeMinimal: Theme = {
   default: {
     colors: {
       brand: 'black',
