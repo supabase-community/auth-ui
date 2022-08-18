@@ -46,9 +46,7 @@ export interface Theme {
 export type RedirectTo = undefined | string
 
 export interface Appearance {
-  // theme?: 'supabase' | 'minimal' // | 'flat' | 'minimal' | 'bubblegum'
   theme?: Theme
-  extendAppearance?: boolean
   prependedClassName?: string
   variables?: {
     default: ThemeVariables

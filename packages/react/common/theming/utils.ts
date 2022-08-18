@@ -38,14 +38,12 @@ export function generateClassNames(
     classNames.push(appearance?.className?.[classNameKey])
   }
 
-  if (
-    appearance?.extendAppearance === undefined ||
-    appearance?.extendAppearance === true
-  ) {
-    classNames.push(defaultStyles)
-  }
-
-  console.log(classNameKey, className)
+  // if (
+  //   appearance?.extendAppearance === undefined ||
+  //   appearance?.extendAppearance === true
+  // ) {
+  classNames.push(defaultStyles)
+  // }
 
   return classNames
 }

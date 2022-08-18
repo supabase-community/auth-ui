@@ -33,7 +33,7 @@ function Auth({
    * Localization support
    */
 
-  console.log('defaultLocalization', defaultLocalization)
+  // console.log('defaultLocalization', defaultLocalization)
 
   const i18n: I18nVariables = merge(
     defaultLocalization[localization.lang ?? 'en'],
@@ -47,6 +47,7 @@ function Auth({
   const [authView, setAuthView] = useState(view)
   const [defaultEmail, setDefaultEmail] = useState('')
   const [defaultPassword, setDefaultPassword] = useState('')
+  const [themes, setThemes] = useState({})
 
   /**
    * Simple boolean to detect if authView 'sign_in' or 'sign_up' is used
@@ -55,21 +56,49 @@ function Auth({
    */
   const SignView = authView === 'sign_in' || authView === 'sign_up'
 
-  /**
-   * Create default theme
-   *
-   * createStitches()
-   * https://stitches.dev/docs/api#theme
-   *
-   * to add a new theme use  createTheme({})
-   * https://stitches.dev/docs/api#theme
-   */
-  createStitches({
-    theme: merge(
-      appearance?.theme?.default,
-      appearance?.variables?.default ?? {}
-    ),
-  })
+  useEffect(() => {
+    /**
+     * Create default theme
+     *
+     * createStitches()
+     * https://stitches.dev/docs/api#theme
+     *
+     * to add a new theme use  createTheme({})
+     * https://stitches.dev/docs/api#theme
+     */
+    createStitches({
+      theme: merge(
+        appearance?.theme?.default,
+        appearance?.variables?.default ?? {}
+      ),
+    })
+
+    const themessss: any = {}
+    const themeKeys = appearance?.theme && Object.keys(appearance?.theme)
+
+    if (themeKeys) {
+      appearance.theme &&
+        Object.values(appearance.theme).map((theme, i) => {
+          const key = themeKeys[i]
+          // ignore default theme
+          if (key === 'default') return {}
+
+          const merged = merge(
+            (appearance && appearance.theme && appearance.theme[key]) ?? {},
+            (appearance && appearance.variables && appearance.variables[key]) ??
+              {}
+          )
+
+          themessss[themeKeys[i]] = merged
+        })
+    }
+
+    // console.log('themes', themessss)
+
+    setThemes(themessss)
+  }, [])
+
+  // console.log('themes[theme]', themes[theme])
 
   /**
    * Wraps around all auth components
@@ -81,6 +110,7 @@ function Auth({
    * @returns React.ReactNode
    */
   const Container = ({ children }: { children: React.ReactNode }) => (
+    // @ts-ignore
     <div
       className={
         theme !== 'default'
