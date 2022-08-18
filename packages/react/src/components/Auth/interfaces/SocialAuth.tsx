@@ -1,6 +1,6 @@
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import { useState } from 'react'
-import { Appearance, Localization, SocialLayout } from '../../../types'
+import { Appearance, I18nVariables, SocialLayout } from '../../../types'
 import { Button, Container, Divider } from './../../UI'
 import * as SocialIcons from './../Icons'
 
@@ -11,7 +11,7 @@ interface SocialAuthProps {
   redirectTo: RedirectTo
   onlyThirdPartyProviders: boolean
   view: 'sign_in' | 'sign_up'
-  i18n: Localization
+  i18n: I18nVariables
   appearance?: Appearance
 }
 

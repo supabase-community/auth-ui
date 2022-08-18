@@ -1,8 +1,7 @@
 import { createStitches, createTheme } from '@stitches/core'
 import { merge } from 'lodash'
 import React, { useEffect, useState } from 'react'
-import * as defaultLocalization from '../../../common/lib/Localization'
-import { Auth, Localization } from '../../types'
+import { Auth as AuthProps, Localization, I18nVariables } from '../../types'
 import { VIEWS } from './../../constants'
 import {
   EmailAuth,
@@ -13,6 +12,10 @@ import {
   UpdatePassword,
 } from './interfaces'
 import { UserContextProvider, useUser } from './UserContext'
+
+import * as _defaultLocalization from '../../../common/lib/Localization'
+
+const defaultLocalization: Localization = { ..._defaultLocalization }
 
 function Auth({
   supabaseClient,
@@ -25,12 +28,14 @@ function Auth({
   appearance,
   theme = 'default',
   localization = { lang: 'en' },
-}: Auth): JSX.Element | null {
+}: AuthProps): JSX.Element | null {
   /**
    * Localization support
    */
 
-  const i18n: Localization = merge(
+  console.log('defaultLocalization', defaultLocalization)
+
+  const i18n: I18nVariables = merge(
     defaultLocalization[localization.lang ?? 'en'],
     localization.variables ?? {}
   )
@@ -132,7 +137,7 @@ function Auth({
     case VIEWS.SIGN_IN:
       return (
         <Container>
-          <EmailAuth {...emailProp} authView="sign_in" id="auth-sign-in" />
+          <EmailAuth {...emailProp} authView={'sign_in'} />
         </Container>
       )
     case VIEWS.SIGN_UP:
@@ -141,8 +146,7 @@ function Auth({
           <EmailAuth
             appearance={appearance}
             supabaseClient={supabaseClient}
-            // @ts-expect-error
-            authView={authView}
+            authView={'sign_up'}
             setAuthView={setAuthView}
             defaultEmail={defaultEmail}
             defaultPassword={defaultPassword}

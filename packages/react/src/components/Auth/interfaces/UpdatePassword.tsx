@@ -1,6 +1,6 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
-import { Appearance, Localization } from '../../../types'
+import { Appearance, I18nVariables } from '../../../types'
 import { Button, Container, Input, Label, Message } from './../../UI'
 
 function UpdatePassword({
@@ -9,7 +9,7 @@ function UpdatePassword({
   appearance,
 }: {
   supabaseClient: SupabaseClient
-  i18n: Localization
+  i18n: I18nVariables
   appearance?: Appearance
 }) {
   const [password, setPassword] = useState('')

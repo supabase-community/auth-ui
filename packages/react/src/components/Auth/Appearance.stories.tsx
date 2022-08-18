@@ -1,7 +1,6 @@
-import { css } from '@stitches/core'
 import { createClient } from '@supabase/supabase-js'
 import { useDarkMode } from 'storybook-dark-mode'
-import { Auth } from '.'
+import { Auth } from './'
 import { Button, Message } from '../UI'
 import { ThemeSupa } from './../../../common/theming/defaultThemes'
 
@@ -15,23 +14,25 @@ export default {
   component: Auth,
 }
 
-const Container = (props: any) => {
-  const { user } = Auth.useUser()
-  if (user)
-    return (
-      <>
-        <Message>Signed in: {user.email}</Message>
-        <Button onClick={() => props.supabaseClient.auth.signOut()}>
-          Sign out
-        </Button>
-      </>
-    )
-  return (
-    <div style={{ maxWidth: '320px', margin: 'auto' }}>{props.children}</div>
-  )
-}
-
 export const Default = (args: any) => {
+  const Container = (props: any) => {
+    // @ts-ignore
+    const { user } = Auth.useUser()
+
+    if (user)
+      return (
+        <>
+          <Message>Signed in: {user.email}</Message>
+          <Button onClick={() => props.supabaseClient.auth.signOut()}>
+            Sign out
+          </Button>
+        </>
+      )
+    return (
+      <div style={{ maxWidth: '320px', margin: 'auto' }}>{props.children}</div>
+    )
+  }
+
   return (
     <Auth.UserContextProvider supabaseClient={supabase}>
       <Container>
@@ -58,3 +59,15 @@ export const Default = (args: any) => {
 }
 
 Default.args = {}
+
+// export const Test = (args: any) => {
+//   return (
+//     <Auth
+//       supabaseClient={supabase}
+//       appearance={{ theme: ThemeSupa }}
+//       socialLayout="vertical"
+//     />
+//   )
+// }
+
+// Test.args = {}

@@ -2,25 +2,26 @@ import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useEffect, useRef, useState } from 'react'
 import {
   Appearance,
-  Localization,
+  I18nVariables,
   RedirectTo,
+  ViewSignUp,
+  ViewSignIn,
   ViewsMap,
   ViewType,
 } from './../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
 export interface EmailAuthProps {
-  authView: 'sign_up' | 'sign_in'
+  authView: ViewSignIn | ViewSignUp
   defaultEmail: string
   defaultPassword: string
-  id: 'auth-sign-up' | 'auth-sign-in'
   setAuthView: any
   setDefaultEmail: (email: string) => void
   setDefaultPassword: (password: string) => void
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
   magicLink?: boolean
-  i18n: Localization
+  i18n: I18nVariables
   appearance?: Appearance
 }
 
@@ -36,7 +37,6 @@ function EmailAuth({
   authView = 'sign_in',
   defaultEmail,
   defaultPassword,
-  id,
   setAuthView,
   setDefaultEmail,
   setDefaultPassword,
@@ -112,7 +112,7 @@ function EmailAuth({
 
   return (
     <form
-      id={id}
+      id={authView === 'sign_in' ? `auth-sign-in` : `auth-sign-up`}
       onSubmit={handleSubmit}
       autoComplete={'on'}
       style={{ width: '100%' }}

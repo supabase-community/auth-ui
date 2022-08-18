@@ -1,7 +1,7 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
 import { VIEWS } from '../../../constants'
-import { Appearance, Localization, RedirectTo } from '../../../types'
+import { Appearance, I18nVariables, RedirectTo } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
 function MagicLink({
@@ -14,7 +14,7 @@ function MagicLink({
   setAuthView: any
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
-  i18n: Localization
+  i18n: I18nVariables
   appearance?: Appearance
 }) {
   const [email, setEmail] = useState('')
