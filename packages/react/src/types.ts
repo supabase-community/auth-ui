@@ -1,6 +1,5 @@
 import { CssComponent } from '@stitches/core/types/styled-component'
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
-import { I18nVariables } from '../common/lib/Localization'
 import { ThemeVariables } from '../common/theming'
 
 export interface AnimationTailwindClasses {
@@ -13,8 +12,11 @@ export interface AnimationTailwindClasses {
 }
 
 export type AuthProviders = Provider
-
-export type Localization = I18nVariables
+export interface Localization {
+  // [key: string]: I18nVariables
+  ['en']: I18nVariables
+  ['ja']: I18nVariables
+}
 
 export type SocialLayout = 'horizontal' | 'vertical'
 export type SocialButtonSize = 'tiny' | 'small' | 'medium' | 'large' | 'xlarge'
@@ -97,4 +99,38 @@ export interface Auth {
   }
   appearance?: Appearance
   theme?: 'default' | string
+}
+
+export type I18nVariables = {
+  sign_up?: {
+    email_label?: string
+    password_label?: string
+    button_label?: string
+    social_provider_text?: string
+    link_text?: string
+  }
+  sign_in?: {
+    email_label?: string
+    password_label?: string
+    button_label?: string
+    social_provider_text?: string
+    link_text?: string
+  }
+  magic_link?: {
+    email_input_label?: string
+    email_input_placeholder?: string
+    button_label?: string
+    link_text?: string
+  }
+  forgotten_password?: {
+    email_label?: string
+    password_label?: string
+    button_label?: string
+    link_text?: string
+  }
+  update_password?: {
+    password_label?: string
+    password_input_placeholder?: string
+    button_label?: string
+  }
 }
