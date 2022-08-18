@@ -36,15 +36,21 @@ export interface ViewsMap {
   [key: string]: ViewType
 }
 
+export interface Theme {
+  default: ThemeVariables
+  [key: string]: ThemeVariables
+}
+
 export type RedirectTo = undefined | string
 
 export interface Appearance {
-  theme?: 'supabase' | 'minimal' // | 'flat' | 'minimal' | 'bubblegum'
+  // theme?: 'supabase' | 'minimal' // | 'flat' | 'minimal' | 'bubblegum'
+  theme?: Theme
   extendAppearance?: boolean
   prependedClassName?: string
   variables?: {
-    light?: ThemeVariables
-    dark?: ThemeVariables
+    default: ThemeVariables
+    [key: string]: ThemeVariables
   }
   className?: {
     anchor?: string | CssComponent

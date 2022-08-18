@@ -3,6 +3,7 @@ import { createClient } from '@supabase/supabase-js'
 import { useDarkMode } from 'storybook-dark-mode'
 import { Auth } from '.'
 import { Button, Message } from '../UI'
+import { Supa } from './../../../common/theming/defaultThemes'
 
 const supabase = createClient(
   'https://rsnibhkhsbfnncjmwnkj.supabase.co',
@@ -35,14 +36,14 @@ export const Default = (args: any) => {
     <Auth.UserContextProvider supabaseClient={supabase}>
       <Container>
         <Auth
-          dark={useDarkMode() ? true : false}
+          theme={useDarkMode() ? 'dark' : 'default'}
           supabaseClient={supabase}
           providers={['google', 'facebook']}
           appearance={{
-            theme: 'supabase',
+            theme: Supa,
             prependedClassName: 'jonnys-awesome-login',
             variables: {
-              light: {
+              default: {
                 colors: {
                   brand: 'red',
                   brandAccent: 'darkred',
