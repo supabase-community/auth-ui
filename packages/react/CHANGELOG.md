@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.1.2
+
+### Patch Changes
+
+- a2d46681: types now being exported and added to package.json
+
 ## 0.1.1
 
 ### Patch Changes
