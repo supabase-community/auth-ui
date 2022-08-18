@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.1.3
+
+### Patch Changes
+
+- aa98820e: Fix package json
+
 ## 0.1.2
 
 ### Patch Changes
