@@ -33,8 +33,6 @@ function Auth({
    * Localization support
    */
 
-  // console.log('defaultLocalization', defaultLocalization)
-
   const i18n: I18nVariables = merge(
     defaultLocalization[localization.lang ?? 'en'],
     localization.variables ?? {}
@@ -93,12 +91,8 @@ function Auth({
         })
     }
 
-    // console.log('themes', themessss)
-
     setThemes(themessss)
   }, [])
-
-  // console.log('themes[theme]', themes[theme])
 
   /**
    * Wraps around all auth components
