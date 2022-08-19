@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.1.6
+
+### Patch Changes
+
+- 7c2d14b7: remove autofocus for now
+
 ## 0.1.5
 
 ### Patch Changes
