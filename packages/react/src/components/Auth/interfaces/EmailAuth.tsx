@@ -124,7 +124,6 @@ function EmailAuth({
               {i18n?.[authView]?.email_label}
             </Label>
             <Input
-              autoFocus
               type="email"
               name="email"
               defaultValue={email}
