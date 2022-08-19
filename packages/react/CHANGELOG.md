@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.1.5
+
+### Patch Changes
+
+- f8f0bb94: Export language files
+
 ## 0.1.4
 
 ### Patch Changes
