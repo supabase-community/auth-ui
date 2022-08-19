@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.1.7
+
+### Patch Changes
+
+- b5cd90f8: remove console logs
+
 ## 0.1.6
 
 ### Patch Changes
