@@ -69,27 +69,21 @@ function EmailAuth({
     setLoading(true)
     switch (authView) {
       case 'sign_in':
-        const { error: signInError } = await supabaseClient.auth.signIn(
-          {
+        const { error: signInError } =
+          await supabaseClient.auth.signInWithPassword({
             email,
             password,
-          },
-          { redirectTo }
-        )
+          })
         if (signInError) setError(signInError.message)
         break
       case 'sign_up':
         const {
-          user: signUpUser,
-          session: signUpSession,
+          data: { user: signUpUser, session: signUpSession },
           error: signUpError,
-        } = await supabaseClient.auth.signUp(
-          {
-            email,
-            password,
-          },
-          { redirectTo }
-        )
+        } = await supabaseClient.auth.signUp({
+          email,
+          password,
+        })
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
         else if (signUpUser && !signUpSession)

@@ -27,10 +27,10 @@ function MagicLink({
     setError('')
     setMessage('')
     setLoading(true)
-    const { error } = await supabaseClient.auth.signIn(
-      { email },
-      { redirectTo }
-    )
+    const { error } = await supabaseClient.auth.signInWithOtp({
+      email,
+      options: { emailRedirectTo: redirectTo },
+    })
     if (error) setError(error.message)
     else setMessage('Check your email for the magic link')
     setLoading(false)

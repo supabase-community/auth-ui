@@ -59,7 +59,7 @@
     "@storybook/core-events": "^6.0.0",
     "@storybook/react": "^6.5.8",
     "@storybook/theming": "^6.0.0",
-    "@supabase/supabase-js": "^1.35.3",
+    "@supabase/supabase-js": "2.0.0-rc.7",
     "@testing-library/dom": ">=7.21.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
