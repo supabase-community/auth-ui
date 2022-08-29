@@ -22,7 +22,7 @@ function UpdatePassword({
     setError('')
     setMessage('')
     setLoading(true)
-    const { error } = await supabaseClient.auth.update({ password })
+    const { error } = await supabaseClient.auth.updateUser({ password })
     if (error) setError(error.message)
     else setMessage('Your password has been updated')
     setLoading(false)

@@ -27,10 +27,9 @@ function ForgottenPassword({
     setError('')
     setMessage('')
     setLoading(true)
-    const { error } = await supabaseClient.auth.api.resetPasswordForEmail(
-      email,
-      { redirectTo }
-    )
+    const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+      redirectTo,
+    })
     if (error) setError(error.message)
     else setMessage('Check your email for the password reset link')
     setLoading(false)

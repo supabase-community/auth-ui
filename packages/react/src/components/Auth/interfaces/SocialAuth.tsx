@@ -34,10 +34,10 @@ function SocialAuth({
 
   const handleProviderSignIn = async (provider: Provider) => {
     setLoading(true)
-    const { error } = await supabaseClient.auth.signIn(
-      { provider },
-      { redirectTo }
-    )
+    const { error } = await supabaseClient.auth.signInWithOAuth({
+      provider,
+      options: { redirectTo },
+    })
     if (error) setError(error.message)
     setLoading(false)
   }
