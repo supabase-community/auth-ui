@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.2.0
+
+### Minor Changes
+
+- 760df750: Updated to @supabase-js-rc
+
 ## 0.1.8
 
 ### Patch Changes
