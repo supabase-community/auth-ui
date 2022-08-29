@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.1.8
+
+### Patch Changes
+
+- ac555691: fix: update to supabase-js@rc
+
 ## 0.1.7
 
 ### Patch Changes
