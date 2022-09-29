@@ -25,8 +25,8 @@
     "build-storybook": "build-storybook"
   },
   "peerDependencies": {
-    "react": "^16.13.1 || ^17.0.1",
-    "react-dom": "^16.13.1 || ^17.0.1"
+    "react": "^16.13.1 || ^17.0.1 || 18",
+    "react-dom": "^16.13.1 || ^17.0.1 || 18"
   },
   "resolutions": {
     "react": "^17.0.1",
