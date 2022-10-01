@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.2.1
+
+### Patch Changes
+
+- 7d6283fe: Added react 18 as a peer dependency
+
 ## 0.2.0
 
 ### Minor Changes
