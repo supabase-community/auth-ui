@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.2.2
+
+### Patch Changes
+
+- 32492825: Updated message component to be centre aligned
+
 ## 0.2.1
 
 ### Patch Changes
