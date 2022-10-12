@@ -7,6 +7,7 @@ const messageDefaultStyles = css({
   fontSize: '$baseBodySize',
   marginBottom: '$labelBottomMargin',
   display: 'block',
+  textAlign: 'center',
   variants: {
     color: {
       default: {
