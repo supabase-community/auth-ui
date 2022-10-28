@@ -147,7 +147,12 @@ function EmailAuth({
           </div>
         </Container>
 
-        <Button type="submit" color="primary" appearance={appearance}>
+        <Button
+          type="submit"
+          color="primary"
+          loading={loading}
+          appearance={appearance}
+        >
           {i18n?.[authView]?.button_label}
         </Button>
 

@@ -54,6 +54,8 @@ const Button: React.FC<ButtonProps> = ({
   children,
   color = 'default',
   appearance,
+  icon,
+  loading = false,
   ...props
 }) => {
   const classNames = generateClassNames(
@@ -67,8 +69,9 @@ const Button: React.FC<ButtonProps> = ({
       {...props}
       style={appearance?.style?.button}
       className={classNames.join(' ')}
+      disabled={loading}
     >
-      {props.icon}
+      {icon}
       {children}
     </button>
   )
