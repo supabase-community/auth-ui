@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.2.3
+
+### Patch Changes
+
+- 8dd8fba: Fix warning about the loading receiving a non-boolean attribute
+
 ## 0.2.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@supabase/auth-ui-react",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "./dist/cjs/src/index.js",
   "module": "./dist/esm/src/index.js",
   "files": [
