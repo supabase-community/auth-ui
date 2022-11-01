@@ -111,6 +111,12 @@ export const magicLink = (args: any) => (
   </Container>
 )
 
+export const noSignUpButton = (args: any) => (
+  <Container {...args}>
+    <Auth {...args} dark={useDarkMode() ? true : false} disableSignUp={true} />
+  </Container>
+)
+
 export const ChangeViewState = (args: any) => {
   const [view, setView] = useState<
     'sign_in' | 'sign_up' | 'forgotten_password' | 'magic_link'

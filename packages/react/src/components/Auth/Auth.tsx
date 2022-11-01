@@ -28,6 +28,7 @@ function Auth({
   appearance,
   theme = 'default',
   localization = { lang: 'en' },
+  disableSignUp = false
 }: AuthProps): JSX.Element | null {
   /**
    * Localization support
@@ -151,6 +152,7 @@ function Auth({
     redirectTo,
     magicLink,
     i18n,
+    disableSignUp
   }
 
   /**

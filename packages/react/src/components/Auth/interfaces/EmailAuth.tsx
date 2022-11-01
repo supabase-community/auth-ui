@@ -23,6 +23,7 @@ export interface EmailAuthProps {
   magicLink?: boolean
   i18n: I18nVariables
   appearance?: Appearance
+  disableSignUp: boolean
 }
 
 const VIEWS: ViewsMap = {
@@ -45,6 +46,7 @@ function EmailAuth({
   magicLink,
   i18n,
   appearance,
+  disableSignUp
 }: EmailAuthProps) {
   const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState(defaultEmail)
@@ -181,7 +183,7 @@ function EmailAuth({
               {i18n?.forgotten_password?.link_text}
             </Anchor>
           )}
-          {authView === VIEWS.SIGN_IN ? (
+          {authView === VIEWS.SIGN_IN ? ( !disableSignUp &&
             <Anchor
               href="#auth-sign-up"
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
