@@ -1,5 +1,5 @@
 import { createStitches, createTheme } from '@stitches/core'
-import { merge } from 'lodash'
+import merge from 'just-merge'
 import React, { useEffect, useState } from 'react'
 import { Auth as AuthProps, Localization, I18nVariables } from '../../types'
 import { VIEWS } from './../../constants'
@@ -66,7 +66,7 @@ function Auth({
      */
     createStitches({
       theme: merge(
-        appearance?.theme?.default,
+        appearance?.theme?.default ?? {},
         appearance?.variables?.default ?? {}
       ),
     })

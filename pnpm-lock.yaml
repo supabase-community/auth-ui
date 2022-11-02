@@ -58,7 +58,7 @@ importers:
       eslint-config-prettier: ^6.12.0
       eslint-plugin-prettier: ^3.1.4
       fsevents: ^2.3.2
-      lodash: ^4.17.20
+      just-merge: ^3.1.1
       npm-run-all: ^4.1.5
       prettier: ^2.1.2
       prop-types: ^15.7.2
@@ -84,7 +84,7 @@ importers:
     dependencies:
       '@stitches/core': 1.2.8
       '@stitches/react': 1.2.8_react@17.0.2
-      lodash: 4.17.21
+      just-merge: 3.1.1
       prop-types: 15.8.1
     optionalDependencies:
       fsevents: 2.3.2
@@ -2484,7 +2484,7 @@ packages:
       native-url: 0.2.6
       react-refresh: 0.8.3
       schema-utils: 2.7.1
-      source-map: 0.7.3
+      source-map: 0.7.4
       webpack: 4.44.2
       webpack-dev-server: 3.11.1_webpack@4.44.2
     dev: true
@@ -2524,7 +2524,7 @@ packages:
       loader-utils: 2.0.2
       react-refresh: 0.11.0
       schema-utils: 3.1.1
-      source-map: 0.7.3
+      source-map: 0.7.4
       webpack: 5.73.0
     dev: true
 
@@ -4419,7 +4419,7 @@ packages:
     dependencies:
       '@types/node': 17.0.39
       '@types/source-list-map': 0.1.2
-      source-map: 0.7.3
+      source-map: 0.7.4
     dev: true
 
   /@types/webpack/4.41.32:
@@ -11382,6 +11382,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /just-merge/3.1.1:
+    resolution: {integrity: sha512-q0VS9owVgV9BcD2cy+E8MB8sIYpqmGAhoAGHH2PHtGwkC0CoITB8FJPMTg38GDO20cuaEGsR8SxCb+kf+g3G2Q==}
+    dev: false
+
   /killable/1.0.1:
     resolution: {integrity: sha512-LzqtLKlUwirEUyl/nicirVmNiPvYs7l5n8wOPP7fyJVpUPkvCnW/vuiXGpylGUlnPDnB7311rARzAt3Mhswpjg==}
     dev: true
@@ -11629,6 +11633,7 @@ packages:
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
 
   /loglevel/1.8.0:
     resolution: {integrity: sha512-G6A/nJLRgWOuuwdNuA6koovfEV1YpqqAG4pRUlFaz3jj2QNZ8M4vBqnVA+HBTmU/AMNUtlOsMmSpF6NyOjztbA==}
@@ -14989,7 +14994,7 @@ packages:
     optional: true
 
   /require-directory/2.1.1:
-    resolution: {integrity: sha1-jGStX9MNqxyXbiNE/+f3kqam30I=}
+    resolution: {integrity: sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q==}
     engines: {node: '>=0.10.0'}
     dev: true
 
@@ -15806,8 +15811,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /source-map/0.7.3:
-    resolution: {integrity: sha512-CkCj6giN3S+n9qrYiBTX5gystlENnRW5jZeNLHpe6aue+SrHcG5VYwujhW9s4dY31mEGsxBDrHR6oI69fTXsaQ==}
+  /source-map/0.7.4:
+    resolution: {integrity: sha512-l3BikUxvPOcn5E74dZiq5BGsTb5yEwhaTSzccU6t4sDOH8NWJCstKO5QT2CvtFoK6F0saL7p9xHAqHOlCPJygA==}
     engines: {node: '>= 8'}
     dev: true
 
@@ -17281,7 +17286,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.4
       convert-source-map: 1.8.0
-      source-map: 0.7.3
+      source-map: 0.7.4
     dev: true
 
   /v8-to-istanbul/9.0.0:
@@ -17826,7 +17831,7 @@ packages:
       rollup: 1.32.1
       rollup-plugin-babel: 4.4.0_2p6krh5ny4mu3adm6tzx7itwfm
       rollup-plugin-terser: 5.3.1_rollup@1.32.1
-      source-map: 0.7.3
+      source-map: 0.7.4
       source-map-url: 0.4.1
       stringify-object: 3.3.0
       strip-comments: 1.0.2
