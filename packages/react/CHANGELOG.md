@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.2.4
+
+### Patch Changes
+
+- 29e718e: Remove lodash and use just-merge instead
+
 ## 0.2.3
 
 ### Patch Changes
