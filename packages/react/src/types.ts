@@ -83,6 +83,7 @@ export interface Auth {
   redirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
   magicLink?: boolean
+  showLinks?: boolean
 
   /**
    * This will toggle on the dark variation of the theme
@@ -103,6 +104,8 @@ export type I18nVariables = {
   sign_up?: {
     email_label?: string
     password_label?: string
+    email_input_placeholder?: string
+    password_input_placeholder?: string
     button_label?: string
     social_provider_text?: string
     link_text?: string
@@ -110,6 +113,8 @@ export type I18nVariables = {
   sign_in?: {
     email_label?: string
     password_label?: string
+    email_input_placeholder?: string
+    password_input_placeholder?: string
     button_label?: string
     social_provider_text?: string
     link_text?: string
@@ -123,6 +128,7 @@ export type I18nVariables = {
   forgotten_password?: {
     email_label?: string
     password_label?: string
+    email_input_placeholder?: string
     button_label?: string
     link_text?: string
   }
