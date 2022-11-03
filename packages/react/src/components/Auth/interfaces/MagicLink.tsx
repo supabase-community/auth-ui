@@ -10,12 +10,14 @@ function MagicLink({
   redirectTo,
   i18n,
   appearance,
+  showLinks,
 }: {
   setAuthView: any
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
   i18n: I18nVariables
   appearance?: Appearance
+  showLinks?: boolean
 }) {
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
@@ -62,16 +64,18 @@ function MagicLink({
             {i18n?.magic_link?.button_label}
           </Button>
         </Container>
-        <Anchor
-          href="#auth-sign-in"
-          onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-            e.preventDefault()
-            setAuthView(VIEWS.SIGN_IN)
-          }}
-          appearance={appearance}
-        >
-          {i18n?.sign_in?.link_text}
-        </Anchor>
+        {showLinks && (
+          <Anchor
+            href="#auth-sign-in"
+            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+              e.preventDefault()
+              setAuthView(VIEWS.SIGN_IN)
+            }}
+            appearance={appearance}
+          >
+            {i18n?.sign_in?.link_text}
+          </Anchor>
+        )}
         {message && <Message appearance={appearance}>{message}</Message>}
         {error && (
           <Message color="danger" appearance={appearance}>

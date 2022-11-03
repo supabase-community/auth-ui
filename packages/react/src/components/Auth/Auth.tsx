@@ -17,6 +17,8 @@ import * as _defaultLocalization from '../../../common/lib/Localization'
 
 const defaultLocalization: Localization = { ..._defaultLocalization }
 
+export const { getCssText } = createStitches()
+
 function Auth({
   supabaseClient,
   socialLayout = 'vertical',
@@ -25,6 +27,7 @@ function Auth({
   redirectTo,
   onlyThirdPartyProviders = false,
   magicLink = false,
+  showLinks = true,
   appearance,
   theme = 'default',
   localization = { lang: 'en' },
@@ -150,6 +153,7 @@ function Auth({
     setDefaultPassword,
     redirectTo,
     magicLink,
+    showLinks,
     i18n,
   }
 
@@ -178,6 +182,7 @@ function Auth({
             setDefaultPassword={setDefaultPassword}
             redirectTo={redirectTo}
             magicLink={magicLink}
+            showLinks={showLinks}
             i18n={i18n}
           />
         </Container>
@@ -190,6 +195,7 @@ function Auth({
             supabaseClient={supabaseClient}
             setAuthView={setAuthView}
             redirectTo={redirectTo}
+            showLinks={showLinks}
             i18n={i18n}
           />
         </Container>
@@ -203,6 +209,7 @@ function Auth({
             supabaseClient={supabaseClient}
             setAuthView={setAuthView}
             redirectTo={redirectTo}
+            showLinks={showLinks}
             i18n={i18n}
           />
         </Container>

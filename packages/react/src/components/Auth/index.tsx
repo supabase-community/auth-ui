@@ -1,2 +1,2 @@
-export { default as Auth } from './Auth'
+export { default as Auth, getCssText } from './Auth'
 export * from './interfaces'

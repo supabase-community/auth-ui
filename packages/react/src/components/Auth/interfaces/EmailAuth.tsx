@@ -19,6 +19,7 @@ export interface EmailAuthProps {
   setDefaultEmail: (email: string) => void
   setDefaultPassword: (password: string) => void
   supabaseClient: SupabaseClient
+  showLinks?: boolean
   redirectTo?: RedirectTo
   magicLink?: boolean
   i18n: I18nVariables
@@ -41,6 +42,7 @@ function EmailAuth({
   setDefaultEmail,
   setDefaultPassword,
   supabaseClient,
+  showLinks = true,
   redirectTo,
   magicLink,
   i18n,
@@ -49,7 +51,6 @@ function EmailAuth({
   const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState(defaultEmail)
   const [password, setPassword] = useState(defaultPassword)
-  const [rememberMe, setRememberMe] = useState(false)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
@@ -120,6 +121,7 @@ function EmailAuth({
             <Input
               type="email"
               name="email"
+              placeholder={i18n?.[authView]?.email_input_placeholder}
               defaultValue={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
@@ -135,6 +137,7 @@ function EmailAuth({
             <Input
               type="password"
               name="password"
+              placeholder={i18n?.[authView]?.password_input_placeholder}
               defaultValue={password}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
@@ -156,55 +159,57 @@ function EmailAuth({
           {i18n?.[authView]?.button_label}
         </Button>
 
-        <Container direction="vertical" gap="small" appearance={appearance}>
-          {authView === VIEWS.SIGN_IN && magicLink && (
-            <Anchor
-              href="#auth-magic-link"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault()
-                setAuthView(VIEWS.MAGIC_LINK)
-              }}
-              appearance={appearance}
-            >
-              {i18n?.magic_link?.link_text}
-            </Anchor>
-          )}
-          {authView === VIEWS.SIGN_IN && (
-            <Anchor
-              href="#auth-forgot-password"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault()
-                setAuthView(VIEWS.FORGOTTEN_PASSWORD)
-              }}
-              appearance={appearance}
-            >
-              {i18n?.forgotten_password?.link_text}
-            </Anchor>
-          )}
-          {authView === VIEWS.SIGN_IN ? (
-            <Anchor
-              href="#auth-sign-up"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault()
-                handleViewChange(VIEWS.SIGN_UP)
-              }}
-              appearance={appearance}
-            >
-              {i18n?.sign_up?.link_text}
-            </Anchor>
-          ) : (
-            <Anchor
-              href="#auth-sign-in"
-              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                e.preventDefault()
-                handleViewChange(VIEWS.SIGN_IN)
-              }}
-              appearance={appearance}
-            >
-              {i18n?.sign_in?.link_text}
-            </Anchor>
-          )}
-        </Container>
+        {showLinks && (
+          <Container direction="vertical" gap="small" appearance={appearance}>
+            {authView === VIEWS.SIGN_IN && magicLink && (
+              <Anchor
+                href="#auth-magic-link"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault()
+                  setAuthView(VIEWS.MAGIC_LINK)
+                }}
+                appearance={appearance}
+              >
+                {i18n?.magic_link?.link_text}
+              </Anchor>
+            )}
+            {authView === VIEWS.SIGN_IN && (
+              <Anchor
+                href="#auth-forgot-password"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault()
+                  setAuthView(VIEWS.FORGOTTEN_PASSWORD)
+                }}
+                appearance={appearance}
+              >
+                {i18n?.forgotten_password?.link_text}
+              </Anchor>
+            )}
+            {authView === VIEWS.SIGN_IN ? (
+              <Anchor
+                href="#auth-sign-up"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault()
+                  handleViewChange(VIEWS.SIGN_UP)
+                }}
+                appearance={appearance}
+              >
+                {i18n?.sign_up?.link_text}
+              </Anchor>
+            ) : (
+              <Anchor
+                href="#auth-sign-in"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault()
+                  handleViewChange(VIEWS.SIGN_IN)
+                }}
+                appearance={appearance}
+              >
+                {i18n?.sign_in?.link_text}
+              </Anchor>
+            )}
+          </Container>
+        )}
       </Container>
       {message && <Message appearance={appearance}>{message}</Message>}
       {error && (
