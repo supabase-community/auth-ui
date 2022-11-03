@@ -1,5 +1,13 @@
 # @supabase/auth-ui-react
 
+## 0.2.5
+
+### Patch Changes
+
+- e5c2e53: Add showLinks prop to hide links at the bottom of the forms
+- e5c2e53: Update to expose getCssText for SSR rendering the component
+- ebd46f4: Update localization files and types
+
 ## 0.2.4
 
 ### Patch Changes
