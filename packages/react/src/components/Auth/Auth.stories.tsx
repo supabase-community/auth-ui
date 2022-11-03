@@ -101,13 +101,22 @@ export const withSocialAuthHorizontal = (args: any) => (
 )
 export const updatePassword = (args: any) => (
   <Container {...args}>
-    <Auth.UpdatePassword {...args} dark={useDarkMode() ? true : false} />
+    <Auth
+      {...args}
+      dark={useDarkMode() ? true : false}
+      view="update_password"
+    />
   </Container>
 )
 
 export const magicLink = (args: any) => (
   <Container {...args}>
-    <Auth.MagicLink {...args} dark={useDarkMode() ? true : false} />
+    <Auth
+      {...args}
+      dark={useDarkMode() ? true : false}
+      view="magic_link"
+      showLinks={false}
+    />
   </Container>
 )
 
