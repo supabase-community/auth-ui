@@ -18,7 +18,7 @@
   "scripts": {
     "start": "vite",
     "dev": "vite",
-    "build": "tsc --build",
+    "build": "rm -rf dist && tsc --build",
     "serve": "vite preview"
   },
   "devDependencies": {
