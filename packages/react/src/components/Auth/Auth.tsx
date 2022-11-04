@@ -165,7 +165,11 @@ function Auth({
     case VIEWS.SIGN_IN:
       return (
         <Container>
-          <EmailAuth {...emailProp} authView={'sign_in'} />
+          <EmailAuth
+            {...emailProp}
+            appearance={appearance}
+            authView={'sign_in'}
+          />
         </Container>
       )
     case VIEWS.SIGN_UP:
