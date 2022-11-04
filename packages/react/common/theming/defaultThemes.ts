@@ -69,7 +69,6 @@ export const ThemeSupa: Theme = {
     },
     // borderStyles: {},
     radii: {
-      borderRadiusButton: '4px',
       buttonBorderRadius: '4px',
       inputBorderRadius: '4px',
     },

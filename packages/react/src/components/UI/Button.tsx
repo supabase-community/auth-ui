@@ -8,7 +8,7 @@ const buttonDefaultStyles = css({
   alignItems: 'center',
   justifyContent: 'center',
   gap: '8px',
-  borderRadius: '$borderRadiusButton',
+  borderRadius: '$buttonBorderRadius',
   fontSize: '$baseButtonSize',
   padding: '$buttonPadding',
   cursor: 'pointer',
