@@ -15,7 +15,7 @@
     "password_input_placeholder": "Ihr Passwort",
     "button_label": "Anmelden",
     "social_provider_text": "Anmelden mit",
-    "link_text": "Noch kein Konto? Registrieren"
+    "link_text": "Haben Sie bereits ein Konto? Anmelden"
   },
   "magic_link": {
     "email_input_label": "E-Mail Adresse",
