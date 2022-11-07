@@ -120,6 +120,27 @@ export const magicLink = (args: any) => (
   </Container>
 )
 
+export const withCustomClassNames = (args: any) => (
+  <Container {...args}>
+    <Auth
+      {...args}
+      dark={useDarkMode() ? true : false}
+      appearance={{
+        className: {
+          input: 'foo',
+          anchor: 'foo',
+          button: 'foo',
+          container: 'foo',
+          divider: 'foo',
+          label: 'foo',
+          loader: 'foo',
+          message: 'foo',
+        },
+      }}
+    />
+  </Container>
+)
+
 export const ChangeViewState = (args: any) => {
   const [view, setView] = useState<
     'sign_in' | 'sign_up' | 'forgotten_password' | 'magic_link'
@@ -167,7 +188,11 @@ export const ChangeViewState = (args: any) => {
       </div>
       <Auth.UserContextProvider supabaseClient={supabase}>
         <Container supabaseClient={supabase}>
-          <Auth supabaseClient={supabase} view={view} />
+          <Auth
+            supabaseClient={supabase}
+            view={view}
+            appearance={{ className: { input: 'foo' } }}
+          />
         </Container>
       </Auth.UserContextProvider>
     </div>

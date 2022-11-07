@@ -155,6 +155,7 @@ function Auth({
     magicLink,
     showLinks,
     i18n,
+    appearance,
   }
 
   /**
