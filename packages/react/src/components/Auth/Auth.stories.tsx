@@ -188,11 +188,7 @@ export const ChangeViewState = (args: any) => {
       </div>
       <Auth.UserContextProvider supabaseClient={supabase}>
         <Container supabaseClient={supabase}>
-          <Auth
-            supabaseClient={supabase}
-            view={view}
-            appearance={{ className: { input: 'foo' } }}
-          />
+          <Auth supabaseClient={supabase} view={view} />
         </Container>
       </Auth.UserContextProvider>
     </div>
