@@ -35,7 +35,7 @@
   "dependencies": {
     "@stitches/core": "^1.2.8",
     "@stitches/react": "^1.2.8",
-    "just-merge": "^3.1.1",
+    "lodash.merge": "^4.6.2",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {

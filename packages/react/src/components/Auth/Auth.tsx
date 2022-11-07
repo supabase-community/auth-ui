@@ -1,5 +1,5 @@
 import { createStitches, createTheme } from '@stitches/core'
-import merge from 'just-merge'
+import merge from 'lodash/merge'
 import React, { useEffect, useState } from 'react'
 import { Auth as AuthProps, Localization, I18nVariables } from '../../types'
 import { VIEWS } from './../../constants'

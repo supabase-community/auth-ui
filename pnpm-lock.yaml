@@ -58,7 +58,7 @@ importers:
       eslint-config-prettier: ^6.12.0
       eslint-plugin-prettier: ^3.1.4
       fsevents: ^2.3.2
-      just-merge: ^3.1.1
+      lodash.merge: ^4.6.2
       npm-run-all: ^4.1.5
       prettier: ^2.1.2
       prop-types: ^15.7.2
@@ -84,7 +84,7 @@ importers:
     dependencies:
       '@stitches/core': 1.2.8
       '@stitches/react': 1.2.8_react@17.0.2
-      just-merge: 3.1.1
+      lodash.merge: 4.6.2
       prop-types: 15.8.1
     optionalDependencies:
       fsevents: 2.3.2
@@ -11382,10 +11382,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /just-merge/3.1.1:
-    resolution: {integrity: sha512-q0VS9owVgV9BcD2cy+E8MB8sIYpqmGAhoAGHH2PHtGwkC0CoITB8FJPMTg38GDO20cuaEGsR8SxCb+kf+g3G2Q==}
-    dev: false
-
   /killable/1.0.1:
     resolution: {integrity: sha512-LzqtLKlUwirEUyl/nicirVmNiPvYs7l5n8wOPP7fyJVpUPkvCnW/vuiXGpylGUlnPDnB7311rARzAt3Mhswpjg==}
     dev: true
@@ -11608,7 +11604,6 @@ packages:
 
   /lodash.merge/4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
-    dev: true
 
   /lodash.startcase/4.4.0:
     resolution: {integrity: sha512-+WKqsK294HMSc2jEbNgpHpd0JfIBhp7rEV4aqXWqFr6AlXov+SlcgB1Fv01y2kGe3Gc8nMW7VA0SrGuSkRfIEg==}
