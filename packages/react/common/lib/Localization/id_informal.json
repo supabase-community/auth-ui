@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Alamat Email",
+    "password_label": "Buat Sebuah Password",
+    "email_input_placeholder": "Alamat Email Kamu",
+    "password_input_placeholder": "Password Kamu",
+    "button_label": "Buat Akun",
+    "social_provider_text": "Masuk dengan",
+    "link_text": "Belum punya akun? Mendaftar"
+  },
+  "sign_in": {
+    "email_label": "Alamat Email",
+    "password_label": "Password Kamu",
+    "email_input_placeholder": "Alamat Email Kamu",
+    "password_input_placeholder": "Password Kamu",
+    "button_label": "Masuk",
+    "social_provider_text": "Masuk dengan",
+    "link_text": "Sudah punya akun? Masuk"
+  },
+  "magic_link": {
+    "email_input_label": "Alamat Email",
+    "email_input_placeholder": "Alamat Email Kamu",
+    "button_label": "Kirim Magic Link",
+    "link_text": "Kirim sebuah email berisi magic link"
+  },
+  "forgotten_password": {
+    "email_label": "Alamat Email",
+    "password_label": "Password Kamu",
+    "email_input_placeholder": "Alamat Email Kamu",
+    "button_label": "Kirim instruksi reset password",
+    "link_text": "Lupa Password Kamu?"
+  },
+  "update_password": {
+    "password_label": "Kata sandi baru",
+    "password_input_placeholder": "Password baru Kamu",
+    "button_label": "Perbarui password"
+  }
+}

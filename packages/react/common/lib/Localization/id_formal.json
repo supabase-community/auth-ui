@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Alamat Surel",
+    "password_label": "Buat Sebuah Kata Sandi",
+    "email_input_placeholder": "Alamat Surel Anda",
+    "password_input_placeholder": "Kata Sandi Anda",
+    "button_label": "Mendaftar",
+    "social_provider_text": "Masuk dengan",
+    "link_text": "Belum punya akun? Mendaftar"
+  },
+  "sign_in": {
+    "email_label": "Alamat Email",
+    "password_label": "Kata Sandi Anda",
+    "email_input_placeholder": "Alamat Surel Anda",
+    "password_input_placeholder": "Kata Sandi Anda",
+    "button_label": "Masuk",
+    "social_provider_text": "Masuk dengan",
+    "link_text": "Sudah punya akun? Masuk"
+  },
+  "magic_link": {
+    "email_input_label": "Alamat Email",
+    "email_input_placeholder": "Alamat Surel Anda",
+    "button_label": "Kirim Tautan Ajaib",
+    "link_text": "Kirim sebuah surel berisi tautan ajaib"
+  },
+  "forgotten_password": {
+    "email_label": "Alamat Email",
+    "password_label": "Kata Sandi Anda",
+    "email_input_placeholder": "Alamat Surel Anda",
+    "button_label": "Kirim instruksi atur ulang kata sandi",
+    "link_text": "Lupa Kata Sandi Anda?"
+  },
+  "update_password": {
+    "password_label": "Kata sandi baru",
+    "password_input_placeholder": "Kata sandi baru Anda",
+    "button_label": "Perbarui kata sandi"
+  }
+}

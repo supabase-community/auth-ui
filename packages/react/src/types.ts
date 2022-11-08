@@ -18,6 +18,8 @@ export interface Localization {
   ['ja']: I18nVariables
   ['de_formal']: I18nVariables
   ['de_informal']: I18nVariables
+  ['id_formal']: I18nVariables
+  ['id_informal']: I18nVariables
 }
 
 export type SocialLayout = 'horizontal' | 'vertical'

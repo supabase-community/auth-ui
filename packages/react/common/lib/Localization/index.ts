@@ -1,4 +1,6 @@
 export { default as de_formal } from './de_formal.json'
 export { default as de_informal } from './de_informal.json'
 export { default as en } from './en.json'
+export { default as id_formal } from './id_formal.json'
+export { default as id_informal } from './id_informal.json'
 export { default as ja } from './ja.json'
