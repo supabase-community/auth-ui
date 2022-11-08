@@ -1,5 +1,12 @@
 # @supabase/auth-ui-react
 
+## 0.2.6
+
+### Patch Changes
+
+- b5ccc65: fix class names not propagating to email auth components
+- 154f471: Remove just-merge and add merge function inline
+
 ## 0.2.5
 
 ### Patch Changes
