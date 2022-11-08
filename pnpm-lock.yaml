@@ -58,7 +58,6 @@ importers:
       eslint-config-prettier: ^6.12.0
       eslint-plugin-prettier: ^3.1.4
       fsevents: ^2.3.2
-      just-merge: ^3.1.1
       npm-run-all: ^4.1.5
       prettier: ^2.1.2
       prop-types: ^15.7.2
@@ -84,7 +83,6 @@ importers:
     dependencies:
       '@stitches/core': 1.2.8
       '@stitches/react': 1.2.8_react@17.0.2
-      just-merge: 3.1.1
       prop-types: 15.8.1
     optionalDependencies:
       fsevents: 2.3.2
@@ -5778,6 +5776,7 @@ packages:
 
   /bindings/1.5.0:
     resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    requiresBuild: true
     dependencies:
       file-uri-to-path: 1.0.0
     dev: true
@@ -8795,6 +8794,7 @@ packages:
 
   /file-uri-to-path/1.0.0:
     resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    requiresBuild: true
     dev: true
     optional: true
 
@@ -11382,10 +11382,6 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /just-merge/3.1.1:
-    resolution: {integrity: sha512-q0VS9owVgV9BcD2cy+E8MB8sIYpqmGAhoAGHH2PHtGwkC0CoITB8FJPMTg38GDO20cuaEGsR8SxCb+kf+g3G2Q==}
-    dev: false
-
   /killable/1.0.1:
     resolution: {integrity: sha512-LzqtLKlUwirEUyl/nicirVmNiPvYs7l5n8wOPP7fyJVpUPkvCnW/vuiXGpylGUlnPDnB7311rARzAt3Mhswpjg==}
     dev: true
@@ -12323,6 +12319,7 @@ packages:
 
   /nan/2.16.0:
     resolution: {integrity: sha512-UdAqHyFngu7TfQKsCBgAA6pWDkT8MAO7d0jyOecVhN5354xbLqdn8mV9Tat9gepAupm0bt2DbeaSC8vS52MuFA==}
+    requiresBuild: true
     dev: true
     optional: true
 
