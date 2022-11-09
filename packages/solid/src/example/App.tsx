@@ -1,3 +1,4 @@
+
 import styles from "./App.module.css";
 import { createClient } from "@supabase/supabase-js";
 import { ThemeSupa } from "../../common/theming/defaultThemes";
@@ -8,8 +9,7 @@ import {
   customSocialLayout,
   customTheme,
 } from "./store";
-// import { Auth } from "../components/Auth";
-import { Auth } from "./package/src";
+import { Auth } from "../components/Auth";
 
 const supabase = createClient(
   "https://fmlovqieocwjaghmavax.supabase.co",

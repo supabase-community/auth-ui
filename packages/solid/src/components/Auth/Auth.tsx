@@ -17,7 +17,7 @@ import {
 } from "./interfaces";
 import { UserContextProvider, useUser } from "./UserContext";
 
-import * as _defaultLocalization from "../../../common/lib/Localization";
+import * as _defaultLocalization from "../../../common/lib/localization";
 import {
   Accessor,
   createEffect,
