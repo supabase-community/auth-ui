@@ -1,34 +1,9 @@
-## Usage
+# Supabase Auth UI React
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+Supabse Auth UI is a collection of pre built UI components that work seamlessly with @supabase/auth-helpers.
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+The main purpose of these components is to allow developers to get working on their apps quickly, but also be able to use their own style/css.
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+Auth UI is kept deliberatly seperate from @supabase/auth-helpers so that developers can migrate away from pre-built UI components as their UI system naturally matures.
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm dev` or `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Will be making a PR tonight to <a href="https://twitter.com/supabase?ref_src=twsrc%5Etfw">@supabase</a>&#39;s Auth UI repo. Ported and made fully reactive with <a href="https://twitter.com/solid_js?ref_src=twsrc%5Etfw">@solid_js</a> <a href="https://t.co/HDDMoZmkxq">pic.twitter.com/HDDMoZmkxq</a></p>&mdash; Michael.E (@devshogun) <a href="https://twitter.com/devshogun/status/1588575611429142528?ref_src=twsrc%5Etfw">November 4, 2022</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
