@@ -6,6 +6,7 @@
     "build": "turbo run build",
     "build:react": "turbo run build --filter=@supabase/auth-ui-react",
     "build:solid":"turbo run build --filter=@supabase/auth-ui-solid",
+    "build:svelte": "turbo run build --filter=@supabase/auth-ui-svelte",
     "storybook": "turbo run storybook",
     "storybook:react": "turbo run storybook --filter=@supabase/auth-ui-react",
     "dev": "turbo run dev --parallel",

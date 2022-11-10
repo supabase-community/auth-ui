@@ -1,6 +1,6 @@
 {
   "name": "@supabase/auth-ui-react",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "main": "./dist/cjs/src/index.js",
   "module": "./dist/esm/src/index.js",
   "files": [
@@ -35,7 +35,6 @@
   "dependencies": {
     "@stitches/core": "^1.2.8",
     "@stitches/react": "^1.2.8",
-    "just-merge": "^3.1.1",
     "prop-types": "^15.7.2"
   },
   "devDependencies": {

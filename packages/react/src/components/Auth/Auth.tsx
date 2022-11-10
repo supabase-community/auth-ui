@@ -1,5 +1,5 @@
 import { createStitches, createTheme } from '@stitches/core'
-import merge from 'just-merge'
+import { merge } from '../../utils'
 import React, { useEffect, useState } from 'react'
 import { Auth as AuthProps, Localization, I18nVariables } from '../../types'
 import { VIEWS } from './../../constants'
@@ -155,6 +155,7 @@ function Auth({
     magicLink,
     showLinks,
     i18n,
+    appearance,
   }
 
   /**
