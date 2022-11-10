@@ -27,7 +27,6 @@
     "@supabase/supabase-js": "^2.0.5",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
-    "babel-preset-solid": "^1.6.1",
     "eslint": "^8.26.0",
     "eslint-plugin-solid": "^0.8.0",
     "tsconfig": "workspace:*",
@@ -42,14 +41,6 @@
   },
   "resolutions": {
     "solid-js": "^1.5.1"
-  },
-  "babel": {
-    "presets": [
-      "solid"
-    ],
-    "plugins": [
-      "@babel/plugin-transform-runtime"
-    ]
   },
   "sideEffects": false
 }
