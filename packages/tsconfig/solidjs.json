@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "extends": "./base.json",
+  "display":"Solid Library",
+  "compilerOptions":{
+    "lib":["ES6","DOM"],
+    "module":"ESNext",
+    "jsx":"preserve"
+  }
+}

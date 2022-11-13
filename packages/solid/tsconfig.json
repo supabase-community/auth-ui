@@ -1,0 +1,14 @@
+{
+  "extends": "../tsconfig/solidjs.json",
+  "compilerOptions": {
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "jsxImportSource": "solid-js",
+    "resolveJsonModule": true,
+    "types": ["vite/client"],
+    "outDir": "dist"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist", "build", "src/example"]
+}
