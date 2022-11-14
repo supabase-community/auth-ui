@@ -48,7 +48,6 @@ export type ThemeVariables = {
     inputBorderWidth?: string
   }
   radii?: {
-    borderRadiusButton?: string
     buttonBorderRadius?: string
     inputBorderRadius?: string
   }
