@@ -1,38 +1,38 @@
 {
   "sign_up": {
-    "email_label": "電子メールアドレス",
+    "email_label": "メールアドレス",
     "password_label": "パスワードを作成",
     "email_input_placeholder": "Your email address",
     "password_input_placeholder": "Your password",
     "button_label": "サインアップ",
-    "social_provider_text": "に登録する",
+    "social_provider_text": "サインイン with",
     "link_text": "アカウントをお持ちではありませんか？サインアップ"
   },
   "sign_in": {
-    "email_label": "電子メールアドレス",
-    "password_label": "あなたのパスワード",
+    "email_label": "メールアドレス",
+    "password_label": "パスワード",
     "email_input_placeholder": "Your email address",
     "password_input_placeholder": "Your password",
     "button_label": "サインイン",
-    "social_provider_text": "に登録する",
-    "link_text": "Already have an account? Sign in"
+    "social_provider_text": "サインイン with",
+    "link_text": "すでにアカウントをお持ちですか？サインイン"
   },
   "magic_link": {
-    "email_input_label": "Email address",
+    "email_input_label": "メールアドレス",
     "email_input_placeholder": "Your email address",
-    "button_label": "Send Magic Link",
-    "link_text": "Send a magic link email"
+    "button_label": "マジックリンクを送信",
+    "link_text": "マジックリンクメールを送信する"
   },
   "forgotten_password": {
-    "email_label": "Email address",
-    "password_label": "Your Password",
+    "email_label": "メールアドレス",
+    "password_label": "パスワード",
     "email_input_placeholder": "Your email address",
-    "button_label": "Send reset password instructions",
-    "link_text": "パスワードをお忘れの方"
+    "button_label": "パスワード再設定のメールを送信",
+    "link_text": "パスワードをお忘れですか？"
   },
   "update_password": {
-    "password_label": "New password",
+    "password_label": "新しいパスワード",
     "password_input_placeholder": "Your new password",
-    "button_label": "Update password"
+    "button_label": "パスワードを更新"
   }
 }
