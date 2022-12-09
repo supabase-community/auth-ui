@@ -10,7 +10,7 @@ const supabase = createClient(
 )
 
 export default {
-  title: 'Auth/Apperanace',
+  title: 'Auth/Appearance',
   component: Auth,
 }
 
