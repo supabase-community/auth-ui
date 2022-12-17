@@ -9,4 +9,4 @@ export { default as es } from './es.json'
 export { default as nl } from './nl.json'
 export { default as no } from './no.json'
 export { default as pt } from './pt.json'
-
+export { default as se } from './se.json'

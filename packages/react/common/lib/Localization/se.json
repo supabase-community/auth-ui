@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "E-postadress",
+    "password_label": "Skapa ett lösenord",
+    "email_input_placeholder": "din e-postadress",
+    "password_input_placeholder": "Ditt lösenord",
+    "button_label": "Bli Medlem",
+    "social_provider_text": "Logga in med",
+    "link_text": "Har du inget konto? Bli Medlem"
+  },
+  "sign_in": {
+    "email_label": "E-postadress",
+    "password_label": "Ditt lösenord",
+    "email_input_placeholder": "din e-postadress",
+    "password_input_placeholder": "Ditt lösenord",
+    "button_label": "Logga in",
+    "social_provider_text": "Logga in med",
+    "link_text": "Har du redan ett konto? Logga in"
+  },
+  "magic_link": {
+    "email_input_label": "E-postadress",
+    "email_input_placeholder": "din e-postadress",
+    "button_label": "Skicka en magisk länk",
+    "link_text": "Skicka en magisk länk e-post"
+  },
+  "forgotten_password": {
+    "email_label": "E-postadress",
+    "password_label": "Ditt lösenord",
+    "email_input_placeholder": "din e-postadress",
+    "button_label": "Skicka instruktioner för återställning av lösenord",
+    "link_text": "Glömt ditt lösenord?"
+  },
+  "update_password": {
+    "password_label": "Nytt lösenord",
+    "password_input_placeholder": "Ditt nya lösenord",
+    "button_label": "Uppdatera lösenord"
+  }
+}
