@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Endereço de email",
+    "password_label": "Criar uma senha",
+    "email_input_placeholder": "Seu endereço de email",
+    "password_input_placeholder": "Sua senha",
+    "button_label": "Inscrever-se",
+    "social_provider_text": "Entrar com",
+    "link_text": "Não tem uma conta? Inscrever-se"
+  },
+  "sign_in": {
+    "email_label": "Endereço de email",
+    "password_label": "Sua senha",
+    "email_input_placeholder": "Seu endereço de email",
+    "password_input_placeholder": "Sua senha",
+    "button_label": "Entrar",
+    "social_provider_text": "Entrar com",
+    "link_text": "já tem uma conta? Entrar"
+  },
+  "magic_link": {
+    "email_input_label": "Endereço de email",
+    "email_input_placeholder": "Seu endereço de email",
+    "button_label": "Enviar Link Mágico",
+    "link_text": "Envie um e-mail com link mágico"
+  },
+  "forgotten_password": {
+    "email_label": "Endereço de email",
+    "password_label": "Sua senha",
+    "email_input_placeholder": "Seu endereço de email",
+    "button_label": "Enviar instruções de redefinição de senha",
+    "link_text": "Esqueceu sua senha?"
+  },
+  "update_password": {
+    "password_label": "Nova Senha",
+    "password_input_placeholder": "Sua nova senha",
+    "button_label": "Atualizar senha"
+  }
+}

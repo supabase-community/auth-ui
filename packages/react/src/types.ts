@@ -21,6 +21,7 @@ export interface Localization {
   ['fr']: I18nVariables
   ['it']: I18nVariables
   ['es']: I18nVariables
+  ['pt']: I18nVariables
 }
 
 export type SocialLayout = 'horizontal' | 'vertical'
