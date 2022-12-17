@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Epostadresse",
+    "password_label": "Lag et passord",
+    "email_input_placeholder": "Din epostadresse",
+    "password_input_placeholder": "Ditt passord",
+    "button_label": "Melde deg på",
+    "social_provider_text": "Logg inn med",
+    "link_text": "Har du ikke en konto? Melde deg på"
+  },
+  "sign_in": {
+    "email_label": "Epostadresse",
+    "password_label": "Ditt passord",
+    "email_input_placeholder": "Din epostadresse",
+    "password_input_placeholder": "Ditt passord",
+    "button_label": "Logg inn",
+    "social_provider_text": "Logg inn med",
+    "link_text": "Har du allerede en konto? Logg inn"
+  },
+  "magic_link": {
+    "email_input_label": "Epostadresse",
+    "email_input_placeholder": "Din epostadresse",
+    "button_label": "Send en magisk lenke",
+    "link_text": "Send en magisk lenke-e-post"
+  },
+  "forgotten_password": {
+    "email_label": "Epostadresse",
+    "password_label": "Ditt passord",
+    "email_input_placeholder": "Din epostadresse",
+    "button_label": "Send instruksjoner for tilbakestilling av passord",
+    "link_text": "Glemt passordet?"
+  },
+  "update_password": {
+    "password_label": "Nytt passord",
+    "password_input_placeholder": "Ditt nye passord",
+    "button_label": "Oppdater passord"
+  }
+}
