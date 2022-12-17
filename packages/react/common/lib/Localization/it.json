@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Indirizzo e-mail",
+    "password_label": "Crea una password",
+    "email_input_placeholder": "Il tuo indirizzo di posta elettronica",
+    "password_input_placeholder": "La tua password",
+    "button_label": "Iscriviti",
+    "social_provider_text": "Accedi con",
+    "link_text": "Non hai un account? Iscriviti"
+  },
+  "sign_in": {
+    "email_label": "Indirizzo e-mail",
+    "password_label": "La tua password",
+    "email_input_placeholder": "Il tuo indirizzo di posta elettronica",
+    "password_input_placeholder": "La tua password",
+    "button_label": "Registrazione",
+    "social_provider_text": "Accedi con",
+    "link_text": "Hai già un account? Registrazione"
+  },
+  "magic_link": {
+    "email_input_label": "Indirizzo e-mail",
+    "email_input_placeholder": "Il tuo indirizzo di posta elettronica",
+    "button_label": "Invia collegamento magico",
+    "link_text": "Invia un'e-mail di collegamento magico"
+  },
+  "forgotten_password": {
+    "email_label": "Indirizzo e-mail",
+    "password_label": "La tua password",
+    "email_input_placeholder": "Il tuo indirizzo di posta elettronica",
+    "button_label": "nvia istruzioni per reimpostare la password",
+    "link_text": "Hai dimenticato la password?"
+  },
+  "update_password": {
+    "password_label": "Nuova password",
+    "password_input_placeholder": "La tua nuova password",
+    "button_label": "Aggiorna password"
+  }
+}
