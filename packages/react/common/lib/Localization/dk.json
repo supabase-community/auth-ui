@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Email adresse",
+    "password_label": "Lav et kodeord",
+    "email_input_placeholder": "Din email adresse",
+    "password_input_placeholder": "Dit kodeord",
+    "button_label": "Tilmelde",
+    "social_provider_text": "Log ind med",
+    "link_text": "Har du ikke en konto? Tilmelde"
+  },
+  "sign_in": {
+    "email_label": "Email adresse",
+    "password_label": "Dit kodeord",
+    "email_input_placeholder": "Din email adresse",
+    "password_input_placeholder": "Dit kodeord",
+    "button_label": "Log ind",
+    "social_provider_text": "Log ind med",
+    "link_text": "har du allerede en bruger? Log ind"
+  },
+  "magic_link": {
+    "email_input_label": "Email adresse",
+    "email_input_placeholder": "Din email adresse",
+    "button_label": "Send et magisk link",
+    "link_text": "Send en magisk link-e-mail"
+  },
+  "forgotten_password": {
+    "email_label": "Email adresse",
+    "password_label": "Dit kodeord",
+    "email_input_placeholder": "Din email adresse",
+    "button_label": "Send instruktioner til nulstilling af adgangskode",
+    "link_text": "Glemt din adgangskode?"
+  },
+  "update_password": {
+    "password_label": "Nyt kodeord",
+    "password_input_placeholder": "Din nye adgangskode",
+    "button_label": "Opdater adgangskode"
+  }
+}

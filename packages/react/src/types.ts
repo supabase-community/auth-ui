@@ -18,6 +18,7 @@ export interface Localization {
   ['ja']: I18nVariables
   ['de_formal']: I18nVariables
   ['de_informal']: I18nVariables
+  ['dk']: I18nVariables
   ['fr']: I18nVariables
   ['it']: I18nVariables
   ['es']: I18nVariables
