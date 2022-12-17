@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "E-mailadres",
+    "password_label": "Creëer een wachtwoord",
+    "email_input_placeholder": "jouw e-mailadres",
+    "password_input_placeholder": "Uw wachtwoord",
+    "button_label": "Aanmelden",
+    "social_provider_text": "Aanmelden met",
+    "link_text": "Heb je geen account? Aanmelden"
+  },
+  "sign_in": {
+    "email_label": "E-mailadres",
+    "password_label": "Uw wachtwoord",
+    "email_input_placeholder": "jouw e-mailadres",
+    "password_input_placeholder": "Uw wachtwoord",
+    "button_label": "Log in",
+    "social_provider_text": "Log in met",
+    "link_text": "Heb je al een account? Log in"
+  },
+  "magic_link": {
+    "email_input_label": "E-mailadres",
+    "email_input_placeholder": "jouw e-mailadres",
+    "button_label": "Magische link verzenden",
+    "link_text": "Stuur een magische link-e-mail"
+  },
+  "forgotten_password": {
+    "email_label": "E-mailadres",
+    "password_label": "Uw wachtwoord",
+    "email_input_placeholder": "jouw e-mailadres",
+    "button_label": "Stuur instructies voor het opnieuw instellen van het wachtwoord",
+    "link_text": "Je wachtwoord vergeten?"
+  },
+  "update_password": {
+    "password_label": "Nieuw paswoord",
+    "password_input_placeholder": "uw nieuwe wachtwoord",
+    "button_label": "Vernieuw wachtwoord"
+  }
+}
