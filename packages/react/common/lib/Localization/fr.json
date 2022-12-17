@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Adresse e-mail",
+    "password_label": "Créer un mot de passe",
+    "email_input_placeholder": "Votre adresse e-mail",
+    "password_input_placeholder": "Votre mot de passe",
+    "button_label": "S'inscrire",
+    "social_provider_text": "Se connecter avec",
+    "link_text": "Vous n'avez pas de compte ? S'inscrire"
+  },
+  "sign_in": {
+    "email_label": "Adresse e-mail",
+    "password_label": "Votre mot de passe",
+    "email_input_placeholder": "Votre adresse e-mail",
+    "password_input_placeholder": "Votre mot de passe",
+    "button_label": "S'identifier",
+    "social_provider_text": "Se connecter avec",
+    "link_text": "Vous avez déjà un compte? S'identifier"
+  },
+  "magic_link": {
+    "email_input_label": "Adresse e-mail",
+    "email_input_placeholder": "Votre adresse e-mail",
+    "button_label": "Envoyer le lien magique",
+    "link_text": "Envoyer un e-mail de lien magique"
+  },
+  "forgotten_password": {
+    "email_label": "Adresse e-mail",
+    "password_label": "Votre mot de passe",
+    "email_input_placeholder": "Votre adresse e-mail",
+    "button_label": "Envoyer les instructions de réinitialisation du mot de passe",
+    "link_text": "Mot de passe oublié?"
+  },
+  "update_password": {
+    "password_label": "Nouveau mot de passe",
+    "password_input_placeholder": "Votre nouveau mot de passe",
+    "button_label": "Mettre à jour le mot de passe"
+  }
+}

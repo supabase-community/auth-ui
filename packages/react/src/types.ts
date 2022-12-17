@@ -18,6 +18,7 @@ export interface Localization {
   ['ja']: I18nVariables
   ['de_formal']: I18nVariables
   ['de_informal']: I18nVariables
+  ['fr']: I18nVariables
 }
 
 export type SocialLayout = 'horizontal' | 'vertical'
@@ -95,7 +96,7 @@ export interface Auth {
    * Override the labels and button text
    */
   localization?: {
-    lang?: 'en' | 'ja' // es
+    lang?: 'en' | 'ja' | 'fr' // ess
     variables?: I18nVariables
   }
   appearance?: Appearance
@@ -111,6 +112,7 @@ export type I18nVariables = {
     button_label?: string
     social_provider_text?: string
     link_text?: string
+    error_message?: string
   }
   sign_in?: {
     email_label?: string
@@ -120,12 +122,14 @@ export type I18nVariables = {
     button_label?: string
     social_provider_text?: string
     link_text?: string
+    error_message?: string
   }
   magic_link?: {
     email_input_label?: string
     email_input_placeholder?: string
     button_label?: string
     link_text?: string
+    error_message?: string
   }
   forgotten_password?: {
     email_label?: string
@@ -133,10 +137,12 @@ export type I18nVariables = {
     email_input_placeholder?: string
     button_label?: string
     link_text?: string
+    error_message?: string
   }
   update_password?: {
     password_label?: string
     password_input_placeholder?: string
     button_label?: string
+    error_message?: string
   }
 }
