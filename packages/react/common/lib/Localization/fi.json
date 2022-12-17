@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Sähköpostiosoite",
+    "password_label": "Luo salasana",
+    "email_input_placeholder": "Sähköpostiosoitteesi",
+    "password_input_placeholder": "Salasanasi",
+    "button_label": "Kirjaudu",
+    "social_provider_text": "Kirjaudu sisään",
+    "link_text": "Eikö sinulla ole tiliä? Kirjaudu"
+  },
+  "sign_in": {
+    "email_label": "Sähköpostiosoite",
+    "password_label": "Salasanasi",
+    "email_input_placeholder": "Sähköpostiosoitteesi",
+    "password_input_placeholder": "Salasanasi",
+    "button_label": "Kirjaudu sisään",
+    "social_provider_text": "Kirjaudu sisään",
+    "link_text": "Onko sinulla jo tili? Kirjaudu sisään"
+  },
+  "magic_link": {
+    "email_input_label": "Sähköpostiosoite",
+    "email_input_placeholder": "Sähköpostiosoitteesi",
+    "button_label": "Lähetä maaginen linkki",
+    "link_text": "Lähetä maaginen linkki sähköpostilla"
+  },
+  "forgotten_password": {
+    "email_label": "Sähköpostiosoite",
+    "password_label": "Salasanasi",
+    "email_input_placeholder": "Sähköpostiosoitteesi",
+    "button_label": "Lähetä salasanan nollausohjeet",
+    "link_text": "Unohditko salasanasi?"
+  },
+  "update_password": {
+    "password_label": "Uusi salasana",
+    "password_input_placeholder": "Uusi salasanasi",
+    "button_label": "Päivitä salasana"
+  }
+}
