@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "ที่อยู่อีเมล",
+    "password_label": "สร้างรหัสผ่าน",
+    "email_input_placeholder": "ที่อยู่อีเมลของคุณ",
+    "password_input_placeholder": "รหัสผ่านของคุณ",
+    "button_label": "ลงชื่อ",
+    "social_provider_text": "ลงชื่อเข้าใช้ด้วย",
+    "link_text": "ไม่มีบัญชี? ลงชื่อ"
+  },
+  "sign_in": {
+    "email_label": "ที่อยู่อีเมล",
+    "password_label": "รหัสผ่านของคุณ",
+    "email_input_placeholder": "ที่อยู่อีเมลของคุณ",
+    "password_input_placeholder": "รหัสผ่านของคุณ",
+    "button_label": "เข้าสู่ระบบ",
+    "social_provider_text": "ลงชื่อเข้าใช้ด้วย",
+    "link_text": "มีบัญชีอยู่แล้ว? เข้าสู่ระบบ"
+  },
+  "magic_link": {
+    "email_input_label": "ที่อยู่อีเมล",
+    "email_input_placeholder": "ที่อยู่อีเมลของคุณ",
+    "button_label": "ส่งเมจิกลิงค์",
+    "link_text": "ส่งอีเมลลิงค์มายากล"
+  },
+  "forgotten_password": {
+    "email_label": "ที่อยู่อีเมล",
+    "password_label": "รหัสผ่านของคุณ",
+    "email_input_placeholder": "ที่อยู่อีเมลของคุณ",
+    "button_label": "ส่งคำแนะนำในการรีเซ็ตรหัสผ่าน",
+    "link_text": "ลืมรหัสผ่านหรือไม่?"
+  },
+  "update_password": {
+    "password_label": "รหัสผ่านใหม่",
+    "password_input_placeholder": "รหัสผ่านใหม่ของคุณ",
+    "button_label": "อัปเดตรหัสผ่าน"
+  }
+}
