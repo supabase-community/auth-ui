@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "電子郵件地址",
+    "password_label": "創建密碼",
+    "email_input_placeholder": "您的電子郵件地址",
+    "password_input_placeholder": "你的密碼",
+    "button_label": "註冊",
+    "social_provider_text": "登陸使用",
+    "link_text": "沒有帳戶？ 註冊"
+  },
+  "sign_in": {
+    "email_label": "電子郵件地址",
+    "password_label": "你的密碼",
+    "email_input_placeholder": "您的電子郵件地址",
+    "password_input_placeholder": "你的密碼",
+    "button_label": "登入",
+    "social_provider_text": "登陸使用",
+    "link_text": "已有帳戶？ 登入"
+  },
+  "magic_link": {
+    "email_input_label": "電子郵件地址",
+    "email_input_placeholder": "您的電子郵件地址",
+    "button_label": "發送魔法鏈接",
+    "link_text": "發送魔法鏈接電子郵件"
+  },
+  "forgotten_password": {
+    "email_label": "電子郵件地址",
+    "password_label": "你的密碼",
+    "email_input_placeholder": "您的電子郵件地址",
+    "button_label": "發送重置密碼說明",
+    "link_text": "忘記密碼了嗎？"
+  },
+  "update_password": {
+    "password_label": "新密碼",
+    "password_input_placeholder": "您的新密碼",
+    "button_label": "更新密碼"
+  }
+}
