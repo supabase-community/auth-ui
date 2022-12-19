@@ -30,6 +30,7 @@ export interface Localization {
   ['zh_cn']: I18nVariables
   ['zh_tw']: I18nVariables
   ['ko']: I18nVariables
+  ['ms']: I18nVariables
 }
 
 export type SocialLayout = 'horizontal' | 'vertical'

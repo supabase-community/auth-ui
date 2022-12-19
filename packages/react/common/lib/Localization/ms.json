@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Alamat emel",
+    "password_label": "Buat Kata Laluan",
+    "email_input_placeholder": "alamat e-mel anda",
+    "password_input_placeholder": "Kata laluan Awak",
+    "button_label": "daftar",
+    "social_provider_text": "Daftar masuk dengan",
+    "link_text": "Tiada akaun? daftar"
+  },
+  "sign_in": {
+    "email_label": "Alamat emel",
+    "password_label": "Kata laluan Awak",
+    "email_input_placeholder": "alamat e-mel anda",
+    "password_input_placeholder": "Kata laluan Awak",
+    "button_label": "Log masuk",
+    "social_provider_text": "Daftar masuk dengan",
+    "link_text": "Sudah mempunyai akaun? Log masuk"
+  },
+  "magic_link": {
+    "email_input_label": "Alamat emel",
+    "email_input_placeholder": "alamat e-mel anda",
+    "button_label": "Hantar Pautan Ajaib",
+    "link_text": "Hantar e-mel pautan ajaib"
+  },
+  "forgotten_password": {
+    "email_label": "Alamat emel",
+    "password_label": "Kata laluan Awak",
+    "email_input_placeholder": "alamat e-mel anda",
+    "button_label": "Hantar arahan tetapan semula kata laluan",
+    "link_text": "Terlupa kata laluan anda?"
+  },
+  "update_password": {
+    "password_label": "Kata laluan baharu",
+    "password_input_placeholder": "Kata laluan baharu anda",
+    "button_label": "Kemas kini kata laluan"
+  }
+}
