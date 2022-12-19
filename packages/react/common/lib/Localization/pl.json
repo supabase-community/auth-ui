@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Adres e-mail",
+    "password_label": "Stwórz hasło",
+    "email_input_placeholder": "Twój adres email",
+    "password_input_placeholder": "Twoje hasło",
+    "button_label": "Zapisz się",
+    "social_provider_text": "Zaloguj się korzystając z",
+    "link_text": "Nie masz konta? Zapisz się"
+  },
+  "sign_in": {
+    "email_label": "Adres e-mail",
+    "password_label": "Twoje hasło",
+    "email_input_placeholder": "Twój adres email",
+    "password_input_placeholder": "Twoje hasło",
+    "button_label": "Zaloguj się",
+    "social_provider_text": "Zaloguj się korzystając z",
+    "link_text": "Posiadasz już konto? Zaloguj się"
+  },
+  "magic_link": {
+    "email_input_label": "Adres e-mail",
+    "email_input_placeholder": "Twój adres email",
+    "button_label": "Wyślij magiczny link",
+    "link_text": "Wyślij wiadomość e-mail z magicznym linkiem"
+  },
+  "forgotten_password": {
+    "email_label": "Adres e-mail",
+    "password_label": "Twoje hasło",
+    "email_input_placeholder": "Twój adres email",
+    "button_label": "Wyślij instrukcje resetowania hasła",
+    "link_text": "Zapomniałeś hasła?"
+  },
+  "update_password": {
+    "password_label": "Nowe hasło",
+    "password_input_placeholder": "Twoje nowe hasło",
+    "button_label": "Aktualizować hasło"
+  }
+}

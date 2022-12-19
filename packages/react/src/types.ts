@@ -27,6 +27,7 @@ export interface Localization {
   ['ms']: I18nVariables
   ['nl']: I18nVariables
   ['no']: I18nVariables
+  ['pl']: I18nVariables
   ['pt']: I18nVariables
   ['se']: I18nVariables
   ['th']: I18nVariables
