@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "ईमेल पता",
+    "password_label": "एक पासवर्ड बनाएं",
+    "email_input_placeholder": "आपका ईमेल पता",
+    "password_input_placeholder": "आपका पासवर्ड",
+    "button_label": "साइन अप करें",
+    "social_provider_text": "के साथ साइन इन करें",
+    "link_text": "खाता नहीं है? साइन अप करें"
+  },
+  "sign_in": {
+    "email_label": "ईमेल पता",
+    "password_label": "आपका पासवर्ड",
+    "email_input_placeholder": "आपका ईमेल पता",
+    "password_input_placeholder": "आपका पासवर्ड",
+    "button_label": "साइन इन करें",
+    "social_provider_text": "के साथ साइन इन करें",
+    "link_text": "क्या आपके पास पहले से एक खाता मौजूद है? साइन इन करें"
+  },
+  "magic_link": {
+    "email_input_label": "ईमेल पता",
+    "email_input_placeholder": "आपका ईमेल पता",
+    "button_label": "मैजिक लिंक भेजें",
+    "link_text": "एक मैजिक लिंक ईमेल भेजें"
+  },
+  "forgotten_password": {
+    "email_label": "ईमेल पता",
+    "password_label": "आपका पासवर्ड",
+    "email_input_placeholder": "आपका ईमेल पता",
+    "button_label": "पासवर्ड रीसेट निर्देश भेजें",
+    "link_text": "पासवर्ड भूल गए हैं?"
+  },
+  "update_password": {
+    "password_label": "नया पासवर्ड",
+    "password_input_placeholder": "आपका नया पासवर्ड",
+    "button_label": "पासवर्ड अपडेट करें"
+  }
+}

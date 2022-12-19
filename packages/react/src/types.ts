@@ -22,6 +22,7 @@ export interface Localization {
   ['fi']: I18nVariables
   ['fr']: I18nVariables
   ['gr']: I18nVariables
+  ['hi']: I18nVariables
   ['it']: I18nVariables
   ['ja']: I18nVariables
   ['ko']: I18nVariables
