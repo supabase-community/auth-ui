@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Διεύθυνση ηλεκτρονικού ταχυδρομείου",
+    "password_label": "Δημιούργησε έναν κωδικό",
+    "email_input_placeholder": "η ηλεκτρονική σου διεύθυνση",
+    "password_input_placeholder": "Ο κωδικός σας",
+    "button_label": "Εγγραφείτε",
+    "social_provider_text": "Συνδεθείτε με",
+    "link_text": "Δεν έχετε λογαριασμό; Εγγραφείτε"
+  },
+  "sign_in": {
+    "email_label": "Διεύθυνση ηλεκτρονικού ταχυδρομείου",
+    "password_label": "Ο κωδικός σας",
+    "email_input_placeholder": "η ηλεκτρονική σου διεύθυνση",
+    "password_input_placeholder": "Ο κωδικός σας",
+    "button_label": "Συνδεθείτε",
+    "social_provider_text": "Συνδεθείτε με",
+    "link_text": "Έχετε ήδη λογαριασμό? Συνδεθείτε"
+  },
+  "magic_link": {
+    "email_input_label": "Διεύθυνση ηλεκτρονικού ταχυδρομείου",
+    "email_input_placeholder": "η ηλεκτρονική σου διεύθυνση",
+    "button_label": "Στείλτε έναν μαγικό σύνδεσμο",
+    "link_text": "Στείλτε ένα μαγικό σύνδεσμο email"
+  },
+  "forgotten_password": {
+    "email_label": "Διεύθυνση ηλεκτρονικού ταχυδρομείου",
+    "password_label": "Ο κωδικός σας",
+    "email_input_placeholder": "η ηλεκτρονική σου διεύθυνση",
+    "button_label": "Στείλτε οδηγίες επαναφοράς κωδικού πρόσβασης",
+    "link_text": "Ξεχάσατε τον κωδικό σας;"
+  },
+  "update_password": {
+    "password_label": "Νέος κωδικός πρόσβασης",
+    "password_input_placeholder": "Ο νέος σας κωδικός πρόσβασης",
+    "button_label": "Ενημέρωση κωδικού πρόσβασης"
+  }
+}
