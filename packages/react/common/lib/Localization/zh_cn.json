@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "电子邮件地址",
+    "password_label": "创建密码",
+    "email_input_placeholder": "您的电子邮件地址",
+    "password_input_placeholder": "你的密码",
+    "button_label": "注册",
+    "social_provider_text": "登陆使用",
+    "link_text": "没有帐户？ 注册"
+  },
+  "sign_in": {
+    "email_label": "电子邮件地址",
+    "password_label": "你的密码",
+    "email_input_placeholder": "您的电子邮件地址",
+    "password_input_placeholder": "你的密码",
+    "button_label": "登入",
+    "social_provider_text": "登陆使用",
+    "link_text": "已有帐户？ 登入"
+  },
+  "magic_link": {
+    "email_input_label": "电子邮件地址",
+    "email_input_placeholder": "您的电子邮件地址",
+    "button_label": "发送魔法链接",
+    "link_text": "发送魔法链接电子邮件"
+  },
+  "forgotten_password": {
+    "email_label": "电子邮件地址",
+    "password_label": "你的密码",
+    "email_input_placeholder": "您的电子邮件地址",
+    "button_label": "发送重置密码说明",
+    "link_text": "忘记密码了吗？"
+  },
+  "update_password": {
+    "password_label": "新密码",
+    "password_input_placeholder": "您的新密码",
+    "button_label": "更新密码"
+  }
+}
