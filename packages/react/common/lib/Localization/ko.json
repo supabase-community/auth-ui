@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "이메일 주소",
+    "password_label": "비밀번호 만들기",
+    "email_input_placeholder": "귀하의 이메일 주소",
+    "password_input_placeholder": "Y너의 비밀번호",
+    "button_label": "가입하기",
+    "social_provider_text": "으로 로그인",
+    "link_text": "계정이 없습니까? 가입하기"
+  },
+  "sign_in": {
+    "email_label": "이메일 주소",
+    "password_label": "너의 비밀번호",
+    "email_input_placeholder": "귀하의 이메일 주소",
+    "password_input_placeholder": "너의 비밀번호",
+    "button_label": "로그인",
+    "social_provider_text": "으로 로그인",
+    "link_text": "이미 계정이 있습니까? 로그인"
+  },
+  "magic_link": {
+    "email_input_label": "이메일 주소",
+    "email_input_placeholder": "귀하의 이메일 주소",
+    "button_label": "매직 링크 보내기",
+    "link_text": "매직 링크 이메일 보내기"
+  },
+  "forgotten_password": {
+    "email_label": "이메일 주소",
+    "password_label": "너의 비밀번호",
+    "email_input_placeholder": "귀하의 이메일 주소",
+    "button_label": "비밀번호 재설정 안내 보내기",
+    "link_text": "비밀번호를 잊어 버렸습니까?"
+  },
+  "update_password": {
+    "password_label": "새 비밀번호",
+    "password_input_placeholder": "새 비밀번호",
+    "button_label": "비밀번호 업데이트"
+  }
+}
