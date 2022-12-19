@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Адреса Е-поште",
+    "password_label": "Напиши лозинку",
+    "email_input_placeholder": "Ваша емаил адреса",
+    "password_input_placeholder": "Твоја лозинка",
+    "button_label": "Пријави се",
+    "social_provider_text": "Пријави се са",
+    "link_text": "Немате налог? Пријави се"
+  },
+  "sign_in": {
+    "email_label": "Адреса Е-поште",
+    "password_label": "Твоја лозинка",
+    "email_input_placeholder": "Ваша емаил адреса",
+    "password_input_placeholder": "Твоја лозинка",
+    "button_label": "Пријавите се",
+    "social_provider_text": "Пријави се са",
+    "link_text": "Већ имате налог? Пријавите се"
+  },
+  "magic_link": {
+    "email_input_label": "Адреса Е-поште",
+    "email_input_placeholder": "Ваша емаил адреса",
+    "button_label": "Пошаљи магичну везу",
+    "link_text": "Пошаљите магичну везу е-поштом"
+  },
+  "forgotten_password": {
+    "email_label": "Адреса Е-поште",
+    "password_label": "Твоја лозинка",
+    "email_input_placeholder": "Ваша емаил адреса",
+    "button_label": "Пошаљите упутства за ресетовање лозинке",
+    "link_text": "Заборавили сте лозинку?"
+  },
+  "update_password": {
+    "password_label": "Нова лозинка",
+    "password_input_placeholder": "Ваша нова лозинка",
+    "button_label": "Ажурирајте лозинку"
+  }
+}
