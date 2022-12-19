@@ -33,6 +33,7 @@ export interface Localization {
   ['pt']: I18nVariables
   ['ru']: I18nVariables
   ['se']: I18nVariables
+  ['si']: I18nVariables
   ['sr']: I18nVariables
   ['th']: I18nVariables
   ['tr']: I18nVariables

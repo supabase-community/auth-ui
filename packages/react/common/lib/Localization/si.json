@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "විද්යුත් තැපැල් ලිපිනය",
+    "password_label": "මුරපදයක් තනන්න",
+    "email_input_placeholder": "ඔයාගේ ඊතැපැල් ලිපිනය",
+    "password_input_placeholder": "ඔබගේ මුරපදය",
+    "button_label": "ලියාපදිංචි වන්න",
+    "social_provider_text": "සමඟ පුරනය වන්න",
+    "link_text": "ගිණුමක් නැද්ද? ලියාපදිංචි වන්න"
+  },
+  "sign_in": {
+    "email_label": "විද්යුත් තැපැල් ලිපිනය",
+    "password_label": "ඔබගේ මුරපදය",
+    "email_input_placeholder": "ඔයාගේ ඊතැපැල් ලිපිනය",
+    "password_input_placeholder": "ඔබගේ මුරපදය",
+    "button_label": "පුරන්න",
+    "social_provider_text": "සමඟ පුරනය වන්න",
+    "link_text": "දැනටමත් ගිණුමක් තිබේද? පුරන්න"
+  },
+  "magic_link": {
+    "email_input_label": "විද්යුත් තැපැල් ලිපිනය",
+    "email_input_placeholder": "ඔයාගේ ඊතැපැල් ලිපිනය",
+    "button_label": "Magic Link එකක් එවන්න",
+    "link_text": "මැජික් සබැඳි ඊමේල් එකක් යවන්න"
+  },
+  "forgotten_password": {
+    "email_label": "විද්යුත් තැපැල් ලිපිනය",
+    "password_label": "ඔබගේ මුරපදය",
+    "email_input_placeholder": "ඔයාගේ ඊතැපැල් ලිපිනය",
+    "button_label": "මුරපද යළි පිහිටුවීමේ උපදෙස් යවන්න",
+    "link_text": "මුරපදය අමතක වුනාද?"
+  },
+  "update_password": {
+    "password_label": "නව මුරපදය",
+    "password_input_placeholder": "ඔබගේ නව මුරපදය",
+    "button_label": "මුරපදය යාවත්කාලීන කරන්න"
+  }
+}
