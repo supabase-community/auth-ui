@@ -29,6 +29,7 @@ export interface Localization {
   ['no']: I18nVariables
   ['pl']: I18nVariables
   ['pt']: I18nVariables
+  ['ru']: I18nVariables
   ['se']: I18nVariables
   ['th']: I18nVariables
   ['tr']: I18nVariables

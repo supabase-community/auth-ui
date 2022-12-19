@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Адрес электронной почты",
+    "password_label": "Создайте пароль",
+    "email_input_placeholder": "Ваша электронная почта",
+    "password_input_placeholder": "Ваш пароль",
+    "button_label": "Подписаться",
+    "social_provider_text": "Войти в систему с",
+    "link_text": "У вас нет аккаунта? Подписаться"
+  },
+  "sign_in": {
+    "email_label": "Адрес электронной почты",
+    "password_label": "Ваш пароль",
+    "email_input_placeholder": "Ваша электронная почта",
+    "password_input_placeholder": "Ваш пароль",
+    "button_label": "Войти",
+    "social_provider_text": "Войти в систему с",
+    "link_text": "У вас уже есть аккаунт? Войти"
+  },
+  "magic_link": {
+    "email_input_label": "Адрес электронной почты",
+    "email_input_placeholder": "Ваша электронная почта",
+    "button_label": "Отправить волшебную ссылку",
+    "link_text": "Отправить письмо с волшебной ссылкой"
+  },
+  "forgotten_password": {
+    "email_label": "Адрес электронной почты",
+    "password_label": "Ваш пароль",
+    "email_input_placeholder": "Ваша электронная почта",
+    "button_label": "Отправить инструкции по сбросу пароля",
+    "link_text": "Забыли свой пароль?"
+  },
+  "update_password": {
+    "password_label": "Новый пароль",
+    "password_input_placeholder": "ваш новый пароль",
+    "button_label": "Обновить пароль"
+  }
+}
