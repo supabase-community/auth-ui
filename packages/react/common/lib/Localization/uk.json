@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "Адреса електронної пошти",
+    "password_label": "Створіть пароль",
+    "email_input_placeholder": "Ваша електронна адреса",
+    "password_input_placeholder": "Ваш пароль",
+    "button_label": "Зареєструватися",
+    "social_provider_text": "Увійти за допомогою",
+    "link_text": "Немає облікового запису? Зареєструватися"
+  },
+  "sign_in": {
+    "email_label": "Адреса електронної пошти",
+    "password_label": "Ваш пароль",
+    "email_input_placeholder": "Ваша електронна адреса",
+    "password_input_placeholder": "Ваш пароль",
+    "button_label": "Увійти",
+    "social_provider_text": "Увійти за допомогою",
+    "link_text": "Вже є аккаунт? Увійти"
+  },
+  "magic_link": {
+    "email_input_label": "Адреса електронної пошти",
+    "email_input_placeholder": "Ваша електронна адреса",
+    "button_label": "Надіслати магічне посилання",
+    "link_text": "Надіслати чарівне посилання електронною поштою"
+  },
+  "forgotten_password": {
+    "email_label": "Адреса електронної пошти",
+    "password_label": "Ваш пароль",
+    "email_input_placeholder": "Ваша електронна адреса",
+    "button_label": "Надіслати інструкції щодо зміни пароля",
+    "link_text": "Забули свій пароль?"
+  },
+  "update_password": {
+    "password_label": "Новий пароль",
+    "password_input_placeholder": "Ваш новий пароль",
+    "button_label": "Оновити пароль"
+  }
+}
