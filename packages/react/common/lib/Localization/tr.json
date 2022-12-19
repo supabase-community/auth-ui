@@ -1,0 +1,38 @@
+{
+  "sign_up": {
+    "email_label": "E-posta adresi",
+    "password_label": "Şifre oluştur",
+    "email_input_placeholder": "E-posta adresiniz",
+    "password_input_placeholder": "Şifreniz",
+    "button_label": "Üye olmak",
+    "social_provider_text": "Şununla giriş yap",
+    "link_text": "Hesabınız yok mu? Üye olmak"
+  },
+  "sign_in": {
+    "email_label": "E-posta adresi",
+    "password_label": "Şifreniz",
+    "email_input_placeholder": "E-posta adresiniz",
+    "password_input_placeholder": "Şifreniz",
+    "button_label": "Kayıt olmak",
+    "social_provider_text": "Şununla giriş yap",
+    "link_text": "Zaten hesabınız var mı? Kayıt olmak"
+  },
+  "magic_link": {
+    "email_input_label": "E-posta adresi",
+    "email_input_placeholder": "E-posta adresiniz",
+    "button_label": "Sihirli Bağlantı Gönder",
+    "link_text": "Sihirli bağlantı e-postası gönderin"
+  },
+  "forgotten_password": {
+    "email_label": "E-posta adresi",
+    "password_label": "Şifreniz",
+    "email_input_placeholder": "E-posta adresiniz",
+    "button_label": "Parola sıfırlama talimatları gönder",
+    "link_text": "Parolanızı mı unuttunuz?"
+  },
+  "update_password": {
+    "password_label": "Yeni Şifre",
+    "password_input_placeholder": "Yeni şifreniz",
+    "button_label": "Şifreyi güncelle"
+  }
+}

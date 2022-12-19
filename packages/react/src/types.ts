@@ -31,6 +31,7 @@ export interface Localization {
   ['pt']: I18nVariables
   ['se']: I18nVariables
   ['th']: I18nVariables
+  ['tr']: I18nVariables
   ['uk']: I18nVariables
   ['zh_cn']: I18nVariables
   ['zh_tw']: I18nVariables
