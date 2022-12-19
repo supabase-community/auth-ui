@@ -14,24 +14,24 @@ export interface AnimationTailwindClasses {
 export type AuthProviders = Provider
 export interface Localization {
   // [key: string]: I18nVariables
-  ['en']: I18nVariables
-  ['ja']: I18nVariables
   ['de_formal']: I18nVariables
   ['de_informal']: I18nVariables
   ['dk']: I18nVariables
+  ['en']: I18nVariables
+  ['es']: I18nVariables
   ['fi']: I18nVariables
   ['fr']: I18nVariables
   ['it']: I18nVariables
-  ['es']: I18nVariables
-  ['pt']: I18nVariables
+  ['ja']: I18nVariables
+  ['ko']: I18nVariables
+  ['ms']: I18nVariables
   ['nl']: I18nVariables
   ['no']: I18nVariables
+  ['pt']: I18nVariables
   ['se']: I18nVariables
   ['th']: I18nVariables
   ['zh_cn']: I18nVariables
   ['zh_tw']: I18nVariables
-  ['ko']: I18nVariables
-  ['ms']: I18nVariables
 }
 
 export type SocialLayout = 'horizontal' | 'vertical'
