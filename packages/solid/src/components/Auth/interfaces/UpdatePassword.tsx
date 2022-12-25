@@ -1,5 +1,5 @@
 import { SupabaseClient } from '@supabase/supabase-js'
-import { createSignal, Show } from 'solid-js'
+import { createSignal, onMount, Show } from 'solid-js'
 import { Appearance, FormEvent, I18nVariables } from '../../../types'
 import { Button, Container, Input, Label, Message } from '../../UI'
 
@@ -12,6 +12,7 @@ function UpdatePassword(props: {
   const [error, setError] = createSignal('')
   const [message, setMessage] = createSignal('')
   const [loading, setLoading] = createSignal(false)
+  let inputRef: HTMLInputElement
 
   const handlePasswordReset = async (e: FormEvent) => {
     e.preventDefault()
@@ -24,6 +25,10 @@ function UpdatePassword(props: {
     setLoading(false)
   }
 
+  onMount(() => {
+    inputRef.focus()
+  })
+
   return (
     <form id="auth-update-password" onSubmit={handlePasswordReset}>
       <Container gap="large" direction={'vertical'} appearance={props.appearance}>
@@ -34,6 +39,7 @@ function UpdatePassword(props: {
             </Label>
             <Input
               name="password"
+              ref={(el) => (inputRef = el)}
               placeholder={props.i18n?.update_password?.password_label}
               type="password"
               onkeyup={(e) =>

@@ -1,12 +1,12 @@
-import { createStitches, createTheme } from "@stitches/core";
-import merge from "just-merge";
+import { createStitches, createTheme } from '@stitches/core'
+import merge from 'just-merge'
 import {
   Auth as AuthProps,
   Localization,
   I18nVariables,
   SocialLayouts,
-} from "../../types";
-import { VIEWS } from "../../constants";
+} from '../../types'
+import { VIEWS } from '../../constants'
 import {
   EmailAuth,
   EmailAuthProps,
@@ -14,10 +14,10 @@ import {
   MagicLink,
   SocialAuth,
   UpdatePassword,
-} from "./interfaces";
-import { UserContextProvider, useUser } from "./UserContext";
+} from './interfaces'
+import { UserContextProvider, useUser } from './UserContext'
 
-import * as _defaultLocalization from "../../../common/lib/localization";
+import * as _defaultLocalization from '../../../common/lib/localization'
 import {
   Accessor,
   createEffect,
@@ -27,15 +27,16 @@ import {
   JSXElement,
   Match,
   mergeProps,
+  onCleanup,
   onMount,
   Show,
   Switch,
-} from "solid-js";
-import { createStore } from "solid-js/store";
+} from 'solid-js'
+import { createStore } from 'solid-js/store'
 
-const defaultLocalization: Localization = { ..._defaultLocalization };
+const defaultLocalization: Localization = { ..._defaultLocalization }
 
-export const { getCssText } = createStitches();
+export const { getCssText } = createStitches()
 
 function Auth(props: AuthProps): JSX.Element | null {
   /**
@@ -46,42 +47,42 @@ function Auth(props: AuthProps): JSX.Element | null {
     const merged = mergeProps(
       {
         socialLayout: SocialLayouts.horizontal,
-        view: "sign_in",
+        view: 'sign_in',
         onlyThirdPartyProviders: false,
         magicLink: false,
         showLinks: true,
-        theme: "default",
-        localization: { lang: "en" },
+        theme: 'default',
+        localization: { lang: 'en' },
       },
       props
-    );
-    return merged;
-  });
+    )
+    return merged
+  })
 
   const i18n: Accessor<I18nVariables> = createMemo(() => {
     const merged = merge(
       //@ts-ignore
-      defaultLocalization[mergedProps().localization.lang ?? "en"],
+      defaultLocalization[mergedProps().localization.lang ?? 'en'],
       mergedProps().localization ?? {}
-    );
-    return merged;
-  });
+    )
+    return merged
+  })
 
-  const [authView, setAuthView] = createSignal(mergedProps().view);
-  const [defaultEmail, setDefaultEmail] = createSignal("");
-  const [defaultPassword, setDefaultPassword] = createSignal("");
-  const [themes, setThemes] = createSignal({});
+  const [authView, setAuthView] = createSignal(mergedProps().view)
+  const [defaultEmail, setDefaultEmail] = createSignal('')
+  const [defaultPassword, setDefaultPassword] = createSignal('')
+  const [themes, setThemes] = createSignal({})
 
   /**
    * Simple boolean to detect if authView 'sign_in' or 'sign_up' is used
    *
    * @returns boolean
    */
-  const [SignView, setSignView] = createSignal();
+  const [SignView, setSignView] = createSignal()
 
   onMount(() => {
-    setSignView(authView() === "sign_in" || authView() === "sign_up");
-  });
+    setSignView(authView() === 'sign_in' || authView() === 'sign_up')
+  })
 
   createEffect(() => {
     /**
@@ -93,27 +94,27 @@ function Auth(props: AuthProps): JSX.Element | null {
      * to add a new theme use  createTheme({})
      * https://stitches.dev/docs/api#theme
      */
-    setSignView(authView() === "sign_in" || authView() === "sign_up");
+    setSignView(authView() === 'sign_in' || authView() === 'sign_up')
     createStitches({
       theme: merge(
         mergedProps().appearance?.theme?.default ?? {},
         mergedProps().appearance?.variables?.default ?? {}
       ),
-    });
+    })
 
-    const themes: any = {};
+    const themes: any = {}
     const themeKeys =
       mergedProps().appearance?.theme &&
       //@ts-ignore
-      Object.keys(mergedProps().appearance?.theme);
+      Object.keys(mergedProps().appearance?.theme)
 
     if (themeKeys) {
       mergedProps().appearance?.theme &&
-      //@ts-ignore
+        //@ts-ignore
         Object.values(mergedProps().appearance?.theme).map((theme, i) => {
-          const key = themeKeys[i];
+          const key = themeKeys[i]
           // ignore default theme
-          if (key === "default") return {};
+          if (key === 'default') return {}
 
           const merged = merge(
             (mergedProps().appearance &&
@@ -124,14 +125,14 @@ function Auth(props: AuthProps): JSX.Element | null {
               mergedProps().appearance?.variables &&
               mergedProps().appearance?.variables?.[key]) ??
               {}
-          );
+          )
 
-          themes[themeKeys[i]] = merged;
-        });
+          themes[themeKeys[i]] = merged
+        })
     }
 
-    setThemes(themes);
-  });
+    setThemes(themes)
+  })
 
   /**
    * Wraps around all auth components
@@ -143,7 +144,7 @@ function Auth(props: AuthProps): JSX.Element | null {
   const Container = (props: { children: JSXElement }) => (
     <div
       class={
-        mergedProps().theme !== "default"
+        mergedProps().theme !== 'default'
           ? createTheme(
               merge(
                 // @ts-ignore
@@ -151,7 +152,7 @@ function Auth(props: AuthProps): JSX.Element | null {
                 mergedProps().appearance?.variables?.[mergedProps().theme] ?? {}
               )
             )
-          : ""
+          : ''
       }
     >
       <Show when={SignView()}>
@@ -163,7 +164,7 @@ function Auth(props: AuthProps): JSX.Element | null {
           redirectTo={mergedProps().redirectTo}
           onlyThirdPartyProviders={mergedProps().onlyThirdPartyProviders}
           i18n={i18n()}
-          view={authView() as "sign_in" | "sign_up"}
+          view={authView() as 'sign_in' | 'sign_up'}
         />
       </Show>
       {/* {!onlyThirdPartyProviders && props.children} */}
@@ -171,17 +172,27 @@ function Auth(props: AuthProps): JSX.Element | null {
         {props.children}
       </Show>
     </div>
-  );
+  )
 
   createEffect(() => {
     /**
      * Overrides the authview if it is changed externally
      */
-    setAuthView(mergedProps().view);
-  });
+    const { data: authListener } =
+      mergedProps().supabaseClient.auth.onAuthStateChange((event, session) => {
+        if (event === 'PASSWORD_RECOVERY') {
+          setAuthView(VIEWS.UPDATE_PASSWORD)
+        } else if (event === 'USER_UPDATED') {
+          setAuthView(VIEWS.SIGN_IN)
+        }
+      })
+    setAuthView(mergedProps().view)
+
+    onCleanup(() => authListener.subscription.unsubscribe())
+  })
 
   const [emailProp, setEmailProp] = createStore<
-    Omit<EmailAuthProps, "authView" | "id">
+    Omit<EmailAuthProps, 'authView' | 'id'>
   >({
     supabaseClient: mergedProps().supabaseClient,
     setAuthView,
@@ -193,7 +204,7 @@ function Auth(props: AuthProps): JSX.Element | null {
     magicLink: mergedProps().magicLink,
     showLinks: mergedProps().showLinks,
     i18n: i18n(),
-  });
+  })
 
   /**
    * View handler, displays the correct Auth view
@@ -205,7 +216,7 @@ function Auth(props: AuthProps): JSX.Element | null {
         <Container>
           <EmailAuth
             {...emailProp}
-            authView={"sign_in"}
+            authView={'sign_in'}
             appearance={mergedProps().appearance}
           />
         </Container>
@@ -216,7 +227,7 @@ function Auth(props: AuthProps): JSX.Element | null {
           <EmailAuth
             appearance={mergedProps().appearance}
             supabaseClient={mergedProps().supabaseClient}
-            authView={"sign_up"}
+            authView={'sign_up'}
             setAuthView={setAuthView}
             defaultEmail={defaultEmail()}
             defaultPassword={defaultPassword()}
@@ -266,13 +277,13 @@ function Auth(props: AuthProps): JSX.Element | null {
         </Container>
       </Match>
     </Switch>
-  );
+  )
 }
 
-Auth.ForgottenPassword = ForgottenPassword;
-Auth.UpdatePassword = UpdatePassword;
-Auth.MagicLink = MagicLink;
-Auth.UserContextProvider = UserContextProvider;
-Auth.useUser = useUser;
+Auth.ForgottenPassword = ForgottenPassword
+Auth.UpdatePassword = UpdatePassword
+Auth.MagicLink = MagicLink
+Auth.UserContextProvider = UserContextProvider
+Auth.useUser = useUser
 
-export default Auth;
+export default Auth
