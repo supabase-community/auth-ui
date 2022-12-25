@@ -47,6 +47,7 @@ function MagicLink({
               {i18n?.magic_link?.email_input_label}
             </Label>
             <Input
+              name="email"
               type="email"
               placeholder={i18n?.magic_link?.email_input_placeholder}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
