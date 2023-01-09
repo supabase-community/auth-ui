@@ -11,6 +11,7 @@ Auth UI is kept deliberatly seperate from @supabase/auth-helpers so that develop
 ## Supported frameworks
 
 - React
+- Solid.js
 
 ### Examples and Packages
 
