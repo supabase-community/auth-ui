@@ -1,10 +1,10 @@
 # Supabase Auth UI Solid.js 
 
-Supabse Auth UI is a collection of pre built UI components that work seamlessly with @supabase/auth-helpers.
+Supabase Auth UI is a collection of pre built UI components that work seamlessly with @supabase/auth-helpers.
 
 The main purpose of these components is to allow developers to get working on their apps quickly, but also be able to use their own style/css.
 
-Auth UI is kept deliberatly seperate from @supabase/auth-helpers so that developers can migrate away from pre-built UI components as their UI system naturally matures.
+Auth UI is kept deliberately separate from @supabase/auth-helpers so that developers can migrate away from pre-built UI components as their UI system naturally matures.
 
 ## How to use?
 
