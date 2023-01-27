@@ -68,10 +68,7 @@ function SocialAuth({
                     onClick={() => handleProviderSignIn(provider)}
                     appearance={appearance}
                   >
-                    {verticalSocialLayout &&
-                      i18n[view]?.social_provider_text +
-                        ' ' +
-                        capitalize(provider)}
+                    {capitalize(provider) + i18n[view]?.social_provider_text}
                   </Button>
                 )
               })}
