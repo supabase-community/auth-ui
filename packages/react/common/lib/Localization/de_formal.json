@@ -10,7 +10,7 @@
   },
   "sign_in": {
     "email_label": "E-Mail Adresse",
-    "password_label": "Passwort erstellen",
+    "password_label": "Passwort",
     "email_input_placeholder": "Ihre E-Mail Adresse",
     "password_input_placeholder": "Ihr Passwort",
     "button_label": "Anmelden",
