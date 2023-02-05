@@ -95,7 +95,7 @@ export interface Auth {
    * Override the labels and button text
    */
   localization?: {
-    lang?: 'en' | 'ja' // es
+    lang?: 'en' | 'ja' | 'de_formal' | 'de_informal' // es
     variables?: I18nVariables
   }
   appearance?: Appearance
