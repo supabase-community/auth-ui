@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { useDarkMode } from 'storybook-dark-mode'
 import { Button, Message } from '../UI'
 import { Auth } from './'
+import { ThemeSupa } from '../../../common/theming/defaultThemes'
 // @ts-ignore
 
 const supabase = createClient(
@@ -37,7 +38,13 @@ export const Default = (args: any) => {
   return (
     <Auth.UserContextProvider {...args}>
       <Container {...args}>
-        <Auth {...args} dark={useDarkMode() ? true : false} />
+        <Auth
+          {...args}
+          dark={useDarkMode() ? true : false}
+          appearance={{
+            theme: ThemeSupa,
+          }}
+        />
       </Container>
     </Auth.UserContextProvider>
   )
@@ -46,7 +53,13 @@ export const Default = (args: any) => {
 export const withSocialAuth = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} dark={useDarkMode() ? true : false} />
+      <Auth
+        {...args}
+        dark={useDarkMode() ? true : false}
+        appearance={{
+          theme: ThemeSupa,
+        }}
+      />
     </Container>
   </Auth.UserContextProvider>
 )
@@ -74,6 +87,9 @@ export const withAllSocialAuth = (args: any) => (
           'twitter',
           'workos',
         ]}
+        appearance={{
+          theme: ThemeSupa,
+        }}
       />
     </Container>
   </Auth.UserContextProvider>
@@ -81,21 +97,39 @@ export const withAllSocialAuth = (args: any) => (
 export const withSocialLargeButtons = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} dark={useDarkMode() ? true : false} />
+      <Auth
+        {...args}
+        dark={useDarkMode() ? true : false}
+        appearance={{
+          theme: ThemeSupa,
+        }}
+      />
     </Container>
   </Auth.UserContextProvider>
 )
 export const withColouredSocialAuth = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} dark={useDarkMode() ? true : false} />
+      <Auth
+        {...args}
+        dark={useDarkMode() ? true : false}
+        appearance={{
+          theme: ThemeSupa,
+        }}
+      />
     </Container>
   </Auth.UserContextProvider>
 )
 export const withSocialAuthHorizontal = (args: any) => (
   <Auth.UserContextProvider {...args}>
     <Container {...args}>
-      <Auth {...args} dark={useDarkMode() ? true : false} />
+      <Auth
+        {...args}
+        dark={useDarkMode() ? true : false}
+        appearance={{
+          theme: ThemeSupa,
+        }}
+      />
     </Container>
   </Auth.UserContextProvider>
 )
@@ -105,6 +139,9 @@ export const updatePassword = (args: any) => (
       {...args}
       dark={useDarkMode() ? true : false}
       view="update_password"
+      appearance={{
+        theme: ThemeSupa,
+      }}
     />
   </Container>
 )
@@ -116,6 +153,9 @@ export const magicLink = (args: any) => (
       dark={useDarkMode() ? true : false}
       view="magic_link"
       showLinks={false}
+      appearance={{
+        theme: ThemeSupa,
+      }}
     />
   </Container>
 )
@@ -136,6 +176,7 @@ export const withCustomClassNames = (args: any) => (
           loader: 'foo',
           message: 'foo',
         },
+        theme: ThemeSupa
       }}
     />
   </Container>
@@ -188,7 +229,13 @@ export const ChangeViewState = (args: any) => {
       </div>
       <Auth.UserContextProvider supabaseClient={supabase}>
         <Container supabaseClient={supabase}>
-          <Auth supabaseClient={supabase} view={view} />
+          <Auth
+            supabaseClient={supabase}
+            view={view}
+            appearance={{
+              theme: ThemeSupa,
+            }}
+          />
         </Container>
       </Auth.UserContextProvider>
     </div>
