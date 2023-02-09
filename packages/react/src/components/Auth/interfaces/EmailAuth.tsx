@@ -56,6 +56,7 @@ function EmailAuth({
   const [message, setMessage] = useState('')
 
   useEffect(() => {
+    isMounted.current = true
     setEmail(defaultEmail)
     setPassword(defaultPassword)
 
