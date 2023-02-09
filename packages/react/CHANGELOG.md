@@ -1,5 +1,15 @@
 # @supabase/auth-ui-react
 
+## 0.2.7
+
+### Patch Changes
+
+- c2bf9cb: Bump supabase-js version to 2.7.1
+- 8fa96c4: Add UI loading state feedback to EmailAuth
+- afc3ca5: Fix EmailAuth mounted ref not resetting during remount
+- 7599df3: Add name attribute to email input to fix autocomplete
+- ae519bc: Fix svg icons attribute names
+
 ## 0.2.6
 
 ### Patch Changes
