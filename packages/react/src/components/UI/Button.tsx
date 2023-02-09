@@ -19,22 +19,26 @@ const buttonDefaultStyles = css({
   transitionPproperty: 'background-color',
   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
   transitionDuration: '100ms',
-
+  '&:disabled': {
+    opacity: 0.7,
+    cursor: 'unset'
+  },
   variants: {
     color: {
       default: {
         backgroundColor: '$defaultButtonBackground',
         color: '$defaultButtonText',
         borderColor: '$defaultButtonBorder',
-        '&:hover': {
+        '&:hover:not(:disabled)': {
           backgroundColor: '$defaultButtonBackgroundHover',
         },
+
       },
       primary: {
         backgroundColor: '$brand',
         color: '$brandButtonText',
         borderColor: '$brandAccent',
-        '&:hover': {
+        '&:hover:not(:disabled)': {
           backgroundColor: '$brandAccent',
         },
       },

@@ -106,6 +106,8 @@ function EmailAuth({
     setAuthView(newView)
   }
 
+  const labels = i18n?.[authView]
+
   return (
     <form
       id={authView === 'sign_in' ? `auth-sign-in` : `auth-sign-up`}
@@ -117,12 +119,12 @@ function EmailAuth({
         <Container direction="vertical" gap="large" appearance={appearance}>
           <div>
             <Label htmlFor="email" appearance={appearance}>
-              {i18n?.[authView]?.email_label}
+              {labels?.email_label}
             </Label>
             <Input
               type="email"
               name="email"
-              placeholder={i18n?.[authView]?.email_input_placeholder}
+              placeholder={labels?.email_input_placeholder}
               defaultValue={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
@@ -133,12 +135,12 @@ function EmailAuth({
           </div>
           <div>
             <Label htmlFor="password" appearance={appearance}>
-              {i18n?.[authView]?.password_label}
+              {labels?.password_label}
             </Label>
             <Input
               type="password"
               name="password"
-              placeholder={i18n?.[authView]?.password_input_placeholder}
+              placeholder={labels?.password_input_placeholder}
               defaultValue={password}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
@@ -157,7 +159,7 @@ function EmailAuth({
           loading={loading}
           appearance={appearance}
         >
-          {i18n?.[authView]?.button_label}
+          {loading ? labels?.loading_button_label : labels?.button_label}
         </Button>
 
         {showLinks && (

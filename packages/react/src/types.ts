@@ -109,6 +109,7 @@ export type I18nVariables = {
     email_input_placeholder?: string
     password_input_placeholder?: string
     button_label?: string
+    loading_button_label?: string
     social_provider_text?: string
     link_text?: string
   }
@@ -118,6 +119,7 @@ export type I18nVariables = {
     email_input_placeholder?: string
     password_input_placeholder?: string
     button_label?: string
+    loading_button_label?: string
     social_provider_text?: string
     link_text?: string
   }
