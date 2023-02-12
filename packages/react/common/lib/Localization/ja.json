@@ -36,6 +36,7 @@
   "update_password": {
     "password_label": "New password",
     "password_input_placeholder": "Your new password",
-    "button_label": "Update password"
+    "button_label": "Update password",
+    "loading_button_label": "Updating password ..."
   }
 }

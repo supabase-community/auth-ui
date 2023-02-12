@@ -141,5 +141,6 @@ export type I18nVariables = {
     password_label?: string
     password_input_placeholder?: string
     button_label?: string
+    loading_button_label?: string
   }
 }
