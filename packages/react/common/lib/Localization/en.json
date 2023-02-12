@@ -23,6 +23,7 @@
     "email_input_label": "Email address",
     "email_input_placeholder": "Your email address",
     "button_label": "Send Magic Link",
+    "loading_button_label": "Sending Magic Link ...",
     "link_text": "Send a magic link email"
   },
   "forgotten_password": {
