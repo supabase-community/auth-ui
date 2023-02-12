@@ -31,6 +31,7 @@
     "password_label": "Your Password",
     "email_input_placeholder": "Your email address",
     "button_label": "Send reset password instructions",
+    "loading_button_label": "Sending reset instructions ...",
     "link_text": "パスワードをお忘れの方"
   },
   "update_password": {

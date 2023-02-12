@@ -135,6 +135,7 @@ export type I18nVariables = {
     password_label?: string
     email_input_placeholder?: string
     button_label?: string
+    loading_button_label?: string
     link_text?: string
   }
   update_password?: {

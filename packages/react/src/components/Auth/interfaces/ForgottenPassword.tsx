@@ -37,18 +37,20 @@ function ForgottenPassword({
     setLoading(false)
   }
 
+  const labels = i18n?.forgotten_password
+
   return (
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
       <Container gap="large" direction="vertical" appearance={appearance}>
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
             <Label htmlFor="email" appearance={appearance}>
-              {i18n?.forgotten_password?.email_label}
+              {labels?.email_label}
             </Label>
             <Input
               name="email"
               type="email"
-              placeholder={i18n?.forgotten_password?.email_input_placeholder}
+              placeholder={labels?.email_input_placeholder}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
@@ -61,7 +63,7 @@ function ForgottenPassword({
             loading={loading}
             appearance={appearance}
           >
-            {i18n?.forgotten_password?.button_label}
+            {loading ? labels?.loading_button_label : labels?.button_label}
           </Button>
         </Container>
         {showLinks && (

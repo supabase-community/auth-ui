@@ -31,6 +31,7 @@
     "password_label": "Ihr Passwort",
     "email_input_placeholder": "Ihre E-Mail Adresse",
     "button_label": "Anweisungen zum Zurücksetzen des Passworts senden",
+    "loading_button_label": "Anweisungen zum Zurücksetzen senden ...",
     "link_text": "Passwort vergessen?"
   },
   "update_password": {
