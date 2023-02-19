@@ -1,7 +1,7 @@
 import { createStitches, createTheme } from '@stitches/core'
-import { merge } from '../../utils'
 import React, { useEffect, useState } from 'react'
-import { Auth as AuthProps, Localization, I18nVariables } from '../../types'
+import { Auth as AuthProps, I18nVariables, Localization } from '../../types'
+import { merge } from '../../utils'
 import { VIEWS } from './../../constants'
 import {
   EmailAuth,
@@ -55,7 +55,10 @@ function Auth({
    *
    * @returns boolean
    */
-  const SignView = authView === 'sign_in' || authView === 'sign_up'
+  const SignView =
+    authView === 'sign_in' ||
+    authView === 'sign_up' ||
+    authView === 'magic_link'
 
   useEffect(() => {
     /**
