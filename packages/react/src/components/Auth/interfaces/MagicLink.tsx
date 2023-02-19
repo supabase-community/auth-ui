@@ -38,18 +38,20 @@ function MagicLink({
     setLoading(false)
   }
 
+  const labels = i18n?.magic_link
+
   return (
     <form id="auth-magic-link" onSubmit={handleMagicLinkSignIn}>
       <Container gap="large" direction="vertical" appearance={appearance}>
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
             <Label appearance={appearance}>
-              {i18n?.magic_link?.email_input_label}
+              {labels?.email_input_label}
             </Label>
             <Input
               name="email"
               type="email"
-              placeholder={i18n?.magic_link?.email_input_placeholder}
+              placeholder={labels?.email_input_placeholder}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)
               }
@@ -62,7 +64,7 @@ function MagicLink({
             loading={loading}
             appearance={appearance}
           >
-            {i18n?.magic_link?.button_label}
+            {loading ? labels?.loading_button_label : labels?.button_label}
           </Button>
         </Container>
         {showLinks && (

@@ -5,6 +5,7 @@
     "email_input_placeholder": "Deine E-Mail Adresse",
     "password_input_placeholder": "Dein Passwort",
     "button_label": "Registrieren",
+    "loading_button_label": "Registrieren ...",
     "social_provider_text": "Anmelden mit",
     "link_text": "Hast du noch kein Konto? Registrieren"
   },
@@ -14,6 +15,7 @@
     "email_input_placeholder": "Deine E-Mail Adresse",
     "password_input_placeholder": "Dein Passwort",
     "button_label": "Anmelden",
+    "loading_button_label": "Anmelden ...",
     "social_provider_text": "Anmelden mit",
     "link_text": "Hast du bereits ein Konto? Anmelden"
   },
@@ -21,6 +23,7 @@
     "email_input_label": "E-Mail Adresse",
     "email_input_placeholder": "Deine E-Mail Adresse",
     "button_label": "Magischen Link senden",
+    "loading_button_label": "Magischen Link senden ...",
     "link_text": "Einen magischen Link per E-Mail versenden"
   },
   "forgotten_password": {
@@ -28,11 +31,13 @@
     "password_label": "Dein Passwort",
     "email_input_placeholder": "Deine E-Mail Adresse",
     "button_label": "Anweisungen zum Zurücksetzen des Passworts senden",
+    "loading_button_label": "Anweisungen zum Zurücksetzen senden ...",
     "link_text": "Passwort vergessen?"
   },
   "update_password": {
     "password_label": "Neues Passwort",
     "password_input_placeholder": "Dein neues Passwort",
-    "button_label": "Passwort aktualisieren"
+    "button_label": "Passwort aktualisieren",
+    "loading_button_label": "Passwort aktualisieren ..."
   }
 }

@@ -28,17 +28,19 @@ function UpdatePassword({
     setLoading(false)
   }
 
+  const labels = i18n?.update_password
+
   return (
     <form id="auth-update-password" onSubmit={handlePasswordReset}>
       <Container gap="large" direction={'vertical'} appearance={appearance}>
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
             <Label htmlFor="password" appearance={appearance}>
-              {i18n?.update_password?.password_label}
+              {labels?.password_label}
             </Label>
             <Input
               name="password"
-              placeholder={i18n?.update_password?.password_label}
+              placeholder={labels?.password_label}
               type="password"
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
@@ -52,7 +54,7 @@ function UpdatePassword({
             loading={loading}
             appearance={appearance}
           >
-            {i18n?.update_password?.button_label}
+            {loading ? labels?.loading_button_label : labels?.button_label}
           </Button>
         </Container>
         {message && <Message appearance={appearance}>{message}</Message>}

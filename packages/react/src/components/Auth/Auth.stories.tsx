@@ -160,6 +160,20 @@ export const magicLink = (args: any) => (
   </Container>
 )
 
+export const forgottenPassword = (args: any) => (
+  <Container {...args}>
+    <Auth
+      {...args}
+      dark={useDarkMode() ? true : false}
+      view="forgotten_password"
+      showLinks={false}
+      appearance={{
+        theme: ThemeSupa,
+      }}
+    />
+  </Container>
+)
+
 export const withCustomClassNames = (args: any) => (
   <Container {...args}>
     <Auth
