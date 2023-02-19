@@ -81,7 +81,11 @@ function Auth(props: AuthProps): JSX.Element | null {
   const [SignView, setSignView] = createSignal()
 
   onMount(() => {
-    setSignView(authView() === 'sign_in' || authView() === 'sign_up')
+    setSignView(
+      authView() === 'sign_in' ||
+        authView() === 'sign_up' ||
+        authView() === 'magic_link'
+    )
   })
 
   createEffect(() => {
@@ -94,7 +98,11 @@ function Auth(props: AuthProps): JSX.Element | null {
      * to add a new theme use  createTheme({})
      * https://stitches.dev/docs/api#theme
      */
-    setSignView(authView() === 'sign_in' || authView() === 'sign_up')
+    setSignView(
+      authView() === 'sign_in' ||
+        authView() === 'sign_up' ||
+        authView() === 'magic_link'
+    )
     createStitches({
       theme: merge(
         mergedProps().appearance?.theme?.default ?? {},

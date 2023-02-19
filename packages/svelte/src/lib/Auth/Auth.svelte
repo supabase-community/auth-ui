@@ -60,6 +60,8 @@
 		<ForgottenPassword {i18n} {supabaseClient} {authView} />
 	{/if}
 	{#if $authView === AuthView.MAGIC_LINK}
+		<SocialAuth {i18n} {supabaseClient} {providers} {redirectTo} {iconsOnly} />
+		
 		<MagicLink {i18n} {supabaseClient} {authView} />
 	{/if}
 	{#if $authView === AuthView.UPDATE_PASSWORD}
