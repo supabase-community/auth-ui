@@ -112,6 +112,7 @@ export type I18nVariables = {
     loading_button_label?: string
     social_provider_text?: string
     link_text?: string
+    confirmation_text?: string
   }
   sign_in?: {
     email_label?: string

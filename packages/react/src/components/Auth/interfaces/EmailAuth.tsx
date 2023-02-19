@@ -89,7 +89,9 @@ function EmailAuth({
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
         else if (signUpUser && !signUpSession)
-          setMessage('Check your email for the confirmation link.')
+          setMessage(i18n?.sign_up?.confirmation_text ||
+                     'Check your email for the confirmation link.'
+                    )
         break
     }
 
