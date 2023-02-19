@@ -1,5 +1,12 @@
 # @supabase/auth-ui-react
 
+## 0.2.8
+
+### Patch Changes
+
+- 4dbf0eb: Add confirmation variable to localization for custom message
+- 52d14a6: Add UI loading state for buttons
+
 ## 0.2.7
 
 ### Patch Changes
