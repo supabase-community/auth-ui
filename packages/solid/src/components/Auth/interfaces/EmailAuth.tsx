@@ -17,7 +17,7 @@ export interface EmailAuthProps {
   authView: ViewSignIn | ViewSignUp
   defaultEmail: string
   defaultPassword: string
-  setAuthView: Setter<ViewType> 
+  setAuthView: Setter<ViewType>
   setDefaultEmail: (email: string) => void
   setDefaultPassword: (password: string) => void
   supabaseClient: SupabaseClient
@@ -50,11 +50,11 @@ function EmailAuth(props: EmailAuthProps) {
     setPassword(props.defaultPassword)
 
     return () => {
-      setIsMounted(()=>false)
+      setIsMounted(() => false)
     }
   })
 
-  onMount(()=>{
+  onMount(() => {
     inputRef.focus()
   })
 
@@ -66,8 +66,8 @@ function EmailAuth(props: EmailAuthProps) {
       case 'sign_in':
         const { error: signInError } =
           await props.supabaseClient.auth.signInWithPassword({
-            email:email(),
-            password:password(),
+            email: email(),
+            password: password(),
           })
         if (signInError) setError(signInError.message)
         break
@@ -76,8 +76,8 @@ function EmailAuth(props: EmailAuthProps) {
           data: { user: signUpUser, session: signUpSession },
           error: signUpError,
         } = await props.supabaseClient.auth.signUp({
-          email:email(),
-          password:password(),
+          email: email(),
+          password: password(),
         })
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
@@ -107,20 +107,25 @@ function EmailAuth(props: EmailAuthProps) {
       style={{ width: '100%' }}
     >
       <Container direction="vertical" gap="large" appearance={props.appearance}>
-        <Container direction="vertical" gap="large" appearance={props.appearance}>
+        <Container
+          direction="vertical"
+          gap="large"
+          appearance={props.appearance}
+        >
           <div>
             <Label for="email" appearance={props.appearance}>
               {props.i18n?.[props.authView]?.email_label}
             </Label>
             <Input
+              id="email"
               type="email"
               name="email"
-              ref={(el)=> inputRef = el}
-              placeholder={props.i18n?.[props.authView]?.email_input_placeholder}
-              value={email()}
-              onkeyup={(e) =>
-                setEmail(()=>e.currentTarget.value)
+              ref={(el) => (inputRef = el)}
+              placeholder={
+                props.i18n?.[props.authView]?.email_input_placeholder
               }
+              value={email()}
+              onkeyup={(e) => setEmail(() => e.currentTarget.value)}
               autocomplete="email"
               appearance={props.appearance}
             />
@@ -130,15 +135,18 @@ function EmailAuth(props: EmailAuthProps) {
               {props.i18n?.[props.authView]?.password_label}
             </Label>
             <Input
+              id="password"
               type="password"
               name="password"
-              placeholder={props.i18n?.[props.authView]?.password_input_placeholder}
-              value={password()}
-              onkeyup={(e) =>
-                setPassword(()=>e.currentTarget.value)
+              placeholder={
+                props.i18n?.[props.authView]?.password_input_placeholder
               }
+              value={password()}
+              onkeyup={(e) => setPassword(() => e.currentTarget.value)}
               autocomplete={
-                props.authView === 'sign_in' ? 'current-password' : 'new-password'
+                props.authView === 'sign_in'
+                  ? 'current-password'
+                  : 'new-password'
               }
               appearance={props.appearance}
             />
@@ -155,7 +163,11 @@ function EmailAuth(props: EmailAuthProps) {
         </Button>
 
         {props.showLinks && (
-          <Container direction="vertical" gap="small" appearance={props.appearance}>
+          <Container
+            direction="vertical"
+            gap="small"
+            appearance={props.appearance}
+          >
             {props.authView === VIEWS.SIGN_IN && props.magicLink && (
               <Anchor
                 href="#auth-magic-link"

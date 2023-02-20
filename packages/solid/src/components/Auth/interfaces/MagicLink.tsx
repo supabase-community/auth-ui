@@ -1,11 +1,17 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import { createSignal, Setter } from 'solid-js'
 import { VIEWS } from '../../../constants'
-import { Appearance, FormEvent, I18nVariables, RedirectTo, ViewType } from '../../../types'
+import {
+  Appearance,
+  FormEvent,
+  I18nVariables,
+  RedirectTo,
+  ViewType,
+} from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from '../../UI'
 
 function MagicLink(props: {
-  setAuthView: Setter<ViewType> 
+  setAuthView: Setter<ViewType>
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
   i18n: I18nVariables
@@ -23,7 +29,7 @@ function MagicLink(props: {
     setMessage('')
     setLoading(true)
     const { error } = await props.supabaseClient.auth.signInWithOtp({
-      email:email(),
+      email: email(),
       options: { emailRedirectTo: props.redirectTo },
     })
     if (error) setError(error.message)
@@ -34,17 +40,21 @@ function MagicLink(props: {
   return (
     <form id="auth-magic-link" onSubmit={handleMagicLinkSignIn}>
       <Container gap="large" direction="vertical" appearance={props.appearance}>
-        <Container gap="large" direction="vertical" appearance={props.appearance}>
+        <Container
+          gap="large"
+          direction="vertical"
+          appearance={props.appearance}
+        >
           <div>
             <Label appearance={props.appearance}>
               {props.i18n?.magic_link?.email_input_label}
             </Label>
             <Input
+              id="email"
+              name="email"
               type="email"
               placeholder={props.i18n?.magic_link?.email_input_placeholder}
-              onkeyup={(e) =>
-                setEmail(e.currentTarget.value)
-              }
+              onkeyup={(e) => setEmail(e.currentTarget.value)}
               appearance={props.appearance}
             />
           </div>
@@ -69,7 +79,9 @@ function MagicLink(props: {
             {props.i18n?.sign_in?.link_text}
           </Anchor>
         )}
-        {message && <Message appearance={props.appearance}>{message()}</Message>}
+        {message && (
+          <Message appearance={props.appearance}>{message()}</Message>
+        )}
         {error && (
           <Message color="danger" appearance={props.appearance}>
             {error()}

@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "type": "module",
-  "main": "./dist/cjs/src/index.js",
-  "module": "./dist/esm/src/index.js",
-  "types": "./dist/esm/src/index.d.ts",
+  "main": "./dist/src/index.jsx",
+  "module": "./dist/src/index.jsx",
+  "types": "./dist/src/index.d.ts",
   "files": [
     "dist"
   ],
@@ -19,10 +19,7 @@
   },
   "source": "src/index.tsx",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "rm -rf dist && tsc --build",
-    "serve": "vite preview"
+    "build": "rm -rf dist && tsc --build"
   },
   "devDependencies": {
     "@suid/icons-material": "^0.4.1",

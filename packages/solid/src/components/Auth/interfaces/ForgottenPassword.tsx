@@ -1,6 +1,12 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import { createSignal, onMount, Setter } from 'solid-js'
-import { Appearance, FormEvent, I18nVariables, RedirectTo, ViewType } from '../../../types'
+import {
+  Appearance,
+  FormEvent,
+  I18nVariables,
+  RedirectTo,
+  ViewType,
+} from '../../../types'
 import { VIEWS } from '../../../constants'
 import { Anchor, Button, Container, Input, Label, Message } from '../../UI'
 
@@ -27,9 +33,12 @@ function ForgottenPassword(props: {
     setError('')
     setMessage('')
     setLoading(true)
-    const { error } = await props.supabaseClient.auth.resetPasswordForEmail(email(), {
-      redirectTo:props.redirectTo,
-    })
+    const { error } = await props.supabaseClient.auth.resetPasswordForEmail(
+      email(),
+      {
+        redirectTo: props.redirectTo,
+      }
+    )
     if (error) setError(error.message)
     else setMessage('Check your email for the password reset link')
     setLoading(false)
@@ -38,19 +47,24 @@ function ForgottenPassword(props: {
   return (
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
       <Container gap="large" direction="vertical" appearance={props.appearance}>
-        <Container gap="large" direction="vertical" appearance={props.appearance}>
+        <Container
+          gap="large"
+          direction="vertical"
+          appearance={props.appearance}
+        >
           <div>
             <Label for="email" appearance={props.appearance}>
               {props.i18n?.forgotten_password?.email_label}
             </Label>
             <Input
+              id="email"
               name="email"
               type="email"
               ref={(el) => (inputRef = el)}
-              placeholder={props.i18n?.forgotten_password?.email_input_placeholder}
-              onkeyup={(e) =>
-                setEmail(e.currentTarget.value)
+              placeholder={
+                props.i18n?.forgotten_password?.email_input_placeholder
               }
+              onkeyup={(e) => setEmail(e.currentTarget.value)}
               appearance={props.appearance}
             />
           </div>
@@ -75,7 +89,9 @@ function ForgottenPassword(props: {
             {props.i18n?.sign_in?.link_text}
           </Anchor>
         )}
-        {message && <Message appearance={props.appearance}>{message()}</Message>}
+        {message && (
+          <Message appearance={props.appearance}>{message()}</Message>
+        )}
         {error && (
           <Message color="danger" appearance={props.appearance}>
             {error()}
