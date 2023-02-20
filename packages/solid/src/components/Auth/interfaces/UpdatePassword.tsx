@@ -19,7 +19,9 @@ function UpdatePassword(props: {
     setError('')
     setMessage('')
     setLoading(true)
-    const { error } = await props.supabaseClient.auth.updateUser({ password:password() })
+    const { error } = await props.supabaseClient.auth.updateUser({
+      password: password(),
+    })
     if (error) setError(error.message)
     else setMessage('Your password has been updated')
     setLoading(false)
@@ -31,20 +33,27 @@ function UpdatePassword(props: {
 
   return (
     <form id="auth-update-password" onSubmit={handlePasswordReset}>
-      <Container gap="large" direction={'vertical'} appearance={props.appearance}>
-        <Container gap="large" direction="vertical" appearance={props.appearance}>
+      <Container
+        gap="large"
+        direction={'vertical'}
+        appearance={props.appearance}
+      >
+        <Container
+          gap="large"
+          direction="vertical"
+          appearance={props.appearance}
+        >
           <div>
             <Label for="password" appearance={props.appearance}>
               {props.i18n?.update_password?.password_label}
             </Label>
             <Input
+              id="password"
               name="password"
               ref={(el) => (inputRef = el)}
               placeholder={props.i18n?.update_password?.password_label}
               type="password"
-              onkeyup={(e) =>
-                setPassword(e.currentTarget.value)
-              }
+              onkeyup={(e) => setPassword(e.currentTarget.value)}
               appearance={props.appearance}
             />
           </div>
@@ -58,8 +67,12 @@ function UpdatePassword(props: {
           </Button>
         </Container>
         {/* {message && <Message appearance={appearance}>{message}</Message>} */}
-        <Show when={message()}><Message appearance={props.appearance}>{message()}</Message></Show>
-        <Show when={error()}><Message appearance={props.appearance}>{message()}</Message></Show>
+        <Show when={message()}>
+          <Message appearance={props.appearance}>{message()}</Message>
+        </Show>
+        <Show when={error()}>
+          <Message appearance={props.appearance}>{message()}</Message>
+        </Show>
         {/* {error && (
           <Message color="danger" appearance={appearance}>
             {error}
