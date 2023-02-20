@@ -1,5 +1,11 @@
 # @supabase/auth-ui-solid
 
+## 0.1.1
+
+### Patch Changes
+
+- 11a09a6: Fix path to dist for esm and cjs
+
 ## 0.1.0
 
 ### Minor Changes
