@@ -19,10 +19,7 @@
   },
   "source": "src/index.tsx",
   "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "rm -rf dist && tsc --build",
-    "serve": "vite preview"
+    "build": "rm -rf dist && tsc --build"
   },
   "devDependencies": {
     "@suid/icons-material": "^0.4.1",
