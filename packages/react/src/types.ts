@@ -79,7 +79,7 @@ export interface Appearance {
 export interface Auth {
   supabaseClient: SupabaseClient
   children?: React.ReactNode
-  socialLayout?: SocialLayout
+  socialLayout?: SocialLayout | string
   providers?: Provider[]
   view?: ViewType
   redirectTo?: RedirectTo
