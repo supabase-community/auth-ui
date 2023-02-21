@@ -86,8 +86,8 @@ function EmailAuth({
           email,
           password,
           options: {
-						emailRedirectTo: redirectTo
-					}
+	    emailRedirectTo: redirectTo
+	  }
         })
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
