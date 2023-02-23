@@ -1,5 +1,5 @@
 import { css } from '@stitches/core'
-import { generateClassNames } from '../../../common/theming'
+import { generateClassNames } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../types'
 
 const anchorHTMLAttributes = css({

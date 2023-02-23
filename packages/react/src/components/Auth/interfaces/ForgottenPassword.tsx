@@ -1,7 +1,7 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
-import { Appearance, I18nVariables, RedirectTo } from '../../../types'
-import { VIEWS } from './../../../constants'
+import { VIEWS, I18nVariables, RedirectTo } from '@supabase/auth-ui-shared'
+import { Appearance } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
 function ForgottenPassword({

@@ -1,12 +1,14 @@
 {
-  "extends": "tsconfig/react-library.json",
+  "extends": "../tsconfig/react-library.json",
   "compilerOptions": {
-    "importHelpers": false,
-    "resolveJsonModule": true,
-    "module": "esnext",
+    "strict": true,
+    "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
-    "allowJs": true
+    "jsxImportSource": "react",
+    "resolveJsonModule": true,
+    "types": ["vite/client"],
+    "outDir": "dist"
   },
-  "include": ["src"],
-  "exclude": ["dist", "build", "node_modules"]
+  "include": ["src/*"],
+  "exclude": ["node_modules", "dist", "build"]
 }

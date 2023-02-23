@@ -1,15 +1,22 @@
 {
   "name": "@supabase/auth-ui-react",
   "version": "0.2.8",
-  "main": "./dist/cjs/src/index.js",
-  "module": "./dist/esm/src/index.js",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
   "files": [
     "dist"
   ],
   "publishConfig": {
     "access": "public"
   },
-  "types": "./dist/esm/src/index.d.ts",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    }
+  },
   "homepage": "https://github.com/supabase-community/auth-ui#readme",
   "repository": {
     "type": "git",
@@ -18,103 +25,28 @@
   "sideEffects": false,
   "source": "src/index.tsx",
   "scripts": {
-    "build": "rollup -c",
-    "build-watch": "rollup -c -w",
-    "test": "react-scripts test",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
-  },
-  "peerDependencies": {
-    "react": "^16.13.1 || ^17.0.1 || ^18.0.0",
-    "react-dom": "^16.13.1 || ^17.0.1 || ^18.0.0"
-  },
-  "resolutions": {
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "build": "tsc && vite build",
+    "build:tsc": "rm -rf dist && tsc --build"
   },
   "dependencies": {
     "@stitches/core": "^1.2.8",
-    "@stitches/react": "^1.2.8",
-    "prop-types": "^15.7.2"
+    "@supabase/auth-ui-shared": "workspace:*",
+    "prop-types": "^15.7.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@babel/cli": "^7.11.6",
-    "@babel/core": "^7.11.6",
-    "@babel/plugin-transform-runtime": "^7.11.5",
-    "@babel/preset-env": "^7.11.5",
-    "@babel/preset-react": "^7.10.4",
-    "@babel/runtime": "^7.11.2",
-    "@headlessui/react": "^1.0.0",
-    "@rollup/plugin-babel": "^5.3.1",
-    "@rollup/plugin-commonjs": "^17.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^11.0.1",
-    "@storybook/addon-actions": "^6.5.8",
-    "@storybook/addon-essentials": "^6.5.8",
-    "@storybook/addon-links": "^6.5.8",
-    "@storybook/addons": "^6.0.0",
-    "@storybook/api": "^6.0.0",
-    "@storybook/components": "^6.0.0",
-    "@storybook/core-events": "^6.0.0",
-    "@storybook/react": "^6.5.8",
-    "@storybook/theming": "^6.0.0",
     "@supabase/supabase-js": "^2.7.1",
-    "@testing-library/dom": ">=7.21.4",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.0.4",
-    "@testing-library/user-event": "^12.1.7",
-    "@types/lodash": "^4.14.172",
-    "@types/react": "^18.0.10",
-    "autoprefixer": "^9.8.6",
-    "babel-eslint": "^10.1.0",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-add-react-displayname": "^0.0.5",
-    "babel-plugin-macros": "^2.8.0",
-    "builtin-modules": "^3.1.0",
-    "css-loader": "^5.0.1",
-    "eslint": ">=6.0.0",
-    "eslint-config-prettier": "^6.12.0",
-    "eslint-plugin-prettier": "^3.1.4",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.1.2",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-feather": "^2.0.8",
-    "react-markdown": "^5.0.3",
-    "react-scripts": "^4.0.3",
-    "react-transition-group": "^4.4.1",
-    "remark-gfm": "^1.0.0",
-    "require-from-string": "^2.0.2",
-    "rollup": "^2.28.2",
-    "rollup-plugin-delete": "^2.0.0",
-    "rollup-plugin-node-externals": "^2.2.0",
-    "rollup-plugin-peer-deps-external": "^2.2.4",
-    "rollup-plugin-postcss-modules": "^2.0.2",
-    "rollup-plugin-typescript2": "^0.32.1",
-    "storybook-dark-mode": "^1.1.0",
-    "tsconfig": "workspace:*",
-    "tslib": "^2.4.0",
-    "typescript": "^4.2.2",
-    "webpack": ">=4.27.0 <5.0.0 || >=5.0.0 <6.0.0"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "optionalDependencies": {
-    "fsevents": "^2.3.2"
-  },
-  "jest": {
-    "transformIgnorePatterns": [
-      "/node_modules/(?!react-feather)"
-    ]
+    "@types/is-ci": "^3.0.0",
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.14.0",
+    "@types/normalize-package-data": "^2.4.1",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@types/semver": "^7.3.13",
+    "@vitejs/plugin-react": "^3.1.0",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0",
+    "vite-plugin-dts": "2.0.0-beta.1"
   }
 }

@@ -1,14 +1,14 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useEffect, useRef, useState } from 'react'
 import {
-  Appearance,
   I18nVariables,
   RedirectTo,
   ViewSignUp,
   ViewSignIn,
   ViewsMap,
   ViewType,
-} from './../../../types'
+} from '@supabase/auth-ui-shared'
+import { Appearance } from './../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
 export interface EmailAuthProps {
@@ -89,9 +89,10 @@ function EmailAuth({
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
         else if (signUpUser && !signUpSession)
-          setMessage(i18n?.sign_up?.confirmation_text ||
-                     'Check your email for the confirmation link.'
-                    )
+          setMessage(
+            i18n?.sign_up?.confirmation_text ||
+              'Check your email for the confirmation link.'
+          )
         break
     }
 

@@ -1,8 +1,7 @@
 import { createStitches, createTheme } from '@stitches/core'
-import { merge } from '../../utils'
+import { I18nVariables, merge, VIEWS, en } from '@supabase/auth-ui-shared'
 import React, { useEffect, useState } from 'react'
-import { Auth as AuthProps, Localization, I18nVariables } from '../../types'
-import { VIEWS } from './../../constants'
+import { Auth as AuthProps } from '../../types'
 import {
   EmailAuth,
   EmailAuthProps,
@@ -12,12 +11,6 @@ import {
   UpdatePassword,
 } from './interfaces'
 import { UserContextProvider, useUser } from './UserContext'
-
-import * as _defaultLocalization from '../../../common/lib/Localization'
-
-const defaultLocalization: Localization = { ..._defaultLocalization }
-
-export const { getCssText } = createStitches()
 
 function Auth({
   supabaseClient,
@@ -30,20 +23,29 @@ function Auth({
   showLinks = true,
   appearance,
   theme = 'default',
-  localization = { lang: 'en' },
+  localization = { variables: {} },
 }: AuthProps): JSX.Element | null {
   /**
    * Localization support
    */
 
-  const i18n: I18nVariables = merge(
-    defaultLocalization[localization.lang ?? 'en'],
-    localization.variables ?? {}
-  )
+  const i18n: I18nVariables = merge(en, localization.variables ?? {})
 
-  // const themes = Object.values(appearance.themeFile ?? {}).map((theme) => {
-  //   // return
-  // })
+  /**
+   * Create default theme
+   *
+   * createStitches()
+   * https://stitches.dev/docs/api#theme
+   *
+   * to add a new theme use  createTheme({})
+   * https://stitches.dev/docs/api#theme
+   */
+  createStitches({
+    theme: merge(
+      appearance?.theme?.default ?? {},
+      appearance?.variables?.default ?? {}
+    ),
+  })
 
   const [authView, setAuthView] = useState(view)
   const [defaultEmail, setDefaultEmail] = useState('')
@@ -58,22 +60,6 @@ function Auth({
   const SignView = authView === 'sign_in' || authView === 'sign_up'
 
   useEffect(() => {
-    /**
-     * Create default theme
-     *
-     * createStitches()
-     * https://stitches.dev/docs/api#theme
-     *
-     * to add a new theme use  createTheme({})
-     * https://stitches.dev/docs/api#theme
-     */
-    createStitches({
-      theme: merge(
-        appearance?.theme?.default ?? {},
-        appearance?.variables?.default ?? {}
-      ),
-    })
-
     const themessss: any = {}
     const themeKeys = appearance?.theme && Object.keys(appearance?.theme)
 

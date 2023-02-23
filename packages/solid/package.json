@@ -3,9 +3,9 @@
   "version": "0.1.1",
   "description": "",
   "type": "module",
-  "main": "./dist/src/index.jsx",
-  "module": "./dist/src/index.jsx",
-  "types": "./dist/src/index.d.ts",
+  "main": "./dist/index.jsx",
+  "module": "./dist/index.jsx",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -24,7 +24,7 @@
   "devDependencies": {
     "@suid/icons-material": "^0.4.1",
     "@suid/material": "^0.6.3",
-    "@supabase/supabase-js": "^2.7.1",
+    "@supabase/supabase-js": "^2.8.0",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^8.33.0",
@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@stitches/core": "^1.2.8",
+    "@supabase/auth-ui-shared": "workspace:*",
     "just-merge": "^3.2.0",
     "solid-js": "^1.5.1 || ^1.6.0 || ^1.6.1"
   },

@@ -1,6 +1,7 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
-import { Appearance, I18nVariables } from '../../../types'
+import { I18nVariables } from '@supabase/auth-ui-shared'
+import { Appearance } from '../../../types'
 import { Button, Container, Input, Label, Message } from './../../UI'
 
 function UpdatePassword({

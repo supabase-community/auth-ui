@@ -1,13 +1,12 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import { createSignal, Setter } from 'solid-js'
-import { VIEWS } from '../../../constants'
 import {
-  Appearance,
-  FormEvent,
   I18nVariables,
   RedirectTo,
   ViewType,
-} from '../../../types'
+  VIEWS,
+} from '@supabase/auth-ui-shared'
+import { Appearance, FormEvent } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from '../../UI'
 
 function MagicLink(props: {

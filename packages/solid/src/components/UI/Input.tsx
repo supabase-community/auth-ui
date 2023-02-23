@@ -1,6 +1,6 @@
 import { css } from '@stitches/core'
 import { Component, JSX, JSXElement } from 'solid-js'
-import { generateClassNames } from '../../../common/theming'
+import { generateClassNames } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../types'
 
 const inputDefaultStyles = css({
@@ -44,7 +44,7 @@ const inputDefaultStyles = css({
 })
 
 interface InputProps extends JSX.InputHTMLAttributes<HTMLInputElement> {
-  children?: JSXElement 
+  children?: JSXElement
   type: 'text' | 'password' | 'email'
   appearance?: Appearance
 }

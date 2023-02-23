@@ -1,5 +1,5 @@
 import { css } from '@stitches/core'
-import { generateClassNames } from '../../../common/theming'
+import { generateClassNames } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../types'
 
 const buttonDefaultStyles = css({
@@ -21,7 +21,7 @@ const buttonDefaultStyles = css({
   transitionDuration: '100ms',
   '&:disabled': {
     opacity: 0.7,
-    cursor: 'unset'
+    cursor: 'unset',
   },
   variants: {
     color: {
@@ -32,7 +32,6 @@ const buttonDefaultStyles = css({
         '&:hover:not(:disabled)': {
           backgroundColor: '$defaultButtonBackgroundHover',
         },
-
       },
       primary: {
         backgroundColor: '$brand',

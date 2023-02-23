@@ -1,6 +1,5 @@
 import { css } from '@stitches/core'
-import { generateClassNames } from '../../../common/theming'
-import { CLASS_NAMES } from '../../constants'
+import { generateClassNames } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../types'
 
 const dividerDefaultStyles = css({

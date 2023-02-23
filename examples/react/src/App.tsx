@@ -1,6 +1,7 @@
 import styles from './App.module.css'
 import { createClient } from '@supabase/supabase-js'
-import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
+import { SocialLayout, ThemeSupa } from '@supabase/auth-ui-shared'
+import { Auth } from '@supabase/auth-ui-react'
 import Selectors from './Selectors'
 import { AppState } from './store'
 import { useState } from 'react'
@@ -21,7 +22,7 @@ function App() {
   const buttonColor = useState('rgb(202, 37, 37)')
   const borderRadius = useState('5px')
   const theme = useState('dark')
-  const socialLayout = useState('horizontal')
+  const socialLayout = useState<SocialLayout>('horizontal')
 
   const [customButtonColor] = buttonColor
   const [customBorderRadius] = borderRadius

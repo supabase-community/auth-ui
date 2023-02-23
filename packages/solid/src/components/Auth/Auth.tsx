@@ -1,12 +1,12 @@
 import { createStitches, createTheme } from '@stitches/core'
 import merge from 'just-merge'
 import {
-  Auth as AuthProps,
-  Localization,
   I18nVariables,
   SocialLayouts,
-} from '../../types'
-import { VIEWS } from '../../constants'
+  VIEWS,
+  en,
+} from '@supabase/auth-ui-shared'
+import { Auth as AuthProps } from '../../types'
 import {
   EmailAuth,
   EmailAuthProps,
@@ -17,7 +17,6 @@ import {
 } from './interfaces'
 import { UserContextProvider, useUser } from './UserContext'
 
-import * as _defaultLocalization from '../../../common/lib/localization'
 import {
   Accessor,
   createEffect,
@@ -34,10 +33,6 @@ import {
 } from 'solid-js'
 import { createStore } from 'solid-js/store'
 
-const defaultLocalization: Localization = { ..._defaultLocalization }
-
-export const { getCssText } = createStitches()
-
 function Auth(props: AuthProps): JSX.Element | null {
   /**
    * Localization support
@@ -52,7 +47,7 @@ function Auth(props: AuthProps): JSX.Element | null {
         magicLink: false,
         showLinks: true,
         theme: 'default',
-        localization: { lang: 'en' },
+        localization: { variables: {} },
       },
       props
     )
@@ -62,8 +57,8 @@ function Auth(props: AuthProps): JSX.Element | null {
   const i18n: Accessor<I18nVariables> = createMemo(() => {
     const merged = merge(
       //@ts-ignore
-      defaultLocalization[mergedProps().localization.lang ?? 'en'],
-      mergedProps().localization ?? {}
+      en,
+      mergedProps().localization.variables ?? {}
     )
     return merged
   })
