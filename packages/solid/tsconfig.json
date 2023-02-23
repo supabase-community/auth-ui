@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig/solidjs.json",
+  "extends": "tsconfig/solidjs.json",
   "compilerOptions": {
     "strict": true,
     "moduleResolution": "node",
