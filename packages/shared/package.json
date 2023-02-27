@@ -1,43 +1,42 @@
 {
-    "name": "@supabase/auth-ui-shared",
-    "version": "0.0.0",
-    "main": "dist/index.js",
-    "module": "dist/index.mjs",
-    "types": "dist/index.d.ts",
-    "publishConfig": {
-      "access": "public"
-    },
-    "files": [
-      "dist"
-    ],
-    "scripts": {
-      "build": "tsup"
-    },
-    "repository": {
-      "type": "git",
-      "url": "git+https://github.com/supabase/auth-ui.git"
-    },
-    "keywords": [
-      "Supabase",
-      "Auth",
-      "React",
-      "Svelte",
-      "Solid"
-    ],
-    "author": "Supabase",
-    "license": "MIT",
-    "bugs": {
-      "url": "https://github.com/supabase/auth-ui/issues"
-    },
-    "homepage": "https://github.com/supabase/auth-ui#readme",
-    "devDependencies": {
-      "@stitches/core": "^1.2.8",
-      "@supabase/supabase-js": "^2.8.0",
-      "tsconfig": "workspace:*",
-      "tsup": "^6.6.3"
-    },
-    "peerDependencies": {
-      "@supabase/supabase-js": "^2.8.0"
-    }
+  "name": "@supabase/auth-ui-shared",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/supabase/auth-ui.git"
+  },
+  "keywords": [
+    "Supabase",
+    "Auth",
+    "React",
+    "Svelte",
+    "Solid"
+  ],
+  "author": "Supabase",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/supabase/auth-ui/issues"
+  },
+  "homepage": "https://github.com/supabase/auth-ui#readme",
+  "devDependencies": {
+    "@stitches/core": "^1.2.8",
+    "@supabase/supabase-js": "^2.8.0",
+    "tsconfig": "workspace:*",
+    "tsup": "^6.6.3"
+  },
+  "peerDependencies": {
+    "@supabase/supabase-js": "^2.8.0"
   }
-  
+}
