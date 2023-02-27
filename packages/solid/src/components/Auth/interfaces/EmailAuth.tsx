@@ -2,15 +2,14 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import { createEffect, createSignal, onMount, Setter } from 'solid-js'
 import {
-  Appearance,
   I18nVariables,
   RedirectTo,
   ViewSignUp,
   ViewSignIn,
   ViewsMap,
   ViewType,
-  FormEvent,
-} from '../../../types'
+} from '@supabase/auth-ui-shared'
+import { Appearance, FormEvent } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from '../../UI'
 
 export interface EmailAuthProps {

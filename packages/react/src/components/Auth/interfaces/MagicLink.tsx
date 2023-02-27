@@ -1,7 +1,7 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
-import { VIEWS } from '../../../constants'
-import { Appearance, I18nVariables, RedirectTo } from '../../../types'
+import { VIEWS, I18nVariables, RedirectTo } from '@supabase/auth-ui-shared'
+import { Appearance } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 
 function MagicLink({
@@ -45,9 +45,7 @@ function MagicLink({
       <Container gap="large" direction="vertical" appearance={appearance}>
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
-            <Label appearance={appearance}>
-              {labels?.email_input_label}
-            </Label>
+            <Label appearance={appearance}>{labels?.email_input_label}</Label>
             <Input
               name="email"
               type="email"

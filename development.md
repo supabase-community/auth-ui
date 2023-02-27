@@ -50,23 +50,3 @@ To generate a changelog entry, run the following command:
 ```sh
 pnpm changeset
 ```
-
-### Storybook
-
-Storybook is setup on a per package basis, you can run storybook for all packages at the same time using the following command:
-
-```bash
-pnpm storybook
-```
-
-Or you can run storybook for individual packages using the following command:
-
-```bash
-pnpm storybook:[dirname]
-```
-
-For react it would be
-
-```bash
-pnpm storybook:react
-```

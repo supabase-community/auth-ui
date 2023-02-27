@@ -1,6 +1,7 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import { createSignal, onMount, Show } from 'solid-js'
-import { Appearance, FormEvent, I18nVariables } from '../../../types'
+import { I18nVariables } from '@supabase/auth-ui-shared'
+import { Appearance, FormEvent } from '../../../types'
 import { Button, Container, Input, Label, Message } from '../../UI'
 
 function UpdatePassword(props: {

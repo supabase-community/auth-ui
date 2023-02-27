@@ -1,6 +1,6 @@
 import { css } from '@stitches/core'
 import { Component, JSXElement, JSX } from 'solid-js'
-import { generateClassNames } from '../../../common/theming'
+import { generateClassNames } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../types'
 
 const messageDefaultStyles = css({
@@ -22,7 +22,7 @@ const messageDefaultStyles = css({
 })
 
 interface MessageProps extends JSX.HTMLAttributes<HTMLSpanElement> {
-  children: JSXElement 
+  children: JSXElement
   color?: 'default' | 'danger'
   appearance?: Appearance
 }

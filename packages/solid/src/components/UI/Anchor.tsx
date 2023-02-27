@@ -1,5 +1,5 @@
 import { css } from '@stitches/core'
-import { generateClassNames } from '../../../common/theming'
+import { generateClassNames } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../types'
 import { JSX } from 'solid-js/jsx-runtime'
 import { Component, JSXElement } from 'solid-js'
@@ -15,12 +15,12 @@ const anchorHTMLAttributes = css({
   '&:hover': {
     color: '$anchorTextHoverColor',
   },
-  fontWeight:'200',
-  textDecorationLine:'none'
+  fontWeight: '200',
+  textDecorationLine: 'none',
 })
 
 interface LabelProps extends JSX.AnchorHTMLAttributes<HTMLAnchorElement> {
-  children:JSXElement 
+  children: JSXElement
   appearance?: Appearance
 }
 

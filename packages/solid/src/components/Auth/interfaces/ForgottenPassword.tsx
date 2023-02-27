@@ -1,13 +1,12 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import { createSignal, onMount, Setter } from 'solid-js'
 import {
-  Appearance,
-  FormEvent,
   I18nVariables,
   RedirectTo,
   ViewType,
-} from '../../../types'
-import { VIEWS } from '../../../constants'
+  VIEWS,
+} from '@supabase/auth-ui-shared'
+import { Appearance, FormEvent } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from '../../UI'
 
 function ForgottenPassword(props: {

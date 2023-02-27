@@ -1,6 +1,5 @@
-import { CssComponent } from '@stitches/core/types/styled-component'
-import { Appearance } from '../../src/types'
-import { CLASS_NAMES, PREPENDED_CLASS_NAMES } from '../../src/constants'
+import { BaseAppearance } from '../types'
+import { CLASS_NAMES, PREPENDED_CLASS_NAMES } from './../constants'
 
 export function generateClassNames(
   /**
@@ -22,10 +21,9 @@ export function generateClassNames(
   /**
    * appearance variables
    */
-  appearance?: Appearance
+  appearance?: BaseAppearance
 ) {
   const classNames = []
-
   const className = CLASS_NAMES[classNameKey]
 
   classNames.push(
@@ -38,12 +36,7 @@ export function generateClassNames(
     classNames.push(appearance?.className?.[classNameKey])
   }
 
-  // if (
-  //   appearance?.extendAppearance === undefined ||
-  //   appearance?.extendAppearance === true
-  // ) {
   classNames.push(defaultStyles)
-  // }
 
   return classNames
 }
