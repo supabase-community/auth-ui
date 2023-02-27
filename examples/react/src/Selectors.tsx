@@ -9,6 +9,7 @@ import RoundedCornerSharp from '@mui/icons-material/RoundedCornerSharp'
 import HorizontalIcon from '@mui/icons-material/AlignHorizontalCenterRounded'
 import VerticalIcon from '@mui/icons-material/AlignVerticalCenterRounded'
 import { useData } from './store'
+import { SocialLayout } from '@supabase/auth-ui-shared'
 
 function Selectors() {
   return (
@@ -40,7 +41,7 @@ export function AlignmentToggles() {
   const { socialLayout } = useData()
   const [customSocialLayout, setCustomSocialLayout] = socialLayout
 
-  function handleChange(e: React.MouseEvent, newAlignment: string) {
+  function handleChange(e: React.MouseEvent, newAlignment: SocialLayout) {
     if (newAlignment !== null) {
       setCustomSocialLayout(newAlignment)
     }
