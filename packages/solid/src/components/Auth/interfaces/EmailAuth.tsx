@@ -77,6 +77,9 @@ function EmailAuth(props: EmailAuthProps) {
         } = await props.supabaseClient.auth.signUp({
           email: email(),
           password: password(),
+          options: {
+            emailRedirectTo: props.redirectTo,
+          },
         })
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
