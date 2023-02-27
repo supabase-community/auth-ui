@@ -19,6 +19,7 @@ import {
 } from './store'
 import Logo from './logo.svg'
 import { MaterialUISwitch } from './muiswitch'
+import { SocialLayout } from '@supabase/auth-ui-shared'
 
 function Selectors() {
   return (
@@ -65,7 +66,7 @@ function ThemeToggle() {
 }
 
 function AlignmentToggles() {
-  function handleChange(e: MouseEvent, newAlignment: string) {
+  function handleChange(e: MouseEvent, newAlignment: SocialLayout) {
     if (newAlignment !== null) {
       setCustomSocialLayout(newAlignment)
     }
