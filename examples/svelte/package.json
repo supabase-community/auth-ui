@@ -5,7 +5,7 @@
 	"scripts": {
 		"dev": "concurrently \"npm run dev:css\" \"vite dev\"",
 		"dev:css": "tailwindcss -w -i ./src/tailwind.css -o static/app.css",
-		"build": "npm run build:css && vite build",
+		"build:example": "npm run build:css && vite build",
 		"build:css": "tailwindcss -m -i ./src/tailwind.css -o static/app.css",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
