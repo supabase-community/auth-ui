@@ -1,38 +1,54 @@
-# create-svelte
+# Supabase Auth UI Svelte 
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Supabase Auth UI is a collection of pre built UI components that work seamlessly with @supabase/auth-helpers.
 
-## Creating a project
+The main purpose of these components is to allow developers to get working on their apps quickly, but also be able to use their own style/css.
 
-If you're seeing this, you've probably already done this step. Congrats!
+Auth UI is kept deliberately separate from @supabase/auth-helpers so that developers can migrate away from pre-built UI components as their UI system naturally matures.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## How to use?
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+In order to make use of the Auth UI Svelte you'll need to have a few things ready first. Let's talk about those things step by step:
 
-## Developing
+#### Install Supabase and the Svelte Supabase-auth-ui
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+First let us install Supabase into our Svelte project.
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+npm install @supabase/supabase-js @supabase/auth-ui-svelte
+# or
+pnpm add @supabase/supabase-js @supabase/auth-ui-solid
+# or
+yarn add @supabase/supabase-js @supabase/auth-ui-solid
 ```
 
-## Building
+#### Create you Supabase client
 
-To create a production version of your app:
+Let's create our Supabase client 
 
-```bash
-npm run build
+```js
+import { createClient } from '@supabase/supabase-js'
+
+const supabase = createClient(
+  '<INSERT PROJECT URL>',
+  '<INSERT PROJECT ANON API KEY>'
+)
 ```
 
-You can preview the production build with `npm run preview`.
+#### Passing your Supabase client to the Auth component as a prop
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```js
+<script lang="ts">
+    import { createClient } from '@supabase/supabase-js'
+    import { Auth } from '@supabase/auth-ui-svelte'
+
+    const supabase = createClient(
+        '<INSERT PROJECT URL>',
+        '<INSERT PROJECT ANON API KEY>'
+    )
+</script>
+
+<Auth supabaseClient={supabase} />
+```
+
+And voila we're done! This will give you the bare minimum of what you'll need to get started with supabase-auth-ui. In order to add styling to your Auth component checkout our full documentation [here](https://supabase.com/docs/guides/auth/auth-helpers/auth-ui#customization)
