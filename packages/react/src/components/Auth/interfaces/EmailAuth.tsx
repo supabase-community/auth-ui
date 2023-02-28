@@ -85,6 +85,9 @@ function EmailAuth({
         } = await supabaseClient.auth.signUp({
           email,
           password,
+          options: {
+	    emailRedirectTo: redirectTo
+	  }
         })
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
