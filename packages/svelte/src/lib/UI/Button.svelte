@@ -1,15 +1,21 @@
 <script lang="ts">
-	type ButtonProps = svelte.JSX.HTMLAttributes<HTMLButtonElement>;
+	import type { Appearance } from '$lib/types';
+	import { generateClassNames } from '@supabase/auth-ui-shared';
 
+	type ButtonProps = svelte.JSX.HTMLAttributes<HTMLButtonElement>;
 	type $$Props = Omit<ButtonProps, 'loading'> & {
 		loading?: boolean;
 		color?: 'default' | 'primary';
+		appearance?: Appearance;
 	};
 
 	export let color: 'default' | 'primary' = 'default';
+	export let appearance: Appearance = {};
+
+	$: classNames = generateClassNames('button', color, appearance);
 </script>
 
-<button on:click class="button {color}" {...$$restProps}>
+<button on:click {...$$restProps} style={appearance?.style?.button} class={classNames.join(' ')}>
 	<slot />
 </button>
 

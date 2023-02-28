@@ -5,9 +5,7 @@
 // and what to do when importing types
 declare namespace App {
 	// interface Locals {}
-	interface PageData {
-		session: import('@supabase/supabase-js').Session | null;
-	}
+	// interface PageData {}
 	// interface Error {}
 	// interface Platform {}
 }

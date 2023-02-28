@@ -1,46 +1,64 @@
 <script lang="ts">
+	import type { Appearance } from '$lib/types';
+	import { css } from '@stitches/core';
+	import { generateClassNames } from '@supabase/auth-ui-shared';
+
+	const inputDefaultStyles = css({
+		fontFamily: '$inputFontFamily',
+		background: '$inputBackground',
+		borderRadius: '$inputBorderRadius',
+		padding: '$inputPadding',
+		cursor: 'text',
+		borderWidth: '$inputBorderWidth',
+		borderColor: '$inputBorder',
+		borderStyle: 'solid',
+		fontSize: '$baseInputSize',
+		width: '100%',
+		color: '$inputText',
+		boxSizing: 'border-box',
+		'&:hover': {
+			borderColor: '$inputBorderHover',
+			outline: 'none'
+		},
+		'&:focus': {
+			borderColor: '$inputBorderFocus',
+			outline: 'none'
+		},
+		'&::placeholder': {
+			color: '$inputPlaceholder',
+			letterSpacing: 'initial'
+		},
+		transitionPproperty: 'background-color, border',
+		transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
+		transitionDuration: '100ms',
+		variants: {
+			type: {
+				default: {
+					letterSpacing: '0px'
+				},
+				password: {
+					letterSpacing: '6px'
+				}
+			}
+		}
+	});
+
 	type InputProps = svelte.JSX.HTMLAttributes<HTMLInputElement>;
 
-	type $$Props = InputProps;
+	type $$Props = InputProps & {
+		appearance?: Appearance;
+	};
 
 	export let value: InputProps['value'] = undefined;
+	export let appearance: Appearance = {};
+
+	$: classNames = generateClassNames(
+		'input',
+		inputDefaultStyles({
+			type: 'default'
+		}),
+		appearance
+	);
 </script>
 
-<input class="input" {...$$restProps} bind:value />
-
-<style>
-	input {
-		font-family: var(--fonts-inputFontFamily);
-		background: var(--colors-inputBackground);
-		border-radius: var(--radii-inputBorderRadius);
-		padding: var(--space-inputPadding);
-		cursor: text;
-		border-width: var(--borderWidths-inputBorderWidth);
-		border-color: var(--colors-inputBorder);
-		border-style: solid;
-		font-size: var(--fontSizes-baseInputSize);
-		width: 100%;
-		color: var(--inputText);
-		box-sizing: border-box;
-		transition-property: background-color, border;
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transition-duration: 100ms;
-	}
-
-	input:hover {
-		border-color: var(--colors-inputBorderHover);
-		outline: none;
-	}
-	input:focus {
-		border-color: var(--colors-inputBorderFocus);
-		outline: none;
-	}
-	input::placeholder {
-		color: var(--colors-inputPlaceholder);
-		letter-spacing: initial;
-	}
-
-	input[type='password'] {
-		letter-spacing: 6px;
-	}
-</style>
+<input {...$$restProps} style={appearance?.style?.input} class={classNames.join(' ')} bind:value />

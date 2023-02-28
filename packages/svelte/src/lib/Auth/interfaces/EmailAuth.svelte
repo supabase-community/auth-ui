@@ -1,24 +1,25 @@
 <script lang="ts">
 	import type { SupabaseClient } from '@supabase/supabase-js';
-
-	import { AuthView, type I18nVariables } from '$lib/types';
 	import Anchor from '$lib/UI/Anchor.svelte';
 	import Button from '$lib/UI/Button.svelte';
 	import Container from '$lib/UI/Container.svelte';
 	import Input from '$lib/UI/Input.svelte';
 	import Label from '$lib/UI/Label.svelte';
 	import Message from '$lib/UI/Message.svelte';
+	import { VIEWS, type I18nVariables, type ViewType } from '@supabase/auth-ui-shared';
+	import type { Appearance } from '$lib/types';
 	import type { Writable } from 'svelte/store';
 
-	export let i18n: I18nVariables;
-	export let supabaseClient: SupabaseClient;
-	export let authView: Writable<AuthView>;
+	export let authView: Writable<ViewType>;
 	export let email = '';
 	export let password = '';
-	export let disable_signup = false;
+	export let supabaseClient: SupabaseClient;
 	export let redirectTo: string | undefined = undefined;
+	export let showLinks = true;
+	export let magicLink = true;
+	export let i18n: I18nVariables;
+	export let appearance: Appearance;
 
-	let magicLink = true;
 	let message = '';
 	let error = '';
 	let loading = false;
@@ -28,16 +29,14 @@
 		error = '';
 
 		switch ($authView) {
-			case AuthView.SIGN_IN:
+			case VIEWS.SIGN_IN:
 				const { error: signInError } = await supabaseClient.auth.signInWithPassword({
 					email,
 					password
 				});
 				if (signInError) error = signInError.message;
 				break;
-			case AuthView.SIGN_UP:
-				if (disable_signup) return;
-
+			case VIEWS.SIGN_UP:
 				const {
 					data: { user: signUpUser, session: signUpSession },
 					error: signUpError
@@ -59,77 +58,82 @@
 </script>
 
 <form method="post" on:submit|preventDefault={handleSubmit}>
-	<Container direction="vertical" gap="large">
-		<Container direction="vertical" gap="large">
+	<Container direction="vertical" gap="large" {appearance}>
+		<Container direction="vertical" gap="large" {appearance}>
 			<div>
-				<Label htmlfor="email">{i18n?.[$authView]?.email_label}</Label>
-				<Input type="email" name="email" bind:value={email} autocomplete="email" />
+				<Label for="email" {appearance}>{i18n?.[$authView]?.email_label}</Label>
+				<Input type="email" name="email" bind:value={email} autocomplete="email" {appearance} />
 			</div>
 			<div>
-				<Label htmlfor="password">{i18n?.[$authView]?.password_label}</Label>
+				<Label for="password" {appearance}>{i18n?.[$authView]?.password_label}</Label>
 				<Input
 					type="password"
 					name="password"
 					bind:value={password}
-					autocomplete={$authView === AuthView.SIGN_IN ? 'current-password' : 'new-password'}
+					autocomplete={$authView === VIEWS.SIGN_IN ? 'current-password' : 'new-password'}
+					{appearance}
 				/>
 			</div>
 		</Container>
-		<Button type="submit" color="primary">{i18n?.[$authView]?.button_label}</Button>
+		<Button type="submit" color="primary" {appearance}>{i18n?.[$authView]?.button_label}</Button>
 
-		<Container direction="vertical" gap="small">
-			{#if $authView === AuthView.SIGN_IN && magicLink}
-				<Anchor
-					on:click={(e) => {
-						e.preventDefault();
-						authView.set(AuthView.MAGIC_LINK);
-					}}
-					href="#auth-magic-link"
-					>{i18n?.magic_link?.link_text}
-				</Anchor>
-			{/if}
-			{#if $authView === AuthView.SIGN_IN}
-				<Anchor
-					on:click={(e) => {
-						e.preventDefault();
-						authView.set(AuthView.FORGOTTEN_PASSWORD);
-					}}
-					href="#auth-forgot-password"
-				>
-					{i18n?.forgotten_password?.link_text}</Anchor
-				>
-				{#if !disable_signup}
+		{#if showLinks}
+			<Container direction="vertical" gap="small" {appearance}>
+				{#if $authView === VIEWS.SIGN_IN && magicLink}
 					<Anchor
 						on:click={(e) => {
 							e.preventDefault();
-							authView.set(AuthView.SIGN_UP);
+							authView.set(VIEWS.MAGIC_LINK);
+						}}
+						href="#auth-magic-link"
+						{appearance}
+						>{i18n?.magic_link?.link_text}
+					</Anchor>
+				{/if}
+				{#if $authView === VIEWS.SIGN_IN}
+					<Anchor
+						on:click={(e) => {
+							e.preventDefault();
+							authView.set('forgotten_password');
+						}}
+						href="#auth-forgot-password"
+						{appearance}
+					>
+						{i18n?.forgotten_password?.link_text}</Anchor
+					>
+					<Anchor
+						on:click={(e) => {
+							e.preventDefault();
+							authView.set('sign_up');
 						}}
 						href="#auth-sign-up"
+						{appearance}
 					>
 						{i18n?.sign_up?.link_text}
 					</Anchor>
+				{:else}
+					<Anchor
+						on:click={(e) => {
+							e.preventDefault();
+							authView.set('sign_in');
+						}}
+						href="#auth-sign-in"
+						{appearance}
+					>
+						{i18n?.sign_in?.link_text}
+					</Anchor>
 				{/if}
-			{:else}
-				<Anchor
-					on:click={(e) => {
-						e.preventDefault();
-						authView.set(AuthView.SIGN_IN);
-					}}
-					href="#auth-sign-in"
-				>
-					{i18n?.sign_in?.link_text}
-				</Anchor>
-			{/if}
-		</Container>
+			</Container>
+		{/if}
 	</Container>
 
 	{#if message}
-		<Message>
+		<Message {appearance}>
 			{message}
 		</Message>
 	{/if}
 	{#if error}
-		<Message color="danger">
+		<Message color="danger" {appearance}>
 			{error}
 		</Message>
 	{/if}

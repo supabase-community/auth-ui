@@ -7,12 +7,15 @@
 	import Label from '$lib/UI/Label.svelte';
 	import Message from '$lib/UI/Message.svelte';
 	import type { Writable } from 'svelte/store';
-	import { AuthView, type I18nVariables } from '$lib/types';
+	import { VIEWS, type I18nVariables, type ViewType } from '@supabase/auth-ui-shared';
+	import type { Appearance } from '$lib/types';
 
 	export let i18n: I18nVariables;
 	export let supabaseClient: SupabaseClient;
-	export let authView: Writable<AuthView>;
+	export let authView: Writable<ViewType>;
 	export let redirectTo: string | undefined = undefined;
+	export let appearance: Appearance;
+	export let showLinks = false;
 	export let email = '';
 
 	let message = '';
@@ -35,38 +38,42 @@
 	}
 </script>
 
-<form id="auth-forgot-password" method="post" on:submit|preventDefault={handleSubmit}>
-	<Container direction="vertical" gap="large">
-		<Container direction="vertical" gap="large">
+<form id="auth-magic-link" method="post" on:submit|preventDefault={handleSubmit}>
+	<Container direction="vertical" gap="large" {appearance}>
+		<Container direction="vertical" gap="large" {appearance}>
 			<div>
-				<Label htmlfor="email">{i18n?.magic_link?.email_input_label}</Label>
+				<Label for="email" {appearance}>{i18n?.magic_link?.email_input_label}</Label>
 				<Input
 					type="email"
 					name="email"
 					placeholder={i18n?.magic_link?.email_input_placeholder}
 					bind:value={email}
 					autocomplete="email"
+					{appearance}
 				/>
 			</div>
-			<Button type="submit" color="primary" {loading}>
+			<Button type="submit" color="primary" {loading} {appearance}>
 				{i18n?.magic_link?.button_label}
 			</Button>
 		</Container>
 
-		<Anchor
-			on:click={(e) => {
-				e.preventDefault();
-				authView.set(AuthView.SIGN_IN);
-			}}
-			href="#auth-sign-in">{i18n?.sign_in?.link_text}</Anchor
-		>
+		{#if showLinks}
+			<Anchor
+				on:click={(e) => {
+					e.preventDefault();
+					authView.set(VIEWS.SIGN_IN);
+				}}
+				href="#auth-sign-in"
+				{appearance}>{i18n?.sign_in?.link_text}</Anchor
+			>
+		{/if}
 		{#if message}
-			<Message>
+			<Message {appearance}>
 				{message}
 			</Message>
 		{/if}
 		{#if error}
-			<Message color="danger">
+			<Message color="danger" {appearance}>
 				{error}
 			</Message>
 		{/if}
