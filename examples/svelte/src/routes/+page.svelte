@@ -18,7 +18,7 @@
 </svelte:head>
 
 <div class="header">
-	<div class="auth-container">
+	<div class="w-1/2 flex items-center justify-center">
 		<div class={classes[$customButtonColor]}>
 			<Auth
 				{supabaseClient}

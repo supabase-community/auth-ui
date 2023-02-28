@@ -36,7 +36,7 @@ code {
 }
 
 .container-redshadow {
-	min-width: 300px;
+	min-width: 364px;
 	box-shadow: -2px 1px 69px 5px rgb(202, 37, 37);
 	-webkit-box-shadow: -2px 1px 69px 5px rgb(202, 37, 37);
 	-moz-box-shadow: -2px 1px 69px 5px rgb(202, 37, 37);
@@ -45,7 +45,7 @@ code {
 }
 
 .container-greenshadow {
-	min-width: 300px;
+	min-width: 364px;
 	box-shadow: -2px 1px 69px 5px rgb(65, 163, 35);
 	-webkit-box-shadow: -2px 1px 69px 5px rgb(65, 163, 35);
 	-moz-box-shadow: -2px 1px 69px 5px rgb(65, 163, 35);
@@ -54,7 +54,7 @@ code {
 }
 
 .container-blueshadow {
-	min-width: 300px;
+	min-width: 364px;
 	box-shadow: -2px 1px 69px 5px rgb(8, 107, 177);
 	-webkit-box-shadow: -2px 1px 69px 5px rgb(8, 107, 177);
 	-moz-box-shadow: -2px 1px 69px 5px rgb(8, 107, 177);
@@ -63,7 +63,7 @@ code {
 }
 
 .container-orangeshadow {
-	min-width: 300px;
+	min-width: 364px;
 	box-shadow: -2px 1px 69px 5px rgb(235, 115, 29);
 	-webkit-box-shadow: -2px 1px 69px 5px rgb(235, 115, 29);
 	-moz-box-shadow: -2px 1px 69px 5px rgb(235, 115, 29);
@@ -71,27 +71,9 @@ code {
 	border-radius: 1rem;
 }
 
-.auth-container {
-	width: 50%;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
 .selectors-container {
 	width: 50%;
 	padding: 2rem;
-}
-
-.solidrow {
-	display: flex;
-	align-items: center;
-}
-
-.toggles-grid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 1rem;
 }
 
 .header {
@@ -120,20 +102,6 @@ code {
 		justify-content: space-around;
 		font-size: calc(10px + 2vmin);
 		color: white;
-	}
-
-	.container {
-		min-width: 250px;
-	}
-
-	.selectors-container {
-		width: fit-content;
-		max-width: 80vw;
-		margin-inline: auto;
-	}
-
-	.auth-container {
-		width: fit-content;
 	}
 }
 

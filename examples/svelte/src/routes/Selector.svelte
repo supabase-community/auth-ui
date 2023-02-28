@@ -4,13 +4,13 @@
 	import RadiusToggles from './RadiusToggles.svelte';
 </script>
 
-<div class="selectors-container">
-	<h2>Auth UI Svelte</h2>
-	<p>
+<div class="w-1/2 p-8">
+	<h2 class="text-5xl font-bold my-9">Auth UI Svelte</h2>
+	<p class="text-base my-4">
 		Customizable authentication UI component with custom themes and extensible styles to match your
 		brand and aesthetic
 	</p>
-	<div class="solidrow">
+	<div class="flex items-center">
 		<!-- <img src={Logo} alt="React Logo" height={32} /> -->
 		<p>
 			Currently available in Solid.js and{' '}
@@ -19,7 +19,7 @@
 			</a>
 		</p>
 	</div>
-	<div class="toggles-grid">
+	<div class="grid gap-4 grid-cols-2">
 		<ColorToggles />
 		<RadiusToggles />
 		<AlignmentToggles />

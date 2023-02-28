@@ -1,5 +1,6 @@
 <script lang="ts">
 	import '../app.css';
+	import { App } from 'konsta/svelte';
 	import { supabaseClient } from '../db';
 	import { onMount } from 'svelte';
 	import { invalidate } from '$app/navigation';
@@ -17,4 +18,6 @@
 	});
 </script>
 
-<slot />
+<App>
+	<slot />
+</App>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import SegmentedButton, { Segment } from '@smui/segmented-button';
+	import { Segmented, SegmentedButton } from 'konsta/svelte';
 	import Circle from 'svelte-material-icons/Circle.svelte';
 	import { customButtonColor } from './store';
 
@@ -9,17 +9,38 @@
 		'rgb(8, 107, 177)',
 		'rgb(235, 115, 29)'
 	];
-
-	let selected = colors[1];
-
-	$: if (selected) $customButtonColor = selected;
 </script>
 
 <div>
-	<h5>Brand Color</h5>
-	<SegmentedButton segments={colors} let:segment singleSelect bind:selected>
-		<Segment {segment} touch>
-			<Circle color={segment} size="2em" />
-		</Segment>
-	</SegmentedButton>
+	<h5 class="text-xl font-bold my-10">Brand Color</h5>
+	<Segmented class="rounded-none md:justify-start">
+		<SegmentedButton
+			class="p-3 border-none w-auto"
+			active={$customButtonColor === colors[0]}
+			onClick={() => ($customButtonColor = colors[0])}
+		>
+			<Circle color={colors[0]} size="3em" />
+		</SegmentedButton>
+		<SegmentedButton
+			class="p-3 border-none w-auto"
+			active={$customButtonColor === colors[1]}
+			onClick={() => ($customButtonColor = colors[1])}
+		>
+			<Circle color={colors[1]} size="3em" />
+		</SegmentedButton>
+		<SegmentedButton
+			class="p-3 border-none w-auto"
+			active={$customButtonColor === colors[2]}
+			onClick={() => ($customButtonColor = colors[2])}
+		>
+			<Circle color={colors[2]} size="3em" />
+		</SegmentedButton>
+		<SegmentedButton
+			class="p-3 border-none w-auto"
+			active={$customButtonColor === colors[3]}
+			onClick={() => ($customButtonColor = colors[3])}
+		>
+			<Circle color={colors[3]} size="3em" />
+		</SegmentedButton>
+	</Segmented>
 </div>
