@@ -10,20 +10,24 @@ Auth UI is kept deliberately separate from @supabase/auth-helpers so that develo
 
 [React.js]: https://reactjs.org/
 [Solid.js]: https://www.solidjs.com/
+[Svelte]: https://svelte.dev/
 
 ## Supported frameworks
 
 - [React.js]() [[Documentation](https://supabase.com/docs/guides/auth/auth-helpers/auth-ui)]
 - [Solid.js]()
+- [Svelte]()
 
 ### Examples and Packages
 
 - Examples
   - `@example/react`: a [React.js]() app
   - `@example/solid`: a [Solid.js]() app
+  - `@example/svelte`: a [Svelte]() app
 - Packages
   - `@supabase/auth-ui-react`: the supabase auth ui reactjs library used by `react` application
   - `@supabase/auth-ui-solid`: the supabase auth ui solid.js library used by `solid.js` application
+  - `@supabase/auth-ui-svelte`: the supabase auth ui svelte library used by `svelte` application
   - `shared`: shared typescript types used by `@supabase/auth-ui-[framework]` library
   - `tsconfig`: `tsconfig.json`s used throughout the monorepo
 

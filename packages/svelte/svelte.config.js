@@ -9,12 +9,6 @@ const config = {
 
 	kit: {
 		adapter: adapter()
-	},
-	package: {
-		dir: 'dist',
-		exports(filepath) {
-			return ['index.ts', 'server/index.ts'].includes(filepath);
-		}
 	}
 };
 
