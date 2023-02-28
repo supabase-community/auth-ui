@@ -1,9 +1,15 @@
 <script lang="ts">
+	import { createStitches, createTheme } from '@stitches/core';
 	import type { SupabaseClient, Provider } from '@supabase/supabase-js';
-
-	import * as _defaultLocalization from '../Localization';
-	import ThemeProvider from '$lib/ThemeProvider.svelte';
-	import { AuthView, type AuthSettings, type Localization } from '$lib/types';
+	import {
+		type I18nVariables,
+		merge,
+		VIEWS,
+		en,
+		type SocialLayout,
+		type ViewType
+	} from '@supabase/auth-ui-shared';
+	import type { Appearance } from '$lib/types';
 	import { setContext } from 'svelte';
 	import { writable } from 'svelte/store';
 	import EmailAuth from './interfaces/EmailAuth.svelte';
@@ -11,58 +17,91 @@
 	import MagicLink from './interfaces/MagicLink.svelte';
 	import SocialAuth from './interfaces/SocialAuth.svelte';
 	import UpdatePassword from './interfaces/UpdatePassword.svelte';
-	import { getSocialProvidersFromAuthSettings } from '$lib/utils';
-
-	const defaultLocalization: Localization = { ..._defaultLocalization };
 
 	export let supabaseClient: SupabaseClient;
-	export let theme: 'supa' | 'minimal' = 'supa';
-	export let dark: boolean | 'media' = false;
-	export let localization: { lang?: keyof Localization } = {};
-	export let redirectTo: string | undefined = undefined;
+	export let socialLayout: SocialLayout = 'vertical';
 	export let providers: Provider[] = [];
-	export let iconsOnly = false;
-	export let settings: AuthSettings | undefined = undefined;
+	export let view: ViewType = 'sign_in';
+	export let redirectTo: string | undefined = undefined;
+	export let onlyThirdPartyProviders = false;
+	export let magicLink = false;
+	export let showLinks = true;
+	export let appearance: Appearance = {};
+	export let theme: 'default' | string = 'default';
+	export let localization: { variables?: I18nVariables } = {};
 
-	$: if (!providers.length && settings?.external) {
-		providers = getSocialProvidersFromAuthSettings(settings);
-	}
+	$: i18n = merge(en, localization.variables ?? {});
 
-	function getLanguage(lang?: keyof Localization) {
-		if (lang && lang in defaultLocalization) {
-			return defaultLocalization[lang];
-		}
+	const authView = setContext('supabase-auth-view', writable<ViewType>(view));
 
-		if (typeof navigator !== 'undefined') {
-			lang = navigator.language.split('-')[0];
-			if (lang in defaultLocalization) {
-				return defaultLocalization[lang];
-			}
-		}
-		return defaultLocalization['en'];
-	}
+	$: createStitches({
+		theme: merge(appearance?.theme?.default ?? {}, appearance?.variables?.default ?? {})
+	});
 
-	$: i18n = getLanguage(localization.lang);
-
-	const authView = setContext('supabase-auth-view', writable<AuthView>(AuthView.SIGN_IN));
+	$: themeVariables = createTheme(
+		merge(
+			// @ts-ignore
+			appearance?.theme[theme],
+			appearance?.variables?.[theme] ?? {}
+		)
+	);
 </script>
 
-<ThemeProvider {theme} {dark}>
-	{#if $authView === AuthView.SIGN_IN}
-		<SocialAuth {i18n} {supabaseClient} {providers} {redirectTo} {iconsOnly} />
+<!-- <div class="home"> -->
+<div class={theme !== 'default' ? themeVariables : ''}>
+	{#if $authView === VIEWS.SIGN_IN}
+		<SocialAuth
+			{appearance}
+			{supabaseClient}
+			{providers}
+			{socialLayout}
+			{redirectTo}
+			{onlyThirdPartyProviders}
+			{i18n}
+		/>
 
-		<EmailAuth {i18n} {supabaseClient} {authView} disable_signup={settings?.disable_signup} />
+		{#if !onlyThirdPartyProviders}
+			<EmailAuth
+				{appearance}
+				{supabaseClient}
+				{authView}
+				{redirectTo}
+				{magicLink}
+				{showLinks}
+				{i18n}
+			/>
+		{/if}
 	{/if}
-	{#if !settings?.disable_signup && $authView === AuthView.SIGN_UP}
-		<EmailAuth {i18n} {supabaseClient} {authView} {redirectTo} />
+	{#if $authView === VIEWS.SIGN_UP}
+		<SocialAuth
+			{appearance}
+			{supabaseClient}
+			{providers}
+			{socialLayout}
+			{redirectTo}
+			{onlyThirdPartyProviders}
+			{i18n}
+		/>
+
+		{#if !onlyThirdPartyProviders}
+			<EmailAuth
+				{appearance}
+				{supabaseClient}
+				{authView}
+				{redirectTo}
+				{magicLink}
+				{showLinks}
+				{i18n}
+			/>
+		{/if}
 	{/if}
-	{#if $authView === AuthView.FORGOTTEN_PASSWORD}
-		<ForgottenPassword {i18n} {supabaseClient} {authView} />
+	{#if $authView === VIEWS.FORGOTTEN_PASSWORD}
+		<ForgottenPassword {i18n} {supabaseClient} {authView} {appearance} />
 	{/if}
-	{#if $authView === AuthView.MAGIC_LINK}
-		<MagicLink {i18n} {supabaseClient} {authView} />
+	{#if $authView === VIEWS.MAGIC_LINK}
+		<MagicLink {i18n} {supabaseClient} {authView} {appearance} {redirectTo} {showLinks} />
 	{/if}
-	{#if $authView === AuthView.UPDATE_PASSWORD}
-		<UpdatePassword {i18n} {supabaseClient} {authView} />
+	{#if $authView === VIEWS.UPDATE_PASSWORD}
+		<UpdatePassword {i18n} {supabaseClient} {authView} {appearance} {showLinks} />
 	{/if}
-</ThemeProvider>
+</div>
