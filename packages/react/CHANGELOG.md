@@ -1,5 +1,16 @@
 # @supabase/auth-ui-react
 
+## 0.3.2
+
+### Patch Changes
+
+- 121e88d1: Add event listener to show update form on password reset
+- 0d794741: Add sane defaults to each individual component
+- e1fa4ee4: Update forms to select input when label is pressed
+- 121e88d1: Add full relative file names for ESM in Node
+- Updated dependencies [0d794741]
+  - @supabase/auth-ui-shared@0.1.1
+
 ## 0.3.1
 
 ### Patch Changes
