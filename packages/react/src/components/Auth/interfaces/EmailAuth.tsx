@@ -8,13 +8,14 @@ import {
   ViewsMap,
   ViewType,
   merge,
+  en,
 } from '@supabase/auth-ui-shared'
 import { Appearance } from './../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
 import { createStitches, createTheme } from '@stitches/core'
 
 export interface EmailAuthProps {
-  authView: ViewSignIn | ViewSignUp
+  authView?: ViewSignIn | ViewSignUp
   defaultEmail?: string
   defaultPassword?: string
   setAuthView?: any
@@ -24,7 +25,7 @@ export interface EmailAuthProps {
   showLinks?: boolean
   redirectTo?: RedirectTo
   magicLink?: boolean
-  i18n: I18nVariables
+  i18n?: I18nVariables
   appearance?: Appearance
   theme?: 'default' | string
 }
@@ -58,6 +59,9 @@ function EmailAuth({
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
+
+  // Setting default lang to english
+  i18n = merge(en, i18n ?? {})
 
   useEffect(() => {
     isMounted.current = true
@@ -155,6 +159,7 @@ function EmailAuth({
               id="email"
               type="email"
               name="email"
+              autoFocus
               placeholder={labels?.email_input_placeholder}
               defaultValue={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

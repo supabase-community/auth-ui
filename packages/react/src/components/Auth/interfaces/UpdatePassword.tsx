@@ -1,6 +1,6 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useEffect, useRef, useState } from 'react'
-import { I18nVariables, merge } from '@supabase/auth-ui-shared'
+import { en, I18nVariables, merge } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
 import { Button, Container, Input, Label, Message } from './../../UI'
 import { createStitches, createTheme } from '@stitches/core'
@@ -12,7 +12,7 @@ function UpdatePassword({
   theme = 'default',
 }: {
   supabaseClient: SupabaseClient
-  i18n: I18nVariables
+  i18n?: I18nVariables
   appearance?: Appearance
   theme?: 'default' | string
 }) {
@@ -21,6 +21,9 @@ function UpdatePassword({
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
+
+  // Setting default lang to english
+  i18n = merge(en, i18n ?? {})
 
   useEffect(() => {
     isMounted.current = true
@@ -78,6 +81,7 @@ function UpdatePassword({
               name="password"
               placeholder={labels?.password_label}
               type="password"
+              autoFocus
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setPassword(e.target.value)
               }

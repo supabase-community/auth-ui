@@ -5,6 +5,7 @@ import {
   I18nVariables,
   RedirectTo,
   merge,
+  en,
 } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
@@ -22,7 +23,7 @@ function MagicLink({
   setAuthView?: any
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
-  i18n: I18nVariables
+  i18n?: I18nVariables
   appearance?: Appearance
   showLinks?: boolean
   theme?: 'default' | string
@@ -32,6 +33,9 @@ function MagicLink({
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
+
+  // Setting default lang to english
+  i18n = merge(en, i18n ?? {})
 
   useEffect(() => {
     isMounted.current = true
@@ -91,6 +95,7 @@ function MagicLink({
               id="email"
               name="email"
               type="email"
+              autoFocus
               placeholder={labels?.email_input_placeholder}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                 setEmail(e.target.value)

@@ -1,6 +1,7 @@
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import { useEffect, useRef, useState } from 'react'
 import {
+  en,
   I18nVariables,
   merge,
   SocialLayout,
@@ -18,7 +19,7 @@ interface SocialAuthProps {
   redirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
   view?: 'sign_in' | 'sign_up'
-  i18n: I18nVariables
+  i18n?: I18nVariables
   appearance?: Appearance
   theme?: 'default' | string
 }
@@ -39,6 +40,9 @@ function SocialAuth({
   const isMounted = useRef<boolean>(true)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
+
+  // Setting default lang to english
+  i18n = merge(en, i18n ?? {})
 
   const verticalSocialLayout = socialLayout === 'vertical' ? true : false
 
@@ -107,7 +111,7 @@ function SocialAuth({
                     appearance={appearance}
                   >
                     {verticalSocialLayout &&
-                      template(i18n[view]?.social_provider_text as string, {
+                      template(i18n?.[view]?.social_provider_text as string, {
                         provider: capitalize(provider),
                       })}
                   </Button>
