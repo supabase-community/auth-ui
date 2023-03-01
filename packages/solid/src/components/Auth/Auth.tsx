@@ -162,7 +162,7 @@ function Auth(props: AuthProps): JSX.Element | null {
           view={authView() as 'sign_in' | 'sign_up'}
         />
       </Show>
-      {/* {!onlyThirdPartyProviders && props.children} */}
+
       <Show when={!mergedProps().onlyThirdPartyProviders}>
         {props.children}
       </Show>

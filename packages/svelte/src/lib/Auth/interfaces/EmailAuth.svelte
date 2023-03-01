@@ -8,27 +8,27 @@
 	import Message from '$lib/UI/Message.svelte';
 	import { VIEWS, type I18nVariables, type ViewType } from '@supabase/auth-ui-shared';
 	import type { Appearance } from '$lib/types';
-	import type { Writable } from 'svelte/store';
 
-	export let authView: Writable<ViewType>;
+	export let authView: ViewType = 'sign_in';
 	export let email = '';
 	export let password = '';
 	export let supabaseClient: SupabaseClient;
 	export let redirectTo: string | undefined = undefined;
-	export let showLinks = true;
+	export let showLinks = false;
 	export let magicLink = true;
 	export let i18n: I18nVariables;
 	export let appearance: Appearance;
 
 	let message = '';
 	let error = '';
-	let loading = false;
+
+	let lngKey: 'sign_in' | 'sign_up' = authView === 'sign_in' ? 'sign_in' : 'sign_up';
 
 	async function handleSubmit() {
 		loading = true;
 		error = '';
 
-		switch ($authView) {
+		switch (authView) {
 			case VIEWS.SIGN_IN:
 				const { error: signInError } = await supabaseClient.auth.signInWithPassword({
 					email,
@@ -61,50 +61,51 @@
 	<Container direction="vertical" gap="large" {appearance}>
 		<Container direction="vertical" gap="large" {appearance}>
 			<div>
-				<Label for="email" {appearance}>{i18n?.[$authView]?.email_label}</Label>
+				<Label for="email" {appearance}>{i18n?.[lngKey]?.email_label}</Label>
 				<Input
 					id="email"
 					type="email"
 					name="email"
-					placeholder={i18n?.[$authView]?.email_input_placeholder}
+					autofocus
+					placeholder={i18n?.[lngKey]?.email_input_placeholder}
 					bind:value={email}
 					autocomplete="email"
 					{appearance}
 				/>
 			</div>
 			<div>
-				<Label for="password" {appearance}>{i18n?.[$authView]?.password_label}</Label>
+				<Label for="password" {appearance}>{i18n?.[lngKey]?.password_label}</Label>
 				<Input
 					id="password"
 					type="password"
 					name="password"
-					placeholder={i18n?.[$authView]?.password_input_placeholder}
+					placeholder={i18n?.[lngKey]?.password_input_placeholder}
 					bind:value={password}
-					autocomplete={$authView === VIEWS.SIGN_IN ? 'current-password' : 'new-password'}
+					autocomplete={authView === VIEWS.SIGN_IN ? 'current-password' : 'new-password'}
 					{appearance}
 				/>
 			</div>
 		</Container>
-		<Button type="submit" color="primary" {appearance}>{i18n?.[$authView]?.button_label}</Button>
+		<Button type="submit" color="primary" {appearance}>{i18n?.[lngKey]?.button_label}</Button>
 
 		{#if showLinks}
 			<Container direction="vertical" gap="small" {appearance}>
-				{#if $authView === VIEWS.SIGN_IN && magicLink}
+				{#if authView === VIEWS.SIGN_IN && magicLink}
 					<Anchor
 						on:click={(e) => {
 							e.preventDefault();
-							authView.set(VIEWS.MAGIC_LINK);
+							authView = VIEWS.MAGIC_LINK;
 						}}
 						href="#auth-magic-link"
 						{appearance}
 						>{i18n?.magic_link?.link_text}
 					</Anchor>
 				{/if}
-				{#if $authView === VIEWS.SIGN_IN}
+				{#if authView === VIEWS.SIGN_IN}
 					<Anchor
 						on:click={(e) => {
 							e.preventDefault();
-							authView.set('forgotten_password');
+							authView = VIEWS.FORGOTTEN_PASSWORD;
 						}}
 						href="#auth-forgot-password"
 						{appearance}
@@ -114,7 +115,7 @@
 					<Anchor
 						on:click={(e) => {
 							e.preventDefault();
-							authView.set('sign_up');
+							authView = VIEWS.SIGN_UP;
 						}}
 						href="#auth-sign-up"
 						{appearance}
@@ -125,7 +126,7 @@
 					<Anchor
 						on:click={(e) => {
 							e.preventDefault();
-							authView.set('sign_in');
+							authView = VIEWS.SIGN_IN;
 						}}
 						href="#auth-sign-in"
 						{appearance}

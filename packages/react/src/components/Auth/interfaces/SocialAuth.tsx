@@ -1,16 +1,9 @@
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
-import { useEffect, useRef, useState } from 'react'
-import {
-  en,
-  I18nVariables,
-  merge,
-  SocialLayout,
-  template,
-} from '@supabase/auth-ui-shared'
+import { useState } from 'react'
+import { I18nVariables, SocialLayout, template } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
-import { Button, Container, Divider } from './../../UI'
-import * as SocialIcons from './../Icons'
-import { createStitches, createTheme } from '@stitches/core'
+import { Button, Container, Divider } from './../../UI/index.js'
+import * as SocialIcons from './../Icons.js'
 
 interface SocialAuthProps {
   supabaseClient: SupabaseClient
@@ -21,7 +14,6 @@ interface SocialAuthProps {
   view?: 'sign_in' | 'sign_up'
   i18n?: I18nVariables
   appearance?: Appearance
-  theme?: 'default' | string
 }
 
 type RedirectTo = undefined | string
@@ -35,32 +27,11 @@ function SocialAuth({
   view = 'sign_in',
   i18n,
   appearance,
-  theme = 'default',
 }: SocialAuthProps) {
-  const isMounted = useRef<boolean>(true)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  // Setting default lang to english
-  i18n = merge(en, i18n ?? {})
-
   const verticalSocialLayout = socialLayout === 'vertical' ? true : false
-
-  useEffect(() => {
-    isMounted.current = true
-    if (theme !== 'default') {
-      createStitches({
-        theme: merge(
-          appearance?.theme?.default ?? {},
-          appearance?.variables?.default ?? {}
-        ),
-      })
-    }
-
-    return () => {
-      isMounted.current = false
-    }
-  }, [appearance])
 
   const handleProviderSignIn = async (provider: Provider) => {
     setLoading(true)
@@ -80,19 +51,7 @@ function SocialAuth({
   return (
     <>
       {providers && providers.length > 0 && (
-        <div
-          className={
-            theme !== 'default'
-              ? createTheme(
-                  merge(
-                    // @ts-ignore
-                    appearance?.theme[theme],
-                    appearance?.variables?.[theme] ?? {}
-                  )
-                )
-              : undefined
-          }
-        >
+        <>
           <Container gap="large" direction="vertical" appearance={appearance}>
             <Container
               direction={verticalSocialLayout ? 'vertical' : 'horizontal'}
@@ -120,7 +79,7 @@ function SocialAuth({
             </Container>
           </Container>
           {!onlyThirdPartyProviders && <Divider appearance={appearance} />}
-        </div>
+        </>
       )}
     </>
   )

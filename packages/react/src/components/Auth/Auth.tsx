@@ -95,7 +95,18 @@ function Auth({
     /**
      * Overrides the authview if it is changed externally
      */
+    const { data: authListener } = supabaseClient.auth.onAuthStateChange(
+      (event) => {
+        if (event === 'PASSWORD_RECOVERY') {
+          setAuthView('update_password')
+        } else if (event === 'USER_UPDATED') {
+          setAuthView('sign_in')
+        }
+      }
+    )
     setAuthView(view)
+
+    return () => authListener.subscription.unsubscribe()
   }, [view])
 
   const emailProp: Omit<EmailAuthProps, 'authView' | 'id'> = {

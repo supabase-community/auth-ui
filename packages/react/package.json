@@ -12,7 +12,9 @@
   "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
+    "./package.json": "./package.json",
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js",
       "require": "./dist/index.cjs.js"
     }

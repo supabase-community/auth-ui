@@ -6,13 +6,12 @@
 	import Input from '$lib/UI/Input.svelte';
 	import Label from '$lib/UI/Label.svelte';
 	import Message from '$lib/UI/Message.svelte';
-	import type { Writable } from 'svelte/store';
 	import { VIEWS, type I18nVariables, type ViewType } from '@supabase/auth-ui-shared';
 	import type { Appearance } from '$lib/types';
 
 	export let i18n: I18nVariables;
 	export let supabaseClient: SupabaseClient;
-	export let authView: Writable<ViewType>;
+	export let authView: ViewType;
 	export let redirectTo: string | undefined = undefined;
 	export let appearance: Appearance;
 	export let showLinks = false;
@@ -45,8 +44,9 @@
 				<Input
 					id="email"
 					type="email"
-					placeholder={i18n?.update_password?.password_label}
 					name="email"
+					autofocus
+					placeholder={i18n?.update_password?.password_label}
 					bind:value={email}
 					autocomplete="email"
 					{appearance}
@@ -61,7 +61,7 @@
 			<Anchor
 				on:click={(e) => {
 					e.preventDefault();
-					authView.set(VIEWS.SIGN_IN);
+					authView = VIEWS.SIGN_IN;
 				}}
 				href="#auth-magic-link"
 				{appearance}>{i18n?.sign_in?.link_text}</Anchor

@@ -1,15 +1,15 @@
 import { SupabaseClient } from '@supabase/supabase-js'
-import React, { useEffect, useRef, useState } from 'react'
-import {
-  VIEWS,
-  I18nVariables,
-  RedirectTo,
-  merge,
-  en,
-} from '@supabase/auth-ui-shared'
+import React, { useState } from 'react'
+import { VIEWS, I18nVariables, RedirectTo } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
-import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
-import { createStitches, createTheme } from '@stitches/core'
+import {
+  Anchor,
+  Button,
+  Container,
+  Input,
+  Label,
+  Message,
+} from './../../UI/index.js'
 
 function ForgottenPassword({
   setAuthView = () => {},
@@ -18,7 +18,6 @@ function ForgottenPassword({
   i18n,
   appearance,
   showLinks = false,
-  theme = 'default',
 }: {
   setAuthView?: any
   supabaseClient: SupabaseClient
@@ -26,32 +25,11 @@ function ForgottenPassword({
   i18n?: I18nVariables
   appearance?: Appearance
   showLinks?: boolean
-  theme?: 'default' | string
 }) {
-  const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
-
-  // Setting default lang to english
-  i18n = merge(en, i18n ?? {})
-
-  useEffect(() => {
-    isMounted.current = true
-    if (theme !== 'default') {
-      createStitches({
-        theme: merge(
-          appearance?.theme?.default ?? {},
-          appearance?.variables?.default ?? {}
-        ),
-      })
-    }
-
-    return () => {
-      isMounted.current = false
-    }
-  }, [appearance])
 
   const handlePasswordReset = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -69,21 +47,7 @@ function ForgottenPassword({
   const labels = i18n?.forgotten_password
 
   return (
-    <form
-      id="auth-forgot-password"
-      onSubmit={handlePasswordReset}
-      className={
-        theme !== 'default'
-          ? createTheme(
-              merge(
-                // @ts-ignore
-                appearance?.theme[theme],
-                appearance?.variables?.[theme] ?? {}
-              )
-            )
-          : undefined
-      }
-    >
+    <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
       <Container gap="large" direction="vertical" appearance={appearance}>
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
