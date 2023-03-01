@@ -1,5 +1,11 @@
 # @supabase/auth-ui-shared
 
+## 0.1.1
+
+### Patch Changes
+
+- 0d794741: Update shared en localization to include templated variable
+
 ## 0.1.0
 
 ### Minor Changes

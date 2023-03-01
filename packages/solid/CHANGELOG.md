@@ -1,5 +1,14 @@
 # @supabase/auth-ui-solid
 
+## 0.2.1
+
+### Patch Changes
+
+- 121e88d1: Add html input autofocus
+- 32d5d0ef: Update to handle templated variable for provider
+- Updated dependencies [0d794741]
+  - @supabase/auth-ui-shared@0.1.1
+
 ## 0.2.0
 
 ### Minor Changes
