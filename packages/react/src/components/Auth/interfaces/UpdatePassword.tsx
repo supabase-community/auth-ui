@@ -74,6 +74,7 @@ function UpdatePassword({
               {labels?.password_label}
             </Label>
             <Input
+              id="password"
               name="password"
               placeholder={labels?.password_label}
               type="password"

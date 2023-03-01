@@ -43,6 +43,7 @@
 					{i18n?.update_password?.password_label}
 				</Label>
 				<Input
+					id="email"
 					type="email"
 					placeholder={i18n?.update_password?.password_label}
 					name="email"

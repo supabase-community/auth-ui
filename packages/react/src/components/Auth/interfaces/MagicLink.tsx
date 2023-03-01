@@ -84,8 +84,11 @@ function MagicLink({
       <Container gap="large" direction="vertical" appearance={appearance}>
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
-            <Label appearance={appearance}>{labels?.email_input_label}</Label>
+            <Label htmlFor="email" appearance={appearance}>
+              {labels?.email_input_label}
+            </Label>
             <Input
+              id="email"
               name="email"
               type="email"
               placeholder={labels?.email_input_placeholder}
