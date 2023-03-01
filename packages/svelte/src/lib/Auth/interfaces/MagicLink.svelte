@@ -44,6 +44,7 @@
 			<div>
 				<Label for="email" {appearance}>{i18n?.magic_link?.email_input_label}</Label>
 				<Input
+					id="email"
 					type="email"
 					name="email"
 					placeholder={i18n?.magic_link?.email_input_placeholder}

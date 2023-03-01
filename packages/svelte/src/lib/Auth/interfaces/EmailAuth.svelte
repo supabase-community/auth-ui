@@ -62,13 +62,23 @@
 		<Container direction="vertical" gap="large" {appearance}>
 			<div>
 				<Label for="email" {appearance}>{i18n?.[$authView]?.email_label}</Label>
-				<Input type="email" name="email" bind:value={email} autocomplete="email" {appearance} />
+				<Input
+					id="email"
+					type="email"
+					name="email"
+					placeholder={i18n?.[$authView]?.email_input_placeholder}
+					bind:value={email}
+					autocomplete="email"
+					{appearance}
+				/>
 			</div>
 			<div>
 				<Label for="password" {appearance}>{i18n?.[$authView]?.password_label}</Label>
 				<Input
+					id="password"
 					type="password"
 					name="password"
+					placeholder={i18n?.[$authView]?.password_input_placeholder}
 					bind:value={password}
 					autocomplete={$authView === VIEWS.SIGN_IN ? 'current-password' : 'new-password'}
 					{appearance}

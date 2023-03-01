@@ -152,6 +152,7 @@ function EmailAuth({
               {labels?.email_label}
             </Label>
             <Input
+              id="email"
               type="email"
               name="email"
               placeholder={labels?.email_input_placeholder}
@@ -168,6 +169,7 @@ function EmailAuth({
               {labels?.password_label}
             </Label>
             <Input
+              id="password"
               type="password"
               name="password"
               placeholder={labels?.password_input_placeholder}

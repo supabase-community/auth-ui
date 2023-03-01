@@ -40,7 +40,15 @@
 		<Container direction="vertical" gap="large" {appearance}>
 			<div>
 				<Label for="email" {appearance}>{i18n?.forgotten_password?.email_label}</Label>
-				<Input type="email" name="email" bind:value={email} autocomplete="email" {appearance} />
+				<Input
+					id="email"
+					type="email"
+					name="email"
+					placeholder={i18n?.forgotten_password?.email_input_placeholder}
+					bind:value={email}
+					autocomplete="email"
+					{appearance}
+				/>
 			</div>
 			<Button type="submit" color="primary" {loading} {appearance}>
 				{i18n?.forgotten_password?.button_label}

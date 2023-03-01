@@ -87,6 +87,7 @@ function ForgottenPassword({
               {labels?.email_label}
             </Label>
             <Input
+              id="email"
               name="email"
               type="email"
               placeholder={labels?.email_input_placeholder}
