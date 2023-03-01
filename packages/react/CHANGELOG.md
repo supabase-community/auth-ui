@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.3.1
+
+### Patch Changes
+
+- dde7c4de: Add emailRedirectTo property to the EmailAuth component's signUp method
+
 ## 0.3.0
 
 ### Minor Changes
