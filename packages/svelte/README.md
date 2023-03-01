@@ -17,9 +17,9 @@ First let us install Supabase into our Svelte project.
 ```bash
 npm install @supabase/supabase-js @supabase/auth-ui-svelte
 # or
-pnpm add @supabase/supabase-js @supabase/auth-ui-solid
+pnpm add @supabase/supabase-js @supabase/auth-ui-svelte
 # or
-yarn add @supabase/supabase-js @supabase/auth-ui-solid
+yarn add @supabase/supabase-js @supabase/auth-ui-svelte
 ```
 
 #### Create you Supabase client

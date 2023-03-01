@@ -6,7 +6,7 @@
     "password_input_placeholder": "Your password",
     "button_label": "サインアップ",
     "loading_button_label": "Signing up ...",
-    "social_provider_text": "に登録する",
+    "social_provider_text": "{{provider}} に登録する",
     "link_text": "アカウントをお持ちではありませんか？サインアップ"
   },
   "sign_in": {
@@ -16,7 +16,7 @@
     "password_input_placeholder": "Your password",
     "button_label": "サインイン",
     "loading_button_label": "Signing in ...",
-    "social_provider_text": "に登録する",
+    "social_provider_text": "{{provider}} に登録する",
     "link_text": "Already have an account? Sign in"
   },
   "magic_link": {

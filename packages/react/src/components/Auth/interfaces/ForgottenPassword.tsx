@@ -1,28 +1,53 @@
 import { SupabaseClient } from '@supabase/supabase-js'
-import React, { useState } from 'react'
-import { VIEWS, I18nVariables, RedirectTo } from '@supabase/auth-ui-shared'
+import React, { useEffect, useRef, useState } from 'react'
+import {
+  VIEWS,
+  I18nVariables,
+  RedirectTo,
+  merge,
+} from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
 import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
+import { createStitches, createTheme } from '@stitches/core'
 
 function ForgottenPassword({
-  setAuthView,
+  setAuthView = () => {},
   supabaseClient,
   redirectTo,
   i18n,
   appearance,
-  showLinks,
+  showLinks = false,
+  theme = 'default',
 }: {
-  setAuthView: any
+  setAuthView?: any
   supabaseClient: SupabaseClient
   redirectTo?: RedirectTo
   i18n: I18nVariables
   appearance?: Appearance
   showLinks?: boolean
+  theme?: 'default' | string
 }) {
+  const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState('')
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
   const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    isMounted.current = true
+    if (theme !== 'default') {
+      createStitches({
+        theme: merge(
+          appearance?.theme?.default ?? {},
+          appearance?.variables?.default ?? {}
+        ),
+      })
+    }
+
+    return () => {
+      isMounted.current = false
+    }
+  }, [appearance])
 
   const handlePasswordReset = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -40,7 +65,21 @@ function ForgottenPassword({
   const labels = i18n?.forgotten_password
 
   return (
-    <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
+    <form
+      id="auth-forgot-password"
+      onSubmit={handlePasswordReset}
+      className={
+        theme !== 'default'
+          ? createTheme(
+              merge(
+                // @ts-ignore
+                appearance?.theme[theme],
+                appearance?.variables?.[theme] ?? {}
+              )
+            )
+          : undefined
+      }
+    >
       <Container gap="large" direction="vertical" appearance={appearance}>
         <Container gap="large" direction="vertical" appearance={appearance}>
           <div>
