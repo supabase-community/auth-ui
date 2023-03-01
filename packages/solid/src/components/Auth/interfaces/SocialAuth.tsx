@@ -1,6 +1,6 @@
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import { createSignal, For, Show } from 'solid-js'
-import { I18nVariables, SocialLayout } from '@supabase/auth-ui-shared'
+import { I18nVariables, SocialLayout, template } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
 import { Button, Container, Divider } from '../../UI'
 import * as SocialIcons from '../Icons'
@@ -63,16 +63,19 @@ function SocialAuth(props: SocialAuthProps) {
                       appearance={props.appearance}
                     >
                       {props.socialLayout === 'vertical' &&
-                        props.i18n[props.view]?.social_provider_text +
-                          ' ' +
-                          capitalize(provider)}
+                        template(
+                          props.i18n[props.view]
+                            ?.social_provider_text as string,
+                          {
+                            provider: capitalize(provider),
+                          }
+                        )}
                     </Button>
                   )
                 }}
               </For>
             </Container>
           </Container>
-          {/* {!props.onlyThirdPartyProviders && <Divider appearance={props.appearance} />} */}
           <Show when={!props.onlyThirdPartyProviders}>
             <Divider appearance={props.appearance} />
           </Show>

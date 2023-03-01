@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { SupabaseClient, Provider } from '@supabase/supabase-js';
-	import type { I18nVariables, SocialLayout } from '@supabase/auth-ui-shared';
+	import { template, type I18nVariables, type SocialLayout } from '@supabase/auth-ui-shared';
 	import type { Appearance } from '$lib/types';
 	import Button from '$lib/UI/Button.svelte';
 	import Container from '$lib/UI/Container.svelte';
@@ -36,6 +36,11 @@
 	function capitalize(word: string) {
 		return word[0].toUpperCase() + word.slice(1).toLowerCase();
 	}
+
+	let iconTitle = (provider: string) =>
+		template(i18n['sign_in']?.social_provider_text as string, {
+			provider: capitalize(provider)
+		});
 </script>
 
 {#if providers.length}
@@ -46,9 +51,8 @@
 			{appearance}
 		>
 			{#each providers as provider}
-				{@const title = i18n['sign_in']?.social_provider_text + ' ' + capitalize(provider)}
 				<Button
-					aria-label={title}
+					aria-label={iconTitle(provider)}
 					on:click={() => handleProviderSignIn(provider)}
 					type="submit"
 					color="default"
@@ -57,7 +61,7 @@
 				>
 					<Icons {provider} />
 					{#if verticalSocialLayout}
-						{title}
+						{iconTitle(provider)}
 					{/if}
 				</Button>
 			{/each}

@@ -5,7 +5,7 @@
 	import VerticalIcon from 'svelte-material-icons/AlignVerticalCenter.svelte';
 	import { customSocialLayout } from './store';
 
-	const socialAlignment: SocialLayout[] = ['vertical', 'horizontal'];
+	const socialAlignment: SocialLayout[] = ['horizontal', 'vertical'];
 </script>
 
 <div>
