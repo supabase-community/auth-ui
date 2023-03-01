@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { SupabaseClient } from '@supabase/supabase-js'
-import { createEffect, createSignal, onMount, Setter } from 'solid-js'
+import { createEffect, createSignal, Setter } from 'solid-js'
 import {
   I18nVariables,
   RedirectTo,
@@ -42,7 +42,6 @@ function EmailAuth(props: EmailAuthProps) {
   const [error, setError] = createSignal('')
   const [loading, setLoading] = createSignal(false)
   const [message, setMessage] = createSignal('')
-  let inputRef: HTMLInputElement
 
   createEffect(() => {
     setEmail(props.defaultEmail)
@@ -51,10 +50,6 @@ function EmailAuth(props: EmailAuthProps) {
     return () => {
       setIsMounted(() => false)
     }
-  })
-
-  onMount(() => {
-    inputRef.focus()
   })
 
   const handleSubmit = async (e: FormEvent) => {
@@ -122,7 +117,7 @@ function EmailAuth(props: EmailAuthProps) {
               id="email"
               type="email"
               name="email"
-              ref={(el) => (inputRef = el)}
+              autofocus
               placeholder={
                 props.i18n?.[props.authView]?.email_input_placeholder
               }

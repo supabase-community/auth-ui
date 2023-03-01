@@ -52,6 +52,7 @@ function MagicLink(props: {
               id="email"
               name="email"
               type="email"
+              autofocus
               placeholder={props.i18n?.magic_link?.email_input_placeholder}
               onkeyup={(e) => setEmail(e.currentTarget.value)}
               appearance={props.appearance}

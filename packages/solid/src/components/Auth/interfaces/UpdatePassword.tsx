@@ -1,5 +1,5 @@
 import { SupabaseClient } from '@supabase/supabase-js'
-import { createSignal, onMount, Show } from 'solid-js'
+import { createSignal, Show } from 'solid-js'
 import { I18nVariables } from '@supabase/auth-ui-shared'
 import { Appearance, FormEvent } from '../../../types'
 import { Button, Container, Input, Label, Message } from '../../UI'
@@ -13,7 +13,6 @@ function UpdatePassword(props: {
   const [error, setError] = createSignal('')
   const [message, setMessage] = createSignal('')
   const [loading, setLoading] = createSignal(false)
-  let inputRef: HTMLInputElement
 
   const handlePasswordReset = async (e: FormEvent) => {
     e.preventDefault()
@@ -27,10 +26,6 @@ function UpdatePassword(props: {
     else setMessage('Your password has been updated')
     setLoading(false)
   }
-
-  onMount(() => {
-    inputRef.focus()
-  })
 
   return (
     <form id="auth-update-password" onSubmit={handlePasswordReset}>
@@ -51,7 +46,7 @@ function UpdatePassword(props: {
             <Input
               id="password"
               name="password"
-              ref={(el) => (inputRef = el)}
+              autofocus
               placeholder={props.i18n?.update_password?.password_label}
               type="password"
               onkeyup={(e) => setPassword(e.currentTarget.value)}
@@ -67,18 +62,13 @@ function UpdatePassword(props: {
             {props.i18n?.update_password?.button_label}
           </Button>
         </Container>
-        {/* {message && <Message appearance={appearance}>{message}</Message>} */}
+
         <Show when={message()}>
           <Message appearance={props.appearance}>{message()}</Message>
         </Show>
         <Show when={error()}>
           <Message appearance={props.appearance}>{message()}</Message>
         </Show>
-        {/* {error && (
-          <Message color="danger" appearance={appearance}>
-            {error}
-          </Message>
-        )} */}
       </Container>
     </form>
   )

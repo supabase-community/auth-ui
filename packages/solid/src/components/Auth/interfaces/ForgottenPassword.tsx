@@ -1,5 +1,5 @@
 import { SupabaseClient } from '@supabase/supabase-js'
-import { createSignal, onMount, Setter } from 'solid-js'
+import { createSignal, Setter } from 'solid-js'
 import {
   I18nVariables,
   RedirectTo,
@@ -21,11 +21,6 @@ function ForgottenPassword(props: {
   const [error, setError] = createSignal('')
   const [message, setMessage] = createSignal('')
   const [loading, setLoading] = createSignal(false)
-  let inputRef: HTMLInputElement
-
-  onMount(() => {
-    inputRef.focus()
-  })
 
   const handlePasswordReset = async (e: FormEvent) => {
     e.preventDefault()
@@ -59,7 +54,7 @@ function ForgottenPassword(props: {
               id="email"
               name="email"
               type="email"
-              ref={(el) => (inputRef = el)}
+              autofocus
               placeholder={
                 props.i18n?.forgotten_password?.email_input_placeholder
               }

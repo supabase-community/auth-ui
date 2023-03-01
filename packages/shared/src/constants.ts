@@ -8,7 +8,7 @@ export const VIEWS: ViewsMap = {
   UPDATE_PASSWORD: 'update_password',
 }
 
-export const PREPENDED_CLASS_NAMES = 'supabase-ui-auth'
+export const PREPENDED_CLASS_NAMES = 'supabase-auth-ui'
 
 /**
  * CSS class names

@@ -1,2 +1,2 @@
-export { default as Auth } from './Auth'
-export * from './interfaces'
+export { default as Auth } from './Auth.js'
+export * from './interfaces/index.js'

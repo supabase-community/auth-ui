@@ -5,14 +5,18 @@ import {
   RedirectTo,
   ViewSignUp,
   ViewSignIn,
-  ViewsMap,
+  VIEWS,
   ViewType,
-  merge,
-  en,
 } from '@supabase/auth-ui-shared'
 import { Appearance } from './../../../types'
-import { Anchor, Button, Container, Input, Label, Message } from './../../UI'
-import { createStitches, createTheme } from '@stitches/core'
+import {
+  Anchor,
+  Button,
+  Container,
+  Input,
+  Label,
+  Message,
+} from './../../UI/index.js'
 
 export interface EmailAuthProps {
   authView?: ViewSignIn | ViewSignUp
@@ -27,15 +31,6 @@ export interface EmailAuthProps {
   magicLink?: boolean
   i18n?: I18nVariables
   appearance?: Appearance
-  theme?: 'default' | string
-}
-
-const VIEWS: ViewsMap = {
-  SIGN_IN: 'sign_in',
-  SIGN_UP: 'sign_up',
-  FORGOTTEN_PASSWORD: 'forgotten_password',
-  MAGIC_LINK: 'magic_link',
-  UPDATE_PASSWORD: 'update_password',
 }
 
 function EmailAuth({
@@ -51,7 +46,6 @@ function EmailAuth({
   magicLink,
   i18n,
   appearance,
-  theme = 'default',
 }: EmailAuthProps) {
   const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState(defaultEmail)
@@ -60,27 +54,15 @@ function EmailAuth({
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState('')
 
-  // Setting default lang to english
-  i18n = merge(en, i18n ?? {})
-
   useEffect(() => {
     isMounted.current = true
     setEmail(defaultEmail)
     setPassword(defaultPassword)
 
-    if (theme !== 'default') {
-      createStitches({
-        theme: merge(
-          appearance?.theme?.default ?? {},
-          appearance?.variables?.default ?? {}
-        ),
-      })
-    }
-
     return () => {
       isMounted.current = false
     }
-  }, [authView, appearance])
+  }, [authView])
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -137,17 +119,6 @@ function EmailAuth({
       onSubmit={handleSubmit}
       autoComplete={'on'}
       style={{ width: '100%' }}
-      className={
-        theme !== 'default'
-          ? createTheme(
-              merge(
-                // @ts-ignore
-                appearance?.theme[theme],
-                appearance?.variables?.[theme] ?? {}
-              )
-            )
-          : undefined
-      }
     >
       <Container direction="vertical" gap="large" appearance={appearance}>
         <Container direction="vertical" gap="large" appearance={appearance}>
