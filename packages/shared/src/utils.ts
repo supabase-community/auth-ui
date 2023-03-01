@@ -22,3 +22,14 @@ export function merge(target: any, ...args: any) {
   }
   return target
 }
+
+// Source https://stackoverflow.com/a/61634647/811799
+export function template(string: string, data: Record<string, string>) {
+  return string.replace(
+    /{{(\w+)}}/g,
+    (placeholderWithDelimiters, placeholderWithoutDelimiters) =>
+      data.hasOwnProperty(placeholderWithoutDelimiters)
+        ? data[placeholderWithoutDelimiters]
+        : placeholderWithDelimiters
+  )
+}

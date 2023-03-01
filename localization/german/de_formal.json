@@ -6,7 +6,7 @@
     "password_input_placeholder": "Ihr Passwort",
     "button_label": "Registrieren",
     "loading_button_label": "Registrieren ...",
-    "social_provider_text": "Anmelden mit",
+    "social_provider_text": "Anmelden mit {{provider}}",
     "link_text": "Haben Sie noch kein Konto? Registrieren"
   },
   "sign_in": {
@@ -16,7 +16,7 @@
     "password_input_placeholder": "Ihr Passwort",
     "button_label": "Anmelden",
     "loading_button_label": "Anmelden ...",
-    "social_provider_text": "Anmelden mit",
+    "social_provider_text": "Anmelden mit {{provider}}",
     "link_text": "Haben Sie bereits ein Konto? Anmelden"
   },
   "magic_link": {
