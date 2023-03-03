@@ -1,5 +1,14 @@
 # @supabase/auth-ui-solid
 
+## 0.2.2
+
+### Patch Changes
+
+- b8e6e3b4: Update social layout type to only include keys
+- Updated dependencies [b8e6e3b4]
+- Updated dependencies [b8e6e3b4]
+  - @supabase/auth-ui-shared@0.1.2
+
 ## 0.2.1
 
 ### Patch Changes

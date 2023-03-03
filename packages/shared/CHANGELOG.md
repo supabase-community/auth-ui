@@ -1,5 +1,12 @@
 # @supabase/auth-ui-shared
 
+## 0.1.2
+
+### Patch Changes
+
+- b8e6e3b4: Update appearance property to include extend for default classes
+- b8e6e3b4: Update social layout type to only include keys
+
 ## 0.1.1
 
 ### Patch Changes
