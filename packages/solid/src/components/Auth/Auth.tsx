@@ -5,6 +5,7 @@ import {
   SocialLayouts,
   VIEWS,
   en,
+  SocialLayout,
 } from '@supabase/auth-ui-shared'
 import { Auth as AuthProps } from '../../types'
 import {
@@ -155,7 +156,7 @@ function Auth(props: AuthProps): JSX.Element | null {
           appearance={mergedProps().appearance}
           supabaseClient={mergedProps().supabaseClient}
           providers={mergedProps().providers}
-          socialLayout={mergedProps().socialLayout}
+          socialLayout={mergedProps().socialLayout as SocialLayout}
           redirectTo={mergedProps().redirectTo}
           onlyThirdPartyProviders={mergedProps().onlyThirdPartyProviders}
           i18n={i18n()}

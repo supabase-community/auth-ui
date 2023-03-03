@@ -36,7 +36,9 @@ export function generateClassNames(
     classNames.push(appearance?.className?.[classNameKey])
   }
 
-  classNames.push(defaultStyles)
+  if (appearance?.extend === undefined || appearance?.extend === true) {
+    classNames.push(defaultStyles)
+  }
 
   return classNames
 }

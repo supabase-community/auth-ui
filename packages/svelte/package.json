@@ -8,6 +8,7 @@
 	"files": [
 		"dist"
 	],
+	"types": "./dist/index.d.ts",
 	"exports": {
 		"./package.json": "./package.json",
 		".": {

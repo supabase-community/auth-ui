@@ -22,7 +22,7 @@ export enum SocialLayouts {
   'horizontal',
   'vertical',
 }
-export type SocialLayout = keyof typeof SocialLayouts | SocialLayouts
+export type SocialLayout = keyof typeof SocialLayouts
 export type SocialButtonSize = 'tiny' | 'small' | 'medium' | 'large' | 'xlarge'
 
 export type ViewSignIn = 'sign_in'
@@ -52,6 +52,7 @@ export type RedirectTo = undefined | string
 export interface BaseAppearance {
   theme?: Theme
   prependedClassName?: string
+  extend?: boolean
   variables?: {
     default: ThemeVariables
     [key: string]: ThemeVariables
