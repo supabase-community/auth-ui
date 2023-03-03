@@ -88,6 +88,7 @@ importers:
       eslint: ^8.28.0
       eslint-config-prettier: ^8.5.0
       eslint-plugin-svelte3: ^4.0.0
+      konsta: ^1.0.2
       postcss: ^8.4.21
       prettier: ^2.8.0
       prettier-plugin-svelte: ^2.8.1
@@ -103,6 +104,7 @@ importers:
       '@supabase/auth-ui-shared': link:../../packages/shared
       '@supabase/auth-ui-svelte': link:../../packages/svelte
       '@supabase/supabase-js': 2.8.0
+      konsta: 1.0.2
       svelte-material-icons: 3.0.4_svelte@3.55.1
     devDependencies:
       '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.5.2
@@ -120,7 +122,7 @@ importers:
       prettier-plugin-svelte: 2.9.0_jrsxveqmsx2uadbqiuq74wlc4u
       svelte: 3.55.1
       svelte-check: 3.0.3_pehl75e5jsy22vp33udjja4soi
-      tailwindcss: 3.2.7_postcss@8.4.21
+      tailwindcss: 3.2.7
       tslib: 2.5.0
       typescript: 4.9.5
       vite: 4.1.1
@@ -4395,6 +4397,11 @@ packages:
     resolution: {integrity: sha512-ymToLHqL02udwVdbkowNpzjFd6UzozMtshPQKVi5k1EjKRqKqBrOnE9QbLEb0/pV76SAiIT13hdL8R6suc+f3g==}
     dev: true
 
+  /konsta/1.0.2:
+    resolution: {integrity: sha512-EIi/u6HDgGy9Vbi0a2AUtsQo4qN8l1ZZWyJs/D18MjVUnVxqX7Od9O8odO+XCIzZd1djeUmxfH6frDW71UvyhQ==}
+    engines: {node: '>= 4.7.0'}
+    dev: false
+
   /levn/0.4.1:
     resolution: {integrity: sha512-+bT2uH4E5LGE7h/n3evcS/sQlJXCpIp6ym8OWJ5eV6+67Dsql/LaaT7qJBAt2rzfoa/5QBGBhxDix1dMt2kQKQ==}
     engines: {node: '>= 0.8.0'}
@@ -5921,12 +5928,10 @@ packages:
       typescript: 4.9.5
     dev: true
 
-  /tailwindcss/3.2.7_postcss@8.4.21:
+  /tailwindcss/3.2.7:
     resolution: {integrity: sha512-B6DLqJzc21x7wntlH/GsZwEXTBttVSl1FtCzC8WP4oBc/NKef7kaax5jeihkkCEWc831/5NDJ9gRNDK6NEioQQ==}
     engines: {node: '>=12.13.0'}
     hasBin: true
-    peerDependencies:
-      postcss: ^8.0.9
     dependencies:
       arg: 5.0.2
       chokidar: 3.5.3
