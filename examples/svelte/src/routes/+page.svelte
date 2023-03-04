@@ -46,7 +46,7 @@
 		class="sm:py-18 gap container relative mx-auto grid grid-cols-12 px-6 py-16 md:gap-16 md:py-24 lg:gap-16 lg:px-16 lg:py-24 xl:px-20"
 	>
 		<div class="relative col-span-12 mb-16 md:col-span-7 md:mb-0 lg:col-span-6">
-			<div class="relative lg:mx-auto lg:max-w-md bg-zinc-800">
+			<div class="relative lg:mx-auto lg:max-w-md bg-zinc-900">
 				<div class={classes[brandColor]}>
 					<div class="border-scale-400 bg-scale-300 relative rounded-xl px-8 py-12 drop-shadow-sm">
 						<div class="mb-6 flex flex-col gap-6">
@@ -61,6 +61,9 @@
 							view={view.id}
 							appearance={{
 								theme: ThemeSupa,
+								style: {
+									button: `border-radius: ${borderRadius}; border-color: rgba(0,0,0,0);`
+								},
 								variables: {
 									default: {
 										colors: {
@@ -173,25 +176,25 @@
 <style>
 	.container-redshadow {
 		min-width: 364px;
-		box-shadow: -1px 2px 32px 7px rgb(202, 37, 37);
+		box-shadow: -2px 1px 69px 5px rgb(202, 37, 37);
 		border-radius: 1rem;
 	}
 
 	.container-greenshadow {
 		min-width: 364px;
-		box-shadow: -1px 2px 32px 7px rgb(65, 163, 35);
+		box-shadow: -2px 1px 69px 5px rgb(65, 163, 35);
 		border-radius: 1rem;
 	}
 
 	.container-blueshadow {
 		min-width: 364px;
-		box-shadow: -1px 2px 32px 7px rgb(8, 107, 177);
+		box-shadow: -2px 1px 69px 5px rgb(8, 107, 177);
 		border-radius: 1rem;
 	}
 
 	.container-orangeshadow {
 		min-width: 364px;
-		box-shadow: -1px 2px 32px 7px rgb(235, 115, 29);
+		box-shadow: -2px 1px 69px 5px rgb(235, 115, 29);
 		border-radius: 1rem;
 	}
 </style>

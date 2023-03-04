@@ -1,3 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+	.toggle-button {
+		@apply h-10 w-10 rounded-full border transition hover:scale-105;
+	}
+}
+
+body {
+	background-color: #1c1c1c;
+	color: #fff;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+p {
+	font-size: 16px;
+	color: rgba(255, 255, 255, 0.75);
+}
