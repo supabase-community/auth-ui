@@ -14,12 +14,9 @@
 		"format": "prettier --plugin-search-dir . --write ."
 	},
 	"dependencies": {
-		"@smui/button": "7.0.0-beta.0",
 		"@supabase/auth-ui-shared": "workspace:*",
 		"@supabase/auth-ui-svelte": "workspace:*",
-		"@supabase/supabase-js": "^2.8.0",
-		"konsta": "^1.0.2",
-		"svelte-material-icons": "^3.0.4"
+		"@supabase/supabase-js": "^2.8.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
@@ -28,7 +25,6 @@
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.13",
 		"concurrently": "^7.6.0",
-		"del-cli": "^5.0.0",
 		"eslint": "^8.28.0",
 		"eslint-config-prettier": "^8.5.0",
 		"eslint-plugin-svelte3": "^4.0.0",
