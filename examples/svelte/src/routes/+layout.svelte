@@ -1,5 +1,4 @@
 <script lang="ts">
-	import '../app.css';
 	import { supabaseClient } from '../db';
 	import { onMount } from 'svelte';
 	import { invalidate } from '$app/navigation';

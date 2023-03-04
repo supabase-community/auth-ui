@@ -4,8 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build:example": "tsc && vite build",
+    "dev": "concurrently \"npm run dev:css\" \"vite\"",
+    "dev:css": "tailwindcss -w -i ./src/tailwind.css -o src/app.css",
+    "build:example": "npm run build:css && tsc && vite build",
+    "build:css": "tailwindcss -m -i ./src/tailwind.css -o src/app.css",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -18,11 +20,13 @@
   "devDependencies": {
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
-    "@mui/icons-material": "^5.11.9",
-    "@mui/material": "^5.11.9",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
+    "autoprefixer": "^10.4.13",
+    "concurrently": "^7.6.0",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
     "typescript": "^4.9.3",
     "vite": "^4.1.0"
   }
