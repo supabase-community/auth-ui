@@ -41,7 +41,7 @@ function MagicLink({
       options: { emailRedirectTo: redirectTo },
     })
     if (error) setError(error.message)
-    else setMessage('Check your email for the magic link')
+    else setMessage(i18n?.magic_link?.confirmation_text as string)
     setLoading(false)
   }
 

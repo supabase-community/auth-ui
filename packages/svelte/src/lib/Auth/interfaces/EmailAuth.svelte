@@ -21,12 +21,14 @@
 
 	let message = '';
 	let error = '';
+	let loading = false;
 
 	let lngKey: 'sign_in' | 'sign_up' = authView === 'sign_in' ? 'sign_in' : 'sign_up';
 
 	async function handleSubmit() {
 		loading = true;
 		error = '';
+		message = '';
 
 		switch (authView) {
 			case VIEWS.SIGN_IN:
@@ -35,6 +37,7 @@
 					password
 				});
 				if (signInError) error = signInError.message;
+				loading = false;
 				break;
 			case VIEWS.SIGN_UP:
 				const {
@@ -50,10 +53,10 @@
 
 				if (signUpError) error = signUpError.message;
 				// Check if session is null -> email confirmation setting is turned on
-				else if (signUpUser && !signUpSession)
-					message = 'Check your email for the confirmation link.';
+				else if (signUpUser && !signUpSession) message = i18n.sign_up?.confirmation_text as string;
 				break;
 		}
+		loading = false;
 	}
 </script>
 

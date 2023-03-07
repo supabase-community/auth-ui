@@ -32,7 +32,7 @@ function MagicLink(props: {
       options: { emailRedirectTo: props.redirectTo },
     })
     if (error) setError(error.message)
-    else setMessage('Check your email for the magic link')
+    else setMessage(props.i18n.magic_link?.confirmation_text as string)
     setLoading(false)
   }
 
