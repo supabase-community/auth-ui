@@ -1,5 +1,11 @@
 # @supabase/auth-ui-shared
 
+## 0.1.3
+
+### Patch Changes
+
+- 11ebb978: Update i18n for confirmation messages
+
 ## 0.1.2
 
 ### Patch Changes
