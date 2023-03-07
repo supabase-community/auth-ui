@@ -1,5 +1,13 @@
 # @supabase/auth-ui-react
 
+## 0.3.4
+
+### Patch Changes
+
+- 11ebb978: Update i18n for confirmation messages
+- Updated dependencies [11ebb978]
+  - @supabase/auth-ui-shared@0.1.3
+
 ## 0.3.3
 
 ### Patch Changes

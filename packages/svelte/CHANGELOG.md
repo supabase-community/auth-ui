@@ -1,5 +1,13 @@
 # @supabase/auth-ui-svelte
 
+## 0.1.3
+
+### Patch Changes
+
+- 11ebb978: Update i18n for confirmation messages
+- Updated dependencies [11ebb978]
+  - @supabase/auth-ui-shared@0.1.3
+
 ## 0.1.2
 
 ### Patch Changes
