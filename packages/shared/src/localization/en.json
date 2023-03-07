@@ -25,7 +25,8 @@
     "email_input_placeholder": "Your email address",
     "button_label": "Send Magic Link",
     "loading_button_label": "Sending Magic Link ...",
-    "link_text": "Send a magic link email"
+    "link_text": "Send a magic link email",
+    "confirmation_text": "Check your email for the magic link"
   },
   "forgotten_password": {
     "email_label": "Email address",
@@ -33,12 +34,14 @@
     "email_input_placeholder": "Your email address",
     "button_label": "Send reset password instructions",
     "loading_button_label": "Sending reset instructions ...",
-    "link_text": "Forgot your password?"
+    "link_text": "Forgot your password?",
+    "confirmation_text": "Check your email for the password reset link"
   },
   "update_password": {
     "password_label": "New password",
     "password_input_placeholder": "Your new password",
     "button_label": "Update password",
-    "loading_button_label": "Updating password ..."
+    "loading_button_label": "Updating password ...",
+    "confirmation_text": "Your password has been updated"
   }
 }

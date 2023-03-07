@@ -25,7 +25,7 @@ function UpdatePassword({
     setLoading(true)
     const { error } = await supabaseClient.auth.updateUser({ password })
     if (error) setError(error.message)
-    else setMessage('Your password has been updated')
+    else setMessage(i18n?.update_password?.confirmation_text as string)
     setLoading(false)
   }
 

@@ -40,7 +40,7 @@ function ForgottenPassword({
       redirectTo,
     })
     if (error) setError(error.message)
-    else setMessage('Check your email for the password reset link')
+    else setMessage(i18n?.forgotten_password?.confirmation_text as string)
     setLoading(false)
   }
 
