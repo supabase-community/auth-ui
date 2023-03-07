@@ -29,7 +29,7 @@
 			redirectTo
 		});
 		if (resetPasswordError) error = resetPasswordError.message;
-		else message = 'Check your email for the password reset link';
+		else message = i18n.forgotten_password?.confirmation_text as string;
 		loading = false;
 	}
 </script>

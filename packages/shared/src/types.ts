@@ -120,6 +120,7 @@ export type I18nVariables = {
     button_label?: string
     loading_button_label?: string
     link_text?: string
+    confirmation_text?: string
   }
   forgotten_password?: {
     email_label?: string
@@ -128,11 +129,13 @@ export type I18nVariables = {
     button_label?: string
     loading_button_label?: string
     link_text?: string
+    confirmation_text?: string
   }
   update_password?: {
     password_label?: string
     password_input_placeholder?: string
     button_label?: string
     loading_button_label?: string
+    confirmation_text?: string
   }
 }

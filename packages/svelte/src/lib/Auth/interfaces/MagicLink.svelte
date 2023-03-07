@@ -32,7 +32,7 @@
 			}
 		});
 		if (resetPasswordError) error = resetPasswordError.message;
-		else message = 'Check your email for the magic link';
+		else message = i18n.magic_link?.confirmation_text as string;
 		loading = false;
 	}
 </script>

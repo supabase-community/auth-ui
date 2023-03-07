@@ -23,7 +23,7 @@ function UpdatePassword(props: {
       password: password(),
     })
     if (error) setError(error.message)
-    else setMessage('Your password has been updated')
+    else setMessage(props.i18n.update_password?.confirmation_text as string)
     setLoading(false)
   }
 
