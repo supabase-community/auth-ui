@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.3.5
+
+### Patch Changes
+
+- a814f486: Change icon size default change to 21px
+
 ## 0.3.4
 
 ### Patch Changes

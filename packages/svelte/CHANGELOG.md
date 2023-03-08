@@ -1,5 +1,11 @@
 # @supabase/auth-ui-svelte
 
+## 0.1.4
+
+### Patch Changes
+
+- a814f486: Change icon size default change to 21px
+
 ## 0.1.3
 
 ### Patch Changes
