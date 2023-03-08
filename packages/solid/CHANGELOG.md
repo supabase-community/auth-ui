@@ -1,5 +1,11 @@
 # @supabase/auth-ui-solid
 
+## 0.2.4
+
+### Patch Changes
+
+- a814f486: Change icon size default change to 21px
+
 ## 0.2.3
 
 ### Patch Changes
