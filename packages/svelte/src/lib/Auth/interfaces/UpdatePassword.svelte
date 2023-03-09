@@ -16,7 +16,8 @@
 	export let appearance: Appearance;
 	export let showLinks = false;
 	export let email = '';
-
+	
+	let password = '';
 	let message = '';
 	let error = '';
 	let loading = false;
@@ -38,17 +39,17 @@
 	<Container direction="vertical" gap="large" {appearance}>
 		<Container direction="vertical" gap="large" {appearance}>
 			<div>
-				<Label for="email" {appearance}>
+				<Label for="password" {appearance}>
 					{i18n?.update_password?.password_label}
 				</Label>
 				<Input
-					id="email"
-					type="email"
-					name="email"
+					id="password"
+					type="password"
+					name="password"
 					autofocus
 					placeholder={i18n?.update_password?.password_label}
-					bind:value={email}
-					autocomplete="email"
+					bind:value={password}
+					autocomplete="password"
 					{appearance}
 				/>
 			</div>
