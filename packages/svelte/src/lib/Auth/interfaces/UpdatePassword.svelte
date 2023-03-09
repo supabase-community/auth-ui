@@ -26,8 +26,8 @@
 		loading = true;
 		error = '';
 		message = '';
-		const { error: resetPasswordError } = await supabaseClient.auth.resetPasswordForEmail(email, {
-			redirectTo
+		const { data, resetPasswordError } = await supabaseClient.auth.updateUser({
+			password: password
 		});
 		if (resetPasswordError) error = resetPasswordError.message;
 		else message = i18n.update_password?.confirmation_text as string;
