@@ -8,22 +8,19 @@ Auth UI is kept deliberately separate from @supabase/auth-helpers so that develo
 
 <img width="552" alt="Screenshot 2022-04-30 at 9 30 25 PM" src="https://user-images.githubusercontent.com/8291514/166107630-edb5190c-1d27-4757-8960-11ef14f87af1.png">
 
-[React.js]: https://reactjs.org/
-[Solid.js]: https://www.solidjs.com/
-[Svelte]: https://svelte.dev/
 
 ## Supported frameworks
 
-- [React.js]() [[Documentation](https://supabase.com/docs/guides/auth/auth-helpers/auth-ui)]
-- [Solid.js]()
-- [Svelte]()
+- [React.js](https://reactjs.org/) [[Documentation](https://supabase.com/docs/guides/auth/auth-helpers/auth-ui)]
+- [Solid.js](https://www.solidjs.com/)
+- [Svelte](https://svelte.dev/)
 
 ### Examples and Packages
 
 - Examples
-  - `@example/react`: a [React.js]() app
-  - `@example/solid`: a [Solid.js]() app
-  - `@example/svelte`: a [Svelte]() app
+  - `@example/react`: a [React.js](./examples/react) app
+  - `@example/solid`: a [Solid.js](./examples/solid) app
+  - `@example/svelte`: a [Svelte](./examples/svelte) app
 - Packages
   - `@supabase/auth-ui-react`: the supabase auth ui reactjs library used by `react` application
   - `@supabase/auth-ui-solid`: the supabase auth ui solid.js library used by `solid.js` application
