@@ -19,7 +19,7 @@ Auth UI is kept deliberately separate from @supabase/auth-helpers so that develo
 
 - Examples
   - `@example/react`: a [React.js](./examples/react) app
-  - `@example/solid`: a [Solid.js](./examples/solid) app
+  - `@example/solid`: a [Solid.js](./examples/solidjs) app
   - `@example/svelte`: a [Svelte](./examples/svelte) app
 - Packages
   - `@supabase/auth-ui-react`: the supabase auth ui reactjs library used by `react` application
