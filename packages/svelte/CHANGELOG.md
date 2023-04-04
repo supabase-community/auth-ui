@@ -1,5 +1,11 @@
 # @supabase/auth-ui-svelte
 
+## 0.1.5
+
+### Patch Changes
+
+- 42d2fd91: Change UpdatePassword component input type to password
+
 ## 0.1.4
 
 ### Patch Changes
