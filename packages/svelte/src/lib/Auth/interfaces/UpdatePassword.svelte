@@ -12,11 +12,9 @@
 	export let i18n: I18nVariables;
 	export let supabaseClient: SupabaseClient;
 	export let authView: ViewType;
-	export let redirectTo: string | undefined = undefined;
 	export let appearance: Appearance;
 	export let showLinks = false;
-	export let email = '';
-	
+
 	let password = '';
 	let message = '';
 	let error = '';
@@ -26,8 +24,8 @@
 		loading = true;
 		error = '';
 		message = '';
-		const { data, resetPasswordError } = await supabaseClient.auth.updateUser({
-			password: password
+		const { data, error: resetPasswordError } = await supabaseClient.auth.updateUser({
+			password
 		});
 		if (resetPasswordError) error = resetPasswordError.message;
 		else message = i18n.update_password?.confirmation_text as string;
