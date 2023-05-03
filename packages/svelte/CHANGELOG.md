@@ -1,5 +1,13 @@
 # @supabase/auth-ui-svelte
 
+## 0.1.6
+
+### Patch Changes
+
+- d5052260: Add providerScopes property for setting social auth scopes
+- Updated dependencies [d5052260]
+  - @supabase/auth-ui-shared@0.1.4
+
 ## 0.1.5
 
 ### Patch Changes
