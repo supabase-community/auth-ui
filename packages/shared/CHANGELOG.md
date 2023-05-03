@@ -1,5 +1,11 @@
 # @supabase/auth-ui-shared
 
+## 0.1.4
+
+### Patch Changes
+
+- d5052260: Add providerScopes property for setting social auth scopes
+
 ## 0.1.3
 
 ### Patch Changes
