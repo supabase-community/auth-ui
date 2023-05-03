@@ -156,6 +156,8 @@ function Auth(props: AuthProps): JSX.Element | null {
           appearance={mergedProps().appearance}
           supabaseClient={mergedProps().supabaseClient}
           providers={mergedProps().providers}
+          providerScopes={mergedProps().providerScopes}
+          queryParams={mergedProps().queryParams}
           socialLayout={mergedProps().socialLayout as SocialLayout}
           redirectTo={mergedProps().redirectTo}
           onlyThirdPartyProviders={mergedProps().onlyThirdPartyProviders}

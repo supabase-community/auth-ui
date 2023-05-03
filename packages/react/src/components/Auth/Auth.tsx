@@ -16,6 +16,8 @@ function Auth({
   supabaseClient,
   socialLayout = 'vertical',
   providers,
+  providerScopes,
+  queryParams,
   view = 'sign_in',
   redirectTo,
   onlyThirdPartyProviders = false,
@@ -80,6 +82,8 @@ function Auth({
           appearance={appearance}
           supabaseClient={supabaseClient}
           providers={providers}
+          providerScopes={providerScopes}
+          queryParams={queryParams}
           socialLayout={socialLayout}
           redirectTo={redirectTo}
           onlyThirdPartyProviders={onlyThirdPartyProviders}
