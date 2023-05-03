@@ -7,7 +7,8 @@
 		VIEWS,
 		en,
 		type SocialLayout,
-		type ViewType
+		type ViewType,
+		type ProviderScopes
 	} from '@supabase/auth-ui-shared';
 	import type { Appearance } from '$lib/types';
 	import EmailAuth from './interfaces/EmailAuth.svelte';
@@ -20,6 +21,8 @@
 	export let supabaseClient: SupabaseClient;
 	export let socialLayout: SocialLayout = 'vertical';
 	export let providers: Provider[] = [];
+	export let providerScopes: Partial<ProviderScopes> | undefined = undefined;
+	export let queryParams: { [key: string]: string } | undefined = undefined;
 	export let view: ViewType = 'sign_in';
 	export let redirectTo: string | undefined = undefined;
 	export let onlyThirdPartyProviders = false;
@@ -62,6 +65,8 @@
 			{appearance}
 			{supabaseClient}
 			{providers}
+			{providerScopes}
+			{queryParams}
 			{socialLayout}
 			{redirectTo}
 			{onlyThirdPartyProviders}

@@ -2,13 +2,13 @@ import styles from './App.module.css'
 import { createClient } from '@supabase/supabase-js'
 import { SocialLayout, ThemeSupa, ViewType } from '@supabase/auth-ui-shared'
 import { Auth } from '@supabase/auth-ui-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import ToggleButton from './ToggleButton'
 import MenuIcon from './MenuIcon'
 
 const supabase = createClient(
-  'https://fmlovqieocwjaghmavax.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZtbG92cWllb2N3amFnaG1hdmF4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njc1MTE3NzYsImV4cCI6MTk4MzA4Nzc3Nn0.gdJ0CmtGcauVXXD1TY5GtHPePPoC2IEP2_vYQLjYnIg'
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
 )
 
 const classes: { [key: string]: string } = {

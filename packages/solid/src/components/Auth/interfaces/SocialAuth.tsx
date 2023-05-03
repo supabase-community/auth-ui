@@ -1,6 +1,11 @@
 import { Provider, SupabaseClient } from '@supabase/supabase-js'
 import { createSignal, For, Show } from 'solid-js'
-import { I18nVariables, SocialLayout, template } from '@supabase/auth-ui-shared'
+import {
+  I18nVariables,
+  ProviderScopes,
+  SocialLayout,
+  template,
+} from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
 import { Button, Container, Divider } from '../../UI'
 import * as SocialIcons from '../Icons'
@@ -9,6 +14,8 @@ interface SocialAuthProps {
   supabaseClient: SupabaseClient
   socialLayout: SocialLayout | string
   providers?: Provider[]
+  providerScopes?: Partial<ProviderScopes>
+  queryParams?: { [key: string]: string }
   redirectTo: RedirectTo
   onlyThirdPartyProviders: boolean
   view: 'sign_in' | 'sign_up'
@@ -26,7 +33,11 @@ function SocialAuth(props: SocialAuthProps) {
     setLoading(true)
     const { error } = await props.supabaseClient.auth.signInWithOAuth({
       provider,
-      options: { redirectTo: props.redirectTo },
+      options: {
+        redirectTo: props.redirectTo,
+        scopes: props.providerScopes?.[provider],
+        queryParams: props.queryParams,
+      },
     })
     if (error) setError(error.message)
     setLoading(false)

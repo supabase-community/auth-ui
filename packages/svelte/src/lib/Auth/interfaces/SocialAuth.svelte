@@ -1,6 +1,11 @@
 <script lang="ts">
 	import type { SupabaseClient, Provider } from '@supabase/supabase-js';
-	import { template, type I18nVariables, type SocialLayout } from '@supabase/auth-ui-shared';
+	import {
+		template,
+		type I18nVariables,
+		type SocialLayout,
+		type ProviderScopes
+	} from '@supabase/auth-ui-shared';
 	import type { Appearance } from '$lib/types';
 	import Button from '$lib/UI/Button.svelte';
 	import Container from '$lib/UI/Container.svelte';
@@ -13,6 +18,8 @@
 	export let onlyThirdPartyProviders: boolean;
 	export let i18n: I18nVariables;
 	export let providers: Provider[] = [];
+	export let providerScopes: Partial<ProviderScopes> | undefined;
+	export let queryParams: { [key: string]: string } | undefined;
 	export let appearance: Appearance;
 
 	let error = '';
@@ -26,7 +33,9 @@
 		const { error: providerSigninError } = await supabaseClient.auth.signInWithOAuth({
 			provider,
 			options: {
-				redirectTo
+				redirectTo,
+				scopes: providerScopes?.[provider],
+				queryParams
 			}
 		});
 		if (providerSigninError) error = providerSigninError.message;

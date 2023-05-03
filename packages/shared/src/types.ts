@@ -69,10 +69,16 @@ export interface BaseAppearance {
   }
 }
 
+export type ProviderScopes = {
+  [key in Partial<Provider>]: string
+}
+
 export interface BaseAuth {
   supabaseClient: SupabaseClient
   socialLayout?: SocialLayout
   providers?: Provider[]
+  providerScopes?: Partial<ProviderScopes>
+  queryParams?: { [key: string]: string }
   view?: ViewType
   redirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
