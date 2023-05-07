@@ -49,32 +49,30 @@ function ForgottenPassword({
   return (
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
       <Container gap="large" direction="vertical" appearance={appearance}>
-        <Container gap="large" direction="vertical" appearance={appearance}>
-          <div>
-            <Label htmlFor="email" appearance={appearance}>
-              {labels?.email_label}
-            </Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              autoFocus
-              placeholder={labels?.email_input_placeholder}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.target.value)
-              }
-              appearance={appearance}
-            />
-          </div>
-          <Button
-            type="submit"
-            color="primary"
-            loading={loading}
+        <div>
+          <Label htmlFor="email" appearance={appearance}>
+            {labels?.email_label}
+          </Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            autoFocus
+            placeholder={labels?.email_input_placeholder}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
             appearance={appearance}
-          >
-            {loading ? labels?.loading_button_label : labels?.button_label}
-          </Button>
-        </Container>
+          />
+        </div>
+        <Button
+          type="submit"
+          color="primary"
+          loading={loading}
+          appearance={appearance}
+        >
+          {loading ? labels?.loading_button_label : labels?.button_label}
+        </Button>
         {showLinks && (
           <Anchor
             href="#auth-sign-in"

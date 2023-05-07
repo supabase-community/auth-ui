@@ -34,32 +34,30 @@ function UpdatePassword({
   return (
     <form id="auth-update-password" onSubmit={handlePasswordReset}>
       <Container gap="large" direction={'vertical'} appearance={appearance}>
-        <Container gap="large" direction="vertical" appearance={appearance}>
-          <div>
-            <Label htmlFor="password" appearance={appearance}>
-              {labels?.password_label}
-            </Label>
-            <Input
-              id="password"
-              name="password"
-              placeholder={labels?.password_label}
-              type="password"
-              autoFocus
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setPassword(e.target.value)
-              }
-              appearance={appearance}
-            />
-          </div>
-          <Button
-            type="submit"
-            color="primary"
-            loading={loading}
+        <div>
+          <Label htmlFor="password" appearance={appearance}>
+            {labels?.password_label}
+          </Label>
+          <Input
+            id="password"
+            name="password"
+            placeholder={labels?.password_label}
+            type="password"
+            autoFocus
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setPassword(e.target.value)
+            }
             appearance={appearance}
-          >
-            {loading ? labels?.loading_button_label : labels?.button_label}
-          </Button>
-        </Container>
+          />
+        </div>
+        <Button
+          type="submit"
+          color="primary"
+          loading={loading}
+          appearance={appearance}
+        >
+          {loading ? labels?.loading_button_label : labels?.button_label}
+        </Button>
         {message && <Message appearance={appearance}>{message}</Message>}
         {error && (
           <Message color="danger" appearance={appearance}>
