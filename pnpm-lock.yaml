@@ -112,8 +112,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/svelte
       '@supabase/supabase-js':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^2.21.0
+        version: 2.21.0
     devDependencies:
       '@sveltejs/adapter-auto':
         specifier: ^2.0.0

@@ -16,7 +16,7 @@
 	"dependencies": {
 		"@supabase/auth-ui-shared": "workspace:*",
 		"@supabase/auth-ui-svelte": "workspace:*",
-		"@supabase/supabase-js": "^2.8.0"
+		"@supabase/supabase-js": "^2.21.0"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^2.0.0",
