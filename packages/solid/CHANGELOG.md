@@ -1,5 +1,13 @@
 # @supabase/auth-ui-solid
 
+## 0.3.1
+
+### Patch Changes
+
+- eadd6019: Add verify otp component
+- Updated dependencies [3aa2c54d]
+  - @supabase/auth-ui-shared@0.1.5
+
 ## 0.3.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.1
+
+### Patch Changes
+
+- 65e36a57: Add verify otp component
+- Updated dependencies [3aa2c54d]
+  - @supabase/auth-ui-shared@0.1.5
+
 ## 0.2.0
 
 ### Minor Changes
