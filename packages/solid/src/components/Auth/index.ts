@@ -1,2 +1,2 @@
 export { default as Auth } from './Auth'
-export * from './interfaces'
+export * from './ui'

@@ -18,7 +18,7 @@ interface SocialAuthProps {
   queryParams?: { [key: string]: string }
   redirectTo: RedirectTo
   onlyThirdPartyProviders: boolean
-  view: 'sign_in' | 'sign_up'
+  view: 'sign_in' | 'sign_up' | 'magic_link'
   i18n: I18nVariables
   appearance?: Appearance
 }
@@ -28,6 +28,8 @@ type RedirectTo = undefined | string
 function SocialAuth(props: SocialAuthProps) {
   const [loading, setLoading] = createSignal(false)
   const [error, setError] = createSignal('')
+
+  const currentView = props.view === 'magic_link' ? 'sign_in' : props.view
 
   const handleProviderSignIn = async (provider: Provider) => {
     setLoading(true)
@@ -75,7 +77,7 @@ function SocialAuth(props: SocialAuthProps) {
                     >
                       {props.socialLayout === 'vertical' &&
                         template(
-                          props.i18n[props.view]
+                          props.i18n[currentView]
                             ?.social_provider_text as string,
                           {
                             provider: capitalize(provider),
