@@ -28,7 +28,8 @@
 		{ id: 'sign_up', title: 'Sign Up' },
 		{ id: 'magic_link', title: 'Magic Link' },
 		{ id: 'forgotten_password', title: 'Forgotten Password' },
-		{ id: 'update_password', title: 'Update Password' }
+		{ id: 'update_password', title: 'Update Password' },
+		{ id: 'verify_otp', title: 'Verify Otp' }
 	];
 
 	let brandColor = colors[0];

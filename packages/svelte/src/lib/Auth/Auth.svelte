@@ -8,7 +8,8 @@
 		en,
 		type SocialLayout,
 		type ViewType,
-		type ProviderScopes
+		type ProviderScopes,
+		type OtpType
 	} from '@supabase/auth-ui-shared';
 	import type { Appearance } from '$lib/types';
 	import EmailAuth from './interfaces/EmailAuth.svelte';
@@ -16,6 +17,7 @@
 	import MagicLink from './interfaces/MagicLink.svelte';
 	import SocialAuth from './interfaces/SocialAuth.svelte';
 	import UpdatePassword from './interfaces/UpdatePassword.svelte';
+	import VerifyOtp from './interfaces/VerifyOtp.svelte';
 	import { onMount } from 'svelte';
 
 	export let supabaseClient: SupabaseClient;
@@ -31,6 +33,7 @@
 	export let appearance: Appearance = {};
 	export let theme: 'default' | string = 'default';
 	export let localization: { variables?: I18nVariables } = {};
+	export let otpType: OtpType = 'email';
 
 	onMount(() => {
 		const { data: authListener } = supabaseClient.auth.onAuthStateChange((event) => {
@@ -114,5 +117,8 @@
 	{/if}
 	{#if view === VIEWS.UPDATE_PASSWORD}
 		<UpdatePassword {i18n} {supabaseClient} bind:authView={view} {appearance} {showLinks} />
+	{/if}
+	{#if view === VIEWS.VERIFY_OTP}
+		<VerifyOtp {i18n} {supabaseClient} bind:authView={view} {appearance} {showLinks} {otpType} />
 	{/if}
 </div>
