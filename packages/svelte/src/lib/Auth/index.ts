@@ -1,2 +1,2 @@
 export { default as Auth } from './Auth.svelte';
-export * from './interfaces';
+export * from './ui';

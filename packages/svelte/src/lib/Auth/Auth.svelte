@@ -57,10 +57,17 @@
 			appearance?.variables?.[theme] ?? {}
 		)
 	);
+
+	/**
+	 * Simple boolean to detect if view 'sign_in' or 'sign_up' or 'magic_link' is used
+	 *
+	 * @returns boolean
+	 */
+	$: SignView = view === 'sign_in' || view === 'sign_up' || view === 'magic_link';
 </script>
 
 <div class={theme !== 'default' ? themeVariables : ''}>
-	{#if view === VIEWS.SIGN_IN}
+	{#if SignView}
 		<SocialAuth
 			{appearance}
 			{supabaseClient}
@@ -72,7 +79,8 @@
 			{onlyThirdPartyProviders}
 			{i18n}
 		/>
-
+	{/if}
+	{#if view === VIEWS.SIGN_IN}
 		{#if !onlyThirdPartyProviders}
 			<EmailAuth
 				{appearance}
@@ -86,16 +94,6 @@
 		{/if}
 	{/if}
 	{#if view === VIEWS.SIGN_UP}
-		<SocialAuth
-			{appearance}
-			{supabaseClient}
-			{providers}
-			{socialLayout}
-			{redirectTo}
-			{onlyThirdPartyProviders}
-			{i18n}
-		/>
-
 		{#if !onlyThirdPartyProviders}
 			<EmailAuth
 				{appearance}
