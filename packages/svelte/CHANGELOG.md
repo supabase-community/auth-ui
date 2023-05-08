@@ -1,5 +1,11 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.0
+
+### Minor Changes
+
+- 74821092: Add individual components to Svelte Auth UI
+
 ## 0.1.6
 
 ### Patch Changes
