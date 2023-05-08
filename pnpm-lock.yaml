@@ -81,8 +81,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/solid
       '@supabase/supabase-js':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^2.21.0
+        version: 2.21.0
       solid-js:
         specifier: ^1.6.10
         version: 1.6.11
@@ -1832,28 +1832,12 @@ packages:
       solid-js: 1.6.11
     dev: true
 
-  /@supabase/functions-js@2.0.0:
-    resolution: {integrity: sha512-ozb7bds2yvf5k7NM2ZzUkxvsx4S4i2eRKFSJetdTADV91T65g4gCzEs9L3LUXSrghcGIkUaon03VPzOrFredqg==}
-    dependencies:
-      cross-fetch: 3.1.5
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
   /@supabase/functions-js@2.1.1:
     resolution: {integrity: sha512-bIR1Puae6W+1/MzPfYBWOG/SCWGo4B5CB7c0ZZksvliNEAzhxNBJ0UFKYINcGdGtxG8ZC+1xr3utWpNZNwnoRw==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
-
-  /@supabase/gotrue-js@2.12.1:
-    resolution: {integrity: sha512-r8Jfq8FvP6q4kp7sI33X1RWfEEHzJFu9uM1Q6HgiDVkY89NNgqYy2kxaRGtidPFllND7vpcJUcpoWS5oq+4u0g==}
-    dependencies:
-      cross-fetch: 3.1.5
-    transitivePeerDependencies:
-      - encoding
-    dev: false
 
   /@supabase/gotrue-js@2.25.0:
     resolution: {integrity: sha512-tZXArO0f1NKMQo6rtGryOSqS51WQJQMS3lEHIyH50WffQb/n1tiYY1L8yCyrvTogz9RXpihdQeUjVW77kKd7sQ==}
@@ -1869,15 +1853,6 @@ packages:
     transitivePeerDependencies:
       - encoding
 
-  /@supabase/realtime-js@2.6.0:
-    resolution: {integrity: sha512-tOVulMobhpxyDuu8VIImpL8FXmZOKsGNOSyS5ihJdj2xYmPPvYG+D2J51Ewfl+MFF65tweiB6p9N9bNIW1cDNA==}
-    dependencies:
-      '@types/phoenix': 1.5.4
-      websocket: 1.0.34
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@supabase/realtime-js@2.7.2:
     resolution: {integrity: sha512-Fi6xAl5PUkqnjl3wo4rdcQIbMG3+yTRX1aUZe/yfvTG84RMvmCXJ1yN6MmafVLeZpU1xkaz5Vx4L0tnHcLiy6w==}
     dependencies:
@@ -1886,14 +1861,6 @@ packages:
       websocket: 1.0.34
     transitivePeerDependencies:
       - supports-color
-
-  /@supabase/storage-js@2.3.0:
-    resolution: {integrity: sha512-YGWVCEYYYF3+UiyL8O4xC78N9n9paLbT0hHl8dmYAtd3DqyWtu5Eph9JTu0PWm+/29Zhns5TbhUZW4xpWjJfPQ==}
-    dependencies:
-      cross-fetch: 3.1.5
-    transitivePeerDependencies:
-      - encoding
-    dev: false
 
   /@supabase/storage-js@2.5.1:
     resolution: {integrity: sha512-nkR0fQA9ScAtIKA3vNoPEqbZv1k5B5HVRYEvRWdlP6mUpFphM9TwPL2jZ/ztNGMTG5xT6SrHr+H7Ykz8qzbhjw==}
@@ -1914,20 +1881,6 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
-
-  /@supabase/supabase-js@2.8.0:
-    resolution: {integrity: sha512-uzf4J+qAKdUMhB2tnJl6BrQRUQBinwjJ2eWo2ZsDw9EUUP5JcHsxTamiq6p91DpqzmTIRg3xRAT+bItTzbfa0w==}
-    dependencies:
-      '@supabase/functions-js': 2.0.0
-      '@supabase/gotrue-js': 2.12.1
-      '@supabase/postgrest-js': 1.4.0
-      '@supabase/realtime-js': 2.6.0
-      '@supabase/storage-js': 2.3.0
-      cross-fetch: 3.1.5
-    transitivePeerDependencies:
-      - encoding
-      - supports-color
-    dev: false
 
   /@sveltejs/adapter-auto@2.0.0(@sveltejs/kit@1.5.2):
     resolution: {integrity: sha512-b+gkHFZgD771kgV3aO4avHFd7y1zhmMYy9i6xOK7m/rwmwaRO8gnF5zBc0Rgca80B2PMU1bKNxyBTHA14OzUAQ==}
