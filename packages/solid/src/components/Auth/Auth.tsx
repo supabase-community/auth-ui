@@ -6,6 +6,7 @@ import {
   VIEWS,
   en,
   SocialLayout,
+  OtpType,
 } from '@supabase/auth-ui-shared'
 import { Auth as AuthProps } from '../../types'
 import {
@@ -15,6 +16,7 @@ import {
   MagicLink,
   SocialAuth,
   UpdatePassword,
+  VerifyOtp,
 } from './interfaces'
 import { UserContextProvider, useUser } from './UserContext'
 
@@ -49,6 +51,7 @@ function Auth(props: AuthProps): JSX.Element | null {
         showLinks: true,
         theme: 'default',
         localization: { variables: {} },
+        otpType: 'email',
       },
       props
     )
@@ -170,7 +173,7 @@ function Auth(props: AuthProps): JSX.Element | null {
           redirectTo={mergedProps().redirectTo}
           onlyThirdPartyProviders={mergedProps().onlyThirdPartyProviders}
           i18n={i18n()}
-          view={authView() as 'sign_in' | 'sign_up'}
+          view={authView() as 'sign_in' | 'sign_up' | 'magic_link'}
         />
       </Show>
 
@@ -248,16 +251,14 @@ function Auth(props: AuthProps): JSX.Element | null {
       </Match>
 
       <Match when={authView() === VIEWS.FORGOTTEN_PASSWORD}>
-        <Container>
-          <ForgottenPassword
-            appearance={mergedProps().appearance}
-            supabaseClient={mergedProps().supabaseClient}
-            setAuthView={setAuthView}
-            redirectTo={mergedProps().redirectTo}
-            showLinks={mergedProps().showLinks}
-            i18n={i18n()}
-          />
-        </Container>
+        <ForgottenPassword
+          appearance={mergedProps().appearance}
+          supabaseClient={mergedProps().supabaseClient}
+          setAuthView={setAuthView}
+          redirectTo={mergedProps().redirectTo}
+          showLinks={mergedProps().showLinks}
+          i18n={i18n()}
+        />
       </Match>
 
       <Match when={authView() === VIEWS.MAGIC_LINK}>
@@ -274,13 +275,21 @@ function Auth(props: AuthProps): JSX.Element | null {
       </Match>
 
       <Match when={authView() === VIEWS.UPDATE_PASSWORD}>
-        <Container>
-          <UpdatePassword
-            appearance={mergedProps().appearance}
-            supabaseClient={mergedProps().supabaseClient}
-            i18n={i18n()}
-          />
-        </Container>
+        <UpdatePassword
+          appearance={mergedProps().appearance}
+          supabaseClient={mergedProps().supabaseClient}
+          i18n={i18n()}
+        />
+      </Match>
+
+      <Match when={authView() === VIEWS.VERIFY_OTP}>
+        <VerifyOtp
+          appearance={mergedProps().appearance}
+          supabaseClient={mergedProps().supabaseClient}
+          setAuthView={setAuthView}
+          otpType={mergedProps().otpType as OtpType}
+          i18n={i18n()}
+        />
       </Match>
     </Switch>
   )

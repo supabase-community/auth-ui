@@ -69,11 +69,7 @@ export const MagicLink = (
 export const SocialAuth = (
   props: Omit<
     AuthProps,
-    | 'view'
-    | 'onlyThirdPartyProviders'
-    | 'magicLink'
-    | 'showLinks'
-    | 'children'
+    'view' | 'onlyThirdPartyProviders' | 'magicLink' | 'showLinks' | 'children'
   >
 ) => {
   return (
@@ -107,4 +103,13 @@ export const UpdatePassword = (
   >
 ) => {
   return <Auth {...props} view="update_password" />
+}
+
+export const VerifyOtp = (
+  props: Pick<
+    AuthProps,
+    'supabaseClient' | 'appearance' | 'localization' | 'theme' | 'otpType'
+  >
+) => {
+  return <Auth {...props} view="verify_otp" />
 }
