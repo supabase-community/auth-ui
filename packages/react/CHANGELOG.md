@@ -1,5 +1,13 @@
 # @supabase/auth-ui-react
 
+## 0.4.1
+
+### Patch Changes
+
+- 3aa2c54d: Add verify otp component
+- Updated dependencies [3aa2c54d]
+  - @supabase/auth-ui-shared@0.1.5
+
 ## 0.4.0
 
 ### Minor Changes

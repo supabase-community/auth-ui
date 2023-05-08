@@ -1,5 +1,11 @@
 # @supabase/auth-ui-shared
 
+## 0.1.5
+
+### Patch Changes
+
+- 3aa2c54d: Add new types for verify otp support
+
 ## 0.1.4
 
 ### Patch Changes
