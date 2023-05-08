@@ -35,6 +35,7 @@ const views: { id: ViewType; title: string }[] = [
   { id: 'magic_link', title: 'Magic Link' },
   { id: 'forgotten_password', title: 'Forgotten Password' },
   { id: 'update_password', title: 'Update Password' },
+  { id: 'verify_otp', title: 'Verify Otp' },
 ]
 
 function App() {

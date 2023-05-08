@@ -6,6 +6,7 @@ export const VIEWS: ViewsMap = {
   FORGOTTEN_PASSWORD: 'forgotten_password',
   MAGIC_LINK: 'magic_link',
   UPDATE_PASSWORD: 'update_password',
+  VERIFY_OTP: 'verify_otp',
 }
 
 export const PREPENDED_CLASS_NAMES = 'supabase-auth-ui'

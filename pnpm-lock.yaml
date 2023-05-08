@@ -12,7 +12,7 @@ importers:
         version: 2.6.2
       turbo:
         specifier: latest
-        version: 1.8.1
+        version: 1.8.3
       typedoc:
         specifier: ^0.22.15
         version: 0.22.17(typescript@4.6.4)
@@ -29,8 +29,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/shared
       '@supabase/supabase-js':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^2.21.0
+        version: 2.21.0
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -189,8 +189,8 @@ importers:
         version: 18.2.0(react@18.2.0)
     devDependencies:
       '@supabase/supabase-js':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^2.21.0
+        version: 2.21.0
       '@types/is-ci':
         specifier: ^3.0.0
         version: 3.0.0
@@ -234,8 +234,8 @@ importers:
         specifier: ^1.2.8
         version: 1.2.8
       '@supabase/supabase-js':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^2.21.0
+        version: 2.21.0
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
@@ -265,8 +265,8 @@ importers:
         specifier: ^0.6.3
         version: 0.6.3(solid-js@1.6.1)
       '@supabase/supabase-js':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^2.21.0
+        version: 2.21.0
       '@typescript-eslint/eslint-plugin':
         specifier: ^5.51.0
         version: 5.51.0(@typescript-eslint/parser@5.51.0)(eslint@8.33.0)(typescript@4.9.5)
@@ -308,8 +308,8 @@ importers:
         specifier: ^1.25.0
         version: 1.27.1
       '@supabase/supabase-js':
-        specifier: ^2.8.0
-        version: 2.8.0
+        specifier: ^2.21.0
+        version: 2.21.0
       '@sveltejs/adapter-auto':
         specifier: ^2.0.0
         version: 2.0.0(@sveltejs/kit@1.9.1)
@@ -1838,9 +1838,25 @@ packages:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /@supabase/functions-js@2.1.1:
+    resolution: {integrity: sha512-bIR1Puae6W+1/MzPfYBWOG/SCWGo4B5CB7c0ZZksvliNEAzhxNBJ0UFKYINcGdGtxG8ZC+1xr3utWpNZNwnoRw==}
+    dependencies:
+      cross-fetch: 3.1.5
+    transitivePeerDependencies:
+      - encoding
 
   /@supabase/gotrue-js@2.12.1:
     resolution: {integrity: sha512-r8Jfq8FvP6q4kp7sI33X1RWfEEHzJFu9uM1Q6HgiDVkY89NNgqYy2kxaRGtidPFllND7vpcJUcpoWS5oq+4u0g==}
+    dependencies:
+      cross-fetch: 3.1.5
+    transitivePeerDependencies:
+      - encoding
+    dev: false
+
+  /@supabase/gotrue-js@2.25.0:
+    resolution: {integrity: sha512-tZXArO0f1NKMQo6rtGryOSqS51WQJQMS3lEHIyH50WffQb/n1tiYY1L8yCyrvTogz9RXpihdQeUjVW77kKd7sQ==}
     dependencies:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
@@ -1860,6 +1876,16 @@ packages:
       websocket: 1.0.34
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@supabase/realtime-js@2.7.2:
+    resolution: {integrity: sha512-Fi6xAl5PUkqnjl3wo4rdcQIbMG3+yTRX1aUZe/yfvTG84RMvmCXJ1yN6MmafVLeZpU1xkaz5Vx4L0tnHcLiy6w==}
+    dependencies:
+      '@types/phoenix': 1.5.4
+      '@types/websocket': 1.0.5
+      websocket: 1.0.34
+    transitivePeerDependencies:
+      - supports-color
 
   /@supabase/storage-js@2.3.0:
     resolution: {integrity: sha512-YGWVCEYYYF3+UiyL8O4xC78N9n9paLbT0hHl8dmYAtd3DqyWtu5Eph9JTu0PWm+/29Zhns5TbhUZW4xpWjJfPQ==}
@@ -1867,6 +1893,27 @@ packages:
       cross-fetch: 3.1.5
     transitivePeerDependencies:
       - encoding
+    dev: false
+
+  /@supabase/storage-js@2.5.1:
+    resolution: {integrity: sha512-nkR0fQA9ScAtIKA3vNoPEqbZv1k5B5HVRYEvRWdlP6mUpFphM9TwPL2jZ/ztNGMTG5xT6SrHr+H7Ykz8qzbhjw==}
+    dependencies:
+      cross-fetch: 3.1.5
+    transitivePeerDependencies:
+      - encoding
+
+  /@supabase/supabase-js@2.21.0:
+    resolution: {integrity: sha512-FW3ZzBoc4orSgfX0dXrmJoXAcI/hiekmqXTkN64vjtUF2Urp3UjyAf71UTtV9Jl6ejHoe3K++e0+Rg9zKUJh5w==}
+    dependencies:
+      '@supabase/functions-js': 2.1.1
+      '@supabase/gotrue-js': 2.25.0
+      '@supabase/postgrest-js': 1.4.0
+      '@supabase/realtime-js': 2.7.2
+      '@supabase/storage-js': 2.5.1
+      cross-fetch: 3.1.5
+    transitivePeerDependencies:
+      - encoding
+      - supports-color
 
   /@supabase/supabase-js@2.8.0:
     resolution: {integrity: sha512-uzf4J+qAKdUMhB2tnJl6BrQRUQBinwjJ2eWo2ZsDw9EUUP5JcHsxTamiq6p91DpqzmTIRg3xRAT+bItTzbfa0w==}
@@ -1880,6 +1927,7 @@ packages:
     transitivePeerDependencies:
       - encoding
       - supports-color
+    dev: false
 
   /@sveltejs/adapter-auto@2.0.0(@sveltejs/kit@1.5.2):
     resolution: {integrity: sha512-b+gkHFZgD771kgV3aO4avHFd7y1zhmMYy9i6xOK7m/rwmwaRO8gnF5zBc0Rgca80B2PMU1bKNxyBTHA14OzUAQ==}
@@ -2035,7 +2083,6 @@ packages:
 
   /@types/node@18.14.0:
     resolution: {integrity: sha512-5EWrvLmglK+imbCJY0+INViFWUHg1AHel1sq4ZVSfdcNqGy9Edv3UB9IIzzg+xPaUcAgZYcfVs2fBcwDeZzU0A==}
-    dev: true
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
@@ -2087,6 +2134,11 @@ packages:
   /@types/semver@7.3.13:
     resolution: {integrity: sha512-21cFJr9z3g5dW8B0CVI9g2O9beqaThGQ6ZFBqHfwhzLDKUxaqTIy3vnfah/UPkfOiF2pLq+tGz+W8RyCskuslw==}
     dev: true
+
+  /@types/websocket@1.0.5:
+    resolution: {integrity: sha512-NbsqiNX9CnEfC1Z0Vf4mE1SgAJ07JnRYcNex7AJ9zAVzmiGHmjKFEk7O4TJIsgv2B1sLEb6owKFZrACwdYngsQ==}
+    dependencies:
+      '@types/node': 18.14.0
 
   /@typescript-eslint/eslint-plugin@5.51.0(@typescript-eslint/parser@5.51.0)(eslint@8.33.0)(typescript@4.9.5):
     resolution: {integrity: sha512-wcAwhEWm1RgNd7dxD/o+nnLW8oH+6RK1OGnmbmkj/GGoDPV1WWMVP0FXYQBivKHdwM1pwii3bt//RC62EriIUQ==}
@@ -5549,65 +5601,65 @@ packages:
       yargs: 17.5.1
     dev: true
 
-  /turbo-darwin-64@1.8.1:
-    resolution: {integrity: sha512-H7pxGF/vsYG7kbY+vB8h+3r8VXn2L6hhYQi0XWA+EjZ1e2zu7+TzEMRWFYmvJPx8TRo5cV5txtg0I22/Y7bxUA==}
+  /turbo-darwin-64@1.8.3:
+    resolution: {integrity: sha512-bLM084Wr17VAAY/EvCWj7+OwYHvI9s/NdsvlqGp8iT5HEYVimcornCHespgJS/yvZDfC+mX9EQkn3V2JmYgGGw==}
     cpu: [x64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-darwin-arm64@1.8.1:
-    resolution: {integrity: sha512-zMcvplVGluR6v4oJXW7S1/R9QFsHdDkXMhPq8PIdvT3HwTb69ms0MNv7aKiQ0ZFy5D/eKCTyBRUFZvjorZmBqA==}
+  /turbo-darwin-arm64@1.8.3:
+    resolution: {integrity: sha512-4oZjXtzakopMK110kue3z/hqu3WLv+eDLZOX1NGdo49gqca9BeD8GbH+sXpAp6tqyeuzpss+PIliVYuyt7LgbA==}
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-64@1.8.1:
-    resolution: {integrity: sha512-eJNx8iWDn5Lt8d0221RFd6lBjViLiPCVWNFF5JtqOohgRYplvepY3y/THa1GivMxY4px6zjTiy2oPE/VscVP4w==}
+  /turbo-linux-64@1.8.3:
+    resolution: {integrity: sha512-uvX2VKotf5PU14FCxJA5iHItPQno2JWzerMd+g3/h/Asay6dvxvtVjc39MQeGT0H5njSvzVKFkT+3/5q8lgOEg==}
     cpu: [x64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-linux-arm64@1.8.1:
-    resolution: {integrity: sha512-hFZkm8tq9kLE8tdbOzD6EbNzftdzMR4JEuuoKC6AbTzx1ZsWRvXJ/BGTeSH9/dYYm/wfuIEUiOP7HeXWiZRx7g==}
+  /turbo-linux-arm64@1.8.3:
+    resolution: {integrity: sha512-E1p+oH3XKMaPS4rqWhYsL4j2Pzc0d/9P5KU7Kn1kqVLo2T3iRA7n2KVULEieUNE0nTH+aIJPXYXOpqCI5wFJaA==}
     cpu: [arm64]
     os: [linux]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-64@1.8.1:
-    resolution: {integrity: sha512-o3oDg0lTYZl5KZD3Mi753On2vQT51unIiungoUmHDCeDH5JXfWPFu+6p+GAoIyRwQkZPvaEzMLuUtRgklKcBJw==}
+  /turbo-windows-64@1.8.3:
+    resolution: {integrity: sha512-cnzAytHtoLXd0J7aNzRpZFpL/GTjcBmkvAPlbOdf/Pl1iwS4qzGrudZQ+OM1lmLgLIfBPIavsGHBknTwTNib4A==}
     cpu: [x64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo-windows-arm64@1.8.1:
-    resolution: {integrity: sha512-NDYr2Mra21KOdl18BhMRoH2jQmlu+oqkpqRd+cGB8+c5P0B6LDVCM83cfcXQ+PNqX9S3Y1eZDRENZJx9I03sSw==}
+  /turbo-windows-arm64@1.8.3:
+    resolution: {integrity: sha512-ulIiItNm2w/zYJdD5/oAzjzNns1IjbpweRzpsE8tLXaWwo6+fnXXkyloUug0IUhcd2k6fJXfoiDZfygqpOVuXg==}
     cpu: [arm64]
     os: [win32]
     requiresBuild: true
     dev: true
     optional: true
 
-  /turbo@1.8.1:
-    resolution: {integrity: sha512-g8RltmG5zd0nYbKpkBQwnTSXTWUiup9+yileQ1TETNzpjxI3TL5k7kt2WkgUHEqR947IPUV+ckIduZHVITJmIQ==}
+  /turbo@1.8.3:
+    resolution: {integrity: sha512-zGrkU1EuNFmkq6iky6LcMqD4h0OLE8XysVFxQWRIZbcTNnf0XAycbsbeEyiJpiWeqb7qtg2bVuY9EYcNoNhVuQ==}
     hasBin: true
     requiresBuild: true
     optionalDependencies:
-      turbo-darwin-64: 1.8.1
-      turbo-darwin-arm64: 1.8.1
-      turbo-linux-64: 1.8.1
-      turbo-linux-arm64: 1.8.1
-      turbo-windows-64: 1.8.1
-      turbo-windows-arm64: 1.8.1
+      turbo-darwin-64: 1.8.3
+      turbo-darwin-arm64: 1.8.3
+      turbo-linux-64: 1.8.3
+      turbo-linux-arm64: 1.8.3
+      turbo-windows-64: 1.8.3
+      turbo-windows-arm64: 1.8.3
     dev: true
 
   /type-check@0.4.0:

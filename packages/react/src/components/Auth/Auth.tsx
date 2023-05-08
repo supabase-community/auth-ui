@@ -9,6 +9,7 @@ import {
   MagicLink,
   SocialAuth,
   UpdatePassword,
+  VerifyOtp,
 } from './interfaces'
 import { UserContextProvider, useUser } from './UserContext'
 
@@ -26,6 +27,7 @@ function Auth({
   appearance,
   theme = 'default',
   localization = { variables: {} },
+  otpType = 'email',
 }: AuthProps): JSX.Element | null {
   /**
    * Localization support
@@ -191,6 +193,15 @@ function Auth({
         <UpdatePassword
           appearance={appearance}
           supabaseClient={supabaseClient}
+          i18n={i18n}
+        />
+      )
+    case VIEWS.VERIFY_OTP:
+      return (
+        <VerifyOtp
+          appearance={appearance}
+          supabaseClient={supabaseClient}
+          otpType={otpType}
           i18n={i18n}
         />
       )

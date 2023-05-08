@@ -89,3 +89,12 @@ export const ForgottenPassword = (props: Omit<AuthProps, 'view'>) => {
 export const UpdatePassword = (props: Omit<AuthProps, 'view'>) => {
   return <Auth {...props} view="update_password" />
 }
+
+export const VerifyOtp = (
+  props: Pick<
+    AuthProps,
+    'supabaseClient' | 'appearance' | 'localization' | 'theme' | 'otpType'
+  >
+) => {
+  return <Auth {...props} view="verify_otp" />
+}
