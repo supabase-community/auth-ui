@@ -38,11 +38,14 @@ function Auth({
   const [defaultPassword, setDefaultPassword] = useState('')
 
   /**
-   * Simple boolean to detect if authView 'sign_in' or 'sign_up' is used
+   * Simple boolean to detect if authView 'sign_in' or 'sign_up' or 'magic_link' is used
    *
    * @returns boolean
    */
-  const SignView = authView === 'sign_in' || authView === 'sign_up'
+  const SignView =
+    authView === 'sign_in' ||
+    authView === 'sign_up' ||
+    authView === 'magic_link'
 
   useEffect(() => {
     createStitches({
@@ -88,7 +91,7 @@ function Auth({
           redirectTo={redirectTo}
           onlyThirdPartyProviders={onlyThirdPartyProviders}
           i18n={i18n}
-          view={authView as 'sign_in' | 'sign_up'}
+          view={authView}
         />
       )}
       {!onlyThirdPartyProviders && children}
@@ -159,16 +162,14 @@ function Auth({
       )
     case VIEWS.FORGOTTEN_PASSWORD:
       return (
-        <Container>
-          <ForgottenPassword
-            appearance={appearance}
-            supabaseClient={supabaseClient}
-            setAuthView={setAuthView}
-            redirectTo={redirectTo}
-            showLinks={showLinks}
-            i18n={i18n}
-          />
-        </Container>
+        <ForgottenPassword
+          appearance={appearance}
+          supabaseClient={supabaseClient}
+          setAuthView={setAuthView}
+          redirectTo={redirectTo}
+          showLinks={showLinks}
+          i18n={i18n}
+        />
       )
 
     case VIEWS.MAGIC_LINK:
@@ -187,13 +188,11 @@ function Auth({
 
     case VIEWS.UPDATE_PASSWORD:
       return (
-        <Container>
-          <UpdatePassword
-            appearance={appearance}
-            supabaseClient={supabaseClient}
-            i18n={i18n}
-          />
-        </Container>
+        <UpdatePassword
+          appearance={appearance}
+          supabaseClient={supabaseClient}
+          i18n={i18n}
+        />
       )
     default:
       return null

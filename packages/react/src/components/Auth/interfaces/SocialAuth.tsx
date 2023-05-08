@@ -18,7 +18,7 @@ interface SocialAuthProps {
   queryParams?: { [key: string]: string }
   redirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
-  view?: 'sign_in' | 'sign_up'
+  view?: 'sign_in' | 'sign_up' | 'magic_link'
   i18n?: I18nVariables
   appearance?: Appearance
 }
@@ -41,6 +41,8 @@ function SocialAuth({
   const [error, setError] = useState('')
 
   const verticalSocialLayout = socialLayout === 'vertical' ? true : false
+
+  const currentView = view === 'magic_link' ? 'sign_in' : view
 
   const handleProviderSignIn = async (provider: Provider) => {
     setLoading(true)
@@ -83,9 +85,12 @@ function SocialAuth({
                     appearance={appearance}
                   >
                     {verticalSocialLayout &&
-                      template(i18n?.[view]?.social_provider_text as string, {
-                        provider: capitalize(provider),
-                      })}
+                      template(
+                        i18n?.[currentView]?.social_provider_text as string,
+                        {
+                          provider: capitalize(provider),
+                        }
+                      )}
                   </Button>
                 )
               })}

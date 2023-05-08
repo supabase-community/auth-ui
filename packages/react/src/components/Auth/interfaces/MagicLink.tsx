@@ -1,6 +1,6 @@
 import { SupabaseClient } from '@supabase/supabase-js'
 import React, { useState } from 'react'
-import { VIEWS, I18nVariables, RedirectTo } from '@supabase/auth-ui-shared'
+import { VIEWS, I18nVariables, RedirectTo, en } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
 import {
   Anchor,
@@ -50,32 +50,30 @@ function MagicLink({
   return (
     <form id="auth-magic-link" onSubmit={handleMagicLinkSignIn}>
       <Container gap="large" direction="vertical" appearance={appearance}>
-        <Container gap="large" direction="vertical" appearance={appearance}>
-          <div>
-            <Label htmlFor="email" appearance={appearance}>
-              {labels?.email_input_label}
-            </Label>
-            <Input
-              id="email"
-              name="email"
-              type="email"
-              autoFocus
-              placeholder={labels?.email_input_placeholder}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setEmail(e.target.value)
-              }
-              appearance={appearance}
-            />
-          </div>
-          <Button
-            color="primary"
-            type="submit"
-            loading={loading}
+        <div>
+          <Label htmlFor="email" appearance={appearance}>
+            {labels?.email_input_label}
+          </Label>
+          <Input
+            id="email"
+            name="email"
+            type="email"
+            autoFocus
+            placeholder={labels?.email_input_placeholder}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setEmail(e.target.value)
+            }
             appearance={appearance}
-          >
-            {loading ? labels?.loading_button_label : labels?.button_label}
-          </Button>
-        </Container>
+          />
+        </div>
+        <Button
+          color="primary"
+          type="submit"
+          loading={loading}
+          appearance={appearance}
+        >
+          {loading ? labels?.loading_button_label : labels?.button_label}
+        </Button>
         {showLinks && (
           <Anchor
             href="#auth-sign-in"
