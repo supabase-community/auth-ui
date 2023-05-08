@@ -1,5 +1,10 @@
 import { CssComponent } from '@stitches/core/types/styled-component'
-import { Provider, SupabaseClient } from '@supabase/supabase-js'
+import {
+  EmailOtpType,
+  MobileOtpType,
+  Provider,
+  SupabaseClient,
+} from '@supabase/supabase-js'
 import { ThemeVariables } from './theming'
 
 export interface AnimationTailwindClasses {
@@ -30,6 +35,7 @@ export type ViewSignUp = 'sign_up'
 export type ViewMagicLink = 'magic_link'
 export type ViewForgottenPassword = 'forgotten_password'
 export type ViewUpdatePassword = 'update_password'
+export type ViewVerifyOtp = 'verify_otp'
 
 export type ViewType =
   | ViewSignIn
@@ -37,6 +43,7 @@ export type ViewType =
   | ViewMagicLink
   | ViewForgottenPassword
   | ViewUpdatePassword
+  | ViewVerifyOtp
 
 export interface ViewsMap {
   [key: string]: ViewType
@@ -48,6 +55,7 @@ export interface Theme {
 }
 
 export type RedirectTo = undefined | string
+export type OtpType = EmailOtpType | MobileOtpType
 
 export interface BaseAppearance {
   theme?: Theme
@@ -84,6 +92,7 @@ export interface BaseAuth {
   onlyThirdPartyProviders?: boolean
   magicLink?: boolean
   showLinks?: boolean
+  otpType?: OtpType
 
   /**
    * This will toggle on the dark variation of the theme
@@ -143,5 +152,15 @@ export type I18nVariables = {
     button_label?: string
     loading_button_label?: string
     confirmation_text?: string
+  }
+  verify_otp?: {
+    email_input_label?: string
+    email_input_placeholder?: string
+    phone_input_label?: string
+    phone_input_placeholder?: string
+    token_input_label?: string
+    token_input_placeholder?: string
+    button_label?: string
+    loading_button_label?: string
   }
 }

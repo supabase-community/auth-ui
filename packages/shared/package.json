@@ -32,11 +32,11 @@
   "homepage": "https://github.com/supabase/auth-ui#readme",
   "devDependencies": {
     "@stitches/core": "^1.2.8",
-    "@supabase/supabase-js": "^2.8.0",
+    "@supabase/supabase-js": "^2.21.0",
     "tsconfig": "workspace:*",
     "tsup": "^6.6.3"
   },
   "peerDependencies": {
-    "@supabase/supabase-js": "^2.8.0"
+    "@supabase/supabase-js": "^2.21.0"
   }
 }

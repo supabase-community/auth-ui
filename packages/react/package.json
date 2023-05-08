@@ -38,10 +38,10 @@
     "react-dom": "^18.2.0"
   },
   "peerDependencies": {
-    "@supabase/supabase-js": "^2.8.0"
+    "@supabase/supabase-js": "^2.21.0"
   },
   "devDependencies": {
-    "@supabase/supabase-js": "^2.8.0",
+    "@supabase/supabase-js": "^2.21.0",
     "@types/is-ci": "^3.0.0",
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.14.0",

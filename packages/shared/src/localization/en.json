@@ -43,5 +43,15 @@
     "button_label": "Update password",
     "loading_button_label": "Updating password ...",
     "confirmation_text": "Your password has been updated"
+  },
+  "verify_otp": {
+    "email_input_label": "Email address",
+    "email_input_placeholder": "Your email address",
+    "phone_input_label": "Phone number",
+    "phone_input_placeholder": "Your phone number",
+    "token_input_label": "Token",
+    "token_input_placeholder": "Your Otp token",
+    "button_label": "Verify token",
+    "loading_button_label": "Signing in ..."
   }
 }
