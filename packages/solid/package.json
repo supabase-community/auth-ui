@@ -1,6 +1,6 @@
 {
   "name": "@supabase/auth-ui-solid",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "",
   "type": "module",
   "main": "./dist/index.jsx",

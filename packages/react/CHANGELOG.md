@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.4.0
+
+### Minor Changes
+
+- 47cafae2: Add individual components to Auth UI
+
 ## 0.3.6
 
 ### Patch Changes

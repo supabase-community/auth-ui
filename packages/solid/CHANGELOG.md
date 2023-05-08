@@ -1,5 +1,11 @@
 # @supabase/auth-ui-solid
 
+## 0.3.0
+
+### Minor Changes
+
+- 4ee84375: Add individual components to SolidJS Auth UI
+
 ## 0.2.5
 
 ### Patch Changes
