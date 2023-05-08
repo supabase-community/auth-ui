@@ -11,11 +11,12 @@
 
 	export let color: 'default' | 'primary' = 'default';
 	export let appearance: Appearance = {};
+  export let loading = false;
 
 	$: classNames = generateClassNames('button', color, appearance);
 </script>
 
-<button on:click {...$$restProps} style={appearance?.style?.button} class={classNames.join(' ')}>
+<button on:click {...$$restProps} disabled={loading} style={appearance?.style?.button} class={classNames.join(' ')}>
 	<slot />
 </button>
 

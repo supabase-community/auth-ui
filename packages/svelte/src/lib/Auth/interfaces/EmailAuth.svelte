@@ -89,7 +89,7 @@
 				/>
 			</div>
 		</Container>
-		<Button type="submit" color="primary" {appearance}>{i18n?.[lngKey]?.button_label}</Button>
+		<Button type="submit" color="primary" {loading} {appearance}>{i18n?.[lngKey]?.button_label}</Button>
 
 		{#if showLinks}
 			<Container direction="vertical" gap="small" {appearance}>
