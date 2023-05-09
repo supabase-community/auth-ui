@@ -1,5 +1,11 @@
 # @supabase/auth-ui-shared
 
+## 0.1.6
+
+### Patch Changes
+
+- 8ca7a586: Add additional data to component to store in user_metadata
+
 ## 0.1.5
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @supabase/auth-ui-react
 
+## 0.4.2
+
+### Patch Changes
+
+- 8ca7a586: Add additional data to component to store in user_metadata
+- Updated dependencies [8ca7a586]
+  - @supabase/auth-ui-shared@0.1.6
+
 ## 0.4.1
 
 ### Patch Changes
