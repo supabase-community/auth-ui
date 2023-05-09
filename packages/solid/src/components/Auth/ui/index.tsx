@@ -40,12 +40,14 @@ export const SignUp = (
       {...props}
       onlyThirdPartyProviders={false}
       view="sign_up"
-    />
+    >
+      {props.children}
+    </Auth>
   )
 }
 
 export const SignIn = (
-  props: Omit<AuthProps, 'view' | 'onlyThirdPartyProviders'>
+  props: Omit<AuthProps, 'view' | 'onlyThirdPartyProviders' | 'additionalData'>
 ) => {
   return (
     <Auth
@@ -60,7 +62,11 @@ export const SignIn = (
 export const MagicLink = (
   props: Omit<
     AuthProps,
-    'view' | 'onlyThirdPartyProviders' | 'magicLink' | 'showLinks'
+    | 'view'
+    | 'onlyThirdPartyProviders'
+    | 'magicLink'
+    | 'showLinks'
+    | 'additionalData'
   >
 ) => {
   return <Auth {...props} view="magic_link" showLinks={false} />
@@ -69,7 +75,12 @@ export const MagicLink = (
 export const SocialAuth = (
   props: Omit<
     AuthProps,
-    'view' | 'onlyThirdPartyProviders' | 'magicLink' | 'showLinks' | 'children'
+    | 'view'
+    | 'onlyThirdPartyProviders'
+    | 'magicLink'
+    | 'showLinks'
+    | 'children'
+    | 'additionalData'
   >
 ) => {
   return (
