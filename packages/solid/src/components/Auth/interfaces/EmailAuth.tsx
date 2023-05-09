@@ -1,6 +1,6 @@
 /* eslint-disable no-case-declarations */
 import { SupabaseClient } from '@supabase/supabase-js'
-import { createEffect, createSignal, Setter } from 'solid-js'
+import { createEffect, createSignal, JSXElement, Setter } from 'solid-js'
 import {
   I18nVariables,
   RedirectTo,
@@ -22,9 +22,11 @@ export interface EmailAuthProps {
   supabaseClient: SupabaseClient
   showLinks?: boolean
   redirectTo?: RedirectTo
+  additionalData?: { [key: string]: any }
   magicLink?: boolean
   i18n: I18nVariables
   appearance?: Appearance
+  children?: JSXElement
 }
 
 const VIEWS: ViewsMap = {
@@ -66,15 +68,19 @@ function EmailAuth(props: EmailAuthProps) {
         if (signInError) setError(signInError.message)
         break
       case 'sign_up':
+        let options: { emailRedirectTo: RedirectTo; data?: object } = {
+          emailRedirectTo: props.redirectTo,
+        }
+        if (props.additionalData) {
+          options.data = props.additionalData
+        }
         const {
           data: { user: signUpUser, session: signUpSession },
           error: signUpError,
         } = await props.supabaseClient.auth.signUp({
           email: email(),
           password: password(),
-          options: {
-            emailRedirectTo: props.redirectTo,
-          },
+          options,
         })
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
@@ -148,6 +154,7 @@ function EmailAuth(props: EmailAuthProps) {
               appearance={props.appearance}
             />
           </div>
+          {props.children}
         </Container>
 
         <Button

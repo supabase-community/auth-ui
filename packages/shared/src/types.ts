@@ -93,6 +93,7 @@ export interface BaseAuth {
   magicLink?: boolean
   showLinks?: boolean
   otpType?: OtpType
+  additionalData?: { [key: string]: any }
 
   /**
    * This will toggle on the dark variation of the theme

@@ -246,7 +246,10 @@ function Auth(props: AuthProps): JSX.Element | null {
             magicLink={mergedProps().magicLink}
             showLinks={mergedProps().showLinks}
             i18n={i18n()}
-          />
+            additionalData={mergedProps().additionalData}
+          >
+            {props.children}
+          </EmailAuth>
         </Container>
       </Match>
 

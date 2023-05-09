@@ -45,7 +45,7 @@ export const SignUp = (
 }
 
 export const SignIn = (
-  props: Omit<AuthProps, 'view' | 'onlyThirdPartyProviders'>
+  props: Omit<AuthProps, 'view' | 'onlyThirdPartyProviders' | 'additionalData'>
 ) => {
   return (
     <Auth
@@ -60,7 +60,11 @@ export const SignIn = (
 export const MagicLink = (
   props: Omit<
     AuthProps,
-    'view' | 'onlyThirdPartyProviders' | 'magicLink' | 'showLinks'
+    | 'view'
+    | 'onlyThirdPartyProviders'
+    | 'magicLink'
+    | 'showLinks'
+    | 'additionalData'
   >
 ) => {
   return <Auth {...props} view="magic_link" showLinks={false} />
@@ -69,7 +73,11 @@ export const MagicLink = (
 export const SocialAuth = (
   props: Omit<
     AuthProps,
-    'view' | 'onlyThirdPartyProviders' | 'magicLink' | 'showLinks'
+    | 'view'
+    | 'onlyThirdPartyProviders'
+    | 'magicLink'
+    | 'showLinks'
+    | 'additionalData'
   >
 ) => {
   return (
@@ -82,11 +90,26 @@ export const SocialAuth = (
   )
 }
 
-export const ForgottenPassword = (props: Omit<AuthProps, 'view'>) => {
+export const ForgottenPassword = (
+  props: Pick<
+    AuthProps,
+    | 'supabaseClient'
+    | 'appearance'
+    | 'localization'
+    | 'theme'
+    | 'showLinks'
+    | 'redirectTo'
+  >
+) => {
   return <Auth showLinks={false} {...props} view="forgotten_password" />
 }
 
-export const UpdatePassword = (props: Omit<AuthProps, 'view'>) => {
+export const UpdatePassword = (
+  props: Pick<
+    AuthProps,
+    'supabaseClient' | 'appearance' | 'localization' | 'theme'
+  >
+) => {
   return <Auth {...props} view="update_password" />
 }
 

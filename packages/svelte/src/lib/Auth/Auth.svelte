@@ -34,6 +34,7 @@
 	export let theme: 'default' | string = 'default';
 	export let localization: { variables?: I18nVariables } = {};
 	export let otpType: OtpType = 'email';
+	export let additionalData: { [key: string]: any } | undefined;
 
 	onMount(() => {
 		const { data: authListener } = supabaseClient.auth.onAuthStateChange((event) => {
@@ -93,6 +94,7 @@
 				{magicLink}
 				{showLinks}
 				{i18n}
+				{additionalData}
 			/>
 		{/if}
 	{/if}
@@ -105,8 +107,9 @@
 				{redirectTo}
 				{magicLink}
 				{showLinks}
-				{i18n}
-			/>
+				{additionalData}
+				{i18n}><slot /></EmailAuth
+			>
 		{/if}
 	{/if}
 	{#if view === VIEWS.FORGOTTEN_PASSWORD}

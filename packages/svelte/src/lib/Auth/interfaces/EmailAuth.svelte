@@ -6,14 +6,20 @@
 	import Input from '$lib/UI/Input.svelte';
 	import Label from '$lib/UI/Label.svelte';
 	import Message from '$lib/UI/Message.svelte';
-	import { VIEWS, type I18nVariables, type ViewType } from '@supabase/auth-ui-shared';
+	import {
+		VIEWS,
+		type I18nVariables,
+		type ViewType,
+		type RedirectTo
+	} from '@supabase/auth-ui-shared';
 	import type { Appearance } from '$lib/types';
 
 	export let authView: ViewType = 'sign_in';
 	export let email = '';
 	export let password = '';
 	export let supabaseClient: SupabaseClient;
-	export let redirectTo: string | undefined = undefined;
+	export let redirectTo: RedirectTo = undefined;
+	export let additionalData: { [key: string]: any } | undefined = undefined;
 	export let showLinks = false;
 	export let magicLink = true;
 	export let i18n: I18nVariables;
@@ -40,15 +46,19 @@
 				loading = false;
 				break;
 			case VIEWS.SIGN_UP:
+				let options: { emailRedirectTo: RedirectTo; data?: object } = {
+					emailRedirectTo: redirectTo
+				};
+				if (additionalData) {
+					options.data = additionalData;
+				}
 				const {
 					data: { user: signUpUser, session: signUpSession },
 					error: signUpError
 				} = await supabaseClient.auth.signUp({
 					email,
 					password,
-					options: {
-						emailRedirectTo: redirectTo
-					}
+					options
 				});
 
 				if (signUpError) error = signUpError.message;
@@ -88,8 +98,11 @@
 					{appearance}
 				/>
 			</div>
+			<slot />
 		</Container>
-		<Button type="submit" color="primary" {loading} {appearance}>{i18n?.[lngKey]?.button_label}</Button>
+		<Button type="submit" color="primary" {loading} {appearance}
+			>{i18n?.[lngKey]?.button_label}</Button
+		>
 
 		{#if showLinks}
 			<Container direction="vertical" gap="small" {appearance}>

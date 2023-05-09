@@ -28,9 +28,11 @@ export interface EmailAuthProps {
   supabaseClient: SupabaseClient
   showLinks?: boolean
   redirectTo?: RedirectTo
+  additionalData?: { [key: string]: any }
   magicLink?: boolean
   i18n?: I18nVariables
   appearance?: Appearance
+  children?: React.ReactNode
 }
 
 function EmailAuth({
@@ -43,9 +45,11 @@ function EmailAuth({
   supabaseClient,
   showLinks = false,
   redirectTo,
+  additionalData,
   magicLink,
   i18n,
   appearance,
+  children,
 }: EmailAuthProps) {
   const isMounted = useRef<boolean>(true)
   const [email, setEmail] = useState(defaultEmail)
@@ -78,15 +82,19 @@ function EmailAuth({
         if (signInError) setError(signInError.message)
         break
       case 'sign_up':
+        let options: { emailRedirectTo: RedirectTo; data?: object } = {
+          emailRedirectTo: redirectTo,
+        }
+        if (additionalData) {
+          options.data = additionalData
+        }
         const {
           data: { user: signUpUser, session: signUpSession },
           error: signUpError,
         } = await supabaseClient.auth.signUp({
           email,
           password,
-          options: {
-            emailRedirectTo: redirectTo,
-          },
+          options,
         })
         if (signUpError) setError(signUpError.message)
         // Check if session is null -> email confirmation setting is turned on
@@ -127,7 +135,6 @@ function EmailAuth({
               id="email"
               type="email"
               name="email"
-              autoFocus
               placeholder={labels?.email_input_placeholder}
               defaultValue={email}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -156,6 +163,7 @@ function EmailAuth({
               appearance={appearance}
             />
           </div>
+          {children}
         </Container>
 
         <Button

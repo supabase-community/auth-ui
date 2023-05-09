@@ -28,6 +28,8 @@ function Auth({
   theme = 'default',
   localization = { variables: {} },
   otpType = 'email',
+  additionalData,
+  children,
 }: AuthProps): JSX.Element | null {
   /**
    * Localization support
@@ -159,6 +161,8 @@ function Auth({
             magicLink={magicLink}
             showLinks={showLinks}
             i18n={i18n}
+            additionalData={additionalData}
+            children={children}
           />
         </Container>
       )
