@@ -1,7 +1,7 @@
 {
     "sign_up": {
       "email_label": "Adresse email",
-      "password_label": "Créer un Mot de passe",
+      "password_label": "Créer un mot de passe",
       "email_input_placeholder": "Votre adresse email",
       "password_input_placeholder": "Votre mot de passe",
       "button_label": "S'inscrire",
@@ -12,7 +12,7 @@
     },
     "sign_in": {
       "email_label": "Adresse email",
-      "password_label": "Votre Mot de passe",
+      "password_label": "Votre mot de passe",
       "email_input_placeholder": "Votre adresse email",
       "password_input_placeholder": "Votre mot de passe",
       "button_label": "Se connecter",
@@ -23,14 +23,14 @@
     "magic_link": {
       "email_input_label": "Adresse email",
       "email_input_placeholder": "Votre adresse email",
-      "button_label": "Envoyer le Lien Magique",
-      "loading_button_label": "Envoi du Lien Magique ...",
+      "button_label": "Envoyer le lien magique",
+      "loading_button_label": "Envoi du lien magique ...",
       "link_text": "Envoie un email contenant un lien magique",
       "confirmation_text": "Vérifiez vos emails pour le lien magique"
     },
     "forgotten_password": {
       "email_label": "Adresse email",
-      "password_label": "Votre Mot de passe",
+      "password_label": "Votre mot de passe",
       "email_input_placeholder": "Votre adresse email",
       "button_label": "Envoyer les instructions de récupération de mot de passe",
       "loading_button_label": "Envoie des instructions ...",
