@@ -1,0 +1,58 @@
+{
+    "sign_up": {
+      "email_label": "Adresse e-mail",
+      "password_label": "Mot de passe",
+      "email_input_placeholder": "Votre adresse e-mail",
+      "password_input_placeholder": "Votre mot de passe",
+      "button_label": "S'inscrire",
+      "loading_button_label": "Inscription ...",
+      "social_provider_text": "S'inscrire avec {{provider}}",
+      "link_text": "Pas de compte ? Inscrivez-vous",
+      "confirmation_text": "Vérifiez votre boîte de réception pour le lien de confirmation"
+    },
+    "sign_in": {
+      "email_label": "Adresse e-mail",
+      "password_label": "Mot de passe",
+      "email_input_placeholder": "Votre adresse e-mail",
+      "password_input_placeholder": "Votre mot de passe",
+      "button_label": "Se connecter",
+      "loading_button_label": "Connexion ...",
+      "social_provider_text": "S'identifier avec {{provider}}",
+      "link_text": "Déjà un compte ? Connectez-vous"
+    },
+    "magic_link": {
+      "email_input_label": "Adresse e-mail",
+      "email_input_placeholder": "Votre adresse e-mail",
+      "button_label": "Envoyer le lien magique",
+      "loading_button_label": "Envoi du lien magique ...",
+      "link_text": "Envoie un e-mail contenant un lien magique",
+      "confirmation_text": "Vérifiez votre boîte de réception pour le lien magique"
+    },
+    "forgotten_password": {
+      "email_label": "Adresse e-mail",
+      "password_label": "Mot de passe",
+      "email_input_placeholder": "Votre adresse e-mail",
+      "button_label": "Envoyer les instructions de réinitialisation de mot de passe",
+      "loading_button_label": "Envoie des instructions ...",
+      "link_text": "Vous avez oublié votre mot de passe ?",
+      "confirmation_text": "Vérifiez votre boîte de réception pour le lien de confirmation de réinitialisation"
+    },
+    "update_password": {
+      "password_label": "Nouveau mot de passe",
+      "password_input_placeholder": "Votre nouveau mot de passe",
+      "button_label": "Modifier le mot de passe",
+      "loading_button_label": "Modification du mot de passe ...",
+      "confirmation_text": "Votre mot de passe a été modifié"
+    },
+    "verify_otp": {
+      "email_input_label": "Adresse e-mail",
+      "email_input_placeholder": "Votre adresse e-mail",
+      "phone_input_label": "Numéro de téléphone",
+      "phone_input_placeholder": "Votre numéro de téléphone",
+      "token_input_label": "Code",
+      "token_input_placeholder": "Votre code unique",
+      "button_label": "Vérifier le code",
+      "loading_button_label": "Connexion ..."
+    }
+  }
+  
