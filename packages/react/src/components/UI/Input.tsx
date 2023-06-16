@@ -27,7 +27,7 @@ const inputDefaultStyles = css({
     color: '$inputPlaceholder',
     letterSpacing: 'initial',
   },
-  transitionPproperty: 'background-color, border',
+  transitionProperty: 'background-color, border',
   transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
   transitionDuration: '100ms',
   variants: {
