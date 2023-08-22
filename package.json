@@ -5,11 +5,11 @@
   "scripts": {
     "build": "turbo run build",
     "build:react": "turbo run build --filter=@supabase/auth-ui-react",
-    "build:solid":"turbo run build --filter=@supabase/auth-ui-solid",
+    "build:solid": "turbo run build --filter=@supabase/auth-ui-solid",
     "build:svelte": "turbo run build --filter=@supabase/auth-ui-svelte",
     "build:example": "turbo run build:example",
     "build:example:react": "turbo run build:example --filter=@example/react",
-    "build:example:solid": "turbo run build:example --filter=@example/solid",
+    "build:example:solid": "turbo run build:example --filter=@example/solidjs",
     "build:example:svelte": "turbo run build:example --filter=@example/svelte",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
