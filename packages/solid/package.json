@@ -31,7 +31,7 @@
     "eslint-plugin-solid": "^0.9.4",
     "tsconfig": "workspace:*",
     "typescript": "^4.9.5",
-    "vite": "^4.1.1",
+    "vite": "^4.1.5",
     "vite-plugin-solid": "^2.5.0"
   },
   "dependencies": {
