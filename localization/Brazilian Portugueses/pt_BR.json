@@ -7,7 +7,8 @@
     "button_label": "Registrar",
     "loading_button_label": "Registrando...",
     "social_provider_text": "Registrar com {{provider}}",
-    "link_text": "Não tem uma conta? Registre aqui"
+    "link_text": "Não tem uma conta? Registre aqui",
+    "confirmation_text": "Um email de confirmação foi enviado para {{email}}"
   },
   "sign_in": {
     "email_label": "Endereço de email",
@@ -24,7 +25,8 @@
     "email_input_placeholder": "Seu email",
     "button_label": "Enviar link para email",
     "loading_button_label": "Enviando link...",
-    "link_text": "Enviar link para seu endereço de email"
+    "link_text": "Enviar link para seu endereço de email",
+    "confirmation_text": "Um email com um link foi enviado para {{email}}"
   },
   "forgotten_password": {
     "email_label": "Endereço de email",
@@ -32,12 +34,14 @@
     "email_input_placeholder": "Endereço de email",
     "button_label": "Enviar instruções para recuperar a senha",
     "loading_button_label": "Enviando instruções...",
-    "link_text": "Esqueceu da senha?"
+    "link_text": "Esqueceu da senha?",
+    "confirmation_text": "Um email com instruções para recuperar a senha foi enviado para {{email}}",
   },
   "update_password": {
     "password_label": "Nova senha",
     "password_input_placeholder": "Sua nova senha",
     "button_label": "Atualizar senha",
-    "loading_button_label": "Atualizando senha..."
+    "loading_button_label": "Atualizando senha...",
+    "confirmation_text": "Sua senha foi atualizada com sucesso"
   }
 }
