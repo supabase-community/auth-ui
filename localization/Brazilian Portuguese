@@ -1,0 +1,43 @@
+{
+  "sign_up": {
+    "email_label": "Endereço de email",
+    "password_label": "Criar senha",
+    "email_input_placeholder": "Endereço de email",
+    "password_input_placeholder": "Senha",
+    "button_label": "Registrar",
+    "loading_button_label": "Registrando...",
+    "social_provider_text": "Registrar com {{provider}}",
+    "link_text": "Não tem uma conta? Registre aqui"
+  },
+  "sign_in": {
+    "email_label": "Endereço de email",
+    "password_label": "Senha",
+    "email_input_placeholder": "Endereço de email",
+    "password_input_placeholder": "Senha",
+    "button_label": "Logar",
+    "loading_button_label": "Logando...",
+    "social_provider_text": "Logar com {{provider}}",
+    "link_text": "Já tem uma conta? Logue aqui"
+  },
+  "magic_link": {
+    "email_input_label": "Endereço de email",
+    "email_input_placeholder": "Seu email",
+    "button_label": "Enviar link para email",
+    "loading_button_label": "Enviando link...",
+    "link_text": "Enviar link para seu endereço de email"
+  },
+  "forgotten_password": {
+    "email_label": "Endereço de email",
+    "password_label": "Senha",
+    "email_input_placeholder": "Endereço de email",
+    "button_label": "Enviar instruções para recuperar a senha",
+    "loading_button_label": "Enviando instruções...",
+    "link_text": "Esqueceu da senha?"
+  },
+  "update_password": {
+    "password_label": "Nova senha",
+    "password_input_placeholder": "Sua nova senha",
+    "button_label": "Atualizar senha",
+    "loading_button_label": "Atualizando senha..."
+  }
+}
