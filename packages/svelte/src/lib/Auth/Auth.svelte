@@ -113,7 +113,7 @@
 		{/if}
 	{/if}
 	{#if view === VIEWS.FORGOTTEN_PASSWORD}
-		<ForgottenPassword {i18n} {supabaseClient} bind:authView={view} {showLinks} {appearance} />
+		<ForgottenPassword {i18n} {supabaseClient} bind:authView={view} {showLinks} {appearance} {redirectTo} />
 	{/if}
 	{#if view === VIEWS.MAGIC_LINK}
 		<MagicLink {i18n} {supabaseClient} bind:authView={view} {appearance} {redirectTo} {showLinks} />
