@@ -7,6 +7,7 @@ import {
   en,
   SocialLayout,
   OtpType,
+  ViewType,
 } from '@supabase/auth-ui-shared'
 import { Auth as AuthProps } from '../../types'
 import {
@@ -45,7 +46,7 @@ function Auth(props: AuthProps): JSX.Element | null {
     const merged = mergeProps(
       {
         socialLayout: SocialLayouts.horizontal,
-        view: 'sign_in',
+        view: 'sign_in' as ViewType,
         onlyThirdPartyProviders: false,
         magicLink: false,
         showLinks: true,
