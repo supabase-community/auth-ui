@@ -1,5 +1,11 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.3
+
+### Patch Changes
+
+- da4efa6e: fix: pass the missing redirectTo field to ForgottenPassword component.
+
 ## 0.2.2
 
 ### Patch Changes
