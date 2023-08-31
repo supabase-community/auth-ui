@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.4.3
+
+### Patch Changes
+
+- 653f1254: Update auth icons loading
+
 ## 0.4.2
 
 ### Patch Changes

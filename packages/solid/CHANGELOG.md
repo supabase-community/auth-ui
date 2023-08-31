@@ -1,5 +1,11 @@
 # @supabase/auth-ui-solid
 
+## 0.3.3
+
+### Patch Changes
+
+- 653f1254: Update auth icons loading
+
 ## 0.3.2
 
 ### Patch Changes
