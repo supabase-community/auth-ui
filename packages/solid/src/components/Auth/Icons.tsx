@@ -5,7 +5,31 @@ const iconDefaultStyles = css({
   height: '21px',
 })
 
-export const google = () => (
+export interface IconsProps {
+  provider: string
+}
+
+export const Icons = ({ provider }: IconsProps) => {
+  if (provider == 'google') return google()
+  if (provider == 'facebook') return facebook()
+  if (provider == 'twitter') return twitter()
+  if (provider == 'apple') return apple()
+  if (provider == 'github') return github()
+  if (provider == 'gitlab') return gitlab()
+  if (provider == 'bitbucket') return bitbucket()
+  if (provider == 'discord') return discord()
+  if (provider == 'azure') return azure()
+  if (provider == 'keycloak') return keycloak()
+  if (provider == 'linkedin') return linkedin()
+  if (provider == 'notion') return notion()
+  if (provider == 'slack') return slack()
+  if (provider == 'spotify') return spotify()
+  if (provider == 'twitch') return twitch()
+  if (provider == 'workos') return workos()
+  return null
+}
+
+const google = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -32,7 +56,7 @@ export const google = () => (
   </svg>
 )
 
-export const facebook = () => (
+const facebook = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +72,7 @@ export const facebook = () => (
   </svg>
 )
 
-export const twitter = () => (
+const twitter = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -63,7 +87,7 @@ export const twitter = () => (
   </svg>
 )
 
-export const apple = () => (
+const apple = () => (
   <svg
     class={iconDefaultStyles()}
     fill="gray"
@@ -77,7 +101,7 @@ export const apple = () => (
   </svg>
 )
 
-export const github = () => (
+const github = () => (
   <svg
     class={iconDefaultStyles()}
     fill="gray"
@@ -91,7 +115,7 @@ export const github = () => (
   </svg>
 )
 
-export const gitlab = () => (
+const gitlab = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -108,7 +132,8 @@ export const gitlab = () => (
     <path fill="#ffa726" d="M24 43L6 20 3 28z" />
   </svg>
 )
-export const bitbucket = () => (
+
+const bitbucket = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +170,7 @@ export const bitbucket = () => (
   </svg>
 )
 
-export const discord = () => (
+const discord = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -160,7 +185,7 @@ export const discord = () => (
   </svg>
 )
 
-export const azure = () => (
+const azure = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -226,7 +251,7 @@ export const azure = () => (
   </svg>
 )
 
-export const keycloak = () => (
+const keycloak = () => (
   <svg
     class={iconDefaultStyles()}
     width="21px"
@@ -242,7 +267,7 @@ export const keycloak = () => (
   </svg>
 )
 
-export const linkedin = () => (
+const linkedin = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -261,7 +286,7 @@ export const linkedin = () => (
   </svg>
 )
 
-export const notion = () => (
+const notion = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -292,7 +317,7 @@ export const notion = () => (
   </svg>
 )
 
-export const slack = () => (
+const slack = () => (
   <svg
     class={iconDefaultStyles()}
     xmlns="http://www.w3.org/2000/svg"
@@ -335,7 +360,7 @@ export const slack = () => (
   </svg>
 )
 
-export const spotify = () => (
+const spotify = () => (
   <svg
     class={iconDefaultStyles()}
     width="21px"
@@ -351,7 +376,7 @@ export const spotify = () => (
   </svg>
 )
 
-export const twitch = () => (
+const twitch = () => (
   <svg
     class={iconDefaultStyles()}
     width="21px"
@@ -370,7 +395,7 @@ export const twitch = () => (
   </svg>
 )
 
-export const workos = () => (
+const workos = () => (
   <svg
     class={iconDefaultStyles()}
     width="21px"

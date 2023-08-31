@@ -8,7 +8,7 @@ import {
 } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
 import { Button, Container, Divider } from './../../UI/index.js'
-import * as SocialIcons from './../Icons.js'
+import { Icons } from './../Icons.js'
 
 interface SocialAuthProps {
   supabaseClient: SupabaseClient
@@ -74,16 +74,15 @@ function SocialAuth({
               appearance={appearance}
             >
               {providers.map((provider: Provider) => {
-                const AuthIcon = SocialIcons[provider]
                 return (
                   <Button
                     key={provider}
                     color="default"
-                    icon={AuthIcon ? <AuthIcon /> : ''}
                     loading={loading}
                     onClick={() => handleProviderSignIn(provider)}
                     appearance={appearance}
                   >
+                    <Icons provider={provider} />
                     {verticalSocialLayout &&
                       template(
                         i18n?.[currentView]?.social_provider_text as string,
