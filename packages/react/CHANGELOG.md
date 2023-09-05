@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.4.4
+
+### Patch Changes
+
+- 6664dcd9: Add Kakao logo to React Auth UI
+
 ## 0.4.3
 
 ### Patch Changes
