@@ -1,5 +1,11 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.4
+
+### Patch Changes
+
+- 75a62d3e: Add Kakao icon
+
 ## 0.2.3
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @supabase/auth-ui-solid
 
+## 0.3.4
+
+### Patch Changes
+
+- 75a62d3e: Add Kakao icon
+
 ## 0.3.3
 
 ### Patch Changes
