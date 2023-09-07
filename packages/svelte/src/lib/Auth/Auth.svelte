@@ -34,7 +34,7 @@
 	export let theme: 'default' | string = 'default';
 	export let localization: { variables?: I18nVariables } = {};
 	export let otpType: OtpType = 'email';
-	export let additionalData: { [key: string]: any } | undefined;
+	export let additionalData: { [key: string]: any } | undefined = undefined;
 
 	onMount(() => {
 		const { data: authListener } = supabaseClient.auth.onAuthStateChange((event) => {
