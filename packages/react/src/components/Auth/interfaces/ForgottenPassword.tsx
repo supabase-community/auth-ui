@@ -48,49 +48,51 @@ function ForgottenPassword({
 
   return (
     <form id="auth-forgot-password" onSubmit={handlePasswordReset}>
-      <Container gap="large" direction="vertical" appearance={appearance}>
-        <div>
-          <Label htmlFor="email" appearance={appearance}>
-            {labels?.email_label}
-          </Label>
-          <Input
-            id="email"
-            name="email"
-            type="email"
-            autoFocus
-            placeholder={labels?.email_input_placeholder}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              setEmail(e.target.value)
-            }
-            appearance={appearance}
-          />
-        </div>
-        <Button
-          type="submit"
-          color="primary"
-          loading={loading}
-          appearance={appearance}
-        >
-          {loading ? labels?.loading_button_label : labels?.button_label}
-        </Button>
-        {showLinks && (
-          <Anchor
-            href="#auth-sign-in"
-            onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
-              e.preventDefault()
-              setAuthView(VIEWS.SIGN_IN)
-            }}
+      <Container direction="vertical" gap="large" appearance={appearance}>
+        <Container gap="large" direction="vertical" appearance={appearance}>
+          <div>
+            <Label htmlFor="email" appearance={appearance}>
+              {labels?.email_label}
+            </Label>
+            <Input
+              id="email"
+              name="email"
+              type="email"
+              autoFocus
+              placeholder={labels?.email_input_placeholder}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                setEmail(e.target.value)
+              }
+              appearance={appearance}
+            />
+          </div>
+          <Button
+            type="submit"
+            color="primary"
+            loading={loading}
             appearance={appearance}
           >
-            {i18n?.sign_in?.link_text}
-          </Anchor>
-        )}
-        {message && <Message appearance={appearance}>{message}</Message>}
-        {error && (
-          <Message color="danger" appearance={appearance}>
-            {error}
-          </Message>
-        )}
+            {loading ? labels?.loading_button_label : labels?.button_label}
+          </Button>
+          {showLinks && (
+            <Anchor
+              href="#auth-sign-in"
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                e.preventDefault()
+                setAuthView(VIEWS.SIGN_IN)
+              }}
+              appearance={appearance}
+            >
+              {i18n?.sign_in?.link_text}
+            </Anchor>
+          )}
+          {message && <Message appearance={appearance}>{message}</Message>}
+          {error && (
+            <Message color="danger" appearance={appearance}>
+              {error}
+            </Message>
+          )}
+        </Container>
       </Container>
     </form>
   )

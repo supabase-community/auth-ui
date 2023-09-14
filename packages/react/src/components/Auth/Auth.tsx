@@ -168,14 +168,16 @@ function Auth({
       )
     case VIEWS.FORGOTTEN_PASSWORD:
       return (
-        <ForgottenPassword
-          appearance={appearance}
-          supabaseClient={supabaseClient}
-          setAuthView={setAuthView}
-          redirectTo={redirectTo}
-          showLinks={showLinks}
-          i18n={i18n}
-        />
+        <Container>
+          <ForgottenPassword
+            appearance={appearance}
+            supabaseClient={supabaseClient}
+            setAuthView={setAuthView}
+            redirectTo={redirectTo}
+            showLinks={showLinks}
+            i18n={i18n}
+          />
+        </Container>
       )
 
     case VIEWS.MAGIC_LINK:
