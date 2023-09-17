@@ -1,5 +1,11 @@
 # @supabase/auth-ui-shared
 
+## 0.1.7
+
+### Patch Changes
+
+- 2b252910: Fix check for blank email address on magic links
+
 ## 0.1.6
 
 ### Patch Changes

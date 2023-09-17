@@ -1,5 +1,13 @@
 # @supabase/auth-ui-solid
 
+## 0.3.5
+
+### Patch Changes
+
+- a80400e2: Fix password letter spacing
+- Updated dependencies [2b252910]
+  - @supabase/auth-ui-shared@0.1.7
+
 ## 0.3.4
 
 ### Patch Changes
