@@ -1,5 +1,15 @@
 # @supabase/auth-ui-react
 
+## 0.4.5
+
+### Patch Changes
+
+- a80400e2: Fix password letter spacing
+- 2b252910: Fix check for blank email address on magic links
+- 5607ea4a: Fix view layout alignment
+- Updated dependencies [2b252910]
+  - @supabase/auth-ui-shared@0.1.7
+
 ## 0.4.4
 
 ### Patch Changes

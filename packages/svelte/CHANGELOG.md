@@ -1,5 +1,14 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.5
+
+### Patch Changes
+
+- a80400e2: Fix password letter spacing
+- 819666db: Make additionalData optional by default
+- Updated dependencies [2b252910]
+  - @supabase/auth-ui-shared@0.1.7
+
 ## 0.2.4
 
 ### Patch Changes
