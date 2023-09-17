@@ -36,6 +36,12 @@ function MagicLink({
     setError('')
     setMessage('')
     setLoading(true)
+
+    if (email.length === 0) {
+      setError(i18n?.magic_link?.empty_email_address as string)
+      setLoading(false)
+      return
+    }
     const { error } = await supabaseClient.auth.signInWithOtp({
       email,
       options: { emailRedirectTo: redirectTo },
@@ -60,9 +66,10 @@ function MagicLink({
             type="email"
             autoFocus
             placeholder={labels?.email_input_placeholder}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              if (setError) setError('')
               setEmail(e.target.value)
-            }
+            }}
             appearance={appearance}
           />
         </div>

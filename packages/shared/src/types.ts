@@ -137,6 +137,7 @@ export type I18nVariables = {
     loading_button_label?: string
     link_text?: string
     confirmation_text?: string
+    empty_email_address?: string
   }
   forgotten_password?: {
     email_label?: string
