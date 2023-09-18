@@ -101,8 +101,8 @@
 			<slot />
 		</Container>
 		<Button type="submit" color="primary" {loading} {appearance}
-			>{i18n?.[lngKey]?.button_label}</Button
-		>
+			>{loading ? i18n?.[lngKey]?.loading_button_label : i18n?.[lngKey]?.button_label}
+		</Button>
 
 		{#if showLinks}
 			<Container direction="vertical" gap="small" {appearance}>

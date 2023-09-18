@@ -95,7 +95,7 @@
 			/>
 		</div>
 		<Button type="submit" color="primary" {loading} {appearance}>
-			{i18n?.verify_otp?.button_label}
+			{loading ? i18n?.verify_otp?.loading_button_label : i18n?.verify_otp?.button_label}
 		</Button>
 
 		{#if showLinks}

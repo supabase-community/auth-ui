@@ -52,7 +52,7 @@
 				/>
 			</div>
 			<Button type="submit" color="primary" {loading} {appearance}>
-				{i18n?.update_password?.button_label}
+				{loading ? i18n?.update_password?.loading_button_label : i18n?.update_password?.button_label}
 			</Button>
 		</Container>
 
