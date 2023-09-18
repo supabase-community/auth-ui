@@ -27,6 +27,7 @@
 	export let queryParams: { [key: string]: string } | undefined = undefined;
 	export let view: ViewType = 'sign_in';
 	export let redirectTo: string | undefined = undefined;
+	export let resetPasswordRedirectTo: string | undefined = undefined;
 	export let onlyThirdPartyProviders = false;
 	export let magicLink = false;
 	export let showLinks = true;
@@ -113,7 +114,14 @@
 		{/if}
 	{/if}
 	{#if view === VIEWS.FORGOTTEN_PASSWORD}
-		<ForgottenPassword {i18n} {supabaseClient} bind:authView={view} {showLinks} {appearance} {redirectTo} />
+		<ForgottenPassword
+			{i18n}
+			{supabaseClient}
+			bind:authView={view}
+			{showLinks}
+			{appearance}
+			redirectTo={resetPasswordRedirectTo ?? redirectTo}
+		/>
 	{/if}
 	{#if view === VIEWS.MAGIC_LINK}
 		<MagicLink {i18n} {supabaseClient} bind:authView={view} {appearance} {redirectTo} {showLinks} />

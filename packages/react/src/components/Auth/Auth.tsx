@@ -21,6 +21,7 @@ function Auth({
   queryParams,
   view = 'sign_in',
   redirectTo,
+  resetPasswordRedirectTo,
   onlyThirdPartyProviders = false,
   magicLink = false,
   showLinks = true,
@@ -173,7 +174,7 @@ function Auth({
             appearance={appearance}
             supabaseClient={supabaseClient}
             setAuthView={setAuthView}
-            redirectTo={redirectTo}
+            redirectTo={resetPasswordRedirectTo ?? redirectTo}
             showLinks={showLinks}
             i18n={i18n}
           />

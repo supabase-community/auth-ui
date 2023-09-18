@@ -259,7 +259,9 @@ function Auth(props: AuthProps): JSX.Element | null {
           appearance={mergedProps().appearance}
           supabaseClient={mergedProps().supabaseClient}
           setAuthView={setAuthView}
-          redirectTo={mergedProps().redirectTo}
+          redirectTo={
+            mergedProps().resetPasswordRedirectTo ?? mergedProps().redirectTo
+          }
           showLinks={mergedProps().showLinks}
           i18n={i18n()}
         />
