@@ -1,5 +1,11 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.6
+
+### Patch Changes
+
+- 4969cb44: Fix button label loading state
+
 ## 0.2.5
 
 ### Patch Changes
