@@ -4,17 +4,22 @@ import { Appearance } from '../../types'
 
 const messageDefaultStyles = css({
   fontFamily: '$bodyFontFamily',
-  fontSize: '$baseBodySize',
+  fontSize: '$baseInputSize',
   marginBottom: '$labelBottomMargin',
   display: 'block',
   textAlign: 'center',
+  borderRadius: '0.375rem',
+  padding: '1.5rem 1rem',
+  lineHeight: '1rem',
+  color: '$messageText',
+  backgroundColor: '$messageBackground',
+  border: '1px solid $messageBorder',
   variants: {
     color: {
-      default: {
-        color: '$messageText',
-      },
       danger: {
         color: '$messageTextDanger',
+        backgroundColor: '$messageBackgroundDanger',
+        border: '1px solid $messageBorderDanger',
       },
     },
   },
@@ -22,7 +27,7 @@ const messageDefaultStyles = css({
 
 interface MessageProps extends React.HTMLAttributes<HTMLSpanElement> {
   children: React.ReactNode
-  color?: 'default' | 'danger'
+  color?: 'danger'
   appearance?: Appearance
 }
 
