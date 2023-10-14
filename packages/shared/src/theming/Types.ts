@@ -16,7 +16,11 @@ export type ThemeVariables = {
     inputPlaceholder?: string
     inputText?: string
     messageText?: string
+    messageBackground?: string
+    messageBorder?: string
     messageTextDanger?: string
+    messageBackgroundDanger?: string
+    messageBorderDanger?: string
     anchorTextColor?: string
     anchorTextHoverColor?: string
   }
