@@ -1,5 +1,13 @@
 # @supabase/auth-ui-react
 
+## 0.4.6
+
+### Patch Changes
+
+- a8f9395d: Message styling change
+- Updated dependencies [a8f9395d]
+  - @supabase/auth-ui-shared@0.1.8
+
 ## 0.4.5
 
 ### Patch Changes
