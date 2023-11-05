@@ -1,5 +1,11 @@
 # @supabase/auth-ui-solid
 
+## 0.3.7
+
+### Patch Changes
+
+- ae22ff23: Message styling change
+
 ## 0.3.6
 
 ### Patch Changes
