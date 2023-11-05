@@ -5,17 +5,24 @@
 
 	const messageDefaultStyles = css({
 		fontFamily: '$bodyFontFamily',
-		fontSize: '$baseBodySize',
+		fontSize: '$baseInputSize',
 		marginBottom: '$labelBottomMargin',
 		display: 'block',
 		textAlign: 'center',
+		borderRadius: '0.375rem',
+		padding: '1.5rem 1rem',
+		lineHeight: '1rem',
 		variants: {
 			color: {
 				default: {
-					color: '$messageText'
+					color: '$messageText',
+					backgroundColor: '$messageBackground',
+					border: '1px solid $messageBorder'
 				},
 				danger: {
-					color: '$messageTextDanger'
+					color: '$messageTextDanger',
+					backgroundColor: '$messageBackgroundDanger',
+					border: '1px solid $messageBorderDanger'
 				}
 			}
 		}
