@@ -1,5 +1,11 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.8
+
+### Patch Changes
+
+- ae22ff23: Message styling change
+
 ## 0.2.7
 
 ### Patch Changes
