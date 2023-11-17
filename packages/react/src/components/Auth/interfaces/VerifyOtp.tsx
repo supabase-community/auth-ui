@@ -36,29 +36,46 @@ function VerifyOtp({
   const [token, setToken] = useState('')
   const [error, setError] = useState('')
   const [message, setMessage] = useState('')
-  const [loading, setLoading] = useState(false)
+  const [loadingOtp, setLoadingOtp] = useState(false)
+  const [loadingVerify, setLoadingVerify] = useState(false)
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError('')
     setMessage('')
-    setLoading(true)
+    setLoadingVerify(true)
 
-    let verifyOpts: VerifyOtpParams = {
+    let verifyOtps: VerifyOtpParams = {
       email,
       token,
       type: otpType as EmailOtpType,
     }
     if (['sms', 'phone_change'].includes(otpType)) {
-      verifyOpts = {
+      verifyOtps = {
         phone,
         token,
         type: otpType as MobileOtpType,
       }
     }
-    const { error } = await supabaseClient.auth.verifyOtp(verifyOpts)
+    const { error } = await supabaseClient.auth.verifyOtp(verifyOtps)
     if (error) setError(error.message)
-    setLoading(false)
+    setLoadingVerify(false)
+  }
+
+  const sendOtp = async () => {
+    setLoadingOtp(true)
+
+    let verifyOtps: VerifyOtpParams = {
+      email,
+    }
+    if (['sms', 'phone_change'].includes(otpType)) {
+      verifyOtps = {
+        phone,
+      }
+    }
+    const { error } = await supabaseClient.auth.signInWithOtp(verifyOtps)
+    if (error) setError(error.message)
+    setLoadingOtp(false)
   }
 
   const labels = i18n?.verify_otp
@@ -101,6 +118,14 @@ function VerifyOtp({
             />
           </div>
         )}
+        <Button
+          color="secondary"
+          onClick={sendOtp}
+          loading={loadingOtp}
+          appearance={appearance}
+        >
+          {loadingOtp ? labels?.sending_button_label : labels?.send_button_label}
+        </Button>
         <div>
           <Label htmlFor="token" appearance={appearance}>
             {labels?.token_input_label}
@@ -119,10 +144,10 @@ function VerifyOtp({
         <Button
           color="primary"
           type="submit"
-          loading={loading}
+          loading={loadingVerify}
           appearance={appearance}
         >
-          {loading ? labels?.loading_button_label : labels?.button_label}
+          {loadingVerify ? labels?.loading_button_label : labels?.button_label}
         </Button>
         {showLinks && (
           <Anchor

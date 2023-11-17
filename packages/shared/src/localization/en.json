@@ -52,6 +52,8 @@
     "token_input_label": "Token",
     "token_input_placeholder": "Your Otp token",
     "button_label": "Verify token",
-    "loading_button_label": "Signing in ..."
+    "loading_button_label": "Signing in ...",
+    "send_button_label": "Send OTP",
+    "sending_button_label": "Sending OTP ...",
   }
 }

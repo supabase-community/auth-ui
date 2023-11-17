@@ -164,5 +164,7 @@ export type I18nVariables = {
     token_input_placeholder?: string
     button_label?: string
     loading_button_label?: string
+    send_button_label?: string
+    sending_button_label?: string
   }
 }
