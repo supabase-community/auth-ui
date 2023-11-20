@@ -21,6 +21,7 @@ export const Icons = ({ provider }: IconsProps) => {
   if (provider == 'azure') return azure()
   if (provider == 'keycloak') return keycloak()
   if (provider == 'linkedin') return linkedin()
+  if (provider == 'linkedin_oidc') return linkedin()
   if (provider == 'notion') return notion()
   if (provider == 'slack') return slack()
   if (provider == 'spotify') return spotify()
