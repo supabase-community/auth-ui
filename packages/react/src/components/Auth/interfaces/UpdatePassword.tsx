@@ -41,7 +41,7 @@ function UpdatePassword({
           <Input
             id="password"
             name="password"
-            placeholder={labels?.password_label}
+            placeholder={labels?.password_input_placeholder}
             type="password"
             autoFocus
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

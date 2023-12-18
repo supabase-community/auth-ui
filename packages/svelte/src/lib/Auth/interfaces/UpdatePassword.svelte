@@ -45,14 +45,16 @@
 					type="password"
 					name="password"
 					autofocus
-					placeholder={i18n?.update_password?.password_label}
+					placeholder={i18n?.update_password?.password_input_placeholder}
 					bind:value={password}
 					autocomplete="password"
 					{appearance}
 				/>
 			</div>
 			<Button type="submit" color="primary" {loading} {appearance}>
-				{loading ? i18n?.update_password?.loading_button_label : i18n?.update_password?.button_label}
+				{loading
+					? i18n?.update_password?.loading_button_label
+					: i18n?.update_password?.button_label}
 			</Button>
 		</Container>
 
