@@ -47,7 +47,9 @@ function UpdatePassword(props: {
               id="password"
               name="password"
               autofocus
-              placeholder={props.i18n?.update_password?.password_label}
+              placeholder={
+                props.i18n?.update_password?.password_input_placeholder
+              }
               type="password"
               onkeyup={(e) => setPassword(e.currentTarget.value)}
               appearance={props.appearance}
