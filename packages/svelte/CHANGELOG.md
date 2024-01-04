@@ -1,5 +1,11 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.9
+
+### Patch Changes
+
+- ac80a298: fix: update password placeholder prop
+
 ## 0.2.8
 
 ### Patch Changes

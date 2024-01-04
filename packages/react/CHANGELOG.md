@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.4.7
+
+### Patch Changes
+
+- ac80a298: fix: update password placeholder prop
+
 ## 0.4.6
 
 ### Patch Changes
