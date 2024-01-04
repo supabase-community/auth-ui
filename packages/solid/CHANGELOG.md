@@ -1,5 +1,11 @@
 # @supabase/auth-ui-solid
 
+## 0.3.8
+
+### Patch Changes
+
+- ac80a298: fix: update password placeholder prop
+
 ## 0.3.7
 
 ### Patch Changes
