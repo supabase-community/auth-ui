@@ -23,6 +23,7 @@
 	export let showLinks = false;
 	export let magicLink = true;
 	export let i18n: I18nVariables;
+	export let passwordLimit: boolean = false;
 	export let appearance: Appearance;
 
 	let message = '';
@@ -46,6 +47,11 @@
 				loading = false;
 				break;
 			case VIEWS.SIGN_UP:
+				if (passwordLimit && password.length > 72) {
+					error = 'Password exceeds maxmium length of 72 characters';
+					loading = false;
+					return;
+				}
 				let options: { emailRedirectTo: RedirectTo; data?: object } = {
 					emailRedirectTo: redirectTo
 				};
