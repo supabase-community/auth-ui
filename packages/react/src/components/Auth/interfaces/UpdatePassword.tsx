@@ -8,10 +8,12 @@ function UpdatePassword({
   supabaseClient,
   i18n,
   appearance,
+  passwordLimit = false,
 }: {
   supabaseClient: SupabaseClient
   i18n?: I18nVariables
   appearance?: Appearance
+  passwordLimit?: boolean
 }) {
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
@@ -23,6 +25,11 @@ function UpdatePassword({
     setError('')
     setMessage('')
     setLoading(true)
+    if (passwordLimit && password.length > 72) {
+      setError('Password exceeds maxmium length of 72 characters')
+      setLoading(false)
+      return
+    }
     const { error } = await supabaseClient.auth.updateUser({ password })
     if (error) setError(error.message)
     else setMessage(i18n?.update_password?.confirmation_text as string)
