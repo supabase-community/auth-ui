@@ -7,6 +7,7 @@ import { Button, Container, Input, Label, Message } from '../../UI'
 function UpdatePassword(props: {
   supabaseClient: SupabaseClient
   i18n: I18nVariables
+  passwordLimit: boolean
   appearance?: Appearance
 }) {
   const [password, setPassword] = createSignal('')
@@ -19,6 +20,11 @@ function UpdatePassword(props: {
     setError('')
     setMessage('')
     setLoading(true)
+    if (props.passwordLimit && password().length > 72) {
+      setError('Password exceeds maxmium length of 72 characters')
+      setLoading(false)
+      return
+    }
     const { error } = await props.supabaseClient.auth.updateUser({
       password: password(),
     })

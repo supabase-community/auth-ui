@@ -53,6 +53,7 @@ function Auth(props: AuthProps): JSX.Element | null {
         theme: 'default',
         localization: { variables: {} },
         otpType: 'email',
+        passwordLimit: false,
       },
       props
     )
@@ -214,6 +215,7 @@ function Auth(props: AuthProps): JSX.Element | null {
     magicLink: mergedProps().magicLink,
     showLinks: mergedProps().showLinks,
     i18n: i18n(),
+    passwordLimit: mergedProps().passwordLimit,
   })
 
   /**
@@ -247,6 +249,7 @@ function Auth(props: AuthProps): JSX.Element | null {
             magicLink={mergedProps().magicLink}
             showLinks={mergedProps().showLinks}
             i18n={i18n()}
+            passwordLimit={mergedProps().passwordLimit}
             additionalData={mergedProps().additionalData}
           >
             {props.children}
@@ -282,6 +285,7 @@ function Auth(props: AuthProps): JSX.Element | null {
         <UpdatePassword
           appearance={mergedProps().appearance}
           supabaseClient={mergedProps().supabaseClient}
+          passwordLimit={mergedProps().passwordLimit}
           i18n={i18n()}
         />
       </Match>
