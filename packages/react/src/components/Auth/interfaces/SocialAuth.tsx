@@ -58,6 +58,13 @@ function SocialAuth({
     setLoading(false)
   }
 
+  function handleProviderNameEdgeCases(provider: string) {
+    if (provider === 'linkedin_oidc') {
+      return 'LinkedIn'
+    }
+    return provider
+  }
+
   function capitalize(word: string) {
     const lower = word.toLowerCase()
     return word.charAt(0).toUpperCase() + lower.slice(1)
@@ -87,7 +94,9 @@ function SocialAuth({
                       template(
                         i18n?.[currentView]?.social_provider_text as string,
                         {
-                          provider: capitalize(provider),
+                          provider: capitalize(
+                            handleProviderNameEdgeCases(provider)
+                          ),
                         }
                       )}
                   </Button>
