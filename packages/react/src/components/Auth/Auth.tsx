@@ -20,6 +20,7 @@ function Auth({
   providerScopes,
   queryParams,
   view = 'sign_in',
+  initialEmail,
   redirectTo,
   onlyThirdPartyProviders = false,
   magicLink = false,
@@ -38,7 +39,7 @@ function Auth({
   const i18n: I18nVariables = merge(en, localization.variables ?? {})
 
   const [authView, setAuthView] = useState(view)
-  const [defaultEmail, setDefaultEmail] = useState('')
+  const [defaultEmail, setDefaultEmail] = useState(initialEmail)
   const [defaultPassword, setDefaultPassword] = useState('')
 
   /**
