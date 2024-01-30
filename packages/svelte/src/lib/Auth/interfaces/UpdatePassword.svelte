@@ -13,6 +13,7 @@
 	export let supabaseClient: SupabaseClient;
 	export let authView: ViewType;
 	export let appearance: Appearance;
+	export let passwordLimit: boolean;
 	export let showLinks = false;
 
 	let password = '';
@@ -24,6 +25,11 @@
 		loading = true;
 		error = '';
 		message = '';
+		if (passwordLimit && password.length > 72) {
+			error = 'Password exceeds maxmium length of 72 characters';
+			loading = false;
+			return;
+		}
 		const { data, error: resetPasswordError } = await supabaseClient.auth.updateUser({
 			password
 		});

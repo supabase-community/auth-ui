@@ -106,6 +106,7 @@ export interface BaseAuth {
     variables?: I18nVariables
   }
   theme?: 'default' | string
+  passwordLimit?: boolean
 }
 
 export type I18nVariables = {
