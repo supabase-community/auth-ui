@@ -35,6 +35,7 @@
 	export let theme: 'default' | string = 'default';
 	export let localization: { variables?: I18nVariables } = {};
 	export let otpType: OtpType = 'email';
+	export let passwordLimit: boolean = false;
 	export let additionalData: { [key: string]: any } | undefined = undefined;
 
 	onMount(() => {
@@ -109,6 +110,7 @@
 				{magicLink}
 				{showLinks}
 				{additionalData}
+				{passwordLimit}
 				{i18n}><slot /></EmailAuth
 			>
 		{/if}
@@ -127,7 +129,14 @@
 		<MagicLink {i18n} {supabaseClient} bind:authView={view} {appearance} {redirectTo} {showLinks} />
 	{/if}
 	{#if view === VIEWS.UPDATE_PASSWORD}
-		<UpdatePassword {i18n} {supabaseClient} bind:authView={view} {appearance} {showLinks} />
+		<UpdatePassword
+			{i18n}
+			{supabaseClient}
+			bind:authView={view}
+			{appearance}
+			{passwordLimit}
+			{showLinks}
+		/>
 	{/if}
 	{#if view === VIEWS.VERIFY_OTP}
 		<VerifyOtp {i18n} {supabaseClient} bind:authView={view} {appearance} {showLinks} {otpType} />

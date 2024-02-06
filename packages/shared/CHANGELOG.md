@@ -1,5 +1,11 @@
 # @supabase/auth-ui-shared
 
+## 0.1.8
+
+### Patch Changes
+
+- a8f9395d: Message styling change
+
 ## 0.1.7
 
 ### Patch Changes

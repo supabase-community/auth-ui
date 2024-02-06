@@ -1,5 +1,30 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.9
+
+### Patch Changes
+
+- ac80a298: fix: update password placeholder prop
+
+## 0.2.8
+
+### Patch Changes
+
+- ae22ff23: Message styling change
+
+## 0.2.7
+
+### Patch Changes
+
+- Updated dependencies [a8f9395d]
+  - @supabase/auth-ui-shared@0.1.8
+
+## 0.2.6
+
+### Patch Changes
+
+- 4969cb44: Fix button label loading state
+
 ## 0.2.5
 
 ### Patch Changes

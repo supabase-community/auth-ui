@@ -32,6 +32,7 @@ export interface EmailAuthProps {
   magicLink?: boolean
   i18n?: I18nVariables
   appearance?: Appearance
+  passwordLimit?: boolean
   children?: React.ReactNode
 }
 
@@ -49,6 +50,7 @@ function EmailAuth({
   magicLink,
   i18n,
   appearance,
+  passwordLimit = false,
   children,
 }: EmailAuthProps) {
   const isMounted = useRef<boolean>(true)
@@ -82,6 +84,10 @@ function EmailAuth({
         if (signInError) setError(signInError.message)
         break
       case 'sign_up':
+        if (passwordLimit && password.length > 72) {
+          setError('Password exceeds maxmium length of 72 characters')
+          return
+        }
         let options: { emailRedirectTo: RedirectTo; data?: object } = {
           emailRedirectTo: redirectTo,
         }

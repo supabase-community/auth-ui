@@ -1,5 +1,24 @@
 # @supabase/auth-ui-solid
 
+## 0.3.8
+
+### Patch Changes
+
+- ac80a298: fix: update password placeholder prop
+
+## 0.3.7
+
+### Patch Changes
+
+- ae22ff23: Message styling change
+
+## 0.3.6
+
+### Patch Changes
+
+- Updated dependencies [a8f9395d]
+  - @supabase/auth-ui-shared@0.1.8
+
 ## 0.3.5
 
 ### Patch Changes

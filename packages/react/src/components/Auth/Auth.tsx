@@ -30,6 +30,7 @@ function Auth({
   localization = { variables: {} },
   otpType = 'email',
   additionalData,
+  passwordLimit,
   children,
 }: AuthProps): JSX.Element | null {
   /**
@@ -133,6 +134,7 @@ function Auth({
     showLinks,
     i18n,
     appearance,
+    passwordLimit,
   }
 
   /**
@@ -163,6 +165,7 @@ function Auth({
             showLinks={showLinks}
             i18n={i18n}
             additionalData={additionalData}
+            passwordLimit={passwordLimit}
             children={children}
           />
         </Container>
@@ -201,6 +204,7 @@ function Auth({
           appearance={appearance}
           supabaseClient={supabaseClient}
           i18n={i18n}
+          passwordLimit={passwordLimit}
         />
       )
     case VIEWS.VERIFY_OTP:
