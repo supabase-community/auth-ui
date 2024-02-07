@@ -27,6 +27,7 @@
 	export let queryParams: { [key: string]: string } | undefined = undefined;
 	export let view: ViewType = 'sign_in';
 	export let redirectTo: string | undefined = undefined;
+	export let resetPasswordRedirectTo: string | undefined = undefined;
 	export let onlyThirdPartyProviders = false;
 	export let magicLink = false;
 	export let showLinks = true;
@@ -121,7 +122,7 @@
 			bind:authView={view}
 			{showLinks}
 			{appearance}
-			{redirectTo}
+			redirectTo={resetPasswordRedirectTo ?? redirectTo}
 		/>
 	{/if}
 	{#if view === VIEWS.MAGIC_LINK}
