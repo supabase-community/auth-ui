@@ -1,3 +1,15 @@
+
+# Deprecation Notice
+
+As of 7th Feb 2024, this repository is no longer maintained by the Supabase Team. At the moment, the team does not have capacity to give the expected level of care to this repository. We may revisit Auth UI in the future but regrettably have to leave it on hold for now as we focus on other priorities such as improving the Auth Helpers and advanced Auth primitives.
+
+The repository itself will continue to exist and we will move the Auth UI to [Supabase-Community](https://github.com/supabase-community/auth-ui) over the next few weeks. We will continue to keep the latest packages available at `@supabase/auth-ui-react` namespace.
+
+We would like to thank everyone for your contributions to the repository.
+
+Please open an issue if you have any questions or concerns
+Thank you
+
 # Supabase Auth UI
 
 Supabase Auth UI is a collection of pre built UI components that work seamlessly with @supabase/auth-helpers.
