@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "build": "turbo run build",
-    "build:react": "turbo run build --filter=@supabase/auth-ui-react",
+    "build:react": "turbo run build --filter=@fleetworks/supabase-auth-ui-react",
     "build:solid": "turbo run build --filter=@supabase/auth-ui-solid",
     "build:svelte": "turbo run build --filter=@supabase/auth-ui-svelte",
     "build:example": "turbo run build:example",

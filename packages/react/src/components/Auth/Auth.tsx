@@ -1,5 +1,11 @@
 import { createStitches, createTheme } from '@stitches/core'
-import { I18nVariables, merge, VIEWS, en } from '@supabase/auth-ui-shared'
+import {
+  I18nVariables,
+  merge,
+  VIEWS,
+  en,
+  ViewType,
+} from '@supabase/auth-ui-shared'
 import React, { useEffect, useState } from 'react'
 import { Auth as AuthProps } from '../../types'
 import {
@@ -30,6 +36,8 @@ function Auth({
   otpType = 'email',
   additionalData,
   passwordLimit,
+  initialEmail = '',
+  onViewChange = () => {},
   children,
 }: AuthProps): JSX.Element | null {
   /**
@@ -38,9 +46,14 @@ function Auth({
 
   const i18n: I18nVariables = merge(en, localization.variables ?? {})
 
-  const [authView, setAuthView] = useState(view)
-  const [defaultEmail, setDefaultEmail] = useState('')
+  const [authView, _setAuthView] = useState(view)
+  const [defaultEmail, setDefaultEmail] = useState(initialEmail)
   const [defaultPassword, setDefaultPassword] = useState('')
+
+  const setAuthView = (_view: ViewType) => {
+    _setAuthView(_view)
+    onViewChange(_view)
+  }
 
   /**
    * Simple boolean to detect if authView 'sign_in' or 'sign_up' or 'magic_link' is used

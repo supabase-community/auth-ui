@@ -1,4 +1,4 @@
-import { BaseAppearance, BaseAuth } from '@supabase/auth-ui-shared'
+import { BaseAppearance, BaseAuth, ViewType } from '@supabase/auth-ui-shared'
 import { CSSProperties, ReactNode } from 'react'
 
 export interface Appearance extends BaseAppearance {
@@ -17,4 +17,6 @@ export interface Appearance extends BaseAppearance {
 export interface Auth extends BaseAuth {
   children?: ReactNode
   appearance?: Appearance
+  initialEmail?: string
+  onViewChange?: (view: ViewType) => void
 }

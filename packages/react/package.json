@@ -1,6 +1,6 @@
 {
-  "name": "@supabase/auth-ui-react",
-  "version": "0.4.7",
+  "name": "@fleetworks/supabase-auth-ui-react",
+  "version": "0.4.8-fw-rc",
   "main": "./dist/index.cjs.js",
   "module": "./dist/index.es.js",
   "files": [
@@ -19,10 +19,10 @@
       "require": "./dist/index.cjs.js"
     }
   },
-  "homepage": "https://github.com/supabase-community/auth-ui#readme",
+  "homepage": "https://github.com/fleetworks-team/supabase-auth-ui#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/supabase-community/auth-ui.git"
+    "url": "git+https://github.com/fleetworks-team/supabase-auth-ui.git"
   },
   "sideEffects": false,
   "source": "src/index.tsx",
