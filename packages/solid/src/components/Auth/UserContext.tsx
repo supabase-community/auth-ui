@@ -1,10 +1,11 @@
-import { SupabaseClient, Session, User } from "@supabase/supabase-js";
+import { Session, SupabaseClient, User } from "@supabase/supabase-js";
 import {
   createContext,
   createEffect,
   createSignal,
   useContext,
 } from "solid-js";
+
 import { createStore } from "solid-js/store";
 
 export interface AuthSession {
@@ -29,6 +30,7 @@ export const UserContextProvider = (props: Props) => {
   });
 
   async function getSupabaseSession() {
+    await supabaseClient.auth.getUser()
     const { data } = await supabaseClient.auth.getSession();
     setSession(data.session);
     setUser(data.session?.user ?? null);
