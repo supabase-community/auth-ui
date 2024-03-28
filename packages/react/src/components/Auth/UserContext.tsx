@@ -1,5 +1,5 @@
-import React, { useEffect, useState, createContext, useContext } from 'react'
-import { SupabaseClient, Session, User } from '@supabase/supabase-js'
+import React, { createContext, useContext, useEffect, useState } from 'react'
+import { Session, SupabaseClient, User } from '@supabase/supabase-js'
 
 export interface AuthSession {
   user: User | null
@@ -20,6 +20,7 @@ export const UserContextProvider = (props: Props) => {
 
   useEffect(() => {
     ;(async () => {
+      await supabaseClient.auth.getUser()
       const { data } = await supabaseClient.auth.getSession()
       setSession(data.session)
       setUser(data.session?.user ?? null)
