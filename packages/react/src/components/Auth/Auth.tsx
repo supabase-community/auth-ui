@@ -30,6 +30,7 @@ function Auth({
   otpType = 'email',
   additionalData,
   passwordLimit,
+  onViewChange,
   children,
 }: AuthProps): JSX.Element | null {
   /**
@@ -41,6 +42,12 @@ function Auth({
   const [authView, setAuthView] = useState(view)
   const [defaultEmail, setDefaultEmail] = useState('')
   const [defaultPassword, setDefaultPassword] = useState('')
+
+  useEffect(() => {
+    if (onViewChange) {
+      onViewChange(authView)
+    }
+  }, [authView, onViewChange])
 
   /**
    * Simple boolean to detect if authView 'sign_in' or 'sign_up' or 'magic_link' is used
