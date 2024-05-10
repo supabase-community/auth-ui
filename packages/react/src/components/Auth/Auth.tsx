@@ -192,6 +192,7 @@ function Auth({
             setAuthView={setAuthView}
             redirectTo={redirectTo}
             showLinks={showLinks}
+            additionalData={additionalData}
             i18n={i18n}
           />
         </Container>
