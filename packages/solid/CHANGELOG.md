@@ -1,5 +1,44 @@
 # @supabase/auth-ui-solid
 
+## 0.3.8
+
+### Patch Changes
+
+- ac80a298: fix: update password placeholder prop
+
+## 0.3.7
+
+### Patch Changes
+
+- ae22ff23: Message styling change
+
+## 0.3.6
+
+### Patch Changes
+
+- Updated dependencies [a8f9395d]
+  - @supabase/auth-ui-shared@0.1.8
+
+## 0.3.5
+
+### Patch Changes
+
+- a80400e2: Fix password letter spacing
+- Updated dependencies [2b252910]
+  - @supabase/auth-ui-shared@0.1.7
+
+## 0.3.4
+
+### Patch Changes
+
+- 75a62d3e: Add Kakao icon
+
+## 0.3.3
+
+### Patch Changes
+
+- 653f1254: Update auth icons loading
+
 ## 0.3.2
 
 ### Patch Changes

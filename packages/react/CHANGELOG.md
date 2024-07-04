@@ -1,5 +1,41 @@
 # @supabase/auth-ui-react
 
+## 0.4.7
+
+### Patch Changes
+
+- ac80a298: fix: update password placeholder prop
+
+## 0.4.6
+
+### Patch Changes
+
+- a8f9395d: Message styling change
+- Updated dependencies [a8f9395d]
+  - @supabase/auth-ui-shared@0.1.8
+
+## 0.4.5
+
+### Patch Changes
+
+- a80400e2: Fix password letter spacing
+- 2b252910: Fix check for blank email address on magic links
+- 5607ea4a: Fix view layout alignment
+- Updated dependencies [2b252910]
+  - @supabase/auth-ui-shared@0.1.7
+
+## 0.4.4
+
+### Patch Changes
+
+- 6664dcd9: Add Kakao logo to React Auth UI
+
+## 0.4.3
+
+### Patch Changes
+
+- 653f1254: Update auth icons loading
+
 ## 0.4.2
 
 ### Patch Changes

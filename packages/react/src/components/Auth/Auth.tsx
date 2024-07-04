@@ -29,6 +29,7 @@ function Auth({
   localization = { variables: {} },
   otpType = 'email',
   additionalData,
+  passwordLimit,
   children,
 }: AuthProps): JSX.Element | null {
   /**
@@ -132,6 +133,7 @@ function Auth({
     showLinks,
     i18n,
     appearance,
+    passwordLimit,
   }
 
   /**
@@ -162,20 +164,23 @@ function Auth({
             showLinks={showLinks}
             i18n={i18n}
             additionalData={additionalData}
+            passwordLimit={passwordLimit}
             children={children}
           />
         </Container>
       )
     case VIEWS.FORGOTTEN_PASSWORD:
       return (
-        <ForgottenPassword
-          appearance={appearance}
-          supabaseClient={supabaseClient}
-          setAuthView={setAuthView}
-          redirectTo={redirectTo}
-          showLinks={showLinks}
-          i18n={i18n}
-        />
+        <Container>
+          <ForgottenPassword
+            appearance={appearance}
+            supabaseClient={supabaseClient}
+            setAuthView={setAuthView}
+            redirectTo={redirectTo}
+            showLinks={showLinks}
+            i18n={i18n}
+          />
+        </Container>
       )
 
     case VIEWS.MAGIC_LINK:
@@ -198,6 +203,7 @@ function Auth({
           appearance={appearance}
           supabaseClient={supabaseClient}
           i18n={i18n}
+          passwordLimit={passwordLimit}
         />
       )
     case VIEWS.VERIFY_OTP:

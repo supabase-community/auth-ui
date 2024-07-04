@@ -9,6 +9,7 @@
 	export let showLinks = false;
 	export let appearance: Appearance = {};
 	export let theme: 'default' | string = 'default';
+	export let passwordLimit: boolean = false;
 	export let localization: { variables?: I18nVariables } = {};
 </script>
 
@@ -19,5 +20,6 @@
 	{redirectTo}
 	{appearance}
 	{theme}
+	{passwordLimit}
 	{localization}
 />

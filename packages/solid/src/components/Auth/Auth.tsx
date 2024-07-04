@@ -7,6 +7,7 @@ import {
   en,
   SocialLayout,
   OtpType,
+  ViewType,
 } from '@supabase/auth-ui-shared'
 import { Auth as AuthProps } from '../../types'
 import {
@@ -45,13 +46,14 @@ function Auth(props: AuthProps): JSX.Element | null {
     const merged = mergeProps(
       {
         socialLayout: SocialLayouts.horizontal,
-        view: 'sign_in',
+        view: 'sign_in' as ViewType,
         onlyThirdPartyProviders: false,
         magicLink: false,
         showLinks: true,
         theme: 'default',
         localization: { variables: {} },
         otpType: 'email',
+        passwordLimit: false,
       },
       props
     )
@@ -213,6 +215,7 @@ function Auth(props: AuthProps): JSX.Element | null {
     magicLink: mergedProps().magicLink,
     showLinks: mergedProps().showLinks,
     i18n: i18n(),
+    passwordLimit: mergedProps().passwordLimit,
   })
 
   /**
@@ -246,6 +249,7 @@ function Auth(props: AuthProps): JSX.Element | null {
             magicLink={mergedProps().magicLink}
             showLinks={mergedProps().showLinks}
             i18n={i18n()}
+            passwordLimit={mergedProps().passwordLimit}
             additionalData={mergedProps().additionalData}
           >
             {props.children}
@@ -281,6 +285,7 @@ function Auth(props: AuthProps): JSX.Element | null {
         <UpdatePassword
           appearance={mergedProps().appearance}
           supabaseClient={mergedProps().supabaseClient}
+          passwordLimit={mergedProps().passwordLimit}
           i18n={i18n()}
         />
       </Match>

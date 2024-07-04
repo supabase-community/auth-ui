@@ -13,6 +13,7 @@
 	export let supabaseClient: SupabaseClient;
 	export let authView: ViewType;
 	export let appearance: Appearance;
+	export let passwordLimit: boolean;
 	export let showLinks = false;
 
 	let password = '';
@@ -24,6 +25,11 @@
 		loading = true;
 		error = '';
 		message = '';
+		if (passwordLimit && password.length > 72) {
+			error = 'Password exceeds maxmium length of 72 characters';
+			loading = false;
+			return;
+		}
 		const { data, error: resetPasswordError } = await supabaseClient.auth.updateUser({
 			password
 		});
@@ -45,14 +51,16 @@
 					type="password"
 					name="password"
 					autofocus
-					placeholder={i18n?.update_password?.password_label}
+					placeholder={i18n?.update_password?.password_input_placeholder}
 					bind:value={password}
 					autocomplete="password"
 					{appearance}
 				/>
 			</div>
 			<Button type="submit" color="primary" {loading} {appearance}>
-				{i18n?.update_password?.button_label}
+				{loading
+					? i18n?.update_password?.loading_button_label
+					: i18n?.update_password?.button_label}
 			</Button>
 		</Container>
 

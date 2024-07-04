@@ -20,6 +20,7 @@
 	export let appearance: Appearance = {};
 	export let theme: 'default' | string = 'default';
 	export let localization: { variables?: I18nVariables } = {};
+	export let passwordLimit: boolean = false;
 	export let additionalData: { [key: string]: any } | undefined = undefined;
 </script>
 
@@ -37,6 +38,7 @@
 	{appearance}
 	{theme}
 	{localization}
+	{passwordLimit}
 	{additionalData}
 >
 	<slot />

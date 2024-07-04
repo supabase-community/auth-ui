@@ -106,6 +106,7 @@ export interface BaseAuth {
     variables?: I18nVariables
   }
   theme?: 'default' | string
+  passwordLimit?: boolean
 }
 
 export type I18nVariables = {
@@ -137,6 +138,7 @@ export type I18nVariables = {
     loading_button_label?: string
     link_text?: string
     confirmation_text?: string
+    empty_email_address?: string
   }
   forgotten_password?: {
     email_label?: string

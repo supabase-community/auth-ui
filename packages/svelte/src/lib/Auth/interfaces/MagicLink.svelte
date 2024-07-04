@@ -54,7 +54,7 @@
 				/>
 			</div>
 			<Button type="submit" color="primary" {loading} {appearance}>
-				{i18n?.magic_link?.button_label}
+				{loading ? i18n?.magic_link?.loading_button_label : i18n?.magic_link?.button_label}
 			</Button>
 		</Container>
 

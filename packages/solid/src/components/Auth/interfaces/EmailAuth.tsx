@@ -26,6 +26,7 @@ export interface EmailAuthProps {
   magicLink?: boolean
   i18n: I18nVariables
   appearance?: Appearance
+  passwordLimit?: boolean
   children?: JSXElement
 }
 
@@ -68,6 +69,10 @@ function EmailAuth(props: EmailAuthProps) {
         if (signInError) setError(signInError.message)
         break
       case 'sign_up':
+        if (props.passwordLimit && password().length > 72) {
+          setError('Password exceeds maxmium length of 72 characters')
+          return
+        }
         let options: { emailRedirectTo: RedirectTo; data?: object } = {
           emailRedirectTo: props.redirectTo,
         }

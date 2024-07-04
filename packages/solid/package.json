@@ -1,6 +1,6 @@
 {
   "name": "@supabase/auth-ui-solid",
-  "version": "0.3.2",
+  "version": "0.3.8",
   "description": "",
   "type": "module",
   "main": "./dist/index.jsx",
@@ -31,7 +31,7 @@
     "eslint-plugin-solid": "^0.9.4",
     "tsconfig": "workspace:*",
     "typescript": "^4.9.5",
-    "vite": "^4.1.1",
+    "vite": "^4.5.2",
     "vite-plugin-solid": "^2.5.0"
   },
   "dependencies": {
@@ -39,9 +39,6 @@
     "@supabase/auth-ui-shared": "workspace:*",
     "just-merge": "^3.2.0",
     "solid-js": "^1.5.1 || ^1.6.0 || ^1.6.1"
-  },
-  "resolutions": {
-    "solid-js": "^1.5.1"
   },
   "sideEffects": false
 }

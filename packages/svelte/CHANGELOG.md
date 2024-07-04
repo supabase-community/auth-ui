@@ -1,5 +1,51 @@
 # @supabase/auth-ui-svelte
 
+## 0.2.9
+
+### Patch Changes
+
+- ac80a298: fix: update password placeholder prop
+
+## 0.2.8
+
+### Patch Changes
+
+- ae22ff23: Message styling change
+
+## 0.2.7
+
+### Patch Changes
+
+- Updated dependencies [a8f9395d]
+  - @supabase/auth-ui-shared@0.1.8
+
+## 0.2.6
+
+### Patch Changes
+
+- 4969cb44: Fix button label loading state
+
+## 0.2.5
+
+### Patch Changes
+
+- a80400e2: Fix password letter spacing
+- 819666db: Make additionalData optional by default
+- Updated dependencies [2b252910]
+  - @supabase/auth-ui-shared@0.1.7
+
+## 0.2.4
+
+### Patch Changes
+
+- 75a62d3e: Add Kakao icon
+
+## 0.2.3
+
+### Patch Changes
+
+- da4efa6e: fix: pass the missing redirectTo field to ForgottenPassword component.
+
 ## 0.2.2
 
 ### Patch Changes

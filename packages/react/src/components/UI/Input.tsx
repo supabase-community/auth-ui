@@ -36,7 +36,7 @@ const inputDefaultStyles = css({
         letterSpacing: '0px',
       },
       password: {
-        letterSpacing: '6px',
+        letterSpacing: '0px',
       },
     },
   },

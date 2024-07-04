@@ -8,7 +8,7 @@ import {
 } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
 import { Button, Container, Divider } from './../../UI/index.js'
-import * as SocialIcons from './../Icons.js'
+import { Icons } from './../Icons.js'
 
 interface SocialAuthProps {
   supabaseClient: SupabaseClient
@@ -58,6 +58,13 @@ function SocialAuth({
     setLoading(false)
   }
 
+  function handleProviderNameEdgeCases(provider: string) {
+    if (provider === 'linkedin_oidc') {
+      return 'LinkedIn'
+    }
+    return provider
+  }
+
   function capitalize(word: string) {
     const lower = word.toLowerCase()
     return word.charAt(0).toUpperCase() + lower.slice(1)
@@ -74,21 +81,22 @@ function SocialAuth({
               appearance={appearance}
             >
               {providers.map((provider: Provider) => {
-                const AuthIcon = SocialIcons[provider]
                 return (
                   <Button
                     key={provider}
                     color="default"
-                    icon={AuthIcon ? <AuthIcon /> : ''}
                     loading={loading}
                     onClick={() => handleProviderSignIn(provider)}
                     appearance={appearance}
                   >
+                    <Icons provider={provider} />
                     {verticalSocialLayout &&
                       template(
                         i18n?.[currentView]?.social_provider_text as string,
                         {
-                          provider: capitalize(provider),
+                          provider: capitalize(
+                            handleProviderNameEdgeCases(provider)
+                          ),
                         }
                       )}
                   </Button>

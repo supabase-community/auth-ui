@@ -23,6 +23,18 @@ You can run all the packages in development mode using the following command:
 pnpm dev
 ```
 
+Or you can run development for the individual packages using the following command:
+
+```bash
+pnpm dev:[dirname]
+```
+
+For `React` it would be:
+
+```bash
+pnpm dev:react
+```
+
 ### Build
 
 You can build all packages using the following command:
@@ -37,7 +49,7 @@ Or you can run build for the individual packages using the following command:
 pnpm build:[dirname]
 ```
 
-For react it would be
+For `React` it would be:
 
 ```bash
 pnpm build:react

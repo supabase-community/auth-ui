@@ -5,13 +5,16 @@
   "scripts": {
     "build": "turbo run build",
     "build:react": "turbo run build --filter=@supabase/auth-ui-react",
-    "build:solid":"turbo run build --filter=@supabase/auth-ui-solid",
+    "build:solid": "turbo run build --filter=@supabase/auth-ui-solid",
     "build:svelte": "turbo run build --filter=@supabase/auth-ui-svelte",
     "build:example": "turbo run build:example",
     "build:example:react": "turbo run build:example --filter=@example/react",
-    "build:example:solid": "turbo run build:example --filter=@example/solid",
+    "build:example:solid": "turbo run build:example --filter=@example/solidjs",
     "build:example:svelte": "turbo run build:example --filter=@example/svelte",
     "dev": "turbo run dev --parallel",
+    "dev:react": "turbo run dev --filter=@example/react",
+    "dev:solid": "turbo run dev --filter=@example/solidjs",
+    "dev:svelte": "turbo run dev --filter=@example/svelte",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "clean:all": "turbo run clean:all",
@@ -21,16 +24,16 @@
   "devDependencies": {
     "@changesets/cli": "^2.22.0",
     "prettier": "^2.5.1",
-    "turbo": "latest",
-    "typedoc": "^0.22.15",
-    "typescript": "4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x || 4.5.x || 4.6.x"
+    "turbo": "^1.10.13",
+    "typedoc": "^0.25.0",
+    "typescript": "4.4.x || 4.5.x || 4.6.x"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": ">=16.0.0"
+    "npm": ">=9.0.0",
+    "node": ">=18.0.0"
   },
-  "packageManager": "pnpm@7.1.7",
+  "packageManager": "pnpm@8.7.0",
   "peerDependencies": {
-    "typescript": "4.0.x || 4.1.x || 4.2.x || 4.3.x || 4.4.x || 4.5.x || 4.6.x"
+    "typescript": "4.4.x || 4.5.x || 4.6.x"
   }
 }
