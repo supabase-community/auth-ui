@@ -1,0 +1,57 @@
+{
+  "sign_up": {
+      "email_label": "E-posta Adresi",
+      "password_label": "Şifre",
+      "email_input_placeholder": "E-posta adresiniz",
+      "password_input_placeholder": "Şifreniz",
+      "button_label": "Kaydol",
+      "loading_button_label": "Kayıt Olunuyor...",
+      "social_provider_text": "{{provider}} ile kaydol",
+      "link_text": "Hesabınız yok mu? Kaydolun",
+      "confirmation_text": "Hesabınızı aktive etmek için e-posta adresinize bir onay bağlantısı gönderildi. Lütfen gelen kutunuzu kontrol edin."
+  },
+  "sign_in": {
+      "email_label": "E-posta Adresi",
+      "password_label": "Şifre",
+      "email_input_placeholder": "E-posta adresiniz",
+      "password_input_placeholder": "Şifreniz",
+      "button_label": "Giriş Yap",
+      "loading_button_label": "Giriş Yapılıyor...",
+      "social_provider_text": "{{provider}} ile giriş yap",
+      "link_text": "Zaten hesabınız var mı? Giriş yapın"
+  },
+  "magic_link": {
+      "email_input_label": "E-posta Adresi",
+      "email_input_placeholder": "E-posta adresiniz",
+      "button_label": "Sihirli Bağlantı Gönder",
+      "loading_button_label": "Sihirli Bağlantı Gönderiliyor...",
+      "link_text": "Sihirli bağlantıyı içeren bir e-posta gönder",
+      "confirmation_text": "Kolayca giriş yapabilmeniz için e-posta adresinize bir sihirli bağlantı gönderdik."
+  },
+  "forgotten_password": {
+      "email_label": "E-posta Adresi",
+      "password_label": "Şifre",
+      "email_input_placeholder": "E-posta adresiniz",
+      "button_label": "Şifre Sıfırlama Talimatlarını Gönder",
+      "loading_button_label": "Talimatlar Gönderiliyor...",
+      "link_text": "Şifrenizi mi unuttunuz?",
+      "confirmation_text": "Şifrenizi sıfırlayabilmeniz için e-posta adresinize bir sıfırlama bağlantısı gönderdik."
+  },
+  "update_password": {
+      "password_label": "Yeni Şifre",
+      "password_input_placeholder": "Yeni şifreniz",
+      "button_label": "Şifreyi Güncelle",
+      "loading_button_label": "Şifre Güncelleniyor...",
+      "confirmation_text": "Şifreniz güncellendi"
+  },
+  "verify_otp": {
+      "email_input_label": "E-posta Adresi",
+      "email_input_placeholder": "E-posta adresiniz",
+      "phone_input_label": "Telefon Numarası",
+      "phone_input_placeholder": "Telefon numaranız",
+      "token_input_label": "Onay Kodu",
+      "token_input_placeholder": "Onay kodunuz",
+      "button_label": "Kodu Doğrula",
+      "loading_button_label": "Doğrulanıyor..."
+  }
+}
