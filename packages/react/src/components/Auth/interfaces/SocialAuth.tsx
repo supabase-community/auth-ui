@@ -62,6 +62,9 @@ function SocialAuth({
     if (provider === 'linkedin_oidc') {
       return 'LinkedIn'
     }
+    if (provider === 'slack_oidc') {
+      return 'Slack'
+    }
     return provider
   }
 
