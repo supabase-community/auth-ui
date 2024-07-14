@@ -25,6 +25,7 @@ export const Icons = ({ provider }: IconsProps) => {
   if (provider == 'linkedin_oidc') return linkedin()
   if (provider == 'notion') return notion()
   if (provider == 'slack') return slack()
+  if (provider == 'slack_oidc') return slack()
   if (provider == 'spotify') return spotify()
   if (provider == 'twitch') return twitch()
   if (provider == 'workos') return workos()
