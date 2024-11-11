@@ -24,7 +24,7 @@
   "devDependencies": {
     "@suid/icons-material": "^0.4.1",
     "@suid/material": "^0.6.3",
-    "@supabase/supabase-js": "^2.21.0",
+    "@supabase/supabase-js": "^2.39.3",
     "@typescript-eslint/eslint-plugin": "^5.51.0",
     "@typescript-eslint/parser": "^5.51.0",
     "eslint": "^8.33.0",

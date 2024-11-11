@@ -39,7 +39,7 @@
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.25.0",
-		"@supabase/supabase-js": "^2.21.0",
+		"@supabase/supabase-js": "^2.39.3",
 		"@sveltejs/adapter-auto": "^2.0.0",
 		"@sveltejs/kit": "^1.15.2",
 		"@sveltejs/package": "^2.0.2",
@@ -58,6 +58,6 @@
 		"vite": "^4.5.2"
 	},
 	"peerDependencies": {
-		"@supabase/supabase-js": "^2.21.0"
+		"@supabase/supabase-js": "^2.39.3"
 	}
 }
