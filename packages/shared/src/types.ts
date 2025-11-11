@@ -89,6 +89,7 @@ export interface BaseAuth {
   queryParams?: { [key: string]: string }
   view?: ViewType
   redirectTo?: RedirectTo
+  resetPasswordRedirectTo?: RedirectTo
   onlyThirdPartyProviders?: boolean
   magicLink?: boolean
   showLinks?: boolean
