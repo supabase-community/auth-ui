@@ -31,6 +31,7 @@ function Auth({
   additionalData,
   passwordLimit,
   children,
+  onViewChange,
 }: AuthProps): JSX.Element | null {
   /**
    * Localization support
@@ -120,6 +121,14 @@ function Auth({
 
     return () => authListener.subscription.unsubscribe()
   }, [view])
+
+  useEffect(() => {
+    if (typeof onViewChange !== 'function') {
+      return;
+    }
+
+    onViewChange(authView);
+  }, [authView]);
 
   const emailProp: Omit<EmailAuthProps, 'authView' | 'id'> = {
     supabaseClient,
