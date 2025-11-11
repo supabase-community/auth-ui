@@ -1,4 +1,7 @@
-import { SupabaseClient } from '@supabase/supabase-js'
+import {
+  SignInWithPasswordlessCredentials,
+  SupabaseClient,
+} from '@supabase/supabase-js'
 import React, { useState } from 'react'
 import { VIEWS, I18nVariables, RedirectTo, en } from '@supabase/auth-ui-shared'
 import { Appearance } from '../../../types'
@@ -17,6 +20,7 @@ function MagicLink({
   redirectTo,
   i18n,
   appearance,
+  additionalData,
   showLinks = false,
 }: {
   setAuthView?: any
@@ -24,6 +28,7 @@ function MagicLink({
   redirectTo?: RedirectTo
   i18n?: I18nVariables
   appearance?: Appearance
+  additionalData?: { [key: string]: any }
   showLinks?: boolean
 }) {
   const [email, setEmail] = useState('')
@@ -42,10 +47,21 @@ function MagicLink({
       setLoading(false)
       return
     }
-    const { error } = await supabaseClient.auth.signInWithOtp({
+
+    //Trying to reuse the "additionalData" object to pass the "shouldCreateUser" option; We destructure in here, therefore we don't repet into the data
+    const { shouldCreateUser, ...restData } = additionalData || {}
+
+    //We add the shouldCreateUser only when the property is present, ensuring retrocompatibility, and also adding the abiltiy to pass data.
+    const signInOptions: SignInWithPasswordlessCredentials = {
       email,
-      options: { emailRedirectTo: redirectTo },
-    })
+      options: {
+        emailRedirectTo: redirectTo,
+        data: restData,
+        ...(shouldCreateUser !== undefined && { shouldCreateUser }),
+      },
+    }
+
+    const { error } = await supabaseClient.auth.signInWithOtp(signInOptions)
     if (error) setError(error.message)
     else setMessage(i18n?.magic_link?.confirmation_text as string)
     setLoading(false)

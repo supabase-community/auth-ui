@@ -42,7 +42,9 @@ function App() {
   const [brandColor, setBrandColor] = useState(colors[0] as string)
   const [borderRadius, setBorderRadius] = useState(radii[0] as string)
   const [theme, setTheme] = useState('dark')
-  const [socialLayout, setSocialLayout] = useState<SocialLayout>(socialAlignments[1] satisfies SocialLayout)
+  const [socialLayout, setSocialLayout] = useState<SocialLayout>(
+    socialAlignments[1] satisfies SocialLayout
+  )
   const [view, setView] = useState(views[0])
 
   return (
@@ -64,6 +66,7 @@ function App() {
                 </div>
                 <Auth
                   supabaseClient={supabase}
+                  additionalData={{ shouldCreateUser: false }}
                   view={view.id}
                   appearance={{
                     theme: ThemeSupa,
@@ -210,14 +213,18 @@ function App() {
                   <div className="relative inline-flex self-center">
                     <select
                       defaultValue={view.id}
-                      onChange={(e) => { 
-                        const vw = views.filter(v => v.id === e.target.value).pop() ?? view
+                      onChange={(e) => {
+                        const vw =
+                          views.filter((v) => v.id === e.target.value).pop() ??
+                          view
                         setView(vw)
                       }}
                       className="text-lg rounded border-2 border-blue-700 text-gray-600 pl-5 pr-10 h-12 bg-white hover:border-gray-400 appearance-none"
                     >
                       {views.map((v) => (
-                        <option key={v.id} value={v.id}>{v.title}</option>
+                        <option key={v.id} value={v.id}>
+                          {v.title}
+                        </option>
                       ))}
                     </select>
                   </div>

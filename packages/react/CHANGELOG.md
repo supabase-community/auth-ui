@@ -1,5 +1,11 @@
 # @supabase/auth-ui-react
 
+## 0.5.0
+
+### Minor Changes
+
+- 81480885: Add the ability to createUser on passwordless login
+
 ## 0.4.7
 
 ### Patch Changes
